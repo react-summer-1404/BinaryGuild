@@ -1,4 +1,4 @@
-import Router from '../router/router'
+import Router from '../config/router/router'
 import './App.css'
 
 function App() {
