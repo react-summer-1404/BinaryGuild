@@ -7,7 +7,7 @@ function App() {
 
   return (
     
-    <main dir={i18n.languages === "fa" ? "rtl" : "ltr"}>
+    <main dir={i18n.language === "fa" ? "rtl" : "ltr"}>
       <RouterProvider router={Router}/>
     </main>
   )
