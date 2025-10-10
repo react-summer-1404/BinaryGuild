@@ -6,6 +6,7 @@ import {RouterProvider} from "react-router-dom"
 function App() {
 
   return (
+    
     <main dir={i18n.languages === "fa" ? "rtl" : "ltr"}>
       <RouterProvider router={Router}/>
     </main>

@@ -1,13 +1,13 @@
-import Img from '../../../core/image/img'
+import Logo from '../image/logo'
 import HeaderButtons from './headerButtons/HeaderButtons'
 import HeaderIcons from './headerIcons/HeaderIcons'
 
 const Header = () => {
   return (
-    <div class="flex , w-full , h-auto">
-      <Img class="w-<35>"/>
-      <HeaderButtons class="w-<35>"/>
-      <HeaderIcons class="w-<30>"/>
+    <div className="flex h-auto w-full flex-nowrap justify-between items-start">
+      <Logo className="w-<fraction> 35"/>
+      <HeaderButtons className="w-<35>"/>
+      <HeaderIcons className="w-<30>"/>
     </div>
   )
 }

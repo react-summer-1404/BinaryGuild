@@ -1,17 +1,19 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const Button = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
-    const nav = ()=>{
-        navigate("/RegistrationAndLogin")
-    }
+  const nav = () => {
+    navigate("/RegistrationAndLogin");
+  };
 
   return (
-    <div class="bg-blue-600 w-60px">
-      <button onClick={nav}>ثبت نام یا ورود</button>
+    <div className="w-35 rounded-3xl">
+      <button className="rounded-4xl bg-[#3772FF]" onClick={nav}>
+        ثبت نام یا ورود
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

@@ -4,7 +4,7 @@ import Footer from "../common/footer/Footer"
 
 const LandingLayout = () => {
   return (
-    <div>
+    <div className="w-full">
       <Header/>
       <Outlet/>
       <Footer/>
