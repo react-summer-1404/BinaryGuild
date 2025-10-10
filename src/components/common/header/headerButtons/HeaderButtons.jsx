@@ -2,7 +2,7 @@ import Button from '../../button/button'
 
 const HeaderButtons = () => {
   return (
-    <div class="rounded-xl ,max-w-250px , bg-black-222 , flex , h-auto">
+    <div class="rounded-xl ,max-w-250px , bg-black-222 , flex , h-auto , text-center">
         <p>خانه</p>
         <p>دوره ها</p>
         <p>بلاگ ها</p>
