@@ -2,7 +2,7 @@ import React from 'react'
 
 const FooterText = () => {
   return (
-    <div class="flex , text-lg ,text-center">
+    <div className="text-lg text-center max-w-250px flex">
       <p>خانه</p>
       <p>دوره ها</p>
       <p>بلاگ ها</p>

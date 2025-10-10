@@ -1,14 +1,14 @@
 
 const HeaderIcons = () => {
   return (
-    <div>
-        <div class="rounded-4xl , text-center">
+    <div className="flex">
+        <div className="rounded-3xl  text-center">
             <img src="/src/assets/icons/notification-02.png"/>
         </div>
-        <div class="bg-black-222 , rounded-4xl , text-center">
+        <div className="bg-black rounded-3xl text-center">
             <img src="/src/assets/icons/moon-02.png" />
         </div>
-        <div class="rounded-4xl , text-center">
+        <div className="rounded-3xl  text-center">
             <img src="/src/assets/icons/translate.png"/>
         </div>
     </div>
