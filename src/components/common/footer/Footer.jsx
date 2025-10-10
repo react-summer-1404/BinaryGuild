@@ -1,4 +1,4 @@
-import Logo from "../image/logo"
+import Logo from "../logo/logo"
 import FooterIcon from "./footerIcon/FooterIcon"
 import FooterText from "./footerText/FooterText"
 

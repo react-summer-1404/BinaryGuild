@@ -8,8 +8,8 @@ const Button = () => {
   };
 
   return (
-    <div className="w-35 rounded-3xl">
-      <button className="rounded-4xl bg-[#3772FF]" onClick={nav}>
+    <div className="w-35 rounded-3xl pt-0.5 cursor-pointer">
+      <button className="rounded-4xl bg-blue" onClick={nav}>
         ثبت نام یا ورود
       </button>
     </div>

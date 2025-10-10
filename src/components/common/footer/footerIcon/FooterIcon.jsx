@@ -6,10 +6,10 @@ import "tailwindcss";
 const FooterIcon = () => {
   return (
     <div className="gap-4 flex flex-wrap">
-      <img src="/src/assets/icons/twitter.png"/>
-      <img src="/src/assets/icons/youtube.png"/>
-      <img src="/src/assets/icons/telegram.png"/>
-      <img src="/src/assets/icons/instagram.png"/>
+      <img src="/src/assets/icons/twitter.svg"/>
+      <img src="/src/assets/icons/youtube.svg"/>
+      <img src="/src/assets/icons/telegram.svg"/>
+      <img src="/src/assets/icons/instagram.svg"/>
     </div>
   )
 }
