@@ -1,6 +1,7 @@
 import i18n from "i18next"
 import Router from '../config/router/router'
 import './App.css'
+import {RouterProvider} from "react-router-dom"
 
 function App() {
 
