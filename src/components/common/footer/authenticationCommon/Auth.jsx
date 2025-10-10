@@ -12,7 +12,7 @@ const Auth = () => {
           <p className='text-[#707070] mt-4 mb-4 m-l-0 m-r-0 text-xl font-bold'>هر دوره ای که بخوای رو به راحتی پیدا کن و یاد بگیر</p>
         </div>
         <div className='flex justify-center'>
-          <img src="/src/assets/images/authImg.png" className='w-90 h-auto'/>
+          <img src="/src/assets/images/3d-hygge-top-view-of-laptop-glasses-cup-of-coffee-headphones-1 1.png" className='w-90 h-auto'/>
         </div>
     </div>
   )
