@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme{
+  --color-blue: #3772FF;
+  --color-black-900: #2F2F2F;
+}
+
 #root {
   margin: 0 auto;
   /* padding: 1rem; */

@@ -1,4 +1,4 @@
-import Logo from '../image/logo'
+import Logo from '../logo/logo'
 import HeaderButtons from './headerButtons/HeaderButtons'
 import HeaderIcons from './headerIcons/HeaderIcons'
 

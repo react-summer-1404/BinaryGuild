@@ -2,14 +2,14 @@ import React from 'react'
 
 const FooterText = () => {
   return (
-    <div className="text-lg text-center max-w-250px flex">
-      <p>خانه</p>
-      <p>دوره ها</p>
-      <p>بلاگ ها</p>
-      <p>اساتید</p>
-      <p>درباره ما</p>
-      <p>ارتباط با ما</p>
-      <p>خدمات ما</p>
+    <div className="text-lg text-center flex gap-5">
+      <p className="cursor-pointer hover:border-b-2">خانه</p>
+      <p className="cursor-pointer hover:border-b-2">دوره ها</p>
+      <p className="cursor-pointer hover:border-b-2">بلاگ ها</p>
+      <p className="cursor-pointer hover:border-b-2">اساتید</p>
+      <p className="cursor-pointer hover:border-b-2">درباره ما</p>
+      <p className="cursor-pointer hover:border-b-2">ارتباط با ما</p>
+      <p className="cursor-pointer hover:border-b-2">خدمات ما</p>
     </div>
   )
 }
