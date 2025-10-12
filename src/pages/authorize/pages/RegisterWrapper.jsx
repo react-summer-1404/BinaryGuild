@@ -9,7 +9,7 @@ const Register = ({head,description,GoTo}) => {
   return (
     <div className="p-5 flex flex-col text-right w-[648px] mr-[30px] ">
 
-      <Stepper />
+      {/* <Stepper /> */}
       <h2>{head}</h2>
       <p>{description}</p>
       <GetPhoneNumber />

@@ -2,17 +2,23 @@ import React from "react";
 import AuthButton from "../../../components/common/button/AuthButton";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import Stepper from "../../Stepper";
 const GetPhoneNumber = () => {
+  const [getphonNumber, setGetPhonNumber] = useState("");
 
-    const [getphonNumber, setGetPhonNumber] = useState("");
-
-    const handleNumber=(e)=>{
-      const value = e.target.value;
-      setGetPhonNumber(value);
-    }
+  const handleNumber = (e) => {
+    const value = e.target.value;
+    setGetPhonNumber(value);
+  };
   return (
-    <div className="w-4/5 mt-[55px]">
-      <h2 className="text-[28px] font font-[700] ">خوش اومدی! </h2>
+    <div className="w-4/5">
+      <div className="flex">
+      <Stepper text={"واردکردن شماره همراه"}/>
+      <Stepper text={"تایید کد ارسال شده"}/>  
+      <Stepper text={"واردکردن اطلاعات شخصی"}/>      
+      </div>
+
+      <h2 className="text-[28px] font font-[700] text-black mt-[75px]">خوش اومدی! </h2>
       <p className="text-[#707070] font-[500] mt-[12px] text-[16px]">
         لطفا شماره همراه خود را وارد کنید تا کد تایید برای شما ارسال شود
       </p>
