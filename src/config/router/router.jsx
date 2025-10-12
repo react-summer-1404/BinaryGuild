@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import LandingLayout from "../../components/layouts/LandingLayout";
-import Register from "../../pages/authentication/Register";
-import Login from "../../pages/authentication/Login";
-import ForgetPassword from "../../pages/authentication/ForgetPassword";
+import Register from "../../pages/pages/Register";
+import Login from "../../pages/pages/Login";
+import ForgetPassword from "../../pages/pages/ForgetPassword";
 import AuthLayout from "../../components/layouts/AuthLayout";
 
 const Router = createBrowserRouter([
