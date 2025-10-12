@@ -1,7 +1,7 @@
 import React from "react";
-import Register from "../../pages/pages/Register";
+import Register from "../../pages/authorize/pages/RegisterWrapper";
 import { Outlet } from "react-router-dom";
-import Auth from "../common/footer/authenticationCommon/Auth";
+import Auth from "../common/authenticationCommon/Auth";
 const AuthLayout = () => {
   return (
     <div className="bg-[#FCFCFC] font-sans min-h-screen p-10 m-auto  flex flex-row-reverse gap-20 justify-center w-screen">

@@ -11,5 +11,10 @@
   text-align: center;
   width: 100%;
   direction: rtl;
-
 }
+
+/* authentication styles */
+
+/* .authForm{
+  @apply border-3 rounded-4xl p-10 w-1/2 bg-gray-200;
+} */
