@@ -1,21 +1,34 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Stepper from "../../Stepper";
 import GetPhoneNumber from "../steps/GetPhoneNumber";
-const Register = ({head,description,GoTo}) => {
-  // const [getCode, setGetCode] = useState(null);
+import GetCode from "../steps/GetCode";
+import GetUserInfo from "../steps/GetUserInfo";
+
+const Register = () => {
+
+  const [step, setStep] = useState(1);
+  console.log("step", step)
   // const [getPassword, setGetPassword] = useState(null);
 
   return (
     <div className="p-5 flex flex-col text-right w-[648px] mr-[30px] ">
+      <div className="flex">
+        <Stepper text={"واردکردن شماره همراه"} active={step === 1}/>
+        <Stepper text={"تایید کد ارسال شده"} active={step === 2}/>
+        <Stepper text={"واردکردن اطلاعات شخصی"} active={step === 3}/>
+      </div>
+      {step === 1 && <GetPhoneNumber onNext = {()=>setStep(2)}/> }
+      {step === 2 && <GetCode onNext = {()=>setStep(3)} onPrevious={()=>setStep(1)}/> }
+      {step === 3 && <GetUserInfo onPrevious={()=>setStep(2)}  /> }
 
-      {/* <Stepper /> */}
-      <h2>{head}</h2>
+      
+      {/* <h2>{head}</h2>
       <p>{description}</p>
       <GetPhoneNumber />
       <div>
         <p>{GoTo}</p>
-      </div>
+      </div> */}
       
     </div>
   );
