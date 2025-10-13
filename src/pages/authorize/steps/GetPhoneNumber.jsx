@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 const GetPhoneNumber = ({onNext}) => {
   const [getphonNumber, setGetPhonNumber] = useState("");
+  const [numberError, setNumberError] = useState("");
 
   const navigate = useNavigate()
   const GoHome =() =>{
@@ -15,6 +16,16 @@ const GetPhoneNumber = ({onNext}) => {
     const value = e.target.value;
     setGetPhonNumber(value);
   };
+
+  const handleError =(e)=>{
+    e.preventDefault();
+    if(getphonNumber.trim() === ""){
+      setNumberError("لطفا شماره تلفن خود را وارد کنید");
+    }else{
+      setNumberError("")
+      onNext();
+    }
+  }
 
 
   return (
@@ -27,7 +38,7 @@ const GetPhoneNumber = ({onNext}) => {
         لطفا شماره همراه خود را وارد کنید تا کد تایید برای شما ارسال شود
       </p>
 
-      <form action="" className="flex flex-col mt-[48px]">
+      <form onSubmit={handleError} action="" className="flex flex-col mt-[48px]">
         <label
           className="text-[#2F2F2F] font-[600] text-[16px]"
           htmlFor="phoneNumber"
@@ -35,16 +46,18 @@ const GetPhoneNumber = ({onNext}) => {
           شماره همراه
         </label>
         <input
-          className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
-          type="number"
+          className="mt-[8px] text-left placeholder:text-right w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
+          type="tel"
           id="number"
           value={getphonNumber}
           onChange={handleNumber}
           placeholder="شماره همراه خود را وارد کنید"
         />
+        <p className="mt-[4px] font-bold text-[12px] text-[red]">{numberError}</p>
+        <AuthButton text={"ارسال کد تایید"} type="submit"/>
+
       </form>
 
-      <AuthButton text={"ارسال کد تایید"} onClick={onNext}/>
       <div className=" w-[397px] flex flex-col items-center justify-center ">
         <div className="flex mt-[16px]">
           <p className="text-[#2F2F2F] font-[600] text-[16px]">

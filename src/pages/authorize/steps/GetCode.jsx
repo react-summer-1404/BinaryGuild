@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 const GetCode = ({ onNext, onPrevious }) => {
-  const [getCode, setGetCode] = useState(null);
+  const [getCode, setGetCode] = useState("");
 
   const navigate = useNavigate();
   const GoHome = () => {

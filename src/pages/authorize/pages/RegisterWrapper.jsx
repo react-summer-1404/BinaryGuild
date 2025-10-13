@@ -9,7 +9,6 @@ const Register = () => {
 
   const [step, setStep] = useState(1);
   console.log("step", step)
-  // const [getPassword, setGetPassword] = useState(null);
 
   return (
     <div className="p-5 flex flex-col text-right w-[648px] mr-[30px] ">
@@ -22,13 +21,6 @@ const Register = () => {
       {step === 2 && <GetCode onNext = {()=>setStep(3)} onPrevious={()=>setStep(1)}/> }
       {step === 3 && <GetUserInfo onPrevious={()=>setStep(2)}  /> }
 
-      
-      {/* <h2>{head}</h2>
-      <p>{description}</p>
-      <GetPhoneNumber />
-      <div>
-        <p>{GoTo}</p>
-      </div> */}
       
     </div>
   );
