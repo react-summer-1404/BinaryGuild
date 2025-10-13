@@ -56,7 +56,7 @@ const GetUserInfo = ({ onPrevious }) => {
             id="email"
             value={getEmail}
             onChange={handleEmail}
-            placeholder="ایمیل خود را وارد کنیدد"
+            placeholder="ایمیل خود را وارد کنید"
           />
           <p className="mt-[4px] font-bold text-[12px] text-[red]">{emailError}</p>
           <label

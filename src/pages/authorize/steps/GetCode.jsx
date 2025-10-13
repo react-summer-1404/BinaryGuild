@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 const GetCode = ({ onNext, onPrevious }) => {
   const [getCode, setGetCode] = useState("");
+  const [setCode, setErrorCode] = useState("");
 
   const navigate = useNavigate();
   const GoHome = () => {
@@ -16,6 +17,16 @@ const GetCode = ({ onNext, onPrevious }) => {
     setGetCode(value);
   };
 
+  const handleError = (e) => {
+    e.preventDefault();
+    if (getCode.trim() === "") {
+      setErrorCode("لطفا کد معتبر وارد کنید");
+    } else {
+      setErrorCode("");
+      onNext();
+    }
+  };
+
   return (
     <div className="w-4/5">
       <h2 className="text-[28px] font font-[700] text-black mt-[75px]">
@@ -25,7 +36,11 @@ const GetCode = ({ onNext, onPrevious }) => {
         لطفا کد ارسال شده به شماره همراه 09381235486 را وارد کنید{" "}
       </p>
 
-      <form action="" className="flex flex-col mt-[48px]">
+      <form
+        onSubmit={handleError}
+        action=""
+        className="flex flex-col mt-[48px]"
+      >
         <label
           className="text-[#2F2F2F] font-[600] text-[16px]"
           htmlFor="getCode"
@@ -40,14 +55,16 @@ const GetCode = ({ onNext, onPrevious }) => {
           onChange={handleCode}
           placeholder=" کد تایید خود را وارد کنید"
         />
+        <p className="mt-[4px] font-bold text-[12px] text-[red]">{setCode}</p>
+
+        <div className="mt-[16px]">
+          <p className="text-[#3772FF] font-[600] text-[16px]">
+            ارسال مجدد کد تایید{" "}
+          </p>
+        </div>
+        <AuthButton text={"کد تایید خود را وارد کنید"} />
       </form>
 
-      <div className="mt-[16px]">
-        <p className="text-[#3772FF] font-[600] text-[16px]">
-          ارسال مجدد کد تایید{" "}
-        </p>
-      </div>
-      <AuthButton text={"کد تایید خود را وارد کنید"} onClick={onNext} />
       <div className=" w-[397px] flex flex-col items-center justify-center ">
         <div
           onClick={onPrevious}
