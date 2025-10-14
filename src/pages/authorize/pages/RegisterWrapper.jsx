@@ -12,7 +12,7 @@ const Register = () => {
 
   return (
     <div className="p-5 flex flex-col text-right w-[648px] mr-[30px] ">
-      <div className="flex">
+      <div className="flex justify-start">
         <Stepper text={"واردکردن شماره همراه"} active={step === 1}/>
         <Stepper text={"تایید کد ارسال شده"} active={step === 2}/>
         <Stepper text={"واردکردن اطلاعات شخصی"} active={step === 3}/>

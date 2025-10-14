@@ -27,7 +27,6 @@ const GetUserInfo = ({ onPrevious }) => {
     if(getPassword.trim() === ""){
       setPassError("لطفا رمز عبور خود را وارد کنید ");
     }else{setPassError(null)} 
-    // console.log(passError, "passError")
     
     if(getEmail.trim() !== "" && getPassword.trim() !== ""){
       console.log("فرم درسته")
