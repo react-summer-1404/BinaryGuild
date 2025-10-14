@@ -3,6 +3,7 @@ import AuthButton from "../../../components/common/button/AuthButton";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import GetNewCode from "./GetNewCode";
 const GetCode = ({ onNext, onPrevious }) => {
   const [getCode, setGetCode] = useState("");
   const [setCode, setErrorCode] = useState("");
@@ -56,12 +57,7 @@ const GetCode = ({ onNext, onPrevious }) => {
           placeholder=" کد تایید خود را وارد کنید"
         />
         <p className="mt-[4px] font-bold text-[12px] text-[red]">{setCode}</p>
-
-        <div className="mt-[16px]">
-          <p className="text-[#3772FF] font-[600] text-[16px]">
-            ارسال مجدد کد تایید{" "}
-          </p>
-        </div>
+        <GetNewCode/>
         <AuthButton text={"کد تایید خود را وارد کنید"} />
       </form>
 
