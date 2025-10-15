@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GetNewCode from "./GetNewCode";
-const GetCode = ({ onNext, onPrevious }) => {
+import axios from "axios";
+const GetCode = ({ onNext, onPrevious,phoneNumber }) => {
   const [getCode, setGetCode] = useState("");
   const [errorCode, setErrorCode] = useState("");
 
@@ -18,13 +19,23 @@ const GetCode = ({ onNext, onPrevious }) => {
     setGetCode(value);
   };
 
-  const handleError = (e) => {
+  const handleError = async(e) => {
     e.preventDefault();
     if (getCode.trim() === "") {
       setErrorCode("لطفا کد معتبر وارد کنید");
     } else {
       setErrorCode("");
+    }
+    try{
+      const response = await axios.post("https://sepehracademy.liara.run/Sign/VerifyMessage",{
+        phoneNumber:phoneNumber,
+        code:getCode
+      });
+      console.log(response.data)
       onNext();
+    }catch(error){
+      console.log(error);
+      setErrorCode("کد وارد شده معتبر شده نیست")
     }
   };
 
@@ -34,7 +45,7 @@ const GetCode = ({ onNext, onPrevious }) => {
         تایید کد ارسال شده{" "}
       </h2>
       <p className="text-[#707070] font-[500] mt-[12px] text-[16px]">
-        لطفا کد ارسال شده به شماره همراه 09381235486 را وارد کنید{" "}
+        لطفا کد ارسال شده به شماره همراه {phoneNumber} را وارد کنید{" "}
       </p>
 
       <form
@@ -50,7 +61,7 @@ const GetCode = ({ onNext, onPrevious }) => {
         </label>
         <input
           className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
-          type="code"
+          type="number"
           id="code"
           value={getCode}
           onChange={handleCode}

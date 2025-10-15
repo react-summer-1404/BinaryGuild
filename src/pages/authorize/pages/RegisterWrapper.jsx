@@ -6,7 +6,7 @@ import GetCode from "../steps/GetCode";
 import GetUserInfo from "../steps/GetUserInfo";
 
 const Register = () => {
-
+  const [phoneNumber, setPhoneNumber] = useState(1);
   const [step, setStep] = useState(1);
   console.log("step", step)
 
@@ -17,8 +17,8 @@ const Register = () => {
         <Stepper text={"تایید کد ارسال شده"} active={step === 2}/>
         <Stepper text={"واردکردن اطلاعات شخصی"} active={step === 3}/>
       </div>
-      {step === 1 && <GetPhoneNumber onNext = {()=>setStep(2)}/> }
-      {step === 2 && <GetCode onNext = {()=>setStep(3)} onPrevious={()=>setStep(1)}/> }
+      {step === 1 && <GetPhoneNumber onNext = {()=>setStep(2)} setPhoneNumber={setPhoneNumber}/> }
+      {step === 2 && <GetCode onNext = {()=>setStep(3)} onPrevious={()=>setStep(1)} phoneNumber={phoneNumber} /> }
       {step === 3 && <GetUserInfo onPrevious={()=>setStep(2)}  /> }
 
       
