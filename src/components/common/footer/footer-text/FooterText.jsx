@@ -1,4 +1,3 @@
-import React from 'react'
 
 const FooterText = () => {
   return (
@@ -11,7 +10,7 @@ const FooterText = () => {
       <p className="cursor-pointer hover:border-b-2">ارتباط با ما</p>
       <p className="cursor-pointer hover:border-b-2">خدمات ما</p>
     </div>
-  )
-}
+  );
+};
 
-export default FooterText
+export default FooterText;
