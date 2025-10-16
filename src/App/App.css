@@ -1,8 +1,19 @@
 @import "tailwindcss";
+@plugin '../config/heroUi/heroUi.js';
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
+
 
 @theme{
   --color-blue: #3772FF;
   --color-black-900: #2F2F2F;
+  --color-white-200: #efe8ff;
+  --color-black: #1a1a1a;
+  --color-white: #ffffff;
+  --color-gray-400:#707070;
+  --color-gray-100:#DCDCDC;
+
+  --font-persian: DanaFaNum;
 }
 
 #root {
@@ -17,4 +28,12 @@
 
 /* .authForm{
   @apply border-3 rounded-4xl p-10 w-1/2 bg-gray-200;
+} */
+/* colors = {
+  light:{
+    bg-main: #fff;
+  },
+   dark:{
+    bg-main: #000;
+  },
 } */
