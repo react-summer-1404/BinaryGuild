@@ -38,7 +38,7 @@ const GetUserInfo = ({ onPrevious }) => {
   return (
     <div className="w-4/5">
 
-      <h2 className="text-[28px] font font-[700] text-black mt-[75px]"></h2>
+      <h2 className="text-[28px] font font-[700] text-black mt-[75px]">وارد کردن اطلاعات شخصی</h2>
       <p className="text-[#707070] font-[500] mt-[12px] text-[16px]">   لطفا اطلاعات اولیه خواسته شده را وارد کنید </p>
 
       <div>

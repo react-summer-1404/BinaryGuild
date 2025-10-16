@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GetNewCode from "./GetNewCode";
 import axios from "axios";
-const GetCode = ({ onNext, onPrevious,phoneNumber }) => {
+const GetCode = ({ onNext, onPrevious, phoneNumber }) => {
   const [getCode, setGetCode] = useState("");
   const [errorCode, setErrorCode] = useState("");
 
@@ -19,23 +19,30 @@ const GetCode = ({ onNext, onPrevious,phoneNumber }) => {
     setGetCode(value);
   };
 
-  const handleError = async(e) => {
+  const handleError = async (e) => {
     e.preventDefault();
-    if (getCode.trim() === "") {
-      setErrorCode("لطفا کد معتبر وارد کنید");
+    if (getCode.trim() === "" || getCode.trim().length !== 4) {
+      setErrorCode("لطفا کد معتبر 4 رقمی وارد کنید");
+      
     } else {
       setErrorCode("");
     }
-    try{
-      const response = await axios.post("https://sepehracademy.liara.run/Sign/VerifyMessage",{
-        phoneNumber:phoneNumber,
-        code:getCode
-      });
-      console.log(response.data)
-      onNext();
-    }catch(error){
+    try {
+
+      const response = await axios.post(
+        "https://sepehracademy.liara.run/Sign/VerifyMessage",
+        {
+          phoneNumber: phoneNumber,
+          verifyCode: getCode.trim(),
+        }
+      );
+      console.log(response.data);
+      if (response.data.success) {
+        onNext();
+      }
+    } catch (error) {
       console.log(error);
-      setErrorCode("کد وارد شده معتبر شده نیست")
+      setErrorCode("خطا در ارسال کد، دوباره تلاش کنید");
     }
   };
 
@@ -61,14 +68,14 @@ const GetCode = ({ onNext, onPrevious,phoneNumber }) => {
         </label>
         <input
           className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
-          type="number"
+          type="text"
           id="code"
           value={getCode}
           onChange={handleCode}
           placeholder=" کد تایید خود را وارد کنید"
         />
         <p className="mt-[4px] font-bold text-[12px] text-[red]">{errorCode}</p>
-        <GetNewCode/>
+        <GetNewCode />
         <AuthButton text={"کد تایید خود را وارد کنید"} />
       </form>
 
