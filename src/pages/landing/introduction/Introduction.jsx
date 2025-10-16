@@ -20,6 +20,10 @@ const Introduction = () => {
         خدماتی که ما در طی دوره‌ها به شما ارائه میدیم
       </h2>
       <ServicesList />
+      <h2 className="text-[32px] m-auto font-persian w-[21%]">
+        دوره های برتر هفته
+      </h2>
+      
     </div>
   );
 };

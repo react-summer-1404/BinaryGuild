@@ -8,7 +8,7 @@ function App() {
   return (
     <main
       dir={i18n.Languages === "fa" ? "fa" : "en"}
-      className="font-persian"
+      className="font-persian  w-11/12"
     >
       <RouterProvider router={Router} className="bg-white dark:bg-black" />
     </main>

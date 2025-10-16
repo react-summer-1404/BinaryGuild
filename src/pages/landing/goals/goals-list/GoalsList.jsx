@@ -1,12 +1,11 @@
-import React from "react";
-import GoalsData from "../goals-data/GoalsData";
+import GoalsBackground from "../../../../assets/icons/Group 19.svg";
 import Goals from "../Goals";
-import GoalsTheme from "../goals-theme/GoalsTheme";
+import GoalsData from "../../../../core/constant/goals-data/GoalsData";
 
 const GoalsList = () => {
   return (
     <div className="flex w-[100%] relative">
-      <GoalsTheme />
+      <img src={GoalsBackground} className="absolute top-[30%]"/>
       {GoalsData.map((value) => {
         return (
           <Goals
