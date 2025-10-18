@@ -1,13 +1,12 @@
-import React from "react";
 import ServicesData from "../../../../core/constant/services-data/ServicesData";
-import Services from "../Services";
+import ServicesWrapper from "../ServicesSection";
 
-const ServicesList = () => {
+const ServicesListWrapper = () => {
   return (
     <div className="flex flex-wrap w-[100%] gap-8 justify-center">
       {ServicesData.map((value) => {
         return (
-          <Services
+          <ServicesWrapper
             key={value.id}
             id={value.id}
             name={value.name}
@@ -20,4 +19,4 @@ const ServicesList = () => {
   );
 };
 
-export default ServicesList;
+export default ServicesListWrapper;

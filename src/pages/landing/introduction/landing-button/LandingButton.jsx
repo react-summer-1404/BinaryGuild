@@ -1,8 +1,7 @@
 import { Button } from "@heroui/button";
-import React from "react";
 import { Link } from "react-router-dom";
 
-const LandingButton = () => {
+const LandingButtonWrapper = () => {
   return (
     <div className="w-[150px] h-[20%] m-auto text-right flex flex-wrap gap-3">
       <div>
@@ -18,4 +17,4 @@ const LandingButton = () => {
   );
 };
 
-export default LandingButton;
+export default LandingButtonWrapper;

@@ -1,6 +1,6 @@
 import React from "react";
 
-const People = () => {
+const PeopleWrapper = () => {
   return (
     <div className="flex flex-wrap m-auto w-[275px] gap-4 h-[40%]">
       <div className="flex flex-nowrap items-center gap-2 cursor-pointer">
@@ -11,8 +11,9 @@ const People = () => {
         <img src="/src/assets/icons/Group 2.svg" />
         <p className=" font-persian">+50 اساتید برتر جهان</p>
       </div>
+
     </div>
   );
 };
 
-export default People;
+export default PeopleWrapper;

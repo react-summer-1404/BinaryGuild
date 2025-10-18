@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CoursesList = () => {
+const CoursesListWrapper = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const CoursesList = () => {
   )
 }
 
-export default CoursesList
+export default CoursesListWrapper

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Text = () => {
+const TextWrapper = () => {
   return (
     <div className="flex flex-wrap max-w-[254px] m-auto cursor-pointer gap-1.5">
       <div className="gap-1.5 text-[40px] text-center pr-[38px]">
@@ -14,4 +14,4 @@ const Text = () => {
   );
 };
 
-export default Text;
+export default TextWrapper;
