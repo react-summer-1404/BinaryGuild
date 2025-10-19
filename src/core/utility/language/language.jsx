@@ -1,7 +1,11 @@
 
 const Languages= () =>{
+    
+
     return(
-        <div></div>
+        <div>
+            
+        </div>
     )
 }
 

@@ -1,9 +1,25 @@
 import React from 'react'
+import instance from '../../interceptor'
 
-const index = () => {
+
+
+export const SendVerifyMessage = (phoneNumber) => {
   return (
-    <div>index</div>
+    instance.post("/Sign/SendVerifyMessage",{phoneNumber})
   )
 }
 
-export default index
+
+
+export const VerifyMessage = (verifyCode,phoneNumber) => {
+  return (
+    instance.post("/Sign/VerifyMessage",{verifyCode,phoneNumber})
+  )
+}
+
+export const Register =({password,gmail,phoneNumber}) =>{
+  return(
+    instance.post("/Sign/Register",{password,gmail,phoneNumber})
+  )
+}
+
