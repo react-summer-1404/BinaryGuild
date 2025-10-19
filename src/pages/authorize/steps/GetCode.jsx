@@ -1,10 +1,9 @@
 import React from "react";
 import AuthButton from "../../../components/common/button/AuthButton";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GetNewCode from "./GetNewCode";
-import axios from "axios";
+import {VerifyMessage} from "../../../core/services/api/post-data";
 const GetCode = ({ onNext, onPrevious, phoneNumber }) => {
   const [getCode, setGetCode] = useState("");
   const [errorCode, setErrorCode] = useState("");
@@ -29,15 +28,9 @@ const GetCode = ({ onNext, onPrevious, phoneNumber }) => {
     }
     try {
 
-      const response = await axios.post(
-        "https://sepehracademy.liara.run/Sign/VerifyMessage",
-        {
-          phoneNumber: phoneNumber,
-          verifyCode: getCode.trim(),
-        }
-      );
-      console.log(response.data);
-      if (response.data.success) {
+      const response = await VerifyMessage(getCode,phoneNumber)
+      console.log(response);
+      if (response.success) {
         onNext();
       }
     } catch (error) {

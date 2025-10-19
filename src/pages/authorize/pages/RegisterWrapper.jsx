@@ -19,7 +19,7 @@ const Register = () => {
       </div>
       {step === 1 && <GetPhoneNumber onNext = {()=>setStep(2)} setPhoneNumber={setPhoneNumber}/> }
       {step === 2 && <GetCode onNext = {()=>setStep(3)} onPrevious={()=>setStep(1)} phoneNumber={phoneNumber} /> }
-      {step === 3 && <GetUserInfo onPrevious={()=>setStep(2)}  /> }
+      {step === 3 && <GetUserInfo onPrevious={()=>setStep(2)} phoneNumber={phoneNumber}  /> }
 
       
     </div>

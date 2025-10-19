@@ -3,8 +3,8 @@ import AuthButton from "../../../components/common/button/AuthButton";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-const GetPhoneNumber = ({setPhoneNumber, onNext }) => {
+import { SendVerifyMessage } from "../../../core/services/api/post-data";
+const GetPhoneNumber = ({ setPhoneNumber, onNext }) => {
   const [getphonNumber, setGetPhonNumber] = useState("");
   const [numberError, setNumberError] = useState("");
 
@@ -20,27 +20,28 @@ const GetPhoneNumber = ({setPhoneNumber, onNext }) => {
   };
 
   const handleError = async (e) => {
+
     e.preventDefault();
+    
     if (getphonNumber.trim() === "") {
       setNumberError("لطفا شماره تلفن خود را وارد کنید");
+      return;
     } else {
       setNumberError("");
     }
     try {
-      const response = await axios.post(
-        "https://sepehracademy.liara.run/Sign/SendVerifyMessage",
-        {
-          phoneNumber: getphonNumber,
-        }
-      );
-      console.log(response.data, "response");
+
+      const response = await SendVerifyMessage(getphonNumber);
+
+      console.log(response, "response");
       onNext();
+
     } catch (error) {
-      console.log("error", error);
-      setNumberError("error sending code");
+      console.log("error", error.response);
+      const serverMessage = error.response?.data?.message || "خطا در ارسال کد"
+      setNumberError(serverMessage);
     }
   };
-
 
   return (
     <div className="w-4/5">

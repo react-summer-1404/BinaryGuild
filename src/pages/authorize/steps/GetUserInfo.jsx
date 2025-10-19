@@ -1,12 +1,17 @@
 import React from "react";
 import AuthButton from "../../../components/common/button/AuthButton";
 import { useState } from "react";
-import axios from "axios";
-const GetUserInfo = ({ onPrevious, confirm,phoneNumber }) => {
+import { Register } from "../../../core/services/api/post-data";
+import { useNavigate } from "react-router-dom";
+const GetUserInfo = ({ onPrevious, phoneNumber }) => {
   const [getEmail, setGetEmail] = useState("");
   const [getPassword, setGetPassword] = useState("");
   const [emailError, setEmailError] = useState(null);
   const [passError, setPassError] = useState();
+  const navigate = useNavigate();
+  const GoHome = () => {
+    navigate("/");
+  };
 
   const handleEmail = (e) => {
     const value = e.target.value;
@@ -20,7 +25,7 @@ const GetUserInfo = ({ onPrevious, confirm,phoneNumber }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (getEmail.trim() === "" ) {
+    if (getEmail.trim() === "") {
       setEmailError("ایمیل نمی تواند خالی باشد");
     } else {
       setEmailError(null);
@@ -37,18 +42,17 @@ const GetUserInfo = ({ onPrevious, confirm,phoneNumber }) => {
     }
 
     try {
-      const response = await axios.post(
-        "https://sepehracademy.liara.run/Sign/Register",
-        {
-          password: getPassword,
-          gmail: getEmail,
-          phoneNumber: phoneNumber,
-        }
-      );
+       console.log("data before send:",{gmail: getEmail,password: getPassword,phoneNumber: phoneNumber,})
+
+      const response = await Register({
+        gmail: getEmail,
+        password: getPassword,
+        phoneNumber: phoneNumber,
+      });
       console.log(response.data, "response");
-      confirm();
+      GoHome();
     } catch (error) {
-      console.log(error);
+      console.log(error, "خطاااااا");
     }
   };
 
