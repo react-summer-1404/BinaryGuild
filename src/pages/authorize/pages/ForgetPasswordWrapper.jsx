@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Stepper from "../../Stepper";
 import GoToGmail from "../steps/GoToGmail";
-import FirstStepPassword from "../steps/FirstStepPassword";
+import SetNewPassword from "../steps/SetNewPassword";
 const ForgetPasswordWrapper = () => {
   
   const [step, setStep] = useState(1);
@@ -14,7 +14,7 @@ const ForgetPasswordWrapper = () => {
         <Stepper text={"تایید کد ارسال شده"} active={step === 2} />
       </div>
       {step === 1 && <GoToGmail onNext={() => setStep(2)} />}
-      {step === 2 && <FirstStepPassword onPrevious={() => setStep(1)} />}
+      {step === 2 && <SetNewPassword onPrevious={() => setStep(1)} />}
     </div>
   );
 };

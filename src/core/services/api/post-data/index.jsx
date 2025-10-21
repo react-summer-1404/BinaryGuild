@@ -30,3 +30,7 @@ export const ForgetPass = async ({ email, baseUrl }) => {
   }
  
 };
+
+export const ResetPassword = ({ userId, newPassword, resetValue }) => {
+  return instance.post("/Sign/Reset", { userId, newPassword, resetValue });
+};

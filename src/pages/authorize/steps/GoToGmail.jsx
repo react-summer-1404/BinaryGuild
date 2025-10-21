@@ -40,8 +40,8 @@ const GoToGmail = ({ onNext }) => {
       console.log("error", error.response || error.message);
     }
     try {
-      const response = await Reset();
-      console.log(response);
+      const response = await Reset("0000");
+      console.log("reset confirmed",response);
     } catch (error) {
       console.log("error", error);
     }

@@ -1,6 +1,6 @@
 import React from "react";
 import instance from "../../interceptor";
 
-export const Reset = () => {
-  return instance.get("/Sign/Reset/:ConfigValue");
+export const Reset = (ConfigValue) => {
+  return instance.get(`/Sign/Reset/${ConfigValue}`);
 };
