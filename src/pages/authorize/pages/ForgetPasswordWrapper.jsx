@@ -4,6 +4,7 @@ import Stepper from "../../Stepper";
 import GoToGmail from "../steps/GoToGmail";
 import FirstStepPassword from "../steps/FirstStepPassword";
 const ForgetPasswordWrapper = () => {
+  
   const [step, setStep] = useState(1);
   console.log("step", step);
   return (

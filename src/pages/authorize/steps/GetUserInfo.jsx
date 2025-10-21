@@ -9,8 +9,8 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
   const [emailError, setEmailError] = useState(null);
   const [passError, setPassError] = useState();
   const navigate = useNavigate();
-  const GoHome = () => {
-    navigate("/");
+  const GoLogin = () => {
+    navigate("/login");
   };
 
   const handleEmail = (e) => {
@@ -56,8 +56,9 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
       console.log(response, "response");
 
       if (response?.data?.success) {
-        GoHome();
+        GoLogin();
       }
+      console.log("success",GoLogin())
     } catch (error) {
       console.log(error, "خطاااااا");
     }
