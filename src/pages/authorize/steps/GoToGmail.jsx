@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ForgetPass } from "../../../core/services/api/post-data";
+import { Reset } from "../../../core/services/api/get-data";
 
 const GoToGmail = ({ onNext }) => {
   const [errorCode, setErrorCode] = useState("");
@@ -37,6 +38,12 @@ const GoToGmail = ({ onNext }) => {
       onNext();
     } catch (error) {
       console.log("error", error.response || error.message);
+    }
+    try {
+      const response = await Reset();
+      console.log(response);
+    } catch (error) {
+      console.log("error", error);
     }
   };
 
