@@ -3,8 +3,9 @@ import AuthButton from "../../../components/common/button/AuthButton";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Login } from "../../../core/services/api/post-data";
 
-const GetPhoneNumberLogin = ({onNext}) => {
+const GetPhoneNumberLogin = ({ onNext }) => {
   const [getUserInfo, setGetUserInfo] = useState("");
   const [userError, setUserError] = useState("");
   const [getPassword, setGetPassword] = useState("");
@@ -24,7 +25,7 @@ const GetPhoneNumberLogin = ({onNext}) => {
     setGetPassword(value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (getUserInfo.trim() === "") {
       setUserError("ایمیل نمی تواند خالی باشد");
@@ -40,7 +41,24 @@ const GetPhoneNumberLogin = ({onNext}) => {
 
     if (getUserInfo.trim() !== "" && getPassword.trim() !== "") {
       console.log("فرم درسته");
+    }
+    try {
+      const response = await Login({
+        phoneOrGmail: getUserInfo,
+        password: getPassword,
+        rememberMe: true,
+      });
+      console.log(response, "response");
+      if(response?.data?.success){
+      if (response?.data?.token) {
+        localStorage.setItem("token", response.data.token);
+      }
+      console.log(localStorage.getItem("token"));        
+      }
+
       onNext();
+    } catch (error) {
+      console.log("error", error);
     }
   };
 
@@ -107,10 +125,13 @@ const GetPhoneNumberLogin = ({onNext}) => {
                 مرا به خاطر بسپار
               </p>
             </div>
-            <Link className="flex items-center cursor-pointer bg-[#F6F6F6] rounded-[40px] w-[175px] h-[36px] " to={"/forgetPassword"}>
-                <p className="text-[#3772FF] font-[600] text-[14px]">
-                  رمزعبور را فراموش کردید؟
-                </p>
+            <Link
+              className="flex items-center cursor-pointer bg-[#F6F6F6] rounded-[40px] w-[175px] h-[36px] "
+              to={"/forgetPassword"}
+            >
+              <p className="text-[#3772FF] font-[600] text-[14px]">
+                رمزعبور را فراموش کردید؟
+              </p>
             </Link>
           </div>
 

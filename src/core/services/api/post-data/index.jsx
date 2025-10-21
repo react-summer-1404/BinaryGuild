@@ -23,3 +23,8 @@ export const Register =({password,gmail,phoneNumber}) =>{
   )
 }
 
+export const Login =({phoneOrGmail,password,rememberMe}) =>{
+  return(
+    instance.post("/Sign/Login",{phoneOrGmail,password,rememberMe})
+  )
+}

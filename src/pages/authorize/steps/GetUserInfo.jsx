@@ -42,15 +42,22 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
     }
 
     try {
-       console.log("data before send:",{gmail: getEmail,password: getPassword,phoneNumber: phoneNumber,})
+      console.log("data before send:", {
+        gmail: getEmail,
+        password: getPassword,
+        phoneNumber: phoneNumber,
+      });
 
       const response = await Register({
         gmail: getEmail,
         password: getPassword,
         phoneNumber: phoneNumber,
       });
-      console.log(response.data, "response");
-      GoHome();
+      console.log(response, "response");
+
+      if (response?.data?.success) {
+        GoHome();
+      }
     } catch (error) {
       console.log(error, "خطاااااا");
     }
