@@ -20,7 +20,7 @@ const GetNewCode = () => {
           clearInterval(timer);
           setCanResend(true);
           setIsRunning(false);
-          return 0;
+          return;
         }
         return prev - 1;
       });

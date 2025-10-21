@@ -9,8 +9,8 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
   const [emailError, setEmailError] = useState(null);
   const [passError, setPassError] = useState();
   const navigate = useNavigate();
-  const GoHome = () => {
-    navigate("/");
+  const GoLogin = () => {
+    navigate("/login");
   };
 
   const handleEmail = (e) => {
@@ -42,15 +42,23 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
     }
 
     try {
-       console.log("data before send:",{gmail: getEmail,password: getPassword,phoneNumber: phoneNumber,})
+      console.log("data before send:", {
+        gmail: getEmail,
+        password: getPassword,
+        phoneNumber: phoneNumber,
+      });
 
       const response = await Register({
         gmail: getEmail,
         password: getPassword,
         phoneNumber: phoneNumber,
       });
-      console.log(response.data, "response");
-      GoHome();
+      console.log(response, "response");
+
+      if (response?.data?.success) {
+        GoLogin();
+      }
+      console.log("success",GoLogin())
     } catch (error) {
       console.log(error, "خطاااااا");
     }

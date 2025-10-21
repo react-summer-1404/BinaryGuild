@@ -2,10 +2,12 @@ import AuthButton from "../../../components/common/button/AuthButton";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ForgetPass } from "../../../core/services/api/post-data";
+import { Reset } from "../../../core/services/api/get-data";
 
 const GoToGmail = ({ onNext }) => {
-  const [getCode, setGetCode] = useState("");
   const [errorCode, setErrorCode] = useState("");
+  const [getUserInfo, setGetUserInfo] = useState("");
 
   const navigate = useNavigate();
   const GoHome = () => {
@@ -14,16 +16,34 @@ const GoToGmail = ({ onNext }) => {
 
   const handleCode = (e) => {
     const value = e.target.value;
-    setGetCode(value);
+    setGetUserInfo(value);
   };
 
-  const handleError = (e) => {
+  const handleError = async (e) => {
     e.preventDefault();
-    if (getCode.trim() === "") {
+    if (getUserInfo.trim() === "") {
       setErrorCode("لطفا ایمیل معتبر وارد کنید");
+      return;
     } else {
       setErrorCode("");
+    }
+
+    try {
+      const response = await ForgetPass({
+        email: getUserInfo,
+        baseUrl: "https://localhost:5173/resetpassword",
+      });
+
+      console.log("response", response);
       onNext();
+    } catch (error) {
+      console.log("error", error.response || error.message);
+    }
+    try {
+      const response = await Reset("0000");
+      console.log("reset confirmed",response);
+    } catch (error) {
+      console.log("error", error);
     }
   };
 
@@ -45,15 +65,15 @@ const GoToGmail = ({ onNext }) => {
         >
           <label
             className="text-[#2F2F2F] font-[600] text-[16px]"
-            htmlFor="email/number"
+            htmlFor="email"
           >
             ایمیل{" "}
           </label>
           <input
             className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
-            type="text"
+            type="email"
             id="email"
-            value={getCode}
+            value={getUserInfo}
             onChange={handleCode}
             placeholder="ایمیل خود را وارد کنید"
           />
