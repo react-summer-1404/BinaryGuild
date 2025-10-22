@@ -4,24 +4,55 @@ import Stepper from "../../Stepper";
 import GetPhoneNumber from "../steps/GetPhoneNumber";
 import GetCode from "../steps/GetCode";
 import GetUserInfo from "../steps/GetUserInfo";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const [phoneNumber, setPhoneNumber] = useState(1);
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [step, setStep] = useState(1);
-  console.log("step", step)
+  console.log("step", step);
+  const navigate = useNavigate();
+  const GoHome = () => {
+    navigate("/");
+  };
 
   return (
-    <div className="p-5 flex flex-col text-right w-[648px] mr-[30px] ">
-      <div className="flex justify-start">
-        <Stepper text={"واردکردن شماره همراه"} active={step === 1}/>
-        <Stepper text={"تایید کد ارسال شده"} active={step === 2}/>
-        <Stepper text={"واردکردن اطلاعات شخصی"} active={step === 3}/>
+    <div className=" block items-center md:w-[648px] md:p-5 md:text-right md:mr-[30px] ">
+      <div className="flex justify-between mb-10 md:hidden">
+        <div className="flex justify-center">
+          <img
+            src="/src/assets/images/Untitled-1 4.svg"
+            className="w-10 h-auto md:hidden"
+          />
+        </div>
+        <div
+          onClick={GoHome}
+          className=" cursor-pointer flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px] md:hidden"
+        >
+          <p className="text-[#3772FF]">{"صفحه اصلی"}</p>
+        </div>
       </div>
-      {step === 1 && <GetPhoneNumber onNext = {()=>setStep(2)} setPhoneNumber={setPhoneNumber}/> }
-      {step === 2 && <GetCode onNext = {()=>setStep(3)} onPrevious={()=>setStep(1)} phoneNumber={phoneNumber} /> }
-      {step === 3 && <GetUserInfo onPrevious={()=>setStep(2)} phoneNumber={phoneNumber}  /> }
 
-      
+      <div className="flex flex-col gap-5 sm:flex-row items-start ">
+        <Stepper text={"واردکردن شماره همراه"} active={step === 1} />
+        <Stepper text={"تایید کد ارسال شده"} active={step === 2} />
+        <Stepper text={"واردکردن اطلاعات شخصی"} active={step === 3} />
+      </div>
+      {step === 1 && (
+        <GetPhoneNumber
+          onNext={() => setStep(2)}
+          setPhoneNumber={setPhoneNumber}
+        />
+      )}
+      {step === 2 && (
+        <GetCode
+          onNext={() => setStep(3)}
+          onPrevious={() => setStep(1)}
+          phoneNumber={phoneNumber}
+        />
+      )}
+      {step === 3 && (
+        <GetUserInfo onPrevious={() => setStep(2)} phoneNumber={phoneNumber} />
+      )}
     </div>
   );
 };

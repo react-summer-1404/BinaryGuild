@@ -63,11 +63,11 @@ const GetPhoneNumberLogin = ({ onNext }) => {
   };
 
   return (
-    <div className="w-4/5">
+    <div className="flex flex-col items-start">
       <h2 className="text-[28px] font font-[700] text-black mt-[75px]">
         خوش برگشتی!{" "}
       </h2>
-      <p className="text-[#707070] font-[500] mt-[12px] text-[16px]">
+      <p className="text-[#707070] font-[500] mt-[12px] text-[16px] text-right">
         لطفا شماره همراه یا ایمیل و رمزعبور خود را برای ورود به حساب کاربری را
         وارد کنید{" "}
       </p>
@@ -76,7 +76,7 @@ const GetPhoneNumberLogin = ({ onNext }) => {
         <form
           onSubmit={handleSubmit}
           action=""
-          className="flex flex-col mt-[48px]"
+          className="flex items-start flex-col mt-[48px]"
         >
           <label
             className="text-[#2F2F2F] font-[600] text-[16px]"
@@ -153,7 +153,7 @@ const GetPhoneNumberLogin = ({ onNext }) => {
 
         <div
           onClick={GoHome}
-          className="cursor-pointer mt-[32px] flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px]"
+          className="hidden md:cursor-pointer md:mt-[32px] md:flex md:items-center md:justify-center md:border-[1px] md:border-[#DCDCDC] md:rounded-[34px] md:w-[141px] md:h-[40px]"
         >
           <p className="text-[#3772FF]">{"صفحه اصلی"}</p>
         </div>
