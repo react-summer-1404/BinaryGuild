@@ -2,9 +2,9 @@ import React from "react";
 import AuthButton from "../../../components/common/button/AuthButton";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Login } from "../../../core/services/api/post-data";
 import { useTranslation } from "react-i18next";
+import HomeButton from "../../../components/common/button/HomeButton";
 
 const GetPhoneNumberLogin = ({ onNext }) => {
   const [getUserInfo, setGetUserInfo] = useState("");
@@ -14,10 +14,6 @@ const GetPhoneNumberLogin = ({ onNext }) => {
 
   const { t } = useTranslation();
 
-  const navigate = useNavigate();
-  const GoHome = () => {
-    navigate("/");
-  };
 
   const handleUserInfo = (e) => {
     const value = e.target.value;
@@ -31,13 +27,13 @@ const GetPhoneNumberLogin = ({ onNext }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (getUserInfo.trim() === "") {
-      setUserError("ایمیل نمی تواند خالی باشد");
+      setUserError(t("EmailOrPhoneError"));
     } else {
       setUserError(null);
     }
 
     if (getPassword.trim() === "") {
-      setPassError("لطفا رمز عبور خود را وارد کنید ");
+      setPassError(t("PasswordError"));
     } else {
       setPassError(null);
     }
@@ -152,13 +148,7 @@ const GetPhoneNumberLogin = ({ onNext }) => {
             </p>
           </Link>
         </div>
-
-        <div
-          onClick={GoHome}
-          className="hidden md:cursor-pointer md:mt-[32px] md:flex md:items-center md:justify-center md:border-[1px] md:border-[#DCDCDC] md:rounded-[34px] md:w-[141px] md:h-[40px]"
-        >
-          <p className="text-[#3772FF]">{t("GoBackButton")} </p>
-        </div>
+        <HomeButton/>
       </div>
     </div>
   );

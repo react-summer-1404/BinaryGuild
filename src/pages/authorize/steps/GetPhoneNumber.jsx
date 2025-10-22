@@ -2,18 +2,13 @@ import React from "react";
 import AuthButton from "../../../components/common/button/AuthButton";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { SendVerifyMessage } from "../../../core/services/api/post-data";
 import { useTranslation } from "react-i18next";
+import HomeButton from "../../../components/common/button/HomeButton";
 
 const GetPhoneNumber = ({ setPhoneNumber, onNext }) => {
   const [getphonNumber, setGetPhonNumber] = useState("");
   const [numberError, setNumberError] = useState("");
-
-  const navigate = useNavigate();
-  const GoHome = () => {
-    navigate("/");
-  };
 
   const { t } = useTranslation();
 
@@ -27,7 +22,7 @@ const GetPhoneNumber = ({ setPhoneNumber, onNext }) => {
     e.preventDefault();
 
     if (getphonNumber.trim() === "") {
-      setNumberError("لطفا شماره تلفن خود را وارد کنید");
+      setNumberError(t("PhoneError"));
       return;
     } else {
       setNumberError("");
@@ -55,8 +50,8 @@ const GetPhoneNumber = ({ setPhoneNumber, onNext }) => {
 
       <form
         onSubmit={handleError}
-        action=""
-        className="flex flex-col mt-[48px]"
+        
+        className="flex items-start flex-col mt-[48px]"
       >
         <label
           className="text-right text-[#2F2F2F] font-[600] text-[16px]"
@@ -65,7 +60,7 @@ const GetPhoneNumber = ({ setPhoneNumber, onNext }) => {
           {t("RegisterLabel")}{" "}
         </label>
         <input
-          className="mt-[8px] text-left placeholder:text-right w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
+          className=" mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
           type="tel"
           id="number"
           value={getphonNumber}
@@ -89,13 +84,7 @@ const GetPhoneNumber = ({ setPhoneNumber, onNext }) => {
             </p>
           </Link>
         </div>
-
-        <div
-          onClick={GoHome}
-          className="hidden md:cursor-pointer md:mt-[32px] md:flex md:items-center md:justify-center md:border-[1px] md:border-[#DCDCDC] md:rounded-[34px] md:w-[141px] md:h-[40px]"
-        >
-          <p className="text-[#3772FF]">{t("GoHomePage")}</p>
-        </div>
+        <HomeButton/>
       </div>
     </div>
   );

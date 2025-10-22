@@ -16,7 +16,7 @@ const Login = () => {
 
   return (
     <div className="block items-center md:w-[648px] md:p-5 md:text-right md:mr-[30px] ">
-            <div className="flex justify-between mb-10 md:hidden">
+      <div className="flex justify-between mb-10 md:hidden">
         <div className="flex justify-center">
           <img
             src="/src/assets/images/Untitled-1 4.svg"
@@ -28,6 +28,10 @@ const Login = () => {
           className=" cursor-pointer flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px] md:hidden"
         >
           <p className="text-[#3772FF]">{t("GoHomePage")}</p>
+          <img
+            src="../../../../src/assets/icons/home-04.png"
+            className="mr-0.5"
+          />
         </div>
       </div>
       <div className="flex  justify-start">

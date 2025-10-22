@@ -45,10 +45,8 @@ const SetNewPassword = ({ onPrevious }) => {
         newPassword: getPassword,
         resetValue: "0000",
       });
-        GoLogin();      
-        console.log("response", response);
-
-      
+      GoLogin();
+      console.log("response", response);
     } catch (error) {
       console.log(error);
     }
@@ -60,7 +58,7 @@ const SetNewPassword = ({ onPrevious }) => {
         {t("NewPasswordHead")}
       </h2>
       <p className="text-[#707070] font-[500] mt-[12px] text-[16px]">
-         {t("NewPasswordCaption")}
+        {t("NewPasswordCaption")}
       </p>
 
       <div>
@@ -90,7 +88,7 @@ const SetNewPassword = ({ onPrevious }) => {
             className="text-[#2F2F2F] mt-4 font-[600] text-[16px]"
             htmlFor="newpass"
           >
-{t("NewPasswordRepeatLabel")}
+            {t("NewPasswordRepeatLabel")}
           </label>
           <input
             className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
@@ -107,12 +105,16 @@ const SetNewPassword = ({ onPrevious }) => {
         </form>
       </div>
 
-      <div className=" w-[397px] flex flex-col items-center justify-center ">
+      <div className=" w-[397px] flex  items-center justify-center ">
         <div
           onClick={onPrevious}
           className="cursor-pointer mt-[32px] flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px]"
         >
           <p className="text-[#3772FF]">{t("GoBackButton")}</p>
+          <img
+            src="../../../../src/assets/icons/arrow-left-01.png"
+            className="mr-0.5"
+          />
         </div>
       </div>
     </div>

@@ -92,6 +92,8 @@ const GoToGmail = ({ onNext }) => {
           className="cursor-pointer mt-[32px] flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px]"
         >
           <p className="text-[#3772FF]">{t("GoBackButton")}</p>
+          <img  src="../../../../src/assets/icons/arrow-left-01.png" />
+
         </Link>
       </div>
     </div>

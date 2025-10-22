@@ -29,6 +29,10 @@ const ForgetPasswordWrapper = () => {
           className=" cursor-pointer flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px] md:hidden"
         >
           <p className="text-[#3772FF]">{t("GoHomePage")}</p>
+          <img
+            src="../../../../src/assets/icons/home-04.png"
+            className="mr-0.5"
+          />
         </div>
       </div>
       <div className="flex flex-col gap-5 sm:flex-row items-start ">

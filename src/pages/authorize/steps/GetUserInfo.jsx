@@ -80,7 +80,7 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
       <div>
         <form
           onSubmit={handleSubmit}
-          action=""
+          
           className="flex items-start flex-col mt-[48px]"
         >
           <label
