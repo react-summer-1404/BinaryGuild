@@ -3,11 +3,13 @@ import AuthButton from "../../../components/common/button/AuthButton";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ResetPassword } from "../../../core/services/api/post-data";
+import { useTranslation } from "react-i18next";
+
 const SetNewPassword = ({ onPrevious }) => {
   const [getEmail, setGetEmail] = useState("");
   const [getPassword, setGetPassword] = useState("");
-  const [emailError, setEmailError] = useState(null);
   const [passError, setPassError] = useState();
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
   const GoLogin = () => {
@@ -26,14 +28,9 @@ const SetNewPassword = ({ onPrevious }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (getEmail.trim() === "") {
-      setEmailError("لطفا رمز عبور خود را وارد کنید ");
-    } else {
-      setEmailError(null);
-    }
 
     if (getPassword.trim() === "") {
-      setPassError("لطفا تکرار رمز عبور خود را وارد کنید ");
+      setPassError(t("PasswordError"));
     } else {
       setPassError(null);
     }
@@ -58,26 +55,25 @@ const SetNewPassword = ({ onPrevious }) => {
   };
 
   return (
-    <div className="w-4/5">
+    <div className="flex flex-col items-start">
       <h2 className="text-[28px] font font-[700] text-black mt-[75px]">
-        رمزعبور جدید!{" "}
+        {t("NewPasswordHead")}
       </h2>
       <p className="text-[#707070] font-[500] mt-[12px] text-[16px]">
-        {" "}
-        رمزعبور جدید خود را وارد کنید
+         {t("NewPasswordCaption")}
       </p>
 
       <div>
         <form
           onSubmit={handleSubmit}
           action=""
-          className="flex flex-col mt-[48px]"
+          className="flex items-start flex-col mt-[48px]"
         >
           <label
             className="text-[#2F2F2F] font-[600] text-[16px]"
             htmlFor="newPass"
           >
-            رمز عبور جدید{" "}
+            {t("NewPasswordLabel")}
           </label>
           <input
             className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
@@ -85,16 +81,16 @@ const SetNewPassword = ({ onPrevious }) => {
             id="newPass"
             value={getEmail}
             onChange={handleEmail}
-            placeholder="رمز عبور خود را وارد کنید"
+            placeholder={t("NewPasswordLabelPlaceholder")}
           />
           <p className="mt-[4px] font-bold text-[12px] text-[red]">
-            {emailError}
+            {passError}
           </p>
           <label
             className="text-[#2F2F2F] mt-4 font-[600] text-[16px]"
             htmlFor="newpass"
           >
-            تکرار رمز عبور جدید{" "}
+{t("NewPasswordRepeatLabel")}
           </label>
           <input
             className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
@@ -102,12 +98,12 @@ const SetNewPassword = ({ onPrevious }) => {
             id="newpass"
             value={getPassword}
             onChange={handlePass}
-            placeholder="تکرار رمز عبور خود را وارد کنید"
+            placeholder={t("NewPasswordRepeatLabelPlaceholder")}
           />
           <p className="mt-[4px] font-bold text-[12px] text-[red]">
             {passError}
           </p>
-          <AuthButton text={" تایید رمز عبور"} type="submit" />
+          <AuthButton text={t("ConfirmPassButton")} type="submit" />
         </form>
       </div>
 
@@ -116,7 +112,7 @@ const SetNewPassword = ({ onPrevious }) => {
           onClick={onPrevious}
           className="cursor-pointer mt-[32px] flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px]"
         >
-          <p className="text-[#3772FF]">{"بازگشت"}</p>
+          <p className="text-[#3772FF]">{t("GoBackButton")}</p>
         </div>
       </div>
     </div>
