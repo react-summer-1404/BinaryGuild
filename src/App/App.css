@@ -46,8 +46,22 @@
 
 #root {
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 1rem; */
   text-align: center;
   width: 100%;
   direction: rtl;
 }
+
+/* authentication styles */
+
+/* .authForm{
+  @apply border-3 rounded-4xl p-10 w-1/2 bg-gray-200;
+} */
+/* colors = {
+  light:{
+    bg-main: #fff;
+  },
+   dark:{
+    bg-main: #000;
+  },
+} */
