@@ -65,7 +65,7 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
   };
 
   return (
-    <div className="w-4/5">
+    <div className="flex flex-col items-start">
       <h2 className="text-[28px] font font-[700] text-black mt-[75px]">
         وارد کردن اطلاعات شخصی
       </h2>
@@ -78,7 +78,7 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
         <form
           onSubmit={handleSubmit}
           action=""
-          className="flex flex-col mt-[48px]"
+          className="flex items-start flex-col mt-[48px]"
         >
           <label
             className="text-[#2F2F2F] font-[600] text-[16px]"

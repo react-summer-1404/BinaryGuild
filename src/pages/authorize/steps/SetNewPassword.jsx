@@ -58,7 +58,7 @@ const SetNewPassword = ({ onPrevious }) => {
   };
 
   return (
-    <div className="w-4/5">
+    <div className="flex flex-col items-start">
       <h2 className="text-[28px] font font-[700] text-black mt-[75px]">
         رمزعبور جدید!{" "}
       </h2>
@@ -71,7 +71,7 @@ const SetNewPassword = ({ onPrevious }) => {
         <form
           onSubmit={handleSubmit}
           action=""
-          className="flex flex-col mt-[48px]"
+          className="flex items-start flex-col mt-[48px]"
         >
           <label
             className="text-[#2F2F2F] font-[600] text-[16px]"
