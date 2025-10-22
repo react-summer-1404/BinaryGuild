@@ -18,7 +18,7 @@ const ThemeModes = () => {
         aria-label="dark/light mood"
         color="default"
         variant="faded"
-        onPaste={changeMode}
+        onPress={changeMode}
         className="bg-black-900"
       >
         <img src="/src/assets/icons/moon-02.svg" />
