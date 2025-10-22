@@ -3,6 +3,8 @@ import Stepper from "../../Stepper";
 import GetPhoneNumberLogin from "../steps/GetPhoneNumberLogin";
 import TwoStepLoginWrapper from "../steps/TwoStepLoginWrapper";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 const Login = () => {
   const [step, setStep] = useState(1);
   console.log("step", step);
@@ -10,6 +12,7 @@ const Login = () => {
   const goHome = () => {
     navigate("/");
   };
+  const { t } = useTranslation();
 
   return (
     <div className="block items-center md:w-[648px] md:p-5 md:text-right md:mr-[30px] ">
@@ -24,11 +27,11 @@ const Login = () => {
           onClick={goHome}
           className=" cursor-pointer flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px] md:hidden"
         >
-          <p className="text-[#3772FF]">{"صفحه اصلی"}</p>
+          <p className="text-[#3772FF]">{t("GoHomePage")}</p>
         </div>
       </div>
       <div className="flex  justify-start">
-        <Stepper text={"واردکردن شماره همراه"} active={step === 1} />
+        <Stepper text={t("LoginStep1")} active={step === 1} />
         {/* <Stepper text={"تایید کد ارسال شده دو مرحله‌ای"} active={step === 2} /> */}
       </div>
       {step === 1 && <GetPhoneNumberLogin onNext={() => setStep(goHome())} />}

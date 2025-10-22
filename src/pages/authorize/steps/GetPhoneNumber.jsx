@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SendVerifyMessage } from "../../../core/services/api/post-data";
+import { useTranslation } from "react-i18next";
+
 const GetPhoneNumber = ({ setPhoneNumber, onNext }) => {
   const [getphonNumber, setGetPhonNumber] = useState("");
   const [numberError, setNumberError] = useState("");
@@ -13,6 +15,8 @@ const GetPhoneNumber = ({ setPhoneNumber, onNext }) => {
     navigate("/");
   };
 
+  const { t } = useTranslation();
+
   const handleNumber = (e) => {
     const value = e.target.value;
     setGetPhonNumber(value);
@@ -20,9 +24,8 @@ const GetPhoneNumber = ({ setPhoneNumber, onNext }) => {
   };
 
   const handleError = async (e) => {
-
     e.preventDefault();
-    
+
     if (getphonNumber.trim() === "") {
       setNumberError("لطفا شماره تلفن خود را وارد کنید");
       return;
@@ -30,15 +33,13 @@ const GetPhoneNumber = ({ setPhoneNumber, onNext }) => {
       setNumberError("");
     }
     try {
-
       const response = await SendVerifyMessage(getphonNumber);
 
       console.log(response, "response");
       onNext();
-
     } catch (error) {
       console.log("error", error.response);
-      const serverMessage = error.response?.data?.message || "خطا در ارسال کد"
+      const serverMessage = error.response?.data?.message || "خطا در ارسال کد";
       setNumberError(serverMessage);
     }
   };
@@ -46,10 +47,10 @@ const GetPhoneNumber = ({ setPhoneNumber, onNext }) => {
   return (
     <div className="flex flex-col items-start">
       <h2 className="text-[28px] font font-[700] text-black mt-[75px]">
-        خوش اومدی!{" "}
+        {t("RegisterHead")}
       </h2>
       <p className="text-[#707070] font-[500] mt-[12px] text-[16px] text-right">
-        لطفا شماره همراه خود را وارد کنید تا کد تایید برای شما ارسال شود
+        {t("RegisterCaption")}{" "}
       </p>
 
       <form
@@ -61,7 +62,7 @@ const GetPhoneNumber = ({ setPhoneNumber, onNext }) => {
           className="text-right text-[#2F2F2F] font-[600] text-[16px]"
           htmlFor="phoneNumber"
         >
-          شماره همراه
+          {t("RegisterLabel")}{" "}
         </label>
         <input
           className="mt-[8px] text-left placeholder:text-right w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
@@ -69,22 +70,22 @@ const GetPhoneNumber = ({ setPhoneNumber, onNext }) => {
           id="number"
           value={getphonNumber}
           onChange={handleNumber}
-          placeholder="شماره همراه خود را وارد کنید"
+          placeholder={t("RegisterPlaceholder")}
         />
         <p className="mt-[4px] font-bold text-[12px] text-[red]">
           {numberError}
         </p>
-        <AuthButton text={"ارسال کد تایید"} type="submit" />
+        <AuthButton text={t("SendConfirmedCode")} type="submit" />
       </form>
 
       <div className=" w-[397px] flex flex-col items-center justify-center ">
         <div className="flex mt-[16px]">
           <p className="text-[#2F2F2F] font-[600] text-[16px]">
-            حساب کاربری دارید؟
+           {t("HaveAccount")}
           </p>
           <Link className="pr-[8px]" to={"/login"}>
             <p className="text-[#3772FF] font-[600] text-[16px]">
-              ورود به حساب کاربری
+              {t("GoToAccount")}{" "}
             </p>
           </Link>
         </div>
@@ -93,7 +94,7 @@ const GetPhoneNumber = ({ setPhoneNumber, onNext }) => {
           onClick={GoHome}
           className="hidden md:cursor-pointer md:mt-[32px] md:flex md:items-center md:justify-center md:border-[1px] md:border-[#DCDCDC] md:rounded-[34px] md:w-[141px] md:h-[40px]"
         >
-          <p className="text-[#3772FF]">{"صفحه اصلی"}</p>
+          <p className="text-[#3772FF]">{t("GoHomePage")}</p>
         </div>
       </div>
     </div>

@@ -3,6 +3,8 @@ import AuthButton from "../../../components/common/button/AuthButton";
 import { useState } from "react";
 import { Register } from "../../../core/services/api/post-data";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 const GetUserInfo = ({ onPrevious, phoneNumber }) => {
   const [getEmail, setGetEmail] = useState("");
   const [getPassword, setGetPassword] = useState("");
@@ -12,6 +14,7 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
   const GoLogin = () => {
     navigate("/login");
   };
+  const { t } = useTranslation();
 
   const handleEmail = (e) => {
     const value = e.target.value;
@@ -58,7 +61,7 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
       if (response?.data?.success) {
         GoLogin();
       }
-      console.log("success",GoLogin())
+      console.log("success", GoLogin());
     } catch (error) {
       console.log(error, "خطاااااا");
     }
@@ -67,11 +70,11 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
   return (
     <div className="flex flex-col items-start">
       <h2 className="text-[28px] font font-[700] text-black mt-[75px]">
-        وارد کردن اطلاعات شخصی
+        {t("GetUserInfoHead")}{" "}
       </h2>
       <p className="text-[#707070] font-[500] mt-[12px] text-[16px]">
         {" "}
-        لطفا اطلاعات اولیه خواسته شده را وارد کنید{" "}
+        {t("GetUserInfoHead")}{" "}
       </p>
 
       <div>
@@ -84,7 +87,7 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
             className="text-[#2F2F2F] font-[600] text-[16px]"
             htmlFor="email"
           >
-            ایمیل{" "}
+            {t("GetUserEmailLabel")}{" "}
           </label>
           <input
             className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
@@ -92,7 +95,7 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
             id="email"
             value={getEmail}
             onChange={handleEmail}
-            placeholder="ایمیل خود را وارد کنید"
+            placeholder={t("GetUserEmailPlaceholder")}
           />
           <p className="mt-[4px] font-bold text-[12px] text-[red]">
             {emailError}
@@ -101,7 +104,7 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
             className="text-[#2F2F2F] font-[600] text-[16px]"
             htmlFor="password"
           >
-            رمزعبور{" "}
+            {t("GetUserPassLabel")}{" "}
           </label>
           <input
             className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
@@ -109,12 +112,12 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
             id="password"
             value={getPassword}
             onChange={handlePass}
-            placeholder="رمزعبور خود را وارد کنید"
+            placeholder={t("GetUserPassPlaceholder")}
           />
           <p className="mt-[4px] font-bold text-[12px] text-[red]">
             {passError}
           </p>
-          <AuthButton text={" تایید"} type="submit" />
+          <AuthButton text={t("ConfirmButton")} type="submit" />
         </form>
       </div>
 
@@ -123,7 +126,7 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
           onClick={onPrevious}
           className="cursor-pointer mt-[32px] flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px]"
         >
-          <p className="text-[#3772FF]">{"بازگشت"}</p>
+          <p className="text-[#3772FF]">{t("GoBackButton")}</p>
         </div>
       </div>
     </div>
