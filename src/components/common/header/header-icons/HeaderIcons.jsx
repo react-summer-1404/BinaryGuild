@@ -1,11 +1,13 @@
 import { Button } from "@heroui/button";
 import ThemeModes from "../../them-moods/themeMode";
 import Notification from "../../../../core/icons/Notification";
+import ChangeLanguage from "./change-language/ChangeLanguage";
 
 const HeaderIcons = () => {
   return (
     <div className="flex gap-3">
       <div className=" border-boarder relative cursor-pointer">
+        
         <Button
           isIconOnly
           aria-label="notification"
@@ -19,6 +21,7 @@ const HeaderIcons = () => {
         </div>
       </div>
       <ThemeModes />
+      <ChangeLanguage/>
     </div>
   );
 };

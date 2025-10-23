@@ -1,6 +1,6 @@
-const NumberOfLanguage=[
+const Language=[
     {lable : "En" , code:"en"},
     {lable: "Fa", code:"fa"}
 ]
 
-export default NumberOfLanguage;
+export default Language;
