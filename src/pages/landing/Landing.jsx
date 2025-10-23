@@ -14,9 +14,7 @@ const LandingWrapper = () => {
         <TextWrapper />
         <LandingButtonWrapper />
       </div>
-      <h2 className="text-[32px] m-auto font-persian font-bold">
-        اهداف ما در آکادمی
-      </h2>
+      
       <GoalsListWrapper />
       <h2 className="text-[32px] m-auto font-persian w-[21%] font-bold">
         خدماتی که ما در طی دوره‌ها به شما ارائه میدیم

@@ -7,10 +7,11 @@ const ChangeLanguage = () => {
     <Autocomplete
       className="max-w-xs"
       defaultItems={Language}
+      disabledKeys={["انگلیسی", "فارسی"]}
       label="عوض کردن زبان"
-      placeholder="فارسی"
+      placeholder="زبان ها"
     >
-      
+      {(value) => <AutocompleteItem key={value.key}>{value.label}</AutocompleteItem>}
     </Autocomplete>
   );
 };
