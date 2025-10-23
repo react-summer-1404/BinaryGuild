@@ -1,11 +1,10 @@
 import { Outlet } from 'react-router-dom';
 import Header from '../common/header/Header';
-import Footer from "../common/footer/Footer"
-import { Button } from '@heroui/button';
+import Footer from "../common/footer/Footer";
 
 const LandingLayout = () => {
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-wrap gap-6">
       <Header/>
       <Outlet/>
       <Footer/>

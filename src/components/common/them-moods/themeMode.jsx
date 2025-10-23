@@ -1,27 +1,29 @@
 import { Button } from "@heroui/button";
-import React from "react";
 import { useState } from "react";
+import Moon from "../../../core/icons/Moon";
 
 const ThemeModes = () => {
-  const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  const [mode, setMode] = useState(dark);
+  const dark = window.matchMedia("(prefers-color-scheme: dark)");
+  const [isDark, setIsDark] = useState(dark.matches);
 
   const changeMode = () => {
-    setMode(!mode);
+    setIsDark(!isDark);
+    console.log(dark);
+    document.documentElement.classList.toggle("dark", isDark);
+    console.log(dark);
   };
 
   return (
     <div>
       <Button
         isIconOnly
-        aria-label="dark/light mood"
+        aria-label="dark/light mode"
         color="default"
         variant="faded"
         onPress={changeMode}
-        className="bg-black-900"
+        className="bg-boarder border-boarder"
       >
-        <img src="/src/assets/icons/moon-02.svg" />
+        <Moon />
       </Button>
     </div>
   );
