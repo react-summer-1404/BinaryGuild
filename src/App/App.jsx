@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import "../core/utility/language/i18n"
 import Router from "../config/router/router";
 import "./App.css";
@@ -6,11 +8,14 @@ import ThemeModes from "../components/common/them-moods/themeMode";
 // import { useTranslation } from "react-i18next";
 
 function App() {
-  // const [t , i18n] = useTranslation();
+    const { i18n } = useTranslation()
+
 
   return (
+
     <main
-      className={ThemeModes + "font-persian m-auto w-11/12 bg-background"}
+
+      dir={i18n.language === 'fa' ? 'rtl' : 'ltr'} className={`bg-MainBg  ${i18n.language === 'fa' ? 'font-IranSans' : 'font-Pop_Med'} ${ThemeModes} + "font-persian m-auto w-11/12 bg-background"`}
     >
       <RouterProvider router={Router} />
     </main>

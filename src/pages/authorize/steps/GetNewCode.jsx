@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-
+import { useTranslation } from "react-i18next";
 const GetNewCode = () => {
+    const { t } = useTranslation();
+  
   const formatTime = (seconds) => {
     const min = Math.floor(seconds / 60);
     const sec = seconds % 60;
@@ -20,7 +22,7 @@ const GetNewCode = () => {
           clearInterval(timer);
           setCanResend(true);
           setIsRunning(false);
-          return;
+          return 0;
         }
         return prev - 1;
       });
@@ -41,8 +43,9 @@ const GetNewCode = () => {
       >
         {" "}
         {canResend
-          ? " ارسال مجدد کد"
-          : `ارسال مجدد کد تایید ${formatTime(timeLeft)}`}
+          ? t("GetCodeAgain")
+          : t("GetCodeAgainTimer", {time:formatTime(timeLeft)})
+        }
       </p>
     </div>
   );
