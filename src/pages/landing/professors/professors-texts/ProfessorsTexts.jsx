@@ -1,21 +1,17 @@
 import { Button } from "@heroui/button";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const ProfessorsTextsWrapper = () => {
+  const {t} = useTranslation();
   return (
-    <div className="flex w-[40%] m-auto gap-6 flex-wrap text-white">
-      <h2 className="font-persian text-[24px] font-bold">
-        اساتید برتر هفته آکادمی
+    <div className="flex w-[40%] m-auto gap-6 flex-wrap text-start text-gray-100">
+      <h2 className="font-persian text-[24px] font-bold">{t("AcademiesProfessors")}
       </h2>
-      <p className="font-persian text-[20px] font-medium">
-        در هفته جاری، اکادمی برنامه‌نویسی ما مفتخر است که از اساتید برتر خود
-        تقدیر کند. این اساتید با دانش عمیق و تجربه گسترده خود در زمینه‌های مختلف
-        برنامه‌نویسی، نه تنها به ارتقاء مهارت‌های دانشجویان کمک کرده‌اند، بلکه
-        با برگزاری کارگاه‌ها و جلسات مشاوره، فضایی پویا و انگیزشی را برای
-        یادگیری فراهم آورده‌اند.
+      <p className="font-persian text-[20px] font-medium">{t("DescriptionAboutProfessors")}
       </p>
       <Button color="primary" radius="full" className="font-persian">
-        <p className="font-persian">صفحه اساتید</p>
+        <p className="font-persian">{t("TeachersPage")}</p>
       </Button>
     </div>
   );

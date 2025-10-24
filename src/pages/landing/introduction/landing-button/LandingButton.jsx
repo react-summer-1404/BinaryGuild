@@ -1,16 +1,18 @@
 import { Button } from "@heroui/button";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 
 const LandingButtonWrapper = () => {
+  const {t} = useTranslation();
   return (
-    <div className="w-[150px] h-[20%] m-auto text-right flex flex-wrap gap-3">
+    <div className="w-[150px] h-[20%] m-auto text-start flex flex-wrap gap-3">
       <div>
-        <p className=" font-persian">همین حالا</p>
-        <p className=" font-persian">شروع کن به یادگیری!</p>
+        <p className=" font-persian">{t("Now")}</p>
+        <p className=" font-persian">{t("Start")}</p>
       </div>
       <Link to={"/courses"}>
-        <Button radius="full" className="bg-black-900 text-white font-persian">
-          جدیدترین دوره‌ها
+        <Button radius="full" className="bg-black-900 text-white font-persian">{t("NewCourses")}
         </Button>
       </Link>
     </div>

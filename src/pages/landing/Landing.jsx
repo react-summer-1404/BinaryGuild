@@ -5,26 +5,24 @@ import PeopleWrapper from "./introduction/people/People";
 import TextWrapper from "./introduction/text/Text";
 import ProfessorsWrapper from "./professors/Professors";
 import ServicesListWrapper from "./services-section/services-section-list/ServicesList";
+import { useTranslation } from "react-i18next";
 
 const LandingWrapper = () => {
+  const {t} = useTranslation();
   return (
     <div className="flex flex-wrap gap-10 bg-background text-text">
-      <div className="flex flex-wrap justify-between w-[100%]">
+      <div className="flex flex-wrap justify-between w-full">
         <PeopleWrapper />
         <TextWrapper />
         <LandingButtonWrapper />
       </div>
       
       <GoalsListWrapper />
-      <h2 className="text-[32px] m-auto font-persian w-[21%] font-bold">
-        خدماتی که ما در طی دوره‌ها به شما ارائه میدیم
-      </h2>
+      <h2 className="text-[32px] m-auto font-persian w-full font-bold">{t("OurServices")}</h2>
       <ServicesListWrapper />
-      <h2 className="text-[32px] m-auto font-persian w-[21%] font-bold">
-        دوره های برتر هفته
+      <h2 className="text-[32px] m-auto font-persian w-full font-bold">{t("GoodsCourses")}
       </h2>
-      <h2 className="text-[32px] m-auto font-persian w-[21%] font-bold">
-        بلاگ های برتر هفته
+      <h2 className="text-[32px] m-auto font-persian w-full font-bold">{t("GoodsBlogs")}
       </h2>
       <BlogsListWrapper />
       <ProfessorsWrapper />

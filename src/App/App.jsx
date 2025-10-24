@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import "../core/utility/bilingual/i18n"
+import "../core/utility/language/i18n"
 import Router from "../config/router/router";
 import "./App.css";
 import { RouterProvider } from "react-router-dom";
@@ -9,7 +9,7 @@ function App() {
   const { i18n } = useTranslation();
 
   return (
-    <main
+    <main dir={i18n.language === 'fa' ? 'rtl' : 'ltr'} 
       className={`bg-MainBg  ${
         i18n.language === "fa" ? "font-IranSans" : "font-Pop_Med"
       } ${ThemeModes} + "font-persian m-auto w-11/12 bg-background"`}

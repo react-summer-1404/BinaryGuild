@@ -1,7 +1,7 @@
 import { Button } from "@heroui/button";
 import ThemeModes from "../../them-moods/themeMode";
 import Notification from "../../../../core/icons/Notification";
-import ChangeLanguage from "./change-language/ChangeLanguage";
+import LanguageSelector from "./language-selector/LanguageSelector";
 
 const HeaderIcons = () => {
   return (
@@ -21,7 +21,7 @@ const HeaderIcons = () => {
         </div>
       </div>
       <ThemeModes />
-      <ChangeLanguage/>
+      <LanguageSelector/>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import BlogsWrapper from "../Blogs";
 const BlogsListWrapper = () => {
   return (
     <div className="flex flex-wrap gap-1.5">
-      {BlogsData.map((value) => {
+      {/* {BlogsData.map((value) => {
         return (
           <BlogsWrapper
             key={value.id}
@@ -16,7 +16,7 @@ const BlogsListWrapper = () => {
             view={value.view}
           />
         );
-      })}
+      })} */}
       <SeeMore />
     </div>
   );
