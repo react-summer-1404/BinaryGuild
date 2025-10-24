@@ -2,6 +2,8 @@
 @plugin '../config/heroUi/heroUi.js';
 @source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
 @custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 
 @theme{
@@ -12,8 +14,34 @@
   --color-white: #ffffff;
   --color-gray-400:#707070;
   --color-gray-100:#DCDCDC;
+  --color-pink:#FF6C6C;
+  --color-blue-300:#675CFF;
+  --color-blue-100:#87DFFF;
+  --color-yellow:#F0DB4F;
+
 
   --font-persian: DanaFaNum;
+
+  --color-background: var(--background);
+  --color-text: var(--text);
+  --color-boarder: var(--boarder);
+  --color-muted: var(--muted);
+  --color-backgroundColor: var(--backgroundColor);
+
+}
+:root{
+  --background:#fff;
+  --text:#1a1a1a;
+  --boarder:#DCDCDC;
+  --muted:#707070;
+  --backgroundColor:#F6F6F6;
+}
+.dark{
+  --background:#1a1a1a;
+  --text:#fff;
+  --boarder:#343434;
+  --muted:#817f7f;
+  --backgroundColor:#202020;
 }
 
 #root {

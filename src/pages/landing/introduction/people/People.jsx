@@ -1,8 +1,8 @@
 import React from "react";
 
-const People = () => {
+const PeopleWrapper = () => {
   return (
-    <div className="flex flex-wrap m-auto w-[275px] gap-4 h-[40%]">
+    <div className="flex flex-wrap m-auto w-[275px] gap-4 h-[40%] text-text">
       <div className="flex flex-nowrap items-center gap-2 cursor-pointer">
         <img src="/src/assets/icons/Group 1.svg" />
         <p className="text-sm font-persian">+100 دانشجوی فعال در دوره</p>
@@ -15,4 +15,4 @@ const People = () => {
   );
 };
 
-export default People;
+export default PeopleWrapper;

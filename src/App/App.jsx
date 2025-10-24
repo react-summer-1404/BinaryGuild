@@ -1,8 +1,11 @@
 import { useTranslation } from "react-i18next";
 
+import "../core/utility/language/i18n"
 import Router from "../config/router/router";
 import "./App.css";
 import { RouterProvider } from "react-router-dom";
+import ThemeModes from "../components/common/them-moods/themeMode";
+// import { useTranslation } from "react-i18next";
 
 function App() {
     const { i18n } = useTranslation()
@@ -12,9 +15,9 @@ function App() {
 
     <main
 
-      dir={i18n.language === 'fa' ? 'rtl' : 'ltr'} className={`bg-MainBg  ${i18n.language === 'fa' ? 'font-DanaFaNum' : 'font-Pop_Med'}`}
+      dir={i18n.language === 'fa' ? 'rtl' : 'ltr'} className={`bg-MainBg  ${i18n.language === 'fa' ? 'font-IranSans' : 'font-Pop_Med'} ${ThemeModes} + "font-persian m-auto w-11/12 bg-background"`}
     >
-      <RouterProvider router={Router} className="bg-white dark:bg-black" />
+      <RouterProvider router={Router} />
     </main>
   );
 }
