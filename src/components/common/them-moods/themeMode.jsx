@@ -1,16 +1,21 @@
 import { Button } from "@heroui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Moon from "../../../core/icons/Moon";
 
 const ThemeModes = () => {
-  const dark = window.matchMedia("(prefers-color-scheme: dark)");
-  const [isDark, setIsDark] = useState(dark.matches);
+  const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [isDark, setIsDark] = useState(()=>{
+    const saved = localStorage.getItem("theme")
+    return saved ? saved === "dark" : dark;
+  });
+  useEffect(()=>{
+    document.documentElement.classList.toggle("dark", isDark);
+    localStorage.setItem("theme", isDark? "dark" : "light")
+  },[isDark])
 
   const changeMode = () => {
-    setIsDark(!isDark);
-    console.log(dark);
-    document.documentElement.classList.toggle("dark", isDark);
-    console.log(dark);
+    setIsDark(prev=>!prev);
+    
   };
 
   return (

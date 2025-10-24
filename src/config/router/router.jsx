@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import LandingLayout from "../../components/layouts/LandingLayout";
-import Register from "../../pages/authorize/pages/RegisterWrapper";
-import Login from "../../pages/authorize/pages/LoginWrapper";
+import RegisterWrapper from "../../screen/authentication/pages/RegisterWrapper"
+import LoginWrapper from "../../screen/authentication/pages/LoginWrapper";
 import AuthLayout from "../../components/layouts/AuthLayout";
-import ForgetPasswordWrapper from "../../pages/authorize/pages/ForgetPasswordWrapper";
+import ForgetPasswordWrapper from "../../screen/authentication/pages/ForgetPasswordWrapper";
 import Landing from '../../pages/landing/Landing'
 
 const Router = createBrowserRouter([
@@ -16,8 +16,8 @@ const Router = createBrowserRouter([
     path: "/",
     element: <AuthLayout />,
     children: [
-      { path: "register", element: <Register /> },
-      { path: "login", element: <Login /> },
+      { path: "register", element: <RegisterWrapper /> },
+      { path: "login", element: <LoginWrapper /> },
       { path: "forgetPassword", element: <ForgetPasswordWrapper /> },
     ],
   },

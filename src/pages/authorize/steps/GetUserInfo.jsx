@@ -5,11 +5,14 @@ import { Register } from "../../../core/services/api/post-data";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const GetUserInfo = ({ onPrevious, phoneNumber }) => {
+const GetUserInfo = ({ onPrevious}) => {
   const [getEmail, setGetEmail] = useState("");
+  const [getPhoneNumber, setGetPhoneNumber] = useState("");
   const [getPassword, setGetPassword] = useState("");
   const [emailError, setEmailError] = useState(null);
   const [passError, setPassError] = useState();
+  const [phoneNumberError, setPhoneNumberError] = useState();
+
   const navigate = useNavigate();
   const GoLogin = () => {
     navigate("/login");
@@ -19,6 +22,11 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
   const handleEmail = (e) => {
     const value = e.target.value;
     setGetEmail(value);
+  };
+
+  const handleNumber = (e) => {
+    const value = e.target.value;
+    setGetPhoneNumber(value);
   };
 
   const handlePass = (e) => {
@@ -34,6 +42,13 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
       setEmailError(null);
     }
 
+    e.preventDefault();
+    if (getPhoneNumber.trim() === "") {
+      setPhoneNumberError("شماره تلفن نمی تواند خالی باشد");
+    } else {
+      setPhoneNumberError(null);
+    }
+
     if (getPassword.trim() === "") {
       setPassError("لطفا رمز عبور خود را وارد کنید ");
     } else {
@@ -46,15 +61,16 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
 
     try {
       console.log("data before send:", {
-        gmail: getEmail,
         password: getPassword,
-        phoneNumber: phoneNumber,
+        gmail: getEmail,
+
+        phoneNumber: getPhoneNumber,
       });
 
       const response = await Register({
-        gmail: getEmail,
         password: getPassword,
-        phoneNumber: phoneNumber,
+        gmail: getEmail,
+        phoneNumber: getPhoneNumber,
       });
       console.log(response, "response");
 
@@ -69,22 +85,37 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
 
   return (
     <div className="flex flex-col items-start">
-      <h2 className="text-[28px] font font-[700] text-black mt-[75px]">
+      <h2 className="text-[28px] font font-[700] text-text mt-[75px]">
         {t("GetUserInfoHead")}{" "}
       </h2>
       <p className="text-[#707070] font-[500] mt-[12px] text-[16px]">
         {" "}
-        {t("GetUserInfoHead")}{" "}
+        {t("GetUserInfoCaption")}{" "}
       </p>
 
       <div>
         <form
           onSubmit={handleSubmit}
-          
           className="flex items-start flex-col mt-[48px]"
         >
           <label
-            className="text-[#2F2F2F] font-[600] text-[16px]"
+            className="text-text font-[600] text-[16px]"
+            htmlFor="number"
+          >
+            {t("GetUserPhoneLabel")}{" "}
+          </label>
+          <input
+            className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
+            type="number"
+            id="number"
+            value={getPhoneNumber}
+            onChange={handleNumber}
+            placeholder={t("GetUserPhonePlaceholder")}
+          />
+          <p>{phoneNumberError}</p>
+
+          <label
+            className="text-text font-[600] text-[16px]"
             htmlFor="email"
           >
             {t("GetUserEmailLabel")}{" "}
@@ -100,8 +131,9 @@ const GetUserInfo = ({ onPrevious, phoneNumber }) => {
           <p className="mt-[4px] font-bold text-[12px] text-[red]">
             {emailError}
           </p>
+
           <label
-            className="text-[#2F2F2F] font-[600] text-[16px]"
+            className="text-text font-[600] text-[16px]"
             htmlFor="password"
           >
             {t("GetUserPassLabel")}{" "}

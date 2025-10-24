@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ForgetPass } from "../../../core/services/api/post-data";
-import { Reset } from "../../../core/services/api/get-data";
 import { useTranslation } from "react-i18next";
 
-const GoToGmail = ({ onNext }) => {
+const GoToGmail = ({ onNext,setGetEmail }) => {
   const [errorCode, setErrorCode] = useState("");
   const [getUserInfo, setGetUserInfo] = useState("");
   const { t } = useTranslation();
@@ -35,23 +34,19 @@ const GoToGmail = ({ onNext }) => {
         email: getUserInfo,
         baseUrl: "https://localhost:5173/resetpassword",
       });
-
+      
+      setGetEmail(getUserInfo)
       console.log("response", response);
       onNext();
     } catch (error) {
       console.log("error", error.response || error.message);
     }
-    try {
-      const response = await Reset("0000");
-      console.log("reset confirmed", response);
-    } catch (error) {
-      console.log("error", error);
-    }
+    
   };
 
   return (
     <div className="flex flex-col items-start">
-      <h2 className="text-[28px] font font-[700] text-black mt-[75px]">
+      <h2 className="text-[28px] font font-[700] text-text mt-[75px]">
        {t("ForgetPassHead")}
       </h2>
       <p className="text-[#707070] text-right font-[500] mt-[12px] text-[16px]">
@@ -65,7 +60,7 @@ const GoToGmail = ({ onNext }) => {
           className="flex items-start flex-col mt-[48px]"
         >
           <label
-            className="text-[#2F2F2F] font-[600] text-[16px]"
+            className="text-text font-[600] text-[16px]"
             htmlFor="email"
           >
         {t("ForgetPassLabelEmail")}

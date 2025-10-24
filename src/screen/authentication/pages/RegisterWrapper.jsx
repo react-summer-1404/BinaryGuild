@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Stepper from "../../Stepper";
-import GetPhoneNumber from "../steps/GetPhoneNumber";
-import GetCode from "../steps/GetCode";
-import GetUserInfo from "../steps/GetUserInfo";
+import Stepper from "../../../pages/Stepper";
+import GetEmail from "../../../pages/authorize/steps/GetEmail";
+import GetCode from "../../../pages/authorize/steps/GetCode";
+import GetUserInfo from "../../../pages/authorize/steps/GetUserInfo";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Register = () => {
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [getEmail, setGetEmail] = useState("");
   const [step, setStep] = useState(1);
   console.log("step", step);
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const Register = () => {
   const { t } = useTranslation();
 
   return (
-    <div className=" block items-center md:w-[648px] md:p-5 md:text-right md:mr-[30px] ">
+    <div className="text-text block items-center md:w-[648px] md:p-5 md:text-right md:mr-[30px] ">
       <div className="flex justify-between mb-10 md:hidden">
         <div className="flex justify-center">
           <img
@@ -44,20 +44,20 @@ const Register = () => {
         <Stepper text={t("RegisterStep3")} active={step === 3} />
       </div>
       {step === 1 && (
-        <GetPhoneNumber
+        <GetEmail
           onNext={() => setStep(2)}
-          setPhoneNumber={setPhoneNumber}
+          setGetEmail={setGetEmail}
         />
       )}
       {step === 2 && (
         <GetCode
           onNext={() => setStep(3)}
           onPrevious={() => setStep(1)}
-          phoneNumber={phoneNumber}
+          getEmail={getEmail}
         />
       )}
       {step === 3 && (
-        <GetUserInfo onPrevious={() => setStep(2)} phoneNumber={phoneNumber} />
+        <GetUserInfo onPrevious={() => setStep(2)} />
       )}
     </div>
   );

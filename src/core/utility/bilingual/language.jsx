@@ -10,7 +10,7 @@ const getItem = (key) => {
 };
 
 i18n.use(initReactI18next).init({
-  fallbackLng: getItem("lang") || "fa",
+  fallbackLng: getItem("lang") || "en",
   interpolation: {
     escapeValue: false,
   },
@@ -21,14 +21,14 @@ i18n.use(initReactI18next).init({
 
         //Register
 
-        RegisterStep1: "واردکردن شماره همراه",
+        RegisterStep1: " واردکرن ایمیل",
         RegisterStep2: "تایید کد ارسال شده",
         RegisterStep3: "واردکردن اطلاعات شخصی",
         RegisterHead: "خوش اومدی! ",
         RegisterCaption:
-          "لطفا شماره همراه خود را وارد کنید تا کد تایید برای شما ارسال شود",
-        RegisterLabel: "شماره همراه",
-        RegisterPlaceholder: "شماره همراه خود را وارد کنید",
+          "لطفا ایمیل خود را وارد کنید تا کد تایید برای شما ارسال شود",
+        RegisterLabel:"ایمیل",
+        RegisterPlaceholder: "ایمیل خود را وارد کنید",
         HaveAccount: "حساب کاربری دارید؟",
         GoToAccount: "ورود به حساب کاربری",
 
@@ -36,7 +36,7 @@ i18n.use(initReactI18next).init({
 
         GetCodeHead: "تایید کد ارسال شده",
         GetCodeCaption:
-          "لطفا کد ارسال شده به شماره همراه {{phoneNumber}} را وارد کنید",
+          "لطفا کد ارسال شده به ایمیل خود را وارد کنید",
         GetCodeLabel: "کد تایید",
         GetCodePlaceholder: "کد تایید خود را وارد کنید",
         GetCodeAgain: " ارسال مجدد کد",
@@ -49,6 +49,9 @@ i18n.use(initReactI18next).init({
         GetUserEmailPlaceholder: "ایمیل خود را وارد کنید",
         GetUserPassLabel: "رمزعبور",
         GetUserPassPlaceholder: "رمزعبور خود را وارد کنید",
+        GetUserPhoneLabel: "شماره همراه",
+        GetUserPhonePlaceholder:"شماره همراه خود را وارد کنید",
+
 
         //Login
         LoginStep1: "واردکردن شماره همراه",
@@ -98,7 +101,7 @@ i18n.use(initReactI18next).init({
         EmailError: "لطفا ایمیل معتبر وارد کنید",
         PasswordError: "لطفا رمز عبور خود را وارد کنید ",
         EmailOrPhoneError: "ایمیل نمی تواند خالی باشد",
-        PhoneError: "لطفا شماره تلفن خود را وارد کنید",
+        emailError: "لطفا شماره تلفن خود را وارد کنید",
 
         //AuthCommon
         AuthHead: "شروع یک ماجراجویی",
@@ -182,7 +185,7 @@ i18n.use(initReactI18next).init({
         EmailError: "Please enter a valid email",
         PasswordError: "Please enter your password confirmation",
         EmailOrPhoneError: "Email cannot be empty",
-        PhoneError: "Please enter your phone number",
+        emailError: "Please enter your phone number",
 
         //AuthCommon
         AuthHead: "Start an adventure",

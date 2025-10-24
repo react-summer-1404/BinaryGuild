@@ -6,7 +6,7 @@ import GetNewCode from "./GetNewCode";
 import { VerifyMessage } from "../../../core/services/api/post-data";
 
 import { useTranslation } from "react-i18next";
-const GetCode = ({ onNext, onPrevious, phoneNumber }) => {
+const GetCode = ({ onNext, onPrevious, getEmail }) => {
   const [getCode, setGetCode] = useState("");
   const [errorCode, setErrorCode] = useState("");
 
@@ -22,14 +22,15 @@ const GetCode = ({ onNext, onPrevious, phoneNumber }) => {
   };
 
   const handleError = async (e) => {
+    console.log("sending data",{getEmail,getCode})
     e.preventDefault();
-    if (getCode.trim() === "" || getCode.trim().length !== 4) {
-      setErrorCode("لطفا کد معتبر 4 رقمی وارد کنید");
-    } else {
-      setErrorCode("");
-    }
+    // if (getCode.trim() === "" || getCode.trim().length !== 4) {
+    //   setErrorCode("لطفا کد معتبر وارد کنید");
+    // } else {
+    //   setErrorCode("");
+    // }
     try {
-      const response = await VerifyMessage(getCode, phoneNumber);
+      const response = await VerifyMessage( getEmail,getCode);
       console.log(response);
       if (response.success) {
         onNext();
@@ -42,11 +43,11 @@ const GetCode = ({ onNext, onPrevious, phoneNumber }) => {
 
   return (
     <div className="flex flex-col items-start">
-      <h2 className="text-[28px] font font-[700] text-black mt-[75px]">
+      <h2 className="text-[28px] font font-[700] text-text mt-[75px]">
         {t("GetCodeHead")}
       </h2>
       <p className="text-right text-[#707070] font-[500] mt-[12px] text-[16px]">
-        {t("GetCodeCaption", { phoneNumber: phoneNumber })}
+        {t("GetCodeCaption")}
       </p>
 
       <form
@@ -55,7 +56,7 @@ const GetCode = ({ onNext, onPrevious, phoneNumber }) => {
         className="flex items-start flex-col mt-[48px]"
       >
         <label
-          className="text-[#2F2F2F] font-[600] text-[16px]"
+          className="text-text font-[600] text-[16px]"
           htmlFor="getCode"
         >
           {t("GetCodeLabel")}
