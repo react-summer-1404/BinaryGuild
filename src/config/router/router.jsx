@@ -5,13 +5,20 @@ import Login from "../../pages/authorize/pages/LoginWrapper";
 import AuthLayout from "../../components/layouts/AuthLayout";
 import ForgetPasswordWrapper from "../../pages/authorize/pages/ForgetPasswordWrapper";
 import Landing from '../../pages/landing/Landing'
+import { path } from "framer-motion/client";
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <LandingLayout />,
-    children: [{ path: "/", element: <Landing /> }],
+    children: [{ path: "/", element: <Landing /> },
+    {
+      path: "/",
+      element: <Courses.page />,
+      children: [{ path: "/", element: <Courses /> }],
+    },],
   },
+
   {
     path: "/",
     element: <AuthLayout />,
