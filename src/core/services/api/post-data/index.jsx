@@ -1,12 +1,12 @@
 import React from "react";
 import instance from "../../interceptor";
 
-export const SendVerifyMessage = (phoneNumber) => {
-  return instance.post("/Sign/SendVerifyMessage", { phoneNumber });
+export const SendVerifyMessage = (gmail) => {
+  return instance.post("/Sign/SendVerifyMessage", { gmail });
 };
 
-export const VerifyMessage = (verifyCode, phoneNumber) => {
-  return instance.post("/Sign/VerifyMessage", { verifyCode, phoneNumber });
+export const VerifyMessage = (gmail,verifyCode ) => {
+  return instance.post("/Sign/VerifyMessage", { gmail,verifyCode  });
 };
 
 export const Register = ({ password, gmail, phoneNumber }) => {
@@ -31,6 +31,6 @@ export const ForgetPass = async ({ email, baseUrl }) => {
  
 };
 
-export const ResetPassword = ({ userId, newPassword, resetValue }) => {
-  return instance.post("/Sign/Reset", { userId, newPassword, resetValue });
+export const ResetPassword = ({ gmail, newPassword, resetValue }) => {
+  return instance.post("/Sign/Reset", { gmail, newPassword, resetValue });
 };
