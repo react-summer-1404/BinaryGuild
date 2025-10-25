@@ -10,7 +10,7 @@ const getItem = (key) => {
 };
 
 i18n.use(initReactI18next).init({
-  fallbackLng: getItem("lang") || "en",
+  fallbackLng: getItem("lang") || "fa",
   interpolation: {
     escapeValue: false,
   },
