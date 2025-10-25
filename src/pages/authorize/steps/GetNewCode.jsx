@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-const GetNewCode = () => {
+import { SendVerifyMessage } from "../../../core/services/api/post-data";
+const GetNewCode = ({getEmail,sendEmail,onNext}) => {
     const { t } = useTranslation();
   
   const formatTime = (seconds) => {
@@ -29,10 +30,20 @@ const GetNewCode = () => {
     }, 1000);
   }, [isRunning]);
 
-  const handleResend = () => {
+  const handleResend =async () => {
     setTimeLeft(60);
     setCanResend(false);
     setIsRunning(true);
+    
+        try {
+          const response = await SendVerifyMessage(getEmail);
+    
+          console.log(response, "response");
+              sendEmail(getEmail);
+          onNext();
+        } catch (error) {
+          console.log("error", error.response);
+        }
   };
 
   return (
