@@ -27,7 +27,7 @@ i18n.use(initReactI18next).init({
         RegisterHead: "خوش اومدی! ",
         RegisterCaption:
           "لطفا ایمیل خود را وارد کنید تا کد تایید برای شما ارسال شود",
-        RegisterLabel:"ایمیل",
+        RegisterLabel: "ایمیل",
         RegisterPlaceholder: "ایمیل خود را وارد کنید",
         HaveAccount: "حساب کاربری دارید؟",
         GoToAccount: "ورود به حساب کاربری",
@@ -35,8 +35,7 @@ i18n.use(initReactI18next).init({
         //GetCode
 
         GetCodeHead: "تایید کد ارسال شده",
-        GetCodeCaption:
-          "لطفا کد ارسال شده به ایمیل خود را وارد کنید",
+        GetCodeCaption: "لطفا کد ارسال شده به ایمیل خود را وارد کنید",
         GetCodeLabel: "کد تایید",
         GetCodePlaceholder: "کد تایید خود را وارد کنید",
         GetCodeAgain: " ارسال مجدد کد",
@@ -50,8 +49,7 @@ i18n.use(initReactI18next).init({
         GetUserPassLabel: "رمزعبور",
         GetUserPassPlaceholder: "رمزعبور خود را وارد کنید",
         GetUserPhoneLabel: "شماره همراه",
-        GetUserPhonePlaceholder:"شماره همراه خود را وارد کنید",
-
+        GetUserPhonePlaceholder: "شماره همراه خود را وارد کنید",
 
         //Login
         LoginStep1: "واردکردن شماره همراه",
@@ -105,6 +103,22 @@ i18n.use(initReactI18next).init({
         //AuthCommon
         AuthHead: "شروع یک ماجراجویی",
         AuthDes: "هر دوره ای که بخوای رو به راحتی پیدا کن و یاد بگیر",
+
+        //Course Details
+        CourseDesHead: "توضیحات دوره",
+        CourseRate: "امتیاز بدید",
+        PageLink: "کپی کردن لینک صفحه",
+        CourseStatus: "وضعیت",
+        CourseType: "دسته‌بندی",
+        CourseLevel: "سطح آموزشی",
+        CourseTeacher: "استاد دوره",
+        CourseStart: "تاریخ برگزاری",
+        CourseEnd: "تاریخ اتمام",
+        CourseLike: "تعداد لایک",
+        CourseDislike: "تعداد دیس‌لایک",
+        ReserveCourse: "رزرو دوره",
+        AddToFavorite: "اضافه به لیست موردعلاقه",
+        CourseName:"دوره"
       },
     },
 
@@ -188,6 +202,22 @@ i18n.use(initReactI18next).init({
         //AuthCommon
         AuthHead: "Start an adventure",
         AuthDes: "Find and learn any course you want with ease",
+
+        //Course Details
+        CourseDesHead: "course title",
+        CourseRate: "Rate us",
+        PageLink: "Copy Page Link",
+        CourseStatus: "Course Status",
+        CourseType: "Course Type",
+        CourseLevel: "Course Level",
+        CourseTeacher: "Course Teacher",
+        CourseStart: " Course start date",
+        CourseEnd: "course end date",
+        CourseLike: "Likes",
+        CourseDislike: "Dislikes",
+        ReserveCourse: "Reserve Course",
+        AddToFavorite: "Status",
+        CourseName:"Course"
       },
     },
   },
