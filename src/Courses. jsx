@@ -1,0 +1,31 @@
+
+import React from "react" ;
+
+const Courses = ()  => [
+{
+ title: "دوره جاوا اسکریپت" ,
+ teacher: "محمد حسینی ",
+ price:1500000,
+ image: "/images/js.png",
+ bgColor:"#FFEB3B",  //رنگ پس زمینه کارت
+
+},
+{
+ title:"دوره فیگما",
+ teacher:"محمد رضایی",
+ price:1000000,
+ image:"/images/figma.png",
+ bgColor:"#FF5252",
+},
+{
+ title:"دوره ری اکت جی اس",
+ teacher:"محمد صادقی",
+ price:1800000,
+ image:"/images/react.png",
+ bgColor:"#03A9F4",
+}
+
+
+
+];
+
