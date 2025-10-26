@@ -21,7 +21,7 @@ const GetEmail = ({ onNext,setGetEmail:sendEmail }) => {
     e.preventDefault();
 
     if (getEmail.trim() === "" || !getEmail.includes("@")) {
-      setEmailError(t("emailError"));
+      setEmailError(t("EmailError"));
       return;
     } else {
       setEmailError("");

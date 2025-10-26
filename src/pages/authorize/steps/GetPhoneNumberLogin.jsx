@@ -12,6 +12,7 @@ const GetPhoneNumberLogin = ({ onNext }) => {
   const [userError, setUserError] = useState("");
   const [getPassword, setGetPassword] = useState("");
   const [passError, setPassError] = useState();
+  const [remember, setRemember] = useState(false);
 
   const { t } = useTranslation();
 
@@ -42,20 +43,27 @@ const GetPhoneNumberLogin = ({ onNext }) => {
       console.log("فرم درسته");
     }
     try {
+      console.log("dataLogin", {
+        phoneOrGmail: getUserInfo,
+        password: getPassword,
+        rememberMe: remember,
+      });
       const response = await Login({
         phoneOrGmail: getUserInfo,
         password: getPassword,
-        rememberMe: true,
+        rememberMe: remember,
       });
       console.log(response, "response");
-      if (response?.data?.success) {
-        if (response?.data?.token) {
-          localStorage.setItem("token", response.data.token);
-        }
-        console.log(localStorage.getItem("token"));
-      }
+      if (response.success && response.token) {
+        const token = response.token;
 
-      onNext();
+        if (remember) {
+          localStorage.setItem("token", token);
+        } else {
+          sessionStorage.setItem("token", token);
+        }
+        onNext();
+      }
     } catch (error) {
       console.log("error", error);
     }
@@ -113,12 +121,14 @@ const GetPhoneNumberLogin = ({ onNext }) => {
 
           <div className="flex justify-between mt-[30px] w-[398px]">
             <div className="flex justify-start items-center">
-              <Checkbox defaultSelected>
-                <p className="text-muted font-[600] text-[16px] ">
+              <Checkbox
+                isSelected={remember}
+                onChange={() => setRemember(prev => ! prev)}
+              >
+                <span className="text-muted font-[600] text-[16px] ">
                   {t("LoginRemember")}{" "}
-                </p>
+                </span>
               </Checkbox>
-              
             </div>
             <Link
               className="flex items-center justify-center cursor-pointer bg-forgetpassbtn rounded-[40px] w-[175px] h-[36px] "

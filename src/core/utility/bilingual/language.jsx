@@ -101,7 +101,6 @@ i18n.use(initReactI18next).init({
         EmailError: "لطفا ایمیل معتبر وارد کنید",
         PasswordError: "لطفا رمز عبور خود را وارد کنید ",
         EmailOrPhoneError: "ایمیل نمی تواند خالی باشد",
-        emailError: "لطفا شماره تلفن خود را وارد کنید",
 
         //AuthCommon
         AuthHead: "شروع یک ماجراجویی",
@@ -185,7 +184,6 @@ i18n.use(initReactI18next).init({
         EmailError: "Please enter a valid email",
         PasswordError: "Please enter your password confirmation",
         EmailOrPhoneError: "Email cannot be empty",
-        emailError: "Please enter your phone number",
 
         //AuthCommon
         AuthHead: "Start an adventure",
