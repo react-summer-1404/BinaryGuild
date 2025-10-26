@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import LandingLayout from "../../components/layouts/LandingLayout";
-import Register from "../../pages/authorize/pages/RegisterWrapper";
-import Login from "../../pages/authorize/pages/LoginWrapper";
+import RegisterWrapper from "../../screen/authentication/pages/RegisterWrapper"
+import LoginWrapper from "../../screen/authentication/pages/LoginWrapper";
 import AuthLayout from "../../components/layouts/AuthLayout";
-import ForgetPasswordWrapper from "../../pages/authorize/pages/ForgetPasswordWrapper";
+import ForgetPasswordWrapper from "../../screen/authentication/pages/ForgetPasswordWrapper";
 import Landing from '../../pages/landing/Landing'
 import HeaderMenu from "../../components/common/header/responsive-icon/header-menu/HeaderMenu"
 import LandingWrapper from "../../pages/landing/Landing";
@@ -15,13 +15,21 @@ const Router = createBrowserRouter([
     children: [{ path: "/", element: <LandingWrapper /> }
     ],
   },
-      {path :"/menu", element:<HeaderMenu/>},
+      {path :"/menu", element:<HeaderMenu/>,
+    children: [{ path: "/", element: <Landing /> },
+    {
+      path: "/",
+      element: <Courses.page />,
+      children: [{ path: "/", element: <Courses /> }],
+    }],
+  },
+
   {
     path: "/",
     element: <AuthLayout />,
     children: [
-      { path: "register", element: <Register /> },
-      { path: "login", element: <Login /> },
+      { path: "register", element: <RegisterWrapper /> },
+      { path: "login", element: <LoginWrapper /> },
       { path: "forgetPassword", element: <ForgetPasswordWrapper /> },
     ],
   },

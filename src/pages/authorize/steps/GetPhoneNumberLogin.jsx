@@ -2,22 +2,19 @@ import React from "react";
 import AuthButton from "../../../components/common/button/AuthButton";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Login } from "../../../core/services/api/post-data";
 import { useTranslation } from "react-i18next";
+import HomeButton from "../../../components/common/button/HomeButton";
+import { Checkbox } from "@heroui/checkbox";
 
 const GetPhoneNumberLogin = ({ onNext }) => {
   const [getUserInfo, setGetUserInfo] = useState("");
   const [userError, setUserError] = useState("");
   const [getPassword, setGetPassword] = useState("");
   const [passError, setPassError] = useState();
+  const [remember, setRemember] = useState(false);
 
   const { t } = useTranslation();
-
-  const navigate = useNavigate();
-  const GoHome = () => {
-    navigate("/");
-  };
 
   const handleUserInfo = (e) => {
     const value = e.target.value;
@@ -31,13 +28,13 @@ const GetPhoneNumberLogin = ({ onNext }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (getUserInfo.trim() === "") {
-      setUserError("ایمیل نمی تواند خالی باشد");
+      setUserError(t("EmailOrPhoneError"));
     } else {
       setUserError(null);
     }
 
     if (getPassword.trim() === "") {
-      setPassError("لطفا رمز عبور خود را وارد کنید ");
+      setPassError(t("PasswordError"));
     } else {
       setPassError(null);
     }
@@ -46,28 +43,35 @@ const GetPhoneNumberLogin = ({ onNext }) => {
       console.log("فرم درسته");
     }
     try {
+      console.log("dataLogin", {
+        phoneOrGmail: getUserInfo,
+        password: getPassword,
+        rememberMe: remember,
+      });
       const response = await Login({
         phoneOrGmail: getUserInfo,
         password: getPassword,
-        rememberMe: true,
+        rememberMe: remember,
       });
       console.log(response, "response");
-      if (response?.data?.success) {
-        if (response?.data?.token) {
-          localStorage.setItem("token", response.data.token);
-        }
-        console.log(localStorage.getItem("token"));
-      }
+      if (response.success && response.token) {
+        const token = response.token;
 
-      onNext();
+        if (remember) {
+          localStorage.setItem("token", token);
+        } else {
+          sessionStorage.setItem("token", token);
+        }
+        onNext();
+      }
     } catch (error) {
       console.log("error", error);
     }
   };
 
   return (
-    <div className="flex flex-col items-start">
-      <h2 className="text-[28px] font font-[700] text-black mt-[75px]">
+    <div className="text-text flex flex-col items-start">
+      <h2 className="text-[28px] font font-[700] text-text mt-[75px]">
         {t("LoginHead")}{" "}
       </h2>
       <p className="text-[#707070] font-[500] mt-[12px] text-[16px] text-right">
@@ -81,7 +85,7 @@ const GetPhoneNumberLogin = ({ onNext }) => {
           className="flex items-start flex-col mt-[48px]"
         >
           <label
-            className="text-[#2F2F2F] font-[600] text-[16px]"
+            className="text-text font-[600] text-[16px]"
             htmlFor="email/number"
           >
             {t("LoginEmailOrPhoneLabel")}{" "}
@@ -89,7 +93,7 @@ const GetPhoneNumberLogin = ({ onNext }) => {
           <input
             className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
             type="text"
-            id="email"
+            id="email/number"
             value={getUserInfo}
             onChange={handleUserInfo}
             placeholder={t("LoginPlaceholder")}
@@ -98,7 +102,7 @@ const GetPhoneNumberLogin = ({ onNext }) => {
             {userError}
           </p>
           <label
-            className="text-[#2F2F2F] font-[600] text-[16px]"
+            className="text-text font-[600] text-[16px]"
             htmlFor="password"
           >
             {t("LoginPassLabel")}{" "}
@@ -117,18 +121,17 @@ const GetPhoneNumberLogin = ({ onNext }) => {
 
           <div className="flex justify-between mt-[30px] w-[398px]">
             <div className="flex justify-start items-center">
-              <input
-                type="checkbox"
-                id="checkbox"
-                className="w-6 h-6 border-[1px] border-[#DCDCDC] rounded "
-              />
-
-              <p className="text-[#2F2F2F] font-[600] text-[16px] ">
-                {t("LoginRemember")}{" "}
-              </p>
+              <Checkbox
+                isSelected={remember}
+                onChange={() => setRemember(prev => ! prev)}
+              >
+                <span className="text-muted font-[600] text-[16px] ">
+                  {t("LoginRemember")}{" "}
+                </span>
+              </Checkbox>
             </div>
             <Link
-              className="flex items-center justify-center cursor-pointer bg-[#F6F6F6] rounded-[40px] w-[175px] h-[36px] "
+              className="flex items-center justify-center cursor-pointer bg-forgetpassbtn rounded-[40px] w-[175px] h-[36px] "
               to={"/forgetPassword"}
             >
               <p className="text-[#3772FF] font-[600]flex text-[14px]">
@@ -137,13 +140,13 @@ const GetPhoneNumberLogin = ({ onNext }) => {
             </Link>
           </div>
 
-          <AuthButton text={t("GoToAccount")}  type="submit" />
+          <AuthButton text={t("GoToAccount")} type="submit" />
         </form>
       </div>
 
       <div className=" w-[397px] flex flex-col items-center justify-center ">
         <div className="flex mt-[16px]">
-          <p className="text-[#2F2F2F] font-[600] text-[16px]">
+          <p className="text-muted font-[600] text-[16px]">
             {t("NotHaveingAccount")}{" "}
           </p>
           <Link className="pr-[8px]" to={"/register"}>
@@ -152,13 +155,7 @@ const GetPhoneNumberLogin = ({ onNext }) => {
             </p>
           </Link>
         </div>
-
-        <div
-          onClick={GoHome}
-          className="hidden md:cursor-pointer md:mt-[32px] md:flex md:items-center md:justify-center md:border-[1px] md:border-[#DCDCDC] md:rounded-[34px] md:w-[141px] md:h-[40px]"
-        >
-          <p className="text-[#3772FF]">{t("GoBackButton")} </p>
-        </div>
+        <HomeButton />
       </div>
     </div>
   );

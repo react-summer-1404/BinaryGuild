@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import Stepper from "../../Stepper";
-import GoToGmail from "../steps/GoToGmail";
-import SetNewPassword from "../steps/SetNewPassword";
+import Stepper from "../../../pages/Stepper";
+import GoToGmail from "../../../pages/authorize/steps/GoToGmail";
+import SetNewPassword from "../../../pages/authorize/steps/SetNewPassword";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 const ForgetPasswordWrapper = () => {
+  // const [gmailKey, setGmailKey] = useState("");
+  const [getEmail, setGetEmail] = useState("");
   const [step, setStep] = useState(1);
   console.log("step", step);
 
@@ -29,14 +31,22 @@ const ForgetPasswordWrapper = () => {
           className=" cursor-pointer flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px] md:hidden"
         >
           <p className="text-[#3772FF]">{t("GoHomePage")}</p>
+          <img
+            src="../../../../src/assets/icons/home-04.png"
+            className="mr-0.5"
+          />
         </div>
       </div>
       <div className="flex flex-col gap-5 sm:flex-row items-start ">
         <Stepper text={t("ChangePasswordStep1")} active={step === 1} />
         <Stepper text={t("ConfirmCode")} active={step === 2} />
       </div>
-      {step === 1 && <GoToGmail onNext={() => setStep(2)} />}
-      {step === 2 && <SetNewPassword onPrevious={() => setStep(1)} />}
+      {step === 1 && (
+        <GoToGmail onNext={() => setStep(2)} setGetEmail={setGetEmail} />
+      )}
+      {step === 2 && (
+        <SetNewPassword onPrevious={() => setStep(1)}  getEmail={getEmail} />
+      )}
     </div>
   );
 };

@@ -28,14 +28,22 @@
   --color-boarder: var(--boarder);
   --color-muted: var(--muted);
   --color-backgroundColor: var(--backgroundColor);
+  --color-authbackground:var(--authbackground);
+  --color-authcommonbackground:var(--authcommonbackground);
+  --color-forgetpassbtn:var(--forgetpassbtn);
+
 
 }
 :root{
   --background:#fff;
+  --authbackground:#fffff;
   --text:#1a1a1a;
   --boarder:#DCDCDC;
   --muted:#707070;
   --backgroundColor:#F6F6F6;
+  --authcommonbackground:#F1F1F1;
+  --forgetpassbtn:#F6F6F6;
+
 }
 .dark{
   --background:#1a1a1a;
@@ -43,6 +51,8 @@
   --boarder:#343434;
   --muted:#817f7f;
   --backgroundColor:#202020;
+  --authcommonbackground:#2a2828;
+  --forgetpassbtn:#2a2828;
 }
 
 #root {
@@ -53,16 +63,3 @@
   direction: rtl;
 }
 
-/* authentication styles */
-
-/* .authForm{
-  @apply border-3 rounded-4xl p-10 w-1/2 bg-gray-200;
-} */
-/* colors = {
-  light:{
-    bg-main: #fff;
-  },
-   dark:{
-    bg-main: #000;
-  },
-} */
