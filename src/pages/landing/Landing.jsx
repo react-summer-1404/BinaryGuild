@@ -1,11 +1,11 @@
-import BlogsListWrapper from "./blogs/blogs-list/BlogsList";
-import GoalsListWrapper from "./goals/goals-list/GoalsList";
-import LandingButtonWrapper from "./introduction/landing-button/LandingButton";
-import PeopleWrapper from "./introduction/people/People";
-import TextWrapper from "./introduction/text/Text";
-import ProfessorsWrapper from "./professors/Professors";
-import ServicesListWrapper from "./services-section/services-section-list/ServicesList";
+import "./landings-sections/LandingPeople"
 import { useTranslation } from "react-i18next";
+import PeopleWrapper from "./landings-sections/LandingPeople";
+import LandingButtonWrapper from "./landings-sections/LandingButton";
+import GoalsWrapper from "./landings-sections/Goals";
+import ServicesSectionWrapper from "./landings-sections/ServicesSection";
+import BlogsWrapper from "./landings-sections/Blogs";
+import ProfessorsWrapper from "./landings-sections/Professors";
 
 const LandingWrapper = () => {
   const { t } = useTranslation();
@@ -19,21 +19,21 @@ const LandingWrapper = () => {
         <div className="block m-auto w-1/2 lg:hidden">
           <PeopleWrapper />
         </div>
-        <LandingButtonWrapper />
+        <LandingButtonWrapper/>
       </div>
 
-      <GoalsListWrapper />
+      <GoalsWrapper />
       <h2 className="text-[32px] m-auto font-persian w-full font-bold">
         {t("OurServices")}
       </h2>
-      <ServicesListWrapper />
+      <ServicesSectionWrapper />
       <h2 className="text-[32px] m-auto font-persian w-full font-bold">
         {t("GoodsCourses")}
       </h2>
       <h2 className="text-[32px] m-auto font-persian w-full font-bold">
         {t("GoodsBlogs")}
       </h2>
-      <BlogsListWrapper />
+      <BlogsWrapper />
       <ProfessorsWrapper />
     </div>
   );

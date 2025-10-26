@@ -1,30 +1,21 @@
 import { createBrowserRouter } from "react-router-dom";
-import LandingLayout from "../../components/layouts/LandingLayout";
-import RegisterWrapper from "../../screen/authentication/pages/RegisterWrapper"
-import LoginWrapper from "../../screen/authentication/pages/LoginWrapper";
 import AuthLayout from "../../components/layouts/AuthLayout";
+import LandingLayout from "../../components/layouts/LandingLayout";
+import Courses from "../../pages/landing/landings-sections/Courses";
 import ForgetPasswordWrapper from "../../screen/authentication/pages/ForgetPasswordWrapper";
-import Landing from '../../pages/landing/Landing'
-import HeaderMenu from "../../components/common/header/responsive-icon/header-menu/HeaderMenu"
-import LandingWrapper from "../../pages/landing/Landing";
+import LoginWrapper from "../../screen/authentication/pages/LoginWrapper";
+import RegisterWrapper from "../../screen/authentication/pages/RegisterWrapper";
+import Landing from '../../screen/Landing';
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <LandingLayout />,
-    children: [{ path: "/", element: <LandingWrapper /> }
+    children: [{ path: "/", element: <Landing /> },
+      {path:"/courses-page", element:<Courses/>}
     ],
   },
-      {path :"/menu", element:<HeaderMenu/>,
-    children: [{ path: "/", element: <Landing /> },
-    {
-      path: "/",
-      element: <Courses.page />,
-      children: [{ path: "/", element: <Courses /> }],
-    }],
-  },
-
-  {
+  { 
     path: "/",
     element: <AuthLayout />,
     children: [

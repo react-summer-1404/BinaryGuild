@@ -1,4 +1,4 @@
-import LandingButtonWrapper from '../../../pages/landing/introduction/landing-button/LandingButton'
+import LandingButtonWrapper from "../../../pages/landing/landings-sections/LandingButton"
 const LandingButton = () => {
   return (
     <div>

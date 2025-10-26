@@ -1,5 +1,6 @@
-import ProfessorsList from "./professors-background/professors-list/ProfessorsList";
-import ProfessorsTextsWrapper from "./professors-texts/ProfessorsTexts";
+import ProfessorsList from "../items-list/ProfessorsList";
+import ProfessorsTextsWrapper from "./professor-section/ProfessorsTexts";
+
 
 const ProfessorsWrapper = () => {
   return (

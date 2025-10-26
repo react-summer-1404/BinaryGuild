@@ -1,6 +1,6 @@
 import React from 'react'
-import ProfessorsData from '../../../../../core/constant/professors-data/ProfessorsData'
-import ProfessorsBackground from '../ProfessorsBackground'
+import ProfessorsBackground from '../landings-sections/professor-section/ProfessorsBackground'
+import ProfessorsData from '../../../core/constant/professors-data/ProfessorsData'
 import { useTranslation } from 'react-i18next'
 
 const ProfessorsList = () => {

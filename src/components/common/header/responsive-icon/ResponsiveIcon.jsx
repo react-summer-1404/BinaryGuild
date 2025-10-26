@@ -6,7 +6,6 @@ import { useState } from "react";
 
 const ResponsiveIcon = () => {
   const [menu, setMenu] = useState("hidden");
-  const [hideButton, setHideButton] = useState();
 
   return (
     <div className="mt-2 flex flex-wrap justify-end relative">
@@ -16,11 +15,10 @@ const ResponsiveIcon = () => {
         color="default"
         variant="faded"
         onPress={() => {
-          menu === "hidden" ? setMenu("block") : setHideButton("hidden");
-          menu === "block" ? setMenu("hidden") : setHideButton("block");
+          menu === "hidden" ? setMenu("block") : setMenu("hidden");
           console.log("menu:", menu);
         }}
-        className={`${hideButton}bg-black-600 border-black-600 rounded-full lg:hidden inline-block`}
+        className="bg-black-600 border-black-600 rounded-full lg:hidden inline-block"
       >
         <Menu />
       </Button>
