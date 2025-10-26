@@ -147,11 +147,21 @@ i18n.use(initReactI18next).init({
         Now:"همین حالا",
         Start:"شروع کن به یادگیری!",
         NewCourses:"جدیدترین دوره‌ها",
+        GoodsCourses:"دوره های برتر هفته",
+        GoodsBlogs:"بلاگ های برتر هفته",
+
+        //professors
         AcademiesProfessors:"اساتید برتر هفته آکادمی",
         DescriptionAboutProfessors:" در هفته جاری، اکادمی برنامه‌نویسی ما مفتخر است که از اساتید برتر خود تقدیر کند. این اساتید با دانش عمیق و تجربه گسترده خود در زمینه‌های مختلف برنامه‌نویسی، نه تنها به ارتقاء مهارت‌های دانشجویان کمک کرده‌اند، بلکه با برگزاری کارگاه‌ها و جلسات مشاوره، فضایی پویا و انگیزشی را برای یادگیری فراهم آورده‌اند.",
         TeachersPage:"صفحه اساتید",
-        GoodsCourses:"دوره های برتر هفته",
-        GoodsBlogs:"بلاگ های برتر هفته",
+        ProfessorsName1:"محمدحسین بحرالعلومی",
+        ProfessorsName2:"محسن اسفندیاری",
+        ProfessorsName3:"محمدحسین خلیل‌پور",
+        ProfessorsScore1:"۴.۸",
+        ProfessorsScore2:"۴.۲",
+        ProfessorsScore3:"۴.۱",
+
+        
       },
     },
 
@@ -282,11 +292,20 @@ i18n.use(initReactI18next).init({
         Now:"Right now",
         Start:"Start learning!",
         NewCourses:"The latest courses",
+        GoodsCourses:"Top courses of the week",
+        GoodsBlogs:"Top blogs of the week",
+
+        //professors
         AcademiesProfessors:"Top Professors of the Academy Week",
         DescriptionAboutProfessors:"This week, our Programming Academy is proud to recognize our top instructors. With their deep knowledge and extensive experience in various programming fields, these instructors have not only helped students improve their skills, but also provided a dynamic and motivating learning environment by organizing workshops and consulting sessions.",
         TeachersPage:"Teachers page",
-        GoodsCourses:"Top courses of the week",
-        GoodsBlogs:"Top blogs of the week",
+        ProfessorsName1:"Mohammad Hossein Bahrul Oloomi",
+        ProfessorsName2:"Mohsen Esfandiari",
+        ProfessorsName3:"Mohammad Hossein Khalilpour",
+        ProfessorsScore1:"4.8",
+        ProfessorsScore2:"4.2",
+        ProfessorsScore3:"4.1",
+
       },
     },
   },

@@ -1,25 +1,19 @@
 import { Button } from "@heroui/button";
-// import React, { useState } from "react";
 
 const ServicesSectionWrapper = ({ name, description, image }) => {
-  // const [boarderColor, setBoarderColor] = useState();
 
-  // const changeColor = () =>{
-  //   onclick(setBoarderColor === boarderColor ? 'border-blue ':'border-gray-100')
-
-  // }
 
   return (
-    <div className="w-2/5 h-[144px] flex flex-wrap justify-around border-boarder bg-backgroundColor rounded-4xl border-[0.5px] gap-0.5">
+    <div className="lg:w-2/5 lg:justify-around justify-between lg:h-[144px] h-60 w-full flex flex-wrap border-boarder bg-backgroundColor rounded-4xl border-[0.5px] lg:gap-0.5">
       <Button
         isIconOnly
         color="warning"
         variant="faded"
-        className="border-2 m-8 w-[13%] h-[74px] border-boarder bg-background rounded-full"
+        className="border-2 m-8 lg:w-[13%] h-[74px] w-19 mb-0 border-boarder bg-background rounded-full"
       >
         <img src={image} className="m-auto" />
       </Button>
-      <div className="w-[74%] items-start mt-auto mb-auto">
+      <div className="lg:w-[74%] p-6 w-full items-start lg:mt-auto mb-auto">
         <h2 className="font-persian w-[100%] text-[20px] text-justify font-bold">
           {name}
         </h2>

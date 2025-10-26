@@ -6,7 +6,7 @@ import Twitter from "../../../../core/icons/twitter";
 
 const FooterIcon = () => {
   return (
-    <div className="gap-4 flex flex-wrap mt-4">
+    <div className="gap-4 flex flex-wrap mt-4 w-1/2 justify-end md:w-auto">
       <Twitter/>
       <Youtube/>
       <Telegram/>

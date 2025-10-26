@@ -5,10 +5,10 @@ import { useTranslation } from "react-i18next";
 const ProfessorsTextsWrapper = () => {
   const {t} = useTranslation();
   return (
-    <div className="flex w-[40%] m-auto gap-6 flex-wrap text-start text-gray-100">
-      <h2 className="font-persian text-[24px] font-bold">{t("AcademiesProfessors")}
+    <div className="flex lg:w-[40%] w-full gap-6 flex-wrap text-start text-gray-100">
+      <h2 className="w-full font-persian text-[24px] font-bold">{t("AcademiesProfessors")}
       </h2>
-      <p className="font-persian text-[20px] font-medium">{t("DescriptionAboutProfessors")}
+      <p className="font-persian w-full text-[20px] font-medium">{t("DescriptionAboutProfessors")}
       </p>
       <Button color="primary" radius="full" className="font-persian">
         <p className="font-persian">{t("TeachersPage")}</p>

@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 const LandingButtonWrapper = () => {
   const {t} = useTranslation();
   return (
-    <div className="w-[150px] h-[20%] m-auto text-start flex flex-wrap gap-3">
+    <div className="w-[150px] h-[20%] lg:m-auto text-start flex flex-wrap gap-3">
       <div>
         <p className=" font-persian">{t("Now")}</p>
         <p className=" font-persian">{t("Start")}</p>

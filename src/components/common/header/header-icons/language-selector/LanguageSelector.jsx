@@ -11,7 +11,7 @@ const LanguageSelector = () => {
 
   return (
     <>
-      <div className="flex w-full flex-col">
+      <div className="w-full flex-col hidden md:inline-block">
         <Autocomplete
           className="w-26 text-text"
           defaultItems={LANGUAGES}
