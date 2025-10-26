@@ -2,75 +2,75 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@heroui/button";
 
-const CourseHeader = () => {
+const CourseHeader = ({course}) => {
   const { t } = useTranslation();
 
   return (
     <div className=" h-106 flex justify-between items-center">
-      <div className="border-[1px] border-boarder w-[642px] h-106 rounded-[32px] ">
-        imageContainer
+      <div className=" w-[642px] h-106 ">
+        <img src={course.imageAddress} className="w-full h-full  rounded-[32px]" />
       </div>
 
       <div className=" w-[730px] h-100">
-        <h2 className="text-[32px] font-[700] text-text ">{t("CourseName")} api </h2>
+        <h2 className="text-[32px] font-[700] text-text ">{t("CourseName")} {course.title} </h2>
 
-        <div className="w-[730px] border-[1px] rounded-[16px] border-[#DCDCDC] h-20 mt-6 flex ">
-          <div className="  h-20 border-[#DCDCDC] w-85">
+        <div className="w-[730px] border-[2px] rounded-[16px] border-[#DCDCDC] h-20 mt-6 flex ">
+          <div className=" h-20 border-[#DCDCDC] w-85">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseStatus")}
             </p>
-            <div className="bg-[#FF5353] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 "></div>
+            <div className="bg-[#FF5353] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 flex justify-center items-center ">{course.courseStatusName}</div>
           </div>
-          <div className="border-r h-20 border-[#DCDCDC] w-80 ">
+          <div className="border-r h-20  border-[#DCDCDC] w-80 ">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseType")}
             </p>
-            <div className="bg-[#3772FF] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 "></div>
+            <div className="bg-[#3772FF] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 flex justify-center items-center "></div>
           </div>
           <div className="border-r-1 h-20 border-[#DCDCDC] w-90 ">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseLevel")}
             </p>
-            <div className="bg-[#FF37F5] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 "></div>
+            <div className="bg-[#FF37F5] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 flex justify-center items-center ">{course.courseLevelName}</div>
           </div>
           <div className="border-r-1 h-20 border-[#DCDCDC] w-90 ">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseTeacher")}
             </p>
-            <p className=" w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">api</p>
+            <p className=" w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">{course.teacherName}</p>
           </div>
         </div>
 
-        <div className="w-[730px] border-[1px] rounded-[16px] border-[#DCDCDC] h-20 mt-6 flex ">
-          <div className="  h-20 border-[#DCDCDC] w-85 ">
+        <div className="w-[730px] border-[2px] rounded-[16px] border-[#DCDCDC] h-22 mt-6 flex ">
+          <div className="  h-22 border-[#DCDCDC] w-85 ">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseStart")}
             </p>
-            <p className=" w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">api</p>
+            <p className=" w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">{course.startTime}</p>
           </div>
-          <div className="border-r h-20 border-[#DCDCDC] w-80 ">
+          <div className="border-r h-22 border-[#DCDCDC] w-80 ">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseEnd")}
             </p>
-            <p className=" w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">api</p>
+            <p className=" w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">{course.endTime}</p>
           </div>
-          <div className="border-r-1 h-20 border-[#DCDCDC] w-90 ">
+          <div className="border-r-1 h-22 border-[#DCDCDC] w-90 ">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2">
               {t("CourseLike")}
             </p>
-            <p className=" w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">api</p>
+            <p className=" w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">{course.likeCount} {t("People")}</p>
           </div>
-          <div className="border-r-1 h-20 border-[#DCDCDC] w-90 ">
+          <div className="border-r-1 h-22 border-[#DCDCDC] w-90 ">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseDislike")}
             </p>
-            <p className=" w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">api</p>
+            <p className=" w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">{course.dissLikeCount} {t("People")}</p>
           </div>
         </div>
 
-        <div className="w-[730px] h-[34px] border border-black mt-6 flex justify-between">
-          <div>rate</div>
-          <div>price</div>
+        <div className="w-[730px] h-[34px]  mt-6 flex justify-between">
+          <div>({course.courseRate})</div>
+          <div>{course.cost} {t("Price")}</div>
         </div>
 
         <div className="w-[730px] h-[56px] mt-6 flex justify-between">

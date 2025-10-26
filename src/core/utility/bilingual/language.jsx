@@ -118,7 +118,9 @@ i18n.use(initReactI18next).init({
         CourseDislike: "تعداد دیس‌لایک",
         ReserveCourse: "رزرو دوره",
         AddToFavorite: "اضافه به لیست موردعلاقه",
-        CourseName:"دوره"
+        CourseName:"دوره",
+        People:"نفر",
+        Price:"تومان"
       },
     },
 
@@ -217,7 +219,9 @@ i18n.use(initReactI18next).init({
         CourseDislike: "Dislikes",
         ReserveCourse: "Reserve Course",
         AddToFavorite: "Status",
-        CourseName:"Course"
+        CourseName:"Course",
+        people:"people",
+        Price:"Toman",
       },
     },
   },
