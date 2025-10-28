@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const TwoStepLoginWrapper = ({ onPrevious }) => {
+const TwoStepLogin  = ({ onPrevious }) => {
   const [getCode, setGetCode] = useState("");
   const [errorCode, setErrorCode] = useState("");
 
@@ -75,4 +75,4 @@ const TwoStepLoginWrapper = ({ onPrevious }) => {
   );
 };
 
-export default TwoStepLoginWrapper;
+export default TwoStepLogin ;

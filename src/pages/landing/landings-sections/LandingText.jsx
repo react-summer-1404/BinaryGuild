@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-const TextWrapper = () => {
+const Text  = () => {
   const {t} = useTranslation();
   return (
     <div className="flex flex-wrap cursor-pointer gap-1.5 justify-start">
@@ -15,4 +15,4 @@ const TextWrapper = () => {
   );
 };
 
-export default TextWrapper;
+export default Text ;

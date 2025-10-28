@@ -18,11 +18,11 @@ const ResponsiveIcon = () => {
           menu === "hidden" ? setMenu("block") : setMenu("hidden");
           console.log("menu:", menu);
         }}
-        className="bg-black-600 border-black-600 rounded-full lg:hidden inline-block"
+        className="bg-black-600 border-black-600 rounded-full lg:hidden block"
       >
         <Menu />
       </Button>
-      <div className={`${menu} absolute top-0 z-50`}>
+      <div className={`${menu} z-50`}>
         <HeaderMenu />
       </div>
     </div>

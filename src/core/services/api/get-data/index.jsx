@@ -5,6 +5,9 @@ export const Reset = (ConfigValue) => {
   return instance.get(`/Sign/Reset/${ConfigValue}`);
 };
 
+export const TopCourses = (Count)=>{
+  return instance.get(`/Home/GetCoursesTop${Count == 4}`)
+}
 const GetAllCourseByPagination = async (apiParams) => {
   try {
     const request = await http.get(`/Home/GetCoursesWithPagination`, {

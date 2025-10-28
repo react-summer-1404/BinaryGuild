@@ -7,7 +7,7 @@ const ProfessorsList = () => {
     const {t} =useTranslation()
   return (
     <div className='m-auto flex bg-black-600 flex-wrap gap-4 relative'>
-      <img src="/src/assets/icons/Vector 3.svg" className='absolute left-1/4 top-0.5' />
+      <img src="/src/assets/icons/Vector 3.svg" className='absolute lg:hidden block left-1/4 top-0.5' />
       {ProfessorsData.map((value)=>{
         return(
             <ProfessorsBackground

@@ -1,9 +1,9 @@
-import GoalsBackground from "../../../../assets/icons/Group 19.svg";
-import GoalsData from "../../../../core/constant/goals-data/GoalsData";
+import GoalsBackground from "../../../assets/icons/Group 19.svg";
 import { useTranslation } from "react-i18next";
-import GoalsWrapper from "../Goals";
+import Goals  from "../landings-sections/Goals";
+import GoalsData from "../../../core/constant/goals-data/GoalsData";
 
-const GoalsListWrapper = () => {
+const GoalsList  = () => {
   const {t} = useTranslation()
   return (
     <>
@@ -12,7 +12,7 @@ const GoalsListWrapper = () => {
         <img src={GoalsBackground} className="absolute top-[30%] " />
         {GoalsData.map((value) => {
           return (
-            <GoalsWrapper
+            <Goals 
               key={value.id}
               id={value.id}
               name={t("GoalsName"+value.id)}
@@ -26,4 +26,4 @@ const GoalsListWrapper = () => {
   );
 };
 
-export default GoalsListWrapper;
+export default GoalsList ;

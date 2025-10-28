@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 
-const LandingButtonWrapper = () => {
+const LandingButton  = () => {
   const {t} = useTranslation();
   return (
     <div className="w-[150px] h-[20%] lg:m-auto text-start flex flex-wrap gap-3">
@@ -19,4 +19,4 @@ const LandingButtonWrapper = () => {
   );
 };
 
-export default LandingButtonWrapper;
+export default LandingButton ;

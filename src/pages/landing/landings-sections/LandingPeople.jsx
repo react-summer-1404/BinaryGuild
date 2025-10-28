@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-const PeopleWrapper = () => {
+const People  = () => {
   const {t} = useTranslation();
   return (
     <div className="flex flex-wrap m-auto w-[275px] gap-4 h-[40%] text-text">
@@ -17,4 +17,4 @@ const PeopleWrapper = () => {
   );
 };
 
-export default PeopleWrapper;
+export default People ;

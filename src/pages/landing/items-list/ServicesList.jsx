@@ -1,14 +1,14 @@
 import { useTranslation } from "react-i18next";
-import ServicesData from "../../../../core/constant/services-data/ServicesData";
-import ServicesWrapper from "../ServicesSection";
+import ServicesData from "../../../core/constant/services-data/ServicesData";
+import Services  from "../landings-sections/ServicesSection";
 
-const ServicesListWrapper = () => {
+const ServicesList  = () => {
   const {t} = useTranslation()
   return (
     <div className="flex flex-wrap w-[100%] gap-8 justify-center">
       {ServicesData.map((value) => {
         return (
-          <ServicesWrapper
+          <Services 
             key={value.id}
             id={value.id}
             name={t("ServicesName"+value.id)}
@@ -21,4 +21,4 @@ const ServicesListWrapper = () => {
   );
 };
 
-export default ServicesListWrapper;
+export default ServicesList ;

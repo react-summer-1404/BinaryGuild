@@ -1,4 +1,4 @@
-import React from 'react'
+import GoalsData from '../core/constant/goals-data/GoalsData'
 
 const Courses = () => {
   return (
@@ -8,7 +8,7 @@ const Courses = () => {
         <p className="subtitle"> دوره های پیشنهادی برای شما</p>
 
         <div className="courses-page">
-          {courseList.map((course) => (
+          {GoalsData.map((course) => (
             <div
               key={course.id}
               className="courses-card"

@@ -11,10 +11,11 @@ const Header = () => {
       <div className="hidden lg:block">
         <Logo />
       </div>
-        <HeaderButtons />
-      
-        <HeaderIcons />
-        <ResponsiveIcon />
+      <HeaderButtons />
+
+      <HeaderIcons />
+
+      <ResponsiveIcon />
     </div>
   );
 };

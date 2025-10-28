@@ -2,7 +2,7 @@ import { Button } from "@heroui/button";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-const ProfessorsTextsWrapper = () => {
+const ProfessorsTexts  = () => {
   const {t} = useTranslation();
   return (
     <div className="flex lg:w-[40%] w-full gap-6 flex-wrap text-start text-gray-100">
@@ -17,4 +17,4 @@ const ProfessorsTextsWrapper = () => {
   );
 };
 
-export default ProfessorsTextsWrapper;
+export default ProfessorsTexts ;

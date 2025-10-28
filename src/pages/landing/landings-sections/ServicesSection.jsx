@@ -1,6 +1,6 @@
 import { Button } from "@heroui/button";
 
-const ServicesSectionWrapper = ({ name, description, image }) => {
+const ServicesSection  = ({ name, description, image }) => {
 
 
   return (
@@ -25,4 +25,4 @@ const ServicesSectionWrapper = ({ name, description, image }) => {
   );
 };
 
-export default ServicesSectionWrapper;
+export default ServicesSection ;

@@ -2,7 +2,7 @@ import React from 'react'
 
 const ResponsiveLogo = () => {
   return (
-    <div className="items-center w-1/3 flex lg:hidden justify-start ">
+    <div className="items-center w-1/3 flex md:hidden justify-start ">
       <img src="/src/assets/images/the-binary-guild3.png" className="size-8 mt-2" />
       <img
         src="/src/assets/images/Untitled-1 6.svg"
