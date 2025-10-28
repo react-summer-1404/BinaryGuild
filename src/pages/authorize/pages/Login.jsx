@@ -1,18 +1,15 @@
-import React from "react";
-import { useState } from "react";
-import Stepper from "../../../pages/Stepper";
-import GoToGmail from "../../../pages/authorize/steps/GoToGmail";
-import SetNewPassword from "../../../pages/authorize/steps/SetNewPassword";
+import React, { useState } from "react";
+import Stepper from "../../Stepper";
+import GetPhoneNumberLogin from "../steps/GetPhoneNumberLogin";
+import TwoStepLoginWrapper from "../steps/TwoStepLoginWrapper";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-const ForgetPasswordWrapper = () => {
-  // const [gmailKey, setGmailKey] = useState("");
-  const [getEmail, setGetEmail] = useState("");
+
+const Login = () => {
   const [step, setStep] = useState(1);
-  console.log("step", step);
 
   const navigate = useNavigate();
-  const GoHome = () => {
+  const goHome = () => {
     navigate("/");
   };
   const { t } = useTranslation();
@@ -27,7 +24,7 @@ const ForgetPasswordWrapper = () => {
           />
         </div>
         <div
-          onClick={GoHome}
+          onClick={goHome}
           className=" cursor-pointer flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px] md:hidden"
         >
           <p className="text-[#3772FF]">{t("GoHomePage")}</p>
@@ -37,18 +34,14 @@ const ForgetPasswordWrapper = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col gap-5 sm:flex-row items-start ">
-        <Stepper text={t("ChangePasswordStep1")} active={step === 1} />
-        <Stepper text={t("ConfirmCode")} active={step === 2} />
+      <div className="flex  justify-start">
+        <Stepper text={t("LoginStep1")} active={step === 1} />
+        {/* <Stepper text={"تایید کد ارسال شده دو مرحله‌ای"} active={step === 2} /> */}
       </div>
-      {step === 1 && (
-        <GoToGmail onNext={() => setStep(2)} setGetEmail={setGetEmail} />
-      )}
-      {step === 2 && (
-        <SetNewPassword onPrevious={() => setStep(1)}  getEmail={getEmail} />
-      )}
+      {step === 1 && <GetPhoneNumberLogin onNext={() => setStep(goHome())} />}
+      {step === 2 && <TwoStepLoginWrapper onPrevious={() => setStep(1)} />}
     </div>
   );
 };
 
-export default ForgetPasswordWrapper;
+export default Login;

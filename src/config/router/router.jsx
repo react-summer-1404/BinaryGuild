@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import LandingLayout from "../../components/layouts/LandingLayout";
-import RegisterWrapper from "../../screen/authentication/pages/RegisterWrapper";
-import LoginWrapper from "../../screen/authentication/pages/LoginWrapper";
+import RegisterWrapper from "../../screen/authentication/RegisterWrapper";
+import { LoginWrapper } from "../../screen/authentication/LoginWrapper";
+import ForgetPasswordWrapper from "../../screen/authentication/ForgetPasswordWrapper";
 import AuthLayout from "../../components/layouts/AuthLayout";
-import ForgetPasswordWrapper from "../../screen/authentication/pages/ForgetPasswordWrapper";
 import Landing from "../../pages/landing/Landing";
 import { CourseDetailPage } from "../../screen/courses/courseDetail/CourseDetailPage";
 

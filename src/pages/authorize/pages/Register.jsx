@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Stepper from "../../../pages/Stepper";
-import GetEmail from "../../../pages/authorize/steps/GetEmail";
-import GetCode from "../../../pages/authorize/steps/GetCode";
-import GetUserInfo from "../../../pages/authorize/steps/GetUserInfo";
+import Stepper from "../../Stepper";
+import GetEmail from "../steps/GetEmail";
+import GetCode from "../steps/GetCode";
+import GetUserInfo from "../steps/GetUserInfo";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
