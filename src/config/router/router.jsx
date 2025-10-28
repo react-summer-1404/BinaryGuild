@@ -2,10 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import AuthLayout from "../../components/layouts/AuthLayout";
 import LandingLayout from "../../components/layouts/LandingLayout";
 import Courses from "../../pages/Courses";
-import ForgetPasswordWrapper  from "../../screen/authentication/pages/ForgetPasswordWrapper ";
-import LoginWrapper  from "../../screen/authentication/pages/LoginWrapper ";
-import RegisterWrapper  from "../../screen/authentication/pages/RegisterWrapper ";
-import LandingWrapper from '../../screen/LandingWrapper';
+import ForgetPasswordWrapper  from "../../screen/authentication/pages/ForgetPasswordWrapper";
+import LoginWrapper  from "../../screen/authentication/pages/LoginWrapper";
+import RegisterWrapper  from "../../screen/authentication/pages/RegisterWrapper";
+import LandingWrapper from '../../screen/landing-wrapper/LandingWrapper';
+import StudentPanelLayout from "../../components/layouts/StudentPanelLayout";
 
 const Router = createBrowserRouter([
   {
@@ -22,6 +23,6 @@ const Router = createBrowserRouter([
       { path: "login", element: <LoginWrapper  /> },
       { path: "forgetPassword", element: <ForgetPasswordWrapper  /> },
     ],
-  },
+  },{path:"/student-panel" , element:<StudentPanelLayout/> ,children:[]}
 ]);
 export default Router;

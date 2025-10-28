@@ -1,4 +1,4 @@
-import Landing  from "../pages/landing/Landing";
+import Landing  from "../../pages/landing/Landing";
 
 const LandingWrapper = () => {
   return (
