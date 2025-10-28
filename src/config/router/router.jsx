@@ -11,14 +11,10 @@ const Router = createBrowserRouter([
   {
     path: "/",
     element: <LandingLayout />,
-    children: [{ path: "/", element: <Landing /> },
-      { path: "courses/:id", element: <CourseDetailPage /> }
+    children: [
+      { path: "/", element: <Landing /> },
+      { path: "courses/:id", element: <CourseDetailPage /> },
     ],
-    {
-      path: "/",
-      element: <Courses.page />,
-      children: [{ path: "/", element: <Courses /> }],
-    },],
   },
 
   {
