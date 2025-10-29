@@ -5,6 +5,7 @@ import GoToGmail from "../steps/GoToGmail";
 import SetNewPassword from "../steps/SetNewPassword";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import ResetLink from "../steps/ResetLink";
 const ForgetPassword = () => {
   // const [gmailKey, setGmailKey] = useState("");
   const [getEmail, setGetEmail] = useState("");
@@ -39,13 +40,18 @@ const ForgetPassword = () => {
       </div>
       <div className="flex flex-col gap-5 sm:flex-row items-start ">
         <Stepper text={t("ChangePasswordStep1")} active={step === 1} />
-        <Stepper text={t("ConfirmCode")} active={step === 2} />
+        <Stepper text={t("ResetLink")} active={step === 2} />       
+        <Stepper text={t("ConfirmCode")} active={step === 3} />
       </div>
+
       {step === 1 && (
         <GoToGmail onNext={() => setStep(2)} setGetEmail={setGetEmail} />
       )}
       {step === 2 && (
-        <SetNewPassword onPrevious={() => setStep(1)}  getEmail={getEmail} />
+        <ResetLink setGetEmail={setGetEmail} />
+      )}      
+      {step === 3 && (
+        <SetNewPassword onPrevious={() => setStep(2)}  getEmail={getEmail} />
       )}
     </div>
   );

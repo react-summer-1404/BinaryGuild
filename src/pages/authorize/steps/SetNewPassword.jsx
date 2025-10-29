@@ -10,8 +10,9 @@ const SetNewPassword = ({ onPrevious,getEmail }) => {
   const [getPassword, setGetPassword] = useState("");
   const [passError, setPassError] = useState();
   const { t } = useTranslation();
-  const {token} = useParams;
 
+  const {resetValue} = useParams();
+console.log(resetValue,"resetValue")
 
   const navigate = useNavigate();
   const GoLogin = () => {
@@ -41,7 +42,7 @@ const SetNewPassword = ({ onPrevious,getEmail }) => {
       const response = await ResetPassword({
         gmail:getEmail,
         newPassword: getPassword,
-        resetValue: token,
+        resetValue: resetValue,
       });
       GoLogin();
       console.log("response", response);

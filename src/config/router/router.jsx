@@ -6,6 +6,7 @@ import ForgetPasswordWrapper from "../../screen/authentication/ForgetPasswordWra
 import AuthLayout from "../../components/layouts/AuthLayout";
 import Landing from "../../pages/landing/Landing";
 import { CourseDetailPage } from "../../screen/courses/courseDetail/CourseDetailPage";
+import SetNewPassword from "../../pages/authorize/steps/SetNewPassword";
 
 const Router = createBrowserRouter([
   {
@@ -23,7 +24,8 @@ const Router = createBrowserRouter([
     children: [
       { path: "register", element: <RegisterWrapper /> },
       { path: "login", element: <LoginWrapper /> },
-      { path: "forgetPassword", element: <ForgetPasswordWrapper /> },
+      { path: "forgetpassword", element: <ForgetPasswordWrapper />},
+      { path: "/resetpassword/:resetValue", element: <SetNewPassword/> },
     ],
   },
 ]);
