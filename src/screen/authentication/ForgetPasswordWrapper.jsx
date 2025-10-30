@@ -1,5 +1,5 @@
 import React from 'react'
-import ForgetPassword from '../../pages/authorize/pages/ForgetPassword'
+import ForgetPassword from "../../pages/authorize/pages/ForgetPassword"
 
 const ForgetPasswordWrapper = () => {
   return (

@@ -101,8 +101,8 @@ i18n.use(initReactI18next).init({
         EmailOrPhoneError: "ایمیل نمی تواند خالی باشد",
 
         //AuthCommon
-        AuthHead: "شروع یک ماجراجویی",
-        AuthDes: "هر دوره ای که بخوای رو به راحتی پیدا کن و یاد بگیر",
+        AuthTitle: "شروع یک ماجراجویی",
+        AuthDescription: "هر دوره ای که بخوای رو به راحتی پیدا کن و یاد بگیر",
 
         //Course Details
         CourseDesHead: "توضیحات دوره",
@@ -211,8 +211,8 @@ i18n.use(initReactI18next).init({
         EmailOrPhoneError: "Email cannot be empty",
 
         //AuthCommon
-        AuthHead: "Start an adventure",
-        AuthDes: "Find and learn any course you want with ease",
+        AuthTitle: "Start an adventure",
+        AuthDescription: "Find and learn any course you want with ease",
 
         //Course Details
         CourseDesHead: "course title",

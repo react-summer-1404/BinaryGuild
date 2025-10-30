@@ -1,5 +1,5 @@
 import React from 'react'
-import Register from '../../pages/authorize/pages/Register'
+import Register from "../../pages/authorize/pages/Register"
 
 const RegisterWrapper = () => {
   return (

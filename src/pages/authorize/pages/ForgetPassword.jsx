@@ -52,4 +52,4 @@ const ForgetPassword = () => {
   );
 };
 
-export default ForgetPasswordWrapper;
+export default ForgetPassword;
