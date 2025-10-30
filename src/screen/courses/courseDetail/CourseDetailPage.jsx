@@ -7,21 +7,21 @@ import CourseComments from "../../../pages/courseDetail/CourseComments";
 import RelatedCourses from "../../../pages/courseDetail/RelatedCourses";
 import { GetCourse } from "../../../core/services/api/get-data";
 export const CourseDetailPage = () => {
-  const { id } = useParams();
+  const { id : courseId } = useParams();
   const [course, setCourse] = useState(null);
 
   useEffect(() => {
     const CourseData = async () => {
       try {
-        const response = await GetCourse(id);
+        const response = await GetCourse(courseId);
         console.log(response, "response");
         setCourse(response);
       } catch (error) {
         console.log(error,"error");
       }
     };
-    if(id) CourseData();
-  }, [id]);
+    if(courseId) CourseData();
+  }, [courseId]);
 
   if(!course) return <p>در حال بارگزاری</p>;
   
@@ -30,7 +30,7 @@ export const CourseDetailPage = () => {
     <div className="w-351 bg-background text-text rtl:text-right mt-14 ">
       <CourseHeader course={course} />
       <CourseDescription course={course} />
-      <CourseComments />
+      <CourseComments courseId={course.courseId} />
       <RelatedCourses />
     </div>
   );

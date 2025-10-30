@@ -56,12 +56,24 @@ const GetPhoneNumberLogin = ({ onNext }) => {
       console.log(response, "response");
       if (response.success && response.token) {
         const token = response.token;
+        console.log(response)
+        if (token) {
+          if (remember) {
+            localStorage.setItem("token", token);
+            console.log(token, "token saved in localstorage");
+            localStorage.getItem("token")
 
-        if (remember) {
-          localStorage.setItem("token", token);
-        } else {
-          sessionStorage.setItem("token", token);
+            setTimeout(()=>{
+              console.log("token after saving", localStorage.getItem("token"))
+            },100)
+
+
+          } else {
+            sessionStorage.setItem("token", token);
+            console.log(token, "sessionStorage");
+          }
         }
+
         onNext();
       }
     } catch (error) {
@@ -123,7 +135,7 @@ const GetPhoneNumberLogin = ({ onNext }) => {
             <div className="flex justify-start items-center">
               <Checkbox
                 isSelected={remember}
-                onChange={() => setRemember(prev => ! prev)}
+                onChange={() => setRemember((prev) => !prev)}
               >
                 <span className="text-muted font-[600] text-[16px] ">
                   {t("LoginRemember")}{" "}
