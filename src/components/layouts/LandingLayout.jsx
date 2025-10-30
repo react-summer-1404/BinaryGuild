@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import Header from '../common/header/Header';
+import Header from '../common/landing-header/Header';
 import Footer from "../common/footer/Footer";
 
 const LandingLayout = () => {

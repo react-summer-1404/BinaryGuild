@@ -1,37 +1,47 @@
-import BlogsListWrapper from "./blogs/blogs-list/BlogsList";
-import GoalsListWrapper from "./goals/goals-list/GoalsList";
-import LandingButtonWrapper from "./introduction/landing-button/LandingButton";
-import PeopleWrapper from "./introduction/people/People";
-import TextWrapper from "./introduction/text/Text";
-import ProfessorsWrapper from "./professors/Professors";
-import ServicesListWrapper from "./services-section/services-section-list/ServicesList";
+import "./landings-sections/LandingPeople"
+import { useTranslation } from "react-i18next";
+import People  from "./landings-sections/LandingPeople";
+import LandingButton  from "./landings-sections/LandingButton";
+import Goals  from "./landings-sections/Goals";
+import ServicesSection  from "./landings-sections/ServicesSection";
+import Blogs  from "./landings-sections/Blogs";
+import Professors  from "./landings-sections/Professors";
+import TopCourses from "./landings-sections/TopCourses";
+import Text  from './landings-sections/LandingText';
+import GoalsList  from "./items-list/GoalsList";
+import ServicesList  from "./items-list/ServicesList";
 
-const LandingWrapper = () => {
+const Landing = () => {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-wrap gap-10 bg-background text-text">
-      <div className="flex flex-wrap justify-between w-[100%]">
-        <PeopleWrapper />
-        <TextWrapper />
-        <LandingButtonWrapper />
+      <div className="flex flex-wrap justify-center lg:justify-between w-full gap-2">
+        <div className="hidden m-auto lg:block">
+          <People  />
+        </div>
+        <Text  />
+        <div className="block m-auto w-1/2 lg:hidden">
+          <People  />
+        </div>
+        <LandingButton />
       </div>
-      <h2 className="text-[32px] m-auto font-persian font-bold">
-        اهداف ما در آکادمی
+
+      <GoalsList  />
+      <h2 className="text-[32px] m-auto font-persian w-full font-bold">
+        {t("OurServices")}
       </h2>
-      <GoalsListWrapper />
-      <h2 className="text-[32px] m-auto font-persian w-[21%] font-bold">
-        خدماتی که ما در طی دوره‌ها به شما ارائه میدیم
+      <ServicesList  />
+      <h2 className="text-[32px] m-auto font-persian w-full font-bold">
+        {t("GoodsCourses")}
       </h2>
-      <ServicesListWrapper />
-      <h2 className="text-[32px] m-auto font-persian w-[21%] font-bold">
-        دوره های برتر هفته
+      <TopCourses/>
+      <h2 className="text-[32px] m-auto font-persian w-full font-bold">
+        {t("GoodsBlogs")}
       </h2>
-      <h2 className="text-[32px] m-auto font-persian w-[21%] font-bold">
-        بلاگ های برتر هفته
-      </h2>
-      <BlogsListWrapper />
-      <ProfessorsWrapper />
+      <Blogs />
+      <Professors  />
     </div>
   );
 };
 
-export default LandingWrapper;
+export default Landing;
