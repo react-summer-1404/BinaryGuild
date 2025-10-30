@@ -101,8 +101,8 @@ i18n.use(initReactI18next).init({
         EmailOrPhoneError: "ایمیل نمی تواند خالی باشد",
 
         //AuthCommon
-        AuthHead: "شروع یک ماجراجویی",
-        AuthDes: "هر دوره ای که بخوای رو به راحتی پیدا کن و یاد بگیر",
+        AuthTitle: "شروع یک ماجراجویی",
+        AuthDescription: "هر دوره ای که بخوای رو به راحتی پیدا کن و یاد بگیر",
 
         //Course Details
         CourseDesHead: "توضیحات دوره",
@@ -118,7 +118,18 @@ i18n.use(initReactI18next).init({
         CourseDislike: "تعداد دیس‌لایک",
         ReserveCourse: "رزرو دوره",
         AddToFavorite: "اضافه به لیست موردعلاقه",
-        CourseName:"دوره"
+        CourseName: "دوره",
+        People: "نفر",
+        Price: "تومان",
+        comment: "نظر",
+        CommentsHead: "نظرات دانشجو ها ",
+        SeeMore: "مشاهده بیشتر",
+        RealatedCourses: "دوره های مرتبط ",
+        Comments: "نظر شما",
+        CommentDescription: "برای نظر دادن کلیک کنید",
+        ResetHead: "ایمیل تنظیم مجدد رمز عبور ارسال شد.",
+        ResetDes: "یک ایمیل برای تنظیم مجدد رمز عبور به آدرس ایمیل وارد شده شما ارسال شد. برای دریافت آن روی لینک زیر کلیک کنید.",
+        ResetLink: "دریافت لینک",
       },
     },
 
@@ -200,8 +211,8 @@ i18n.use(initReactI18next).init({
         EmailOrPhoneError: "Email cannot be empty",
 
         //AuthCommon
-        AuthHead: "Start an adventure",
-        AuthDes: "Find and learn any course you want with ease",
+        AuthTitle: "Start an adventure",
+        AuthDescription: "Find and learn any course you want with ease",
 
         //Course Details
         CourseDesHead: "course title",
@@ -217,7 +228,18 @@ i18n.use(initReactI18next).init({
         CourseDislike: "Dislikes",
         ReserveCourse: "Reserve Course",
         AddToFavorite: "Status",
-        CourseName:"Course"
+        CourseName: "Course",
+        people: "people",
+        Price: "Toman",
+        comment: "comment",
+        CommentsHead: "Student Reviews",
+        SeeMore: "See More",
+        RealatedCourses: "Related Courses",
+        Comments: "Your Comment",
+        CommentDescription: "Click for review",
+        ResetHead: "",
+        ResetDes: "",
+        ResetLink: "",
       },
     },
   },

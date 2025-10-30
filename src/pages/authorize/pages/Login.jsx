@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Stepper from "../../../pages/Stepper";
-import GetPhoneNumberLogin from "./GetPhoneNumberLogin";
-import TwoStepLogin  from "./TwoStepLoginWrapper";
+import Stepper from "../../Stepper";
+import GetPhoneNumberLogin from "../steps/GetPhoneNumberLogin";
+import TwoStepLogin  from "../steps/TwoStepLoginWrapper";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
