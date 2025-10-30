@@ -1,12 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import Stepper from "../../Stepper";
-import GoToGmail from "../steps/GoToGmail";
-import SetNewPassword from "../steps/SetNewPassword";
+import Stepper from "../../../pages/Stepper";
+import GoToGmail from "../../../pages/authorize/steps/GoToGmail";
+import SetNewPassword from "../../../pages/authorize/steps/SetNewPassword";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import ResetLink from "../steps/ResetLink";
-const ForgetPassword = () => {
+const ForgetPassword  = () => {
   // const [gmailKey, setGmailKey] = useState("");
   const [getEmail, setGetEmail] = useState("");
   const [step, setStep] = useState(1);
@@ -52,4 +51,4 @@ const ForgetPassword = () => {
   );
 };
 
-export default ForgetPasswordWrapper;
+export default ForgetPassword ;

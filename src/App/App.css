@@ -9,6 +9,7 @@
 @theme{
   --color-blue: #3772FF;
   --color-black-900: #2F2F2F;
+  --color-black-600: #353535;
   --color-white-200: #efe8ff;
   --color-black: #1a1a1a;
   --color-white: #ffffff;
@@ -46,8 +47,7 @@
 }
 .dark{
   --background:#1a1a1a;
-  --authbackground:#1c1b1be6;
-  --text:#fff;
+  --text:#dbdbdb;
   --boarder:#343434;
   --muted:#817f7f;
   --backgroundColor:#202020;

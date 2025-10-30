@@ -26,7 +26,7 @@ const ThemeModes = () => {
         color="default"
         variant="faded"
         onPress={changeMode}
-        className="bg-boarder border-boarder"
+        className="bg-boarder border-boarder lg:inline-block hidden"
       >
         <Moon />
       </Button>
