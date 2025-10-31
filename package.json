@@ -27,6 +27,7 @@
     "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^7.9.3",
     "react-stars": "^2.2.5",
+    "swiper": "^12.0.3",
     "vite-plugin-svgr": "^4.5.0"
   },
   "devDependencies": {

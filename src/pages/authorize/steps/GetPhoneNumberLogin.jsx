@@ -53,7 +53,7 @@ const GetPhoneNumberLogin = ({ onNext }) => {
         password: getPassword,
         rememberMe: remember,
       });
-      console.log(response, "response");
+      console.log(response, "response me");
       if (response.success && response.token) {
         const token = response.token;
         console.log(response)
@@ -62,10 +62,6 @@ const GetPhoneNumberLogin = ({ onNext }) => {
             localStorage.setItem("token", token);
             console.log(token, "token saved in localstorage");
             localStorage.getItem("token")
-
-            setTimeout(()=>{
-              console.log("token after saving", localStorage.getItem("token"))
-            },100)
 
 
           } else {

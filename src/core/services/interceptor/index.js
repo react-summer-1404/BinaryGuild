@@ -24,10 +24,10 @@ const onError = (error) => {
 instance.interceptors.response.use(onSuccess, onError);
 instance.interceptors.request.use((opt) => {
   if (typeof window !== "undefined") {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token") || sessionStorage.getItem("token");
     console.log("token in header:", token)
     if (token) opt.headers.Authorization = `Bearer ${token}`;
-    console.log(localStorage.getItem("token:", token))
+    console.log("token in local:",localStorage.getItem("token"))
   }
 
   return opt;

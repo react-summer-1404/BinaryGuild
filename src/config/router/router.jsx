@@ -7,7 +7,7 @@ import ForgetPasswordWrapper from "../../../src/screen/authentication/ForgetPass
 import LandingWrapper from "../../../src/screen/landing-wrapper/LandingWrapper";
 import StudentPanelLayout from "../../components/layouts/StudentPanelLayout";
 import CourseDetailWrapper from "../../../src/screen/course-detail/CourseDetailWrapper"
-
+import SetNewPassword from "../../pages/authorize/steps/SetNewPassword";
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +26,8 @@ const Router = createBrowserRouter([
       { path: "register", element: <RegisterWrapper /> },
       { path: "login", element: <LoginWrapper /> },
       { path: "forgetPassword", element: <ForgetPasswordWrapper /> },
+      { path: "resetpassword/:resetValue", element: <SetNewPassword /> },
+
     ],
   },
   { path: "/student-panel", element: <StudentPanelLayout />, children: [] },

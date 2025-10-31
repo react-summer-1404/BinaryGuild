@@ -22,7 +22,7 @@ try{
 }
 }
   return (
-    <div className=" mt-14 flex flex-col justify-between gap-5">
+    <div className=" w-full mt-14 flex flex-col gap-5  max-[540px]:mt-12">
       <h2 className="text-[#707070] font-[700] text-[20px] h-10 ">
         {" "}
         {t("CourseDesHead")}{" "}
@@ -30,7 +30,7 @@ try{
 
       <p className=" ">{course.miniDescribe}</p>
 
-      <div className="flex items-center gap-2 ">
+      <div className="flex items-center gap-2 max-[540px]:block">
         <div className="flex items-center gap-3">
           <p className="text-[#3772FF] font-[600] text-[16px]">
             {t("CourseRate")}
@@ -49,7 +49,7 @@ try{
             </div>
         </div>
 
-        <div className="flex">
+        <div className="flex max-[540px]:mt-4">
           <Button className="border-[1px] cursor-pointer gap-2 border-[#3772FF] bg-[#FCFCFC] pt-2 pb-2 pr-6 pl-6 flex justify-center items-center rounded-[48px] w-[216px] h-[39px] text-[#3772FF] font-[500] text-[16px]">
             <img src="../../../src/assets/icons/Vector.png" />
             {t("PageLink")}

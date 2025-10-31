@@ -6,19 +6,19 @@ import { ResetPassword } from "../../../core/services/api/post-data";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
-const SetNewPassword = ({ onPrevious,getEmail }) => {
+const SetNewPassword = ({ onPrevious, getEmail }) => {
   const [getPassword, setGetPassword] = useState("");
   const [passError, setPassError] = useState();
   const { t } = useTranslation();
 
-  const {resetValue} = useParams();
-console.log(resetValue,"resetValue")
+  const { resetValue } = useParams();
+  console.log(resetValue, "resetValue");
 
   const navigate = useNavigate();
   const GoLogin = () => {
+    console.log("navigate")
     navigate("/login");
   };
-
 
   const handlePass = (e) => {
     const value = e.target.value;
@@ -34,23 +34,22 @@ console.log(resetValue,"resetValue")
       setPassError(null);
     }
 
-    if (getEmail.trim() !== "" && getPassword.trim() !== "") {
+    if (getPassword.trim() !== "") {
       console.log("فرم درسته");
-    }
 
-    try {
-      const response = await ResetPassword({
-        gmail:getEmail,
-        newPassword: getPassword,
-        resetValue: resetValue,
-      });
-      GoLogin();
-      console.log("response", response);
-    } catch (error) {
-      console.log(error);
+      try {
+        const response = await ResetPassword({
+          gmail: getEmail,
+          newPassword: getPassword,
+          resetValue: resetValue,
+        });
+        GoLogin();
+        console.log("response", response);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
-
   return (
     <div className="flex flex-col items-start">
       <h2 className="text-[28px] font font-[700] text-text mt-[75px]">
@@ -66,10 +65,7 @@ console.log(resetValue,"resetValue")
           action=""
           className="flex items-start flex-col mt-[48px]"
         >
-          <label
-            className="text-text font-[600] text-[16px]"
-            htmlFor="newPass"
-          >
+          <label className="text-text font-[600] text-[16px]" htmlFor="newPass">
             {t("NewPasswordLabel")}
           </label>
           <input
@@ -106,7 +102,10 @@ console.log(resetValue,"resetValue")
 
       <div className=" w-[397px] flex  items-center justify-center ">
         <div
-          onClick={onPrevious}
+          onClick={()=>{
+            console.log("previous")
+            onPrevious;
+          }}
           className="cursor-pointer mt-[32px] flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px]"
         >
           <p className="text-[#3772FF]">{t("GoBackButton")}</p>

@@ -31,6 +31,8 @@ i18n.use(initReactI18next).init({
         RegisterPlaceholder: "شماره همراه خود را وارد کنید",
         HaveAccount: "حساب کاربری دارید؟",
         GoToAccount: "ورود به حساب کاربری",
+        GetUserPhoneLabel:"شماره همراه",
+        GetUserPhonePlaceholder:"شماره همراه خود را وارد کنید",
 
         //GetCode
 
@@ -85,8 +87,6 @@ i18n.use(initReactI18next).init({
         NewPasswordLabelPlaceholder: "رمزعبور خود را وارد کنید",
         NewPasswordRepeatLabelPlaceholder: "تکرار رمزعبور خود را وارد کنید",
 
-        // LoginForm
-
         //Buttons
         SendLinkButton: "ارسال لینک",
         GoBackButton: "بازگشت",
@@ -108,6 +108,38 @@ i18n.use(initReactI18next).init({
         Professors: "اساتید",
         ContactUs: "ارتباط با ما",
         Services: "خدمات ما",
+
+        //AuthCommon
+        AuthTitle: "شروع یک ماجراجویی",
+        AuthDescription: "هر دوره ای که بخوای رو به راحتی پیدا کن و یاد بگیر",
+
+        //Course Details
+        CourseDesHead: "توضیحات دوره",
+        CourseRate: "امتیاز بدید",
+        PageLink: "کپی کردن لینک صفحه",
+        CourseStatus: "وضعیت",
+        CourseType: "دسته‌بندی",
+        CourseLevel: "سطح آموزشی",
+        CourseTeacher: "استاد دوره",
+        CourseStart: "تاریخ برگزاری",
+        CourseEnd: "تاریخ اتمام",
+        CourseLike: "تعداد لایک",
+        CourseDislike: "تعداد دیس‌لایک",
+        ReserveCourse: "رزرو دوره",
+        AddToFavorite: "اضافه به لیست موردعلاقه",
+        CourseName: "دوره",
+        People: "نفر",
+        Price: "تومان",
+        comment: "نظر",
+        CommentsHead: "نظرات دانشجو ها و اساتید",
+        RealatedCourses: "دوره های مرتبط ",
+        Comments: "نظر شما",
+        CommentDescription: "برای نظر دادن کلیک کنید",
+        ResetHead: "ایمیل تنظیم مجدد رمز عبور ارسال شد.",
+        ResetDes:
+          "یک ایمیل برای تنظیم مجدد رمز عبور به آدرس ایمیل وارد شده شما ارسال شد. برای دریافت آن روی لینک زیر کلیک کنید.",
+        ResetLink: "دریافت لینک",
+        NoComment:"هنوز نظری ثبت نشده است.",
 
         //goals
         OurGoals: "اهداف ما در اکادمی",
@@ -137,31 +169,30 @@ i18n.use(initReactI18next).init({
         ServicesDescription3: "مشاورین ما 24 ساعته جوابگو سوال های شما هستند",
         ServicesDescription4:
           "با توجه به سطح توانایی شما فرصت های شغلی به شما پیشنهاد داده میشه",
-        
+
         //introduction
-        ModernEducation:"آموزش مدرن",
-        RapidProgress:"پیشرفت سریع",
-        Description:"آکادمی آموزش تخصصی برنامه نویسی بحر از کودکان تا بزرگسال",
-        OurProfessors:"+50 اساتید برتر جهان",
-        OurStudents:"+100 دانشجوی فعال در دوره",
-        Now:"همین حالا",
-        Start:"شروع کن به یادگیری!",
-        NewCourses:"جدیدترین دوره‌ها",
-        GoodsCourses:"دوره های برتر هفته",
-        GoodsBlogs:"بلاگ های برتر هفته",
+        ModernEducation: "آموزش مدرن",
+        RapidProgress: "پیشرفت سریع",
+        Description: "آکادمی آموزش تخصصی برنامه نویسی بحر از کودکان تا بزرگسال",
+        OurProfessors: "+50 اساتید برتر جهان",
+        OurStudents: "+100 دانشجوی فعال در دوره",
+        Now: "همین حالا",
+        Start: "شروع کن به یادگیری!",
+        NewCourses: "جدیدترین دوره‌ها",
+        GoodsCourses: "دوره های برتر هفته",
+        GoodsBlogs: "بلاگ های برتر هفته",
 
         //professors
-        AcademiesProfessors:"اساتید برتر هفته آکادمی",
-        DescriptionAboutProfessors:" در هفته جاری، اکادمی برنامه‌نویسی ما مفتخر است که از اساتید برتر خود تقدیر کند. این اساتید با دانش عمیق و تجربه گسترده خود در زمینه‌های مختلف برنامه‌نویسی، نه تنها به ارتقاء مهارت‌های دانشجویان کمک کرده‌اند، بلکه با برگزاری کارگاه‌ها و جلسات مشاوره، فضایی پویا و انگیزشی را برای یادگیری فراهم آورده‌اند.",
-        TeachersPage:"صفحه اساتید",
-        ProfessorsName1:"محمدحسین بحرالعلومی",
-        ProfessorsName2:"محسن اسفندیاری",
-        ProfessorsName3:"محمدحسین خلیل‌پور",
-        ProfessorsScore1:"۴.۸",
-        ProfessorsScore2:"۴.۲",
-        ProfessorsScore3:"۴.۱",
-
-        
+        AcademiesProfessors: "اساتید برتر هفته آکادمی",
+        DescriptionAboutProfessors:
+          " در هفته جاری، اکادمی برنامه‌نویسی ما مفتخر است که از اساتید برتر خود تقدیر کند. این اساتید با دانش عمیق و تجربه گسترده خود در زمینه‌های مختلف برنامه‌نویسی، نه تنها به ارتقاء مهارت‌های دانشجویان کمک کرده‌اند، بلکه با برگزاری کارگاه‌ها و جلسات مشاوره، فضایی پویا و انگیزشی را برای یادگیری فراهم آورده‌اند.",
+        TeachersPage: "صفحه اساتید",
+        ProfessorsName1: "محمدحسین بحرالعلومی",
+        ProfessorsName2: "محسن اسفندیاری",
+        ProfessorsName3: "محمدحسین خلیل‌پور",
+        ProfessorsScore1: "۴.۸",
+        ProfessorsScore2: "۴.۲",
+        ProfessorsScore3: "۴.۱",
       },
     },
 
@@ -176,10 +207,12 @@ i18n.use(initReactI18next).init({
         RegisterHead: "Welcome!",
         RegisterCaption:
           "Please enter your mobile number to receive verification code",
-        RegisterLabel: "Mobile Number",
-        RegisterPlaceholder: "Enter your mobile number",
+        RegisterLabel: "Phone Number",
+        RegisterPlaceholder: "Enter your phone number",
         HaveAccount: "Already have an account?",
         GoToAccount: "Login to account",
+        GetUserPhoneLabel:"Phone Number",
+        GetUserPhonePlaceholder:"Enter your phone number",
 
         //GetCode
         GetCodeHead: "Verify sent code",
@@ -241,6 +274,38 @@ i18n.use(initReactI18next).init({
         EmailError: "Please enter a valid email",
         PasswordError: "Please enter your password confirmation",
 
+        //AuthCommon
+        AuthTitle: "Start an adventure",
+        AuthDescription: "Find and learn any course you want with ease",
+
+        //Course Details
+        CourseDesHead: "course title",
+        CourseRate: "Rate us",
+        PageLink: "Copy Page Link",
+        CourseStatus: "Course Status",
+        CourseType: "Course Type",
+        CourseLevel: "Course Level",
+        CourseTeacher: "Course Teacher",
+        CourseStart: " Course start date",
+        CourseEnd: "course end date",
+        CourseLike: "Likes",
+        CourseDislike: "Dislikes",
+        ReserveCourse: "Reserve Course",
+        AddToFavorite: "Status",
+        CourseName: "Course",
+        people: "people",
+        Price: "Toman",
+        comment: "comment",
+        CommentsHead: "Student Reviews",
+        SeeMore: "See More",
+        RealatedCourses: "Related Courses",
+        Comments: "Your Comment",
+        CommentDescription: "Click for review",
+        ResetHead: "",
+        ResetDes: "",
+        ResetLink: "",
+        NoComment:"",
+
         //landing
         //header and footer
         Home: "Home",
@@ -248,7 +313,6 @@ i18n.use(initReactI18next).init({
         Blogs: "Blogs",
         AboutUs: "About us",
         Registration: "Registration/login",
-        SeeMore: "See more",
         Professors: "Professors",
         ContactUs: "Contact us",
         Services: "Our services",
@@ -284,28 +348,29 @@ i18n.use(initReactI18next).init({
           "You will be offered job opportunities based on your ability level.",
 
         //introduction
-        ModernEducation:"Modern education",
-        RapidProgress:"Rapid progress",
-        Description:"Bahr Specialized Programming Training Academy for Children to Adults",
-        OurProfessors:"+50 top professors in the world",
-        OurStudents:"+100 active students in the course",
-        Now:"Right now",
-        Start:"Start learning!",
-        NewCourses:"The latest courses",
-        GoodsCourses:"Top courses of the week",
-        GoodsBlogs:"Top blogs of the week",
+        ModernEducation: "Modern education",
+        RapidProgress: "Rapid progress",
+        Description:
+          "Bahr Specialized Programming Training Academy for Children to Adults",
+        OurProfessors: "+50 top professors in the world",
+        OurStudents: "+100 active students in the course",
+        Now: "Right now",
+        Start: "Start learning!",
+        NewCourses: "The latest courses",
+        GoodsCourses: "Top courses of the week",
+        GoodsBlogs: "Top blogs of the week",
 
         //professors
-        AcademiesProfessors:"Top Professors of the Academy Week",
-        DescriptionAboutProfessors:"This week, our Programming Academy is proud to recognize our top instructors. With their deep knowledge and extensive experience in various programming fields, these instructors have not only helped students improve their skills, but also provided a dynamic and motivating learning environment by organizing workshops and consulting sessions.",
-        TeachersPage:"Teachers page",
-        ProfessorsName1:"Mohammad Hossein Bahrul Oloomi",
-        ProfessorsName2:"Mohsen Esfandiari",
-        ProfessorsName3:"Mohammad Hossein Khalilpour",
-        ProfessorsScore1:"4.8",
-        ProfessorsScore2:"4.2",
-        ProfessorsScore3:"4.1",
-
+        AcademiesProfessors: "Top Professors of the Academy Week",
+        DescriptionAboutProfessors:
+          "This week, our Programming Academy is proud to recognize our top instructors. With their deep knowledge and extensive experience in various programming fields, these instructors have not only helped students improve their skills, but also provided a dynamic and motivating learning environment by organizing workshops and consulting sessions.",
+        TeachersPage: "Teachers page",
+        ProfessorsName1: "Mohammad Hossein Bahrul Oloomi",
+        ProfessorsName2: "Mohsen Esfandiari",
+        ProfessorsName3: "Mohammad Hossein Khalilpour",
+        ProfessorsScore1: "4.8",
+        ProfessorsScore2: "4.2",
+        ProfessorsScore3: "4.1",
       },
     },
   },

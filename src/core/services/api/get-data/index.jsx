@@ -11,3 +11,16 @@ export const GetCourseComments = (CourseId) => {
     params: { CourseId:CourseId },
   });
 };
+
+export const GetAllCourses = (pageNumber=1, rowsOgPage=10)=>{
+  return instance.get("/Course/CourseList", {
+    params:{
+      pageNumber:pageNumber,
+      RowsOgPage:rowsOgPage,
+      SortingCol:"DESC",
+      SortType:"Expire",
+      Query:"",
+    }
+  })
+}
+
