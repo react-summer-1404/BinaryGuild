@@ -6,6 +6,7 @@ import CourseDescription from "./CourseDescription"
 import CourseComments from "./CourseComments";
 import RelatedCourses from "./RelatedCourses"
 import { GetCourse } from "../../core/services/api/get-data";
+import CourseReserveMobileMode from "./CourseReserveMobileMode";
 export const CourseDetailPage = () => {
   const { id : courseId } = useParams();
   const [course, setCourse] = useState(null);
@@ -32,6 +33,7 @@ export const CourseDetailPage = () => {
       <CourseDescription course={course} />
       <CourseComments courseId={course.courseId} />
       <RelatedCourses />
+      <CourseReserveMobileMode course={course}/>
     </div>
   );
 };

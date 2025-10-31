@@ -31,8 +31,8 @@ i18n.use(initReactI18next).init({
         RegisterPlaceholder: "شماره همراه خود را وارد کنید",
         HaveAccount: "حساب کاربری دارید؟",
         GoToAccount: "ورود به حساب کاربری",
-        GetUserPhoneLabel:"شماره همراه",
-        GetUserPhonePlaceholder:"شماره همراه خود را وارد کنید",
+        GetUserPhoneLabel: "شماره همراه",
+        GetUserPhonePlaceholder: "شماره همراه خود را وارد کنید",
 
         //GetCode
 
@@ -78,6 +78,7 @@ i18n.use(initReactI18next).init({
         ForgetPassLabelNewPassword: "رمزعبور جدید",
         ForgetPassLabelNewPasswordRepeat: "تکرار رمزعبور جدید",
         ChangePasswordPlaceholder: "ایمیل خود را وارد کنید",
+        resetLink: "لینک تغییر رمز عبور",
 
         //SetNewPassword
         NewPasswordHead: "رمزعبور جدید! ",
@@ -139,7 +140,7 @@ i18n.use(initReactI18next).init({
         ResetDes:
           "یک ایمیل برای تنظیم مجدد رمز عبور به آدرس ایمیل وارد شده شما ارسال شد. برای دریافت آن روی لینک زیر کلیک کنید.",
         ResetLink: "دریافت لینک",
-        NoComment:"هنوز نظری ثبت نشده است.",
+        NoComment: "هنوز نظری ثبت نشده است.",
 
         //goals
         OurGoals: "اهداف ما در اکادمی",
@@ -211,8 +212,8 @@ i18n.use(initReactI18next).init({
         RegisterPlaceholder: "Enter your phone number",
         HaveAccount: "Already have an account?",
         GoToAccount: "Login to account",
-        GetUserPhoneLabel:"Phone Number",
-        GetUserPhonePlaceholder:"Enter your phone number",
+        GetUserPhoneLabel: "Phone Number",
+        GetUserPhonePlaceholder: "Enter your phone number",
 
         //GetCode
         GetCodeHead: "Verify sent code",
@@ -254,6 +255,7 @@ i18n.use(initReactI18next).init({
         ForgetPassLabelNewPassword: "New password",
         ForgetPassLabelNewPasswordRepeat: "Repeat new password",
         ChangePasswordPlaceholder: "Enter your email",
+        resetLink: "reset link",
 
         //SetNewPassword
         NewPasswordHead: "New password!",
@@ -304,7 +306,7 @@ i18n.use(initReactI18next).init({
         ResetHead: "",
         ResetDes: "",
         ResetLink: "",
-        NoComment:"",
+        NoComment: "",
 
         //landing
         //header and footer

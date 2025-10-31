@@ -68,7 +68,7 @@ const CourseComments = ({ courseId }) => {
       </div>
 
       {comment.length > 0  ? (
-        <div className="w-full h-[39px] flex justify-center items-center mt-5">
+        <div className="w-full h-[39px] flex justify-center items-center mt-5 ">
           <Button className="bg-[#2F2F2F] mt-8 cursor-pointer w-[125px] h-[39px] p-2 rounded-[40px] flex justify-center items-center gap-2 ">
             <p className="text-[#FCFCFC] text-[16px] font-[500]">
               {t("SeeMore")}

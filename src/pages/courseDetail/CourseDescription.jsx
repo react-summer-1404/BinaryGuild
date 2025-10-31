@@ -22,13 +22,13 @@ try{
 }
 }
   return (
-    <div className=" w-full mt-14 flex flex-col gap-5  max-[540px]:mt-12">
-      <h2 className="text-[#707070] font-[700] text-[20px] h-10 ">
+    <div className=" w-full mt-25 flex flex-col gap-5  max-[540px]:mt-12">
+      <h2 className="flex justify-start text-[#707070] font-[700] text-[20px] h-10 ">
         {" "}
         {t("CourseDesHead")}{" "}
       </h2>
 
-      <p className=" ">{course.miniDescribe}</p>
+      <p className=" flex justify-start">{course.miniDescribe}</p>
 
       <div className="flex items-center gap-2 max-[540px]:block">
         <div className="flex items-center gap-3">

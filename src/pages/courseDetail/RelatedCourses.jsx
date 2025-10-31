@@ -8,7 +8,7 @@ const RelatedCourses = () => {
 
   return (
     <div className=" h-[400px] w-full mt-8 mb-8">
-      <h2 className="text-[#707070] font-[700] text-[20px] ">
+      <h2 className="text-[#707070] font-[700] text-[20px] flex justify-start">
         {t("RealatedCourses")}
       </h2>
 
