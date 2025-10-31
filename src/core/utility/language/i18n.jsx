@@ -161,6 +161,17 @@ i18n.use(initReactI18next).init({
         ProfessorsScore2:"۴.۲",
         ProfessorsScore3:"۴.۱",
 
+        //student-panel
+        Report:"گزارش",
+        MenuText1:"داشبرد",
+        MenuText2:"دوره من",
+        MenuText3:"رزرو من",
+        MenuText4:"دوره های موردعلاقه",
+        MenuText5:"بلاگ های موردعلاقه",
+        MenuText6:"پروفایل",
+        MenuText7:"پرداخت ها",
+        DeleteUser:"خروج از حساب کاربری",
+
         
       },
     },
@@ -305,6 +316,17 @@ i18n.use(initReactI18next).init({
         ProfessorsScore1:"4.8",
         ProfessorsScore2:"4.2",
         ProfessorsScore3:"4.1",
+        
+        //student-panel
+        Report:"Report",
+        MenuText1:"Dashboard",
+        MenuText2:"My period",
+        MenuText3:"My reservation",
+        MenuText4:"Favorite courses",
+        MenuText5:"Favorite blogs",
+        MenuText6:"Profile",
+        MenuText7:"Payments",
+        DeleteUser:"Delete user",
 
       },
     },

@@ -7,9 +7,7 @@ const TopCourses = ({ imageAddress, teacherName, cost, title }) => {
       <div>
         <h2 className="text-[32px] text-start text-text">{title}</h2>
         <p className="text-[14px] text-start w-1/2 text-muted">{teacherName}</p>
-        <span className="text-[14px] text-start w-1/2 text-text">
-          {cost}
-        </span>{" "}
+        <span className="text-[14px] text-start w-1/2 text-text">{cost}</span>
       </div>
     </div>
   );

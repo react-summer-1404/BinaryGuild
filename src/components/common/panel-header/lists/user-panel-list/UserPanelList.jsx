@@ -1,12 +1,11 @@
 import React from 'react'
 
-const StudentPanel = () => {
+const UserPanelList = () => {
   return (
     <div>
-        
       
     </div>
   )
 }
 
-export default StudentPanel
+export default UserPanelList
