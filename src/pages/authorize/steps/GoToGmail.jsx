@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { ForgetPass } from "../../../core/services/api/post-data";
 import { useTranslation } from "react-i18next";
 
-const GoToGmail = ({ onNext,setGetEmail }) => {
+const GoToGmail = ({ onNext, setGetEmail }) => {
   const [errorCode, setErrorCode] = useState("");
   const [getUserInfo, setGetUserInfo] = useState("");
   const { t } = useTranslation();
@@ -32,22 +32,21 @@ const GoToGmail = ({ onNext,setGetEmail }) => {
     try {
       const response = await ForgetPass({
         email: getUserInfo,
-        baseUrl: "https://localhost:5173/resetpassword",
+        baseUrl: "http://localhost:5173/resetpassword",
       });
-      
-      setGetEmail(getUserInfo)
+
+      setGetEmail(getUserInfo);
       console.log("response", response);
       onNext();
     } catch (error) {
       console.log("error", error.response || error.message);
     }
-    
   };
 
   return (
     <div className="flex flex-col items-start">
       <h2 className="text-[28px] font font-[700] text-text mt-[75px]">
-       {t("ForgetPassHead")}
+        {t("ForgetPassHead")}
       </h2>
       <p className="text-[#707070] text-right font-[500] mt-[12px] text-[16px]">
         {t("ForgetPassCaption")}
@@ -59,12 +58,8 @@ const GoToGmail = ({ onNext,setGetEmail }) => {
           action=""
           className="flex items-start flex-col mt-[48px]"
         >
-          <label
-            className="text-text font-[600] text-[16px]"
-            htmlFor="email"
-          >
-        {t("ForgetPassLabelEmail")}
-
+          <label className="text-text font-[600] text-[16px]" htmlFor="email">
+            {t("ForgetPassLabelEmail")}
           </label>
           <input
             className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
@@ -87,8 +82,7 @@ const GoToGmail = ({ onNext,setGetEmail }) => {
           className="cursor-pointer mt-[32px] flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px]"
         >
           <p className="text-[#3772FF]">{t("GoBackButton")}</p>
-          <img  src="../../../../src/assets/icons/arrow-left-01.png" />
-
+          <img src="../../../../src/assets/icons/arrow-left-01.png" />
         </Link>
       </div>
     </div>

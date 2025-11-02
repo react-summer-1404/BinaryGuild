@@ -5,8 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { ResetPassword } from "../../../core/services/api/post-data";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+import Stepper from "../../Stepper";
 
-const SetNewPassword = ({ onPrevious, getEmail }) => {
+const SetNewPassword = ({ getEmail }) => {
   const [getPassword, setGetPassword] = useState("");
   const [passError, setPassError] = useState();
   const { t } = useTranslation();
@@ -19,6 +20,10 @@ const SetNewPassword = ({ onPrevious, getEmail }) => {
     console.log("navigate")
     navigate("/login");
   };
+
+  const goBack = ()=>{
+    navigate("/forgetpassword")
+  }
 
   const handlePass = (e) => {
     const value = e.target.value;
@@ -52,6 +57,12 @@ const SetNewPassword = ({ onPrevious, getEmail }) => {
   };
   return (
     <div className="flex flex-col items-start">
+      <div className="flex flex-col gap-5 sm:flex-row items-start ">
+        <Stepper text={t("ChangePasswordStep1")} active={false} />
+        <Stepper text={t("resetLink")} active={false} />
+        <Stepper text={t("ConfirmCode")} active={true} />
+      </div>
+
       <h2 className="text-[28px] font font-[700] text-text mt-[75px]">
         {t("NewPasswordHead")}
       </h2>
@@ -102,13 +113,10 @@ const SetNewPassword = ({ onPrevious, getEmail }) => {
 
       <div className=" w-[397px] flex  items-center justify-center ">
         <div
-          onClick={()=>{
-            console.log("previous")
-            onPrevious;
-          }}
+          onClick={goBack}
           className="cursor-pointer mt-[32px] flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px]"
         >
-          <p className="text-[#3772FF]">{t("GoBackButton")}</p>
+          <p className="text-[#1a4608]">{t("GoBackButton")}</p>
           <img
             src="../../../../src/assets/icons/arrow-left-01.png"
             className="mr-0.5"

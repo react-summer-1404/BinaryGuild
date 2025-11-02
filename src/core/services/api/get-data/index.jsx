@@ -24,3 +24,8 @@ export const GetAllCourses = (pageNumber=1, rowsOgPage=10)=>{
   })
 }
 
+export const GetBlogs = (id) => {
+  return instance.get("/News", {
+    params: { id },
+  });
+};
