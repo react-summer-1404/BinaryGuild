@@ -1,4 +1,3 @@
-import React from "react";
 import instance from "../../interceptor";
 
 export const Reset = (ConfigValue) => {
@@ -42,3 +41,6 @@ export const UseGetTopBlogs = async () => {
 //   }
 // };
 // export default GetAllCourseByPagination;
+export const GetCourse =(CourseId)=>{
+    return instance.get(`/Home/GetCourseDetails?CourseId=${CourseId}`)
+}
