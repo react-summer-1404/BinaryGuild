@@ -34,3 +34,14 @@ export const ForgetPass = async ({ email, baseUrl }) => {
 export const ResetPassword = ({ gmail, newPassword, resetValue }) => {
   return instance.post("/Sign/Reset", { gmail, newPassword, resetValue });
 };
+
+
+// course rating
+export const CourseRating = ({ CourseId, RateNumber }) => {
+  return instance.post("/Course/SetCourseRating", null,{
+    params:{
+      CourseId:CourseId,
+      RateNumber:RateNumber,
+    }
+  })
+};

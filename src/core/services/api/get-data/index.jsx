@@ -22,6 +22,21 @@ export const UseGetTopBlogs = async () => {
     console.log(error);
   }
 };
+export const GetCourse =(CourseId)=>{
+  return instance.get(`/Home/GetCourseDetails?CourseId=${CourseId}`)
+}
+export const GetCourse = (CourseId) => {
+  return instance.get("/Home/GetCourseDetails", {
+    params: { CourseId },
+  });
+};
+
+export const GetCourseComments = (CourseId) => {
+  return instance.get(`/Course/GetCourseComments`, {
+    params: { CourseId:CourseId },
+  });
+};
+
 
 // const GetAllCourseByPagination = async (apiParams) => {
 //   try {
@@ -41,6 +56,3 @@ export const UseGetTopBlogs = async () => {
 //   }
 // };
 // export default GetAllCourseByPagination;
-export const GetCourse =(CourseId)=>{
-    return instance.get(`/Home/GetCourseDetails?CourseId=${CourseId}`)
-}
