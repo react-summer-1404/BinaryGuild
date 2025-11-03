@@ -6,6 +6,7 @@ import { Login } from "../../../core/services/api/post-data";
 import { useTranslation } from "react-i18next";
 import HomeButton from "../../../components/common/button/HomeButton";
 import { Checkbox } from "@heroui/checkbox";
+import toast, { Toaster } from "react-hot-toast";
 
 const GetPhoneNumberLogin = ({ onNext }) => {
   const [getUserInfo, setGetUserInfo] = useState("");
@@ -53,32 +54,39 @@ const GetPhoneNumberLogin = ({ onNext }) => {
         password: getPassword,
         rememberMe: remember,
       });
-      console.log(response, "response me");
+      console.log(response, "response");
       if (response.success && response.token) {
         const token = response.token;
-        console.log(response)
+        console.log(response);
         if (token) {
           if (remember) {
             localStorage.setItem("token", token);
             console.log(token, "token saved in localstorage");
-            localStorage.getItem("token")
-
-
+            localStorage.getItem("token");
           } else {
             sessionStorage.setItem("token", token);
             console.log(token, "sessionStorage");
           }
         }
 
-        onNext();
+        setTimeout(() => {
+          toast.success(t("LoginNotify"));
+          console.log(toast);
+          setTimeout(() => {
+            onNext();
+          }, 1500);
+        }, 100);
       }
     } catch (error) {
       console.log("error", error);
+      toast.error(t("LoginNotifyError"));
     }
   };
 
   return (
     <div className="text-text flex flex-col items-start">
+      <Toaster />
+
       <h2 className="text-[28px] font font-[700] text-text mt-[75px]">
         {t("LoginHead")}{" "}
       </h2>

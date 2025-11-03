@@ -12,7 +12,7 @@ const onSuccess = (response) => {
 
 const onError = (error) => {
   if (error.response.status === 401) {
-    // removeItem("token");
+    // localStorage.removeItem("token");
     console.log(error);
   }
   if (error.response.status >= 404 && error.response.status < 500) {

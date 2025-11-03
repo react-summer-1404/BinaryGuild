@@ -1,19 +1,19 @@
-import instance from "../../interceptor";
-
+import http from "../../interceptor"
 export const GetCourse = (CourseId) => {
-  return instance.get("/Home/GetCourseDetails", {
+  return http.get("/Home/GetCourseDetails", {
     params: { CourseId },
   });
 };
 
 export const GetCourseComments = (CourseId) => {
-  return instance.get(`/Course/GetCourseComments`, {
-    params: { CourseId:CourseId },
+  console.log(CourseId)
+  return http.get(`/Course/GetCourseCommnets/${CourseId}`, {
+    // params: { CourseId },
   });
 };
 
 export const GetAllCourses = (pageNumber=1, rowsOgPage=10)=>{
-  return instance.get("/Course/CourseList", {
+  return http.get("/Course/CourseList", {
     params:{
       pageNumber:pageNumber,
       RowsOgPage:rowsOgPage,
@@ -25,7 +25,7 @@ export const GetAllCourses = (pageNumber=1, rowsOgPage=10)=>{
 }
 
 export const GetBlogs = (id) => {
-  return instance.get("/News", {
+  return http.get("/News", {
     params: { id },
   });
 };

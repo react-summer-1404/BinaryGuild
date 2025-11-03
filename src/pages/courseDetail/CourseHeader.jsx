@@ -1,17 +1,82 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@heroui/button";
 import moment from "moment-jalaali";
 import ReactStars from "react-stars";
+import { useState } from "react";
+import { AddReserveCourse } from "../../../src/core/services/api/post-data/index";
+import { AddfavoriteCourse } from "../../../src/core/services/api/post-data/index";
+import { AddCourseLike } from "../../../src/core/services/api/post-data/index";
+import { AddCourseDisLike } from "../../../src/core/services/api/post-data/index";
+import toast, { Toaster } from "react-hot-toast";
 
-const CourseHeader = ({ course }) => {
+const CourseHeader = ({ course, courseId }) => {
   const { t } = useTranslation();
+  const [reserve, setReserve] = useState("");
+  const [favorite, setFavorite] = useState("");
+  const [like, setLike] = useState(false);
+  const [disLike, setDisLike] = useState(false);
 
   const formatStartTime = moment(course.startTime).format("jYYYY/jMM/jDD");
   const formatEndTime = moment(course.endTime).format("jYYYY/jMM/jDD");
 
+  const handleLike = async () => {
+    try {
+      const response = await AddCourseLike({ courseId: courseId });
+      console.log(response, "response reserve");
+      if (response.success) {
+        setLike(true);
+        setDisLike(false);
+      } else {
+        toast.error("problem");
+      }
+    } catch (error) {
+      console.log(error, "error reserve");
+      toast.error(t("uve already liked"));
+    }
+  };
+
+  const handDisleLike = async () => {
+    try {
+      const response = await AddCourseDisLike({ courseId: courseId });
+      console.log(response, "response reserve");
+      if (response.success) {
+        setDisLike(true);
+        setLike(false);
+      } else {
+        toast.error("problem");
+      }
+    } catch (error) {
+      console.log(error, "error reserve");
+      toast.error(t("uve already disliked"));
+    }
+  };
+
+  const handleFavorite = async () => {
+    try {
+      const response = await AddfavoriteCourse({ courseId: courseId });
+      console.log(response, "response reserve");
+      setFavorite(response);
+    } catch (error) {
+      console.log(error, "error reserve");
+      toast.error(t("AddfavoriteNotifyError"));
+    }
+  };
+
+  const handleReserve = async () => {
+    console.log(handleReserve);
+    try {
+      const response = await AddReserveCourse({ courseId: courseId });
+      console.log(response, "response reserve");
+      setReserve(response);
+    } catch (error) {
+      console.log(error, "error reserve");
+      toast.error(t("uve already reserved"));
+    }
+  };
+
   return (
     <div className="w-full m-auto h-106 flex gap-8 justify-between items-center max-[540px]:flex-col-reverse max-[540px]:mt-100">
+      <Toaster />
       <div className=" w-[45%] h-106 max-[1000px]:hidden max-[540px]:block  max-[540px]:w-[100%]  max-[540px]:h-[424px] mt-25  ">
         <img
           src={course.imageAddress}
@@ -37,7 +102,7 @@ const CourseHeader = ({ course }) => {
               {course.courseStatusName}
             </div>
           </div>
-          <div  className="border-l-2 border-[#DCDCDC] pb-5 max-[540px]:border-l-0 max-[540px]:pb-2 max-[540px]:border-b-2">
+          <div className="border-l-2 border-[#DCDCDC] pb-5 max-[540px]:border-l-0 max-[540px]:pb-2 max-[540px]:border-b-2">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseType")}
             </p>
@@ -51,7 +116,7 @@ const CourseHeader = ({ course }) => {
               {course.courseLevelName}
             </div>
           </div>
-          <div> 
+          <div>
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseTeacher")}
             </p>
@@ -79,6 +144,7 @@ const CourseHeader = ({ course }) => {
               {formatEndTime}
             </p>
           </div>
+
           <div className="border-l-2 border-[#DCDCDC] pb-5 max-[540px]:pb-0">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2">
               {t("CourseLike")}
@@ -87,14 +153,15 @@ const CourseHeader = ({ course }) => {
               {course.likeCount} {t("People")}
             </p>
           </div>
-          <di>
+
+          <div>
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseDislike")}
             </p>
             <p className=" w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">
               {course.dissLikeCount} {t("People")}
             </p>
-          </di>
+          </div>
         </div>
 
         {/* rate and price */}
@@ -109,33 +176,58 @@ const CourseHeader = ({ course }) => {
               color2="#FCFF46"
               edit={false}
             />
-            {/* <span>+</span>
-
-            <span>{t("comment")}</span> */}
           </div>
 
           <div className="max-[540px]:hidden">
             {course.cost} {t("Price")}
           </div>
         </div>
+
         {/* buttons */}
         <div className="w-full h-14 mt-6 flex justify-between items-center">
-          <Button className="bg-[#3772FF] cursor-pointer w-[194px] h-14 rounded-[40px] flex justify-center items-center gap-2 max-[750px]:w-[120px] max-[750px]:h-10 max-[540px]:hidden ">
-            <img src="../../../src/assets/icons/archive-02.png" />
-            <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[750px]:text-[16px]">
-              {t("ReserveCourse")}
-            </p>
+          <Button className="bg-[#3772FF] cursor-pointer w-[194px] h-14 rounded-[40px]  max-[750px]:w-[120px] max-[750px]:h-10 max-[540px]:hidden ">
+            <div
+              onClick={handleReserve}
+              className="w-full flex justify-center items-center gap-2"
+            >
+              <img src="../../../src/assets/icons/archive-02.png" />
+              {reserve.success ? (
+                <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[750px]:text-[16px]">
+                  {t("Reserved")}
+                </p>
+              ) : (
+                <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[750px]:text-[16px]">
+                  {t("ReserveCourse")}
+                </p>
+              )}
+            </div>
           </Button>
+
           <Button className="bg-[#2F2F2F] cursor-pointer pl-10 pr-10  h-14 rounded-full flex justify-center items-center gap-2 max-[750px]:w-[250px] max-[750px]:h-10 ">
-            <img src="../../../src/assets/icons/book-02.png" />
-            <p className="text-[#FCFCFC] text-[20px] font-[500] max-[750px]:text-[16px]">
-              {" "}
-              {t("AddToFavorite")}
-            </p>
+            <div
+              onClick={handleFavorite}
+              className="w-full flex justify-center items-center gap-2"
+            >
+              <img src="../../../src/assets/icons/book-02.png" />
+              {favorite.success ? (
+                <p className="text-[#FCFCFC] text-[20px] font-[500] max-[750px]:text-[16px]">
+                  {" "}
+                  {t("Favorited")}{" "}
+                </p>
+              ) : (
+                <p className="text-[#FCFCFC] text-[20px] font-[500] max-[750px]:text-[16px]">
+                  {" "}
+                  {t("AddToFavorite")}{" "}
+                </p>
+              )}
+            </div>
           </Button>
 
           <div className="flex gap-3">
-            <button className="bg-[#3772FF] w-14 h-14 cursor-pointer rounded-[56px] flex justify-center items-center max-[750px]:w-12 max-[750px]:h-12">
+            <button
+              onClick={handleLike}
+              className="w-14 h-14 cursor-pointer rounded-[56px] flex justify-center items-center  max-[750px]:w-12 max-[750px]:h-12 bg-[#3772FF]"
+            >
               <svg
                 width="24"
                 height="24"
@@ -160,7 +252,10 @@ const CourseHeader = ({ course }) => {
               </svg>
             </button>
 
-            <button className="border border-[#DCDCDC] bg-[#FCFCFC] w-14 h-14 cursor-pointer rounded-[56px] flex justify-center items-center max-[750px]:w-12 max-[750px]:h-12">
+            <button
+              onClick={handDisleLike}
+              className="border border-[#DCDCDC] bg-[#FCFCFC] w-14 h-14 cursor-pointer rounded-[56px] flex justify-center items-center max-[750px]:w-12 max-[750px]:h-12"
+            >
               <svg
                 width="24"
                 height="24"

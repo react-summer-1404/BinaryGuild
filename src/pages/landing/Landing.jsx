@@ -10,7 +10,6 @@ import TopCourses from "./landings-sections/TopCourses";
 import Text  from './landings-sections/LandingText';
 import GoalsList  from "./items-list/GoalsList";
 import ServicesList  from "./items-list/ServicesList";
-
 const Landing = () => {
   const { t } = useTranslation();
   return (

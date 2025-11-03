@@ -31,6 +31,7 @@
   --color-authbackground:var(--authbackground);
   --color-authcommonbackground:var(--authcommonbackground);
   --color-forgetpassbtn:var(--forgetpassbtn);
+  --color-thumbs:var(--thumbs);
 
 
 }
@@ -43,6 +44,7 @@
   --backgroundColor:#F6F6F6;
   --authcommonbackground:#F1F1F1;
   --forgetpassbtn:#F6F6F6;
+  --thumbs:#000;
 
 }
 .dark{
@@ -53,6 +55,8 @@
   --backgroundColor:#202020;
   --authcommonbackground:#2a2828;
   --forgetpassbtn:#2a2828;
+    --thumbs:#fff;
+
 }
 
 #root {

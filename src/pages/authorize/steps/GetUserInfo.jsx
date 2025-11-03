@@ -116,7 +116,7 @@ const GetUserInfo = ({ onPrevious }) => {
             onChange={handleNumber}
             placeholder={t("GetUserPhonePlaceholder")}
           />
-          <p>{phoneNumberError}</p>
+          <p className="mt-[4px] font-bold text-[12px] text-[red]">{phoneNumberError}</p>
 
           <label className="text-text font-[600] text-[16px]" htmlFor="email">
             {t("GetUserEmailLabel")}{" "}

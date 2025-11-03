@@ -26,9 +26,9 @@ i18n.use(initReactI18next).init({
         RegisterStep3: "واردکردن اطلاعات شخصی",
         RegisterHead: "خوش اومدی! ",
         RegisterCaption:
-          "لطفا شماره همراه خود را وارد کنید تا کد تایید برای شما ارسال شود",
-        RegisterLabel: "شماره همراه",
-        RegisterPlaceholder: "شماره همراه خود را وارد کنید",
+          "لطفا ایمیل خود را وارد کنید تا کد تایید برای شما ارسال شود",
+        RegisterLabel: "ایمیل",
+        RegisterPlaceholder: "ایمیل خود را وارد کنید",
         HaveAccount: "حساب کاربری دارید؟",
         GoToAccount: "ورود به حساب کاربری",
         GetUserPhoneLabel: "شماره همراه",
@@ -38,7 +38,7 @@ i18n.use(initReactI18next).init({
 
         GetCodeHead: "تایید کد ارسال شده",
         GetCodeCaption:
-          "لطفا کد ارسال شده به شماره همراه {{phoneNumber}} را وارد کنید",
+          "لطفا کد ارسال شده به ایمیل را وارد کنید",
         GetCodeLabel: "کد تایید",
         GetCodePlaceholder: "کد تایید خود را وارد کنید",
         GetCodeAgain: " ارسال مجدد کد",
@@ -54,7 +54,6 @@ i18n.use(initReactI18next).init({
 
         //Login
         LoginStep1: "واردکردن شماره همراه",
-
         LoginHead: "خوش برگشتی! ",
         LoginCaption:
           "لطفا شماره همراه یا ایمیل و رمزعبور خود را برای ورود به حساب کاربری را وارد کنید",
@@ -64,8 +63,11 @@ i18n.use(initReactI18next).init({
         LoginPassCaption: "رمزعبور خود را وارد کنید",
         LoginRemember: "مرا به خاطر بسپار",
         NotHaveingAccount: "حساب کاربری ندارید؟",
+        EmailOrPhoneError: "لطفا شماره همراه یا ایمیل خود را وارد کنید.",
         MakeAccount: "ایجاد حساب کاربری",
         ForgetPass: "رمزعبور را فراموش کردید؟",
+        LoginNotify: "ورود با موفقیت انجام شد",
+        LoginNotifyError: "ورود شما ناموفق بود، لطفا دوباره تلاش کنید.",
 
         // ForgetPassword
 
@@ -98,6 +100,7 @@ i18n.use(initReactI18next).init({
         //Errors
         EmailError: "لطفا ایمیل معتبر وارد کنید",
         PasswordError: "لطفا تکرار رمز عبور خود را وارد کنید ",
+        RegisterNotifyErrorStepOne: "لطفا تمام اطلاعات مورد نیاز را پر کنید",
 
         //landing
         Home: "خانه",
@@ -244,6 +247,9 @@ i18n.use(initReactI18next).init({
         NotHaveingAccount: "Don't have an account?",
         MakeAccount: "Create account",
         ForgetPass: "Forgot password?",
+        LoginNotify: "You loggined successfully",
+        LoginNotifyError: "You couldn't login successfully",
+        EmailOrPhoneError: "Please enter your email or phone number",
 
         // ForgetPassword
         ChangePasswordStep1: "Enter email",
@@ -275,6 +281,8 @@ i18n.use(initReactI18next).init({
         //Errors
         EmailError: "Please enter a valid email",
         PasswordError: "Please enter your password confirmation",
+        RegisterNotifyErrorStepOne:
+          "please fill in all the required information",
 
         //AuthCommon
         AuthTitle: "Start an adventure",

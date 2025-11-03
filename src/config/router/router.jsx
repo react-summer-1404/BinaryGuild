@@ -25,7 +25,7 @@ const Router = createBrowserRouter([
     path: "/",
     element: <AuthLayout />,
     children: [
-      { path: "register", element: <RegisterWrapper /> },
+      { path: "register", element: <RegisterWrapper />},
       { path: "login", element: <LoginWrapper /> },
       { path: "forgetPassword", element: <ForgetPasswordWrapper /> },
       { path: "resetpassword/:resetValue", element: <SetNewPassword />, children:[] },
