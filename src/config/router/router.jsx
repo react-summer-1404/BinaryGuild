@@ -7,7 +7,7 @@ import LoginWrapper from "../../screen/authentication/pages/LoginWrapper";
 import RegisterWrapper from "../../screen/authentication/pages/RegisterWrapper";
 import LandingWrapper from "../../screen/landing-wrapper/LandingWrapper";
 import StudentPanelLayout from "../../components/layouts/StudentPanelLayout";
-import MyCourse from "../../pages/student-panel/my-course/MyCourse";
+import MyCourse from "../../pages/student-panel/my-courses/MyCourse";
 import Dashboard from "../../pages/student-panel/dashboard/Dashboard";
 import MyReserve from "../../pages/student-panel/my-reserve-course/MyReserve";
 import UserProfile from "../../pages/student-panel/profile/UserProfile";
@@ -33,12 +33,12 @@ const Router = createBrowserRouter([
     path: "/panel",
     element: <StudentPanelLayout />,
     children: [
-      { path: "/panel", element: <Dashboard /> },
-      { path: "/dashboard", element: <MyCourse /> },
-      {path:"/reserve-course" , element: <MyReserve/>},
-      {path:"/profile" , element:<UserProfile/>},
-      {path:"/course-fav" , element:<CourseFav/>},
-      {path:"/blog-fav" , element:<BlogFav/>}
+      { path: "my-panel", element: <MyCourse/> },
+      { path: "", element: <Dashboard/> },
+      {path:"reserve-course" , element: <MyReserve/>},
+      {path:"profile" , element:<UserProfile/>},
+      {path:"course-fav" , element:<CourseFav/>},
+      {path:"blog-fav" , element:<BlogFav/>}
     ],
   },
 ]);

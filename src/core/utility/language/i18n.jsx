@@ -171,8 +171,14 @@ i18n.use(initReactI18next).init({
         MenuText6:"پروفایل",
         MenuText7:"پرداخت ها",
         DeleteUser:"خروج از حساب کاربری",
-
         
+        //panel
+        Welcome:"سلام ، روزت بخیر",
+        Hope:"امیدوارم امروز روز خوبی رو داشته باشید",
+        HourAndDate1:"ساعت",
+        HourAndDate2:"تاریخ",
+        TimeAndDay1:"۲۰:۲۰",
+        TimeAndDay2:"۲۰ آبان ۱۴۰۴"
       },
     },
 
@@ -328,6 +334,13 @@ i18n.use(initReactI18next).init({
         MenuText7:"Payments",
         DeleteUser:"Delete user",
 
+        //panel
+        Welcome:"Hello, good day.",
+        Hope:"I hope you have a good day today.",
+        HourAndDate1:"hour",
+        HourAndDate2:"date",
+        TimeAndDay1:"20:20",
+        TimeAndDay2:"2025 November 11"
       },
     },
   },

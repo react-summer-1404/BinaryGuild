@@ -5,24 +5,40 @@ export const Reset = (ConfigValue) => {
   return instance.get(`/Sign/Reset/${ConfigValue}`);
 };
 
-export const TopCourses = (Count)=>{
-  return instance.get(`/Home/GetCoursesTop${Count == 4}`)
-}
-const GetAllCourseByPagination = async (apiParams) => {
+export const TopCoursesData = () => {
+  return instance.get("/Home/GetCoursesTop?Count=4");
+};
+
+export const UserData = () => {
+  return instance.get(`/SharePanel/GetProfileInfo`);
+};
+export const UseGetTopBlogs = async () => {
   try {
-    const request = await http.get(`/Home/GetCoursesWithPagination`, {
-      params: {
-        Pagenumber : 1,
-        Pagenumber : 1,
-        Pagenumber : 1,
-        Pagenumber : 1,
+    const response = await instance.get(
+      "/News?PageNumber=1&RowsOfPage=3&SortingCol=insertDate&SortType=desc"
+    );
 
-      },
-    });
-
-    return request;
+    return response.news;
   } catch (error) {
-    return [];
+    console.log(error);
   }
 };
-export default GetAllCourseByPagination;
+
+// const GetAllCourseByPagination = async (apiParams) => {
+//   try {
+//     const request = await http.get(`/Home/GetCoursesWithPagination`, {
+//       params: {
+//         Pagenumber : 1,
+//         Pagenumber : 1,
+//         Pagenumber : 1,
+//         Pagenumber : 1,
+
+//       },
+//     });
+
+//     return request;
+//   } catch (error) {
+//     return [];
+//   }
+// };
+// export default GetAllCourseByPagination;

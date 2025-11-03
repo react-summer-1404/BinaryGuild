@@ -1,4 +1,9 @@
-import { Autocomplete, AutocompleteItem } from "@heroui/react";
+import {
+  Autocomplete,
+  AutocompleteItem,
+  Select,
+  SelectItem,
+} from "@heroui/react";
 import { useTranslation } from "react-i18next";
 import { LANGUAGES } from "../../../../../core/utility/language/Language";
 
@@ -11,20 +16,16 @@ const LanguageSelector = () => {
 
   return (
     <>
-      <div className="w-full flex-col hidden md:inline-block">
-        <Autocomplete
-          className="w-26 text-text"
-          defaultItems={LANGUAGES}
-          disabledKeys={["انگلیسی", "فارسی"]}
-          placeholder="زبان ها"
+      <div className="w-full flex-col hidden md:inline-block ">
+        <Select
+          className="max-w-xs w-26 text-text"
+          items={LANGUAGES}
+          placeholder="Languages"
           onSelectionChange={ChangeLanguage}
+          classNames={{trigger:"bg-boarder hover:bg-boarder"}}
         >
-          {(lng) => (
-            <AutocompleteItem key={lng.code} className="bg-boarder text-text">
-              {lng.label}
-            </AutocompleteItem>
-          )}
-        </Autocomplete>
+          {(lng) => <SelectItem key={lng.code} className="bg-boarder  text-text">{lng.label}</SelectItem>}
+        </Select>
       </div>
     </>
   );

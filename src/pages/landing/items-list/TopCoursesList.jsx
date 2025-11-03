@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { TopCoursesData } from "../../../core/services/api/get-data/index";
 import TopCourses from "../landings-sections/TopCourses";
-import instance from "../../../core/services/interceptor";
+import SeeMore from "../../../components/common/button/SeeMore";
 
 const TopCoursesList = () => {
   const [courses, setCourses] = useState([]);
@@ -10,10 +11,10 @@ const TopCoursesList = () => {
   const fetchCourses = async () => {
     setIsLoading(true);
     try {
-      const response = await instance.get("/Home/GetCoursesTop?Count=4");
+      const response = await TopCoursesData();
 
-      const courses = await response.onSuccess;
-
+      const courses = response;
+      console.log(courses);
       setCourses(courses);
       setError(false);
     } catch (error) {
@@ -31,9 +32,13 @@ const TopCoursesList = () => {
     <div>
       <div>{isLoading}</div>
       <div>{error}</div>
-      {courses.map((value) => {
-        <TopCourses key={value.id} {...value} />;
-      })}
+      
+      <div className="w-full flex flex-nowrap">
+        {courses.map((item) => {
+          return <TopCourses key={item.id} {...item} />;
+        })}
+      </div>
+      <SeeMore/>
     </div>
   );
 };
