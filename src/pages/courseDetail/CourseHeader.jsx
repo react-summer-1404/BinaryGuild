@@ -77,7 +77,7 @@ const CourseHeader = ({ course, courseId }) => {
   return (
     <div className="w-full m-auto h-106 flex gap-8 justify-between items-center max-[540px]:flex-col-reverse max-[540px]:mt-100">
       <Toaster />
-      <div className=" w-[45%] h-106 max-[1000px]:hidden max-[540px]:block  max-[540px]:w-[100%]  max-[540px]:h-[424px] mt-25  ">
+      <div className=" w-[45%] h-106 max-[1000px]:hidden max-[540px]:block  max-[540px]:w-[100%]  max-[540px]:h-[424px] max-[540px]:mt-25  ">
         <img
           src={course.imageAddress}
           className="w-full h-full  rounded-[32px] max-[540px]:block  max-[540px]:w-[100%]  max-[540px]:h-[424px]"

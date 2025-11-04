@@ -4,12 +4,39 @@ import { Button } from "@heroui/button";
 import { useState, useEffect } from "react";
 import { GetCourseComments } from "../../core/services/api/get-data";
 import moment from "moment-jalaali";
+import { AddCourseCommentLike } from "../../core/services/api/post-data";
+import { AddCourseCommentDisLike } from "../../core/services/api/post-data";
+import toast, { Toaster } from "react-hot-toast";
 
 const CourseComments = ({ courseId }) => {
   const [comment, setComment] = useState([]);
   const { t } = useTranslation();
 
   const formatInsertDate = moment(courseId.insertDate).format("jYYYY/jMM/jDD");
+
+  const handleLike = async (commentId) => {
+    try {
+      const response = await AddCourseCommentLike(commentId);
+      setComment((prevComments) => prevComments.map((cmt)=> cmt.id === commentId ? {...cmt, likeCount : cmt.likeCount +1}:cmt ))
+      console.log(response);
+      toast.success("right");
+    } catch (error) {
+      console.log(error);
+      toast.error("wrong");
+    }
+  };
+
+  const handleDisLike = async (commentId) => {
+    try {
+      const response = await AddCourseCommentDisLike(commentId);
+      setComment((prevComments) => prevComments.map((cmt)=> cmt.id === commentId ? {...cmt, disslikeCount : cmt.disslikeCount +1}:cmt ))
+      console.log(response);
+      toast.success("right");
+    } catch (error) {
+      console.log(error);
+      toast.error("wrong");
+    }
+  };
 
   useEffect(() => {
     const comments = async () => {
@@ -26,6 +53,7 @@ const CourseComments = ({ courseId }) => {
 
   return (
     <div className=" h-[400px] w-full mt-8">
+      <Toaster />
       <h2 className="text-[#707070] font-[700] text-[20px] ">
         {t("CommentsHead")}
       </h2>
@@ -78,6 +106,7 @@ const CourseComments = ({ courseId }) => {
                 <div className="flex items-center gap-4 max-[1256]:gap-0 max-[1256]:flex-col ">
                   <div className="flex gap-2 ">
                     <svg
+                      onClick={() => handleLike(course.id)}
                       width="20"
                       height="20"
                       viewBox="0 0 24 24"
@@ -99,18 +128,18 @@ const CourseComments = ({ courseId }) => {
                         stroke-linejoin="round"
                       />
                     </svg>
-                    <span className="text-[16px] font-[500] max-[1256]: hidden ">
-                      {course.likeCount}
+                    <span className="text-[16px] font-[500] max-[1256]:hidden ">
+                      {course.likeCount} 
                     </span>
                   </div>
                   <div className="flex gap-2">
                     <svg
+                      onClick={() => handleDisLike(course.id)}
                       width="20"
                       height="20"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      
                     >
                       <path
                         d="M2 11.5C2 12.6046 2.89543 13.5 4 13.5C5.65685 13.5 7 12.1569 7 10.5V6.5C7 4.84315 5.65685 3.5 4 3.5C2.89543 3.5 2 4.39543 2 5.5V11.5Z"
@@ -127,12 +156,11 @@ const CourseComments = ({ courseId }) => {
                         stroke-linejoin="round"
                       />
                     </svg>
-                    <span className="text-[16px] font-[500] max-[1256]: hidden ">
+                    <span className="text-[16px] font-[500] max-[1256]:hidden ">
                       {course.disslikeCount}
                     </span>
                   </div>
                 </div>
-
               </div>
             </div>
           ))

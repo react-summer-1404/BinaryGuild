@@ -51,7 +51,7 @@ const CourseDescription = ({ course, courseId }) => {
     }
   };
   return (
-    <div className=" w-full mt-25 flex flex-col gap-5  max-[540px]:mt-12">
+    <div className=" w-full mt-10 flex flex-col gap-5  max-[540px]:mt-12">
       <Toaster/>
       <h2 className="flex justify-start text-[#707070] font-[700] text-[20px] h-10 ">
         {" "}

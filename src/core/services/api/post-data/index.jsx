@@ -75,6 +75,25 @@ export const AddCourseDisLike = ({ courseId }) => {
   });
 };
 
+// Add like to comment
+export const AddCourseCommentLike = ( CourseCommandId ) => {
+  return instance.post("/Course/AddCourseCommentLike", null, {
+    params: {
+      CourseCommandId
+    },
+  });
+};
+
+// Add dislike to comment
+export const AddCourseCommentDisLike = ( CourseCommandId ) => {
+  return instance.post("/Course/AddCourseCommentDissLike", null, {
+    params: {
+      CourseCommandId
+    },
+  });
+};
+
+
 // Add to favorite blogs
 export const AddfavoriteBlogs = ({ NewsId }) => {
   return instance.post("/News/AddFavoriteNews/" , null ,{
