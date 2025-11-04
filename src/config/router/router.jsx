@@ -9,6 +9,7 @@ import StudentPanelLayout from "../../components/layouts/StudentPanelLayout";
 import CourseDetailWrapper from "../../../src/screen/course-detail/CourseDetailWrapper"
 import SetNewPassword from "../../pages/authorize/steps/SetNewPassword";
 import BlogsDetailWrapper from "../../screen/blogs-detail/BlogsDetailWrapper";
+
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -17,6 +18,7 @@ const Router = createBrowserRouter([
       { path: "/", element: <LandingWrapper /> },
        { path: "courses/:id", element: <CourseDetailWrapper /> },
        { path: "blogs/:id", element: <BlogsDetailWrapper /> },
+
     ],
     
   },

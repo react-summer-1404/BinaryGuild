@@ -38,10 +38,10 @@ export const ResetPassword = ({ gmail, newPassword, resetValue }) => {
 };
 
 // course rating
-export const CourseRating = ({ CourseId, RateNumber }) => {
+export const CourseRating = ({ courseId, RateNumber }) => {
   return instance.post("/Course/SetCourseRating", null, {
     params: {
-      CourseId: CourseId,
+      courseId: courseId,
       RateNumber: RateNumber,
     },
   });
@@ -49,28 +49,53 @@ export const CourseRating = ({ CourseId, RateNumber }) => {
 
 // reserve course
 
-export const AddReserveCourse = ({courseId}) => {
-  return instance.post("/CourseReserve/ReserveAdd", {courseId});
+export const AddReserveCourse = ({ courseId }) => {
+  return instance.post("/CourseReserve/ReserveAdd", { courseId });
 };
 
-// Add to favorite
-export const AddfavoriteCourse = ({courseId}) => {
-  return instance.post("/Course/AddCourseFavorite", {courseId});
+// Add to favorite course
+export const AddfavoriteCourse = ({ courseId }) => {
+  return instance.post("/Course/AddCourseFavorite", { courseId });
 };
 
 // Add Like && Dislike for Course
-export const AddCourseLike = ({ CourseId }) => {
+export const AddCourseLike = ({ courseId }) => {
   return instance.post("Course/AddCourseLike", null, {
     params: {
-      CourseId: CourseId,
+      courseId: courseId,
     },
   });
 };
 
-export const AddCourseDisLike = ({ CourseId }) => {
+export const AddCourseDisLike = ({ courseId }) => {
   return instance.post("/Course/AddCourseDissLike", null, {
     params: {
-      CourseId: CourseId,
+      courseId: courseId,
+    },
+  });
+};
+
+// Add to favorite blogs
+export const AddfavoriteBlogs = ({ NewsId }) => {
+  return instance.post("/News/AddFavoriteNews/" , null ,{
+    params:{NewsId}
+  });
+};
+
+// Add like && dislike comment
+export const AddLikeBlogComments = ({ NewsId }) => {
+  return instance.post(`/News/NewsLike/${NewsId}`);
+};
+export const AddDisLikeBlogComments = ({ NewsId }) => {
+  return instance.post(`/News/NewsDissLike/:${NewsId}`);
+};
+
+//blogs rating
+export const AddBlogsRating = ({ NewsId, RateNumber }) => {
+  return instance.post("/News/NewsRate", null, {
+    params: {
+      NewsId: NewsId,
+      RateNumber: RateNumber,
     },
   });
 };

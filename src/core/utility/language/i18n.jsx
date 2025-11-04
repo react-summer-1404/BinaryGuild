@@ -37,8 +37,7 @@ i18n.use(initReactI18next).init({
         //GetCode
 
         GetCodeHead: "تایید کد ارسال شده",
-        GetCodeCaption:
-          "لطفا کد ارسال شده به ایمیل را وارد کنید",
+        GetCodeCaption: "لطفا کد ارسال شده به ایمیل را وارد کنید",
         GetCodeLabel: "کد تایید",
         GetCodePlaceholder: "کد تایید خود را وارد کنید",
         GetCodeAgain: " ارسال مجدد کد",
@@ -144,6 +143,12 @@ i18n.use(initReactI18next).init({
           "یک ایمیل برای تنظیم مجدد رمز عبور به آدرس ایمیل وارد شده شما ارسال شد. برای دریافت آن روی لینک زیر کلیک کنید.",
         ResetLink: "دریافت لینک",
         NoComment: "هنوز نظری ثبت نشده است.",
+
+        // blogs details
+        CoursePublisher: "منتشرکننده",
+        CourseViewers: "بازدیدکنندگان",
+        comments: "نظرات",
+        CourseStartPublish:"تاریخ انتشار",
 
         //goals
         OurGoals: "اهداف ما در اکادمی",
@@ -315,6 +320,12 @@ i18n.use(initReactI18next).init({
         ResetDes: "",
         ResetLink: "",
         NoComment: "",
+        // blogs details
+        CoursePublisher: "Publisher",
+        CourseViewers: "Viewers",
+        comments: "comment",
+        CourseStartPublish:"publish date",
+
 
         //landing
         //header and footer

@@ -23,7 +23,7 @@ export const CourseDetailPage = () => {
     };
     if(courseId) CourseData();
   }, [courseId]);
-
+ 
   if(!course) return <p>در حال بارگزاری</p>;
   
 

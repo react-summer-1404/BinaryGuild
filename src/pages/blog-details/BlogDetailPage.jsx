@@ -17,9 +17,6 @@ const BlogDetailPage = () => {
       try {
         const response = await GetBlogs(id);
         console.log(response);
-        
-
-
         setBlogs(response);
       } catch (error) {
         console.log(error, "error");
@@ -31,10 +28,23 @@ const BlogDetailPage = () => {
   if (!blogs) return <p>در حال بارگزاری</p>;
 
   return (
-    <div className=" w-full m-auto bg-background flex flex-col items-center text-text rtl:text-right mt-14 max-[540px]:mt-40 ">
-      <BlogHeader blogs={blogs} />
-      <BlogDescription blogs={blogs} />
-      <BlogComments blogs={blogs} />
+    <div className="border  border-black  bg-background  flex flex-col items-center text-text rtl:text-right mt-14 ">
+      <BlogHeader
+        newsId={id}
+        title={blogs.detailsNewsDto.title}
+        currentImageAddressTumb={blogs.detailsNewsDto.currentImageAddressTumb}
+        insertDate={blogs.detailsNewsDto.insertDate}
+        newsCatregoryName={blogs.detailsNewsDto.newsCatregoryName}
+        addUserFullName={blogs.detailsNewsDto.addUserFullName}
+        newsLike={blogs.detailsNewsDto._count.newsLike}
+        newsDissLike={blogs.detailsNewsDto._count.newsDissLike}
+        newsRate={blogs.detailsNewsDto._count.newsRate}
+        newsComment={blogs.detailsNewsDto._count.newsComment}
+        newsView={blogs.detailsNewsDto._count.newsView}
+      />
+      <BlogDescription describe={blogs.detailsNewsDto.describe} NewsId={id} />
+
+      <BlogComments NewsId={id} />
       <RelatedBlogs />
     </div>
   );

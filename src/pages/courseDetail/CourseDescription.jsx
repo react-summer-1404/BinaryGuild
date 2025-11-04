@@ -79,7 +79,7 @@ const CourseDescription = ({ course, courseId }) => {
         </div>
 
         <div  className="flex max-[540px]:mt-4">
-          <Button className="border-[1px] cursor-pointer  border-[#3772FF] bg-[#FCFCFC] p-1  rounded-[48px] w-[216px] h-[39px] text-[#3772FF] font-[500] text-[16px]">
+          <Button className="border-[1px] cursor-pointer  border-buttonBorder bg-[#FCFCFC] p-1  rounded-[48px] w-[216px] h-[39px] text-[#3772FF] font-[500] text-[16px]">
             <div onClick={handleCopy}  className=" w-full flex justify-center gap-3 items-center ">
             <img src="../../../src/assets/icons/Vector.png" />
             {copy ? t("copied") : t("PageLink")}               
