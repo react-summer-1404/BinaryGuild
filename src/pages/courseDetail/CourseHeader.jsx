@@ -21,7 +21,7 @@ const CourseHeader = ({ course, courseId }) => {
 
   const handleLike = async () => {
     try {
-      const response = await AddCourseLike({ courseId: courseId });
+      const response = await AddCourseLike(courseId);
       console.log(response, "response reserve");
       if (response.success) {
         setLike(true);

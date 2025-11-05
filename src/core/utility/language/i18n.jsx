@@ -143,6 +143,7 @@ i18n.use(initReactI18next).init({
           "یک ایمیل برای تنظیم مجدد رمز عبور به آدرس ایمیل وارد شده شما ارسال شد. برای دریافت آن روی لینک زیر کلیک کنید.",
         ResetLink: "دریافت لینک",
         NoComment: "هنوز نظری ثبت نشده است.",
+        reply:"جواب دادن",
 
         // blogs details
         CoursePublisher: "منتشرکننده",
@@ -320,6 +321,9 @@ i18n.use(initReactI18next).init({
         ResetDes: "",
         ResetLink: "",
         NoComment: "",
+        reply:"reply",
+
+
         // blogs details
         CoursePublisher: "Publisher",
         CourseViewers: "Viewers",

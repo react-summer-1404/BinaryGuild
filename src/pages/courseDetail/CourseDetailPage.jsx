@@ -31,8 +31,8 @@ export const CourseDetailPage = () => {
     <div className=" w-full m-auto bg-background flex flex-col items-center text-text rtl:text-right mt-14 max-[540px]:mt-40 ">
       <CourseHeader course={course} courseId={course.courseId} />
       <CourseDescription course={course} courseId={course.courseId} />
-      <CourseComments courseId={course.courseId} />
-      <RelatedCourses />
+      <CourseComments courseId={course.courseId} course={course} />
+      <RelatedCourses course={course} courseId={course.courseId} />
       <CourseReserveMobileMode course={course}/>
     </div>
   );

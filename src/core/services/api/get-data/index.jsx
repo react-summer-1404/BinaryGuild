@@ -28,9 +28,19 @@ export const GetBlogs = (id) => {
   return instance.get(`/News/${id}`);
 };
 
-
 export const GetBlogsComments = (NewsId) => {
-  return instance.get("/News/GetNewsComments",{params:{
-    NewsId:NewsId,
-  }});
+  return instance.get("/News/GetNewsComments", {
+    params: {
+      NewsId: NewsId,
+    },
+  });
+};
+
+export const GetReplyCourseComment = (CourseId, CommentId) => {
+  return instance.get("/News/GetNewsComments", {
+    params: {
+      CourseId: CourseId,
+      CommentId: CommentId,
+    },
+  });
 };

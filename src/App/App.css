@@ -32,6 +32,8 @@
   --color-thumbs: var(--thumbs);
   --color-text2: var(--text2);
   --color-buttonBorder: var(--buttonBorder);
+  --color-shadow: var(--shadow);
+  --color-commentHead: var(--commentHead);
 
 }
 :root {
@@ -46,6 +48,8 @@
   --thumbs: #000;
   --text2: #2f2f2f;
   --buttonBorder:#3772FF;
+  --shadow:#313030;
+  --commentHead:#202020;
 }
 .dark {
   --background: #1a1a1a;
@@ -58,6 +62,8 @@
   --thumbs: #fff;
   --text2: #fff;
   --buttonBorder:#202020;
+  --shadow:#707070;
+  --commentHead:#707070;
 
 }
 

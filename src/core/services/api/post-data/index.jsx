@@ -39,12 +39,7 @@ export const ResetPassword = ({ gmail, newPassword, resetValue }) => {
 
 // course rating
 export const CourseRating = ({ courseId, RateNumber }) => {
-  return instance.post("/Course/SetCourseRating", null, {
-    params: {
-      courseId: courseId,
-      RateNumber: RateNumber,
-    },
-  });
+  return instance.post(`/Course/SetCourseRating?CourseId=${courseId}&RateNumber=${RateNumber}`);
 };
 
 // reserve course
@@ -59,20 +54,12 @@ export const AddfavoriteCourse = ({ courseId }) => {
 };
 
 // Add Like && Dislike for Course
-export const AddCourseLike = ({ courseId }) => {
-  return instance.post("Course/AddCourseLike", null, {
-    params: {
-      courseId: courseId,
-    },
-  });
+export const AddCourseLike = (courseId) => {
+  return instance.post(`/Course/AddCourseLike?CourseId=${courseId}`);
 };
 
 export const AddCourseDisLike = ({ courseId }) => {
-  return instance.post("/Course/AddCourseDissLike", null, {
-    params: {
-      courseId: courseId,
-    },
-  });
+  return instance.post(`/Course/AddCourseDissLike?CourseId=${courseId}`);
 };
 
 // Add like to comment
@@ -93,6 +80,17 @@ export const AddCourseCommentDisLike = ( CourseCommandId ) => {
   });
 };
 
+// Add post reply comment
+
+export const AddReplyCourseComment = (CommentId,CourseId,Title,Describe)=>{
+  const FormData = new FormData();
+  FormData.append("CommentId",CommentId);
+  FormData.append("CourseId",CourseId);
+  FormData.append("Title",Title);
+  FormData.append("Describe",Describe);
+  return instance.post("/Course/AddReplyCourseComment",FormData)
+}
+
 
 // Add to favorite blogs
 export const AddfavoriteBlogs = ({ NewsId }) => {
@@ -106,7 +104,7 @@ export const AddLikeBlogComments = ({ NewsId }) => {
   return instance.post(`/News/NewsLike/${NewsId}`);
 };
 export const AddDisLikeBlogComments = ({ NewsId }) => {
-  return instance.post(`/News/NewsDissLike/:${NewsId}`);
+  return instance.post(`/News/NewsDissLike/${NewsId}`);
 };
 
 //blogs rating

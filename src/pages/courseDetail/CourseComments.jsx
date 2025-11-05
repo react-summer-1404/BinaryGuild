@@ -6,11 +6,14 @@ import { GetCourseComments } from "../../core/services/api/get-data";
 import moment from "moment-jalaali";
 import { AddCourseCommentLike } from "../../core/services/api/post-data";
 import { AddCourseCommentDisLike } from "../../core/services/api/post-data";
+import CourseCommentModal from "./CourseCommentModal";
 import toast, { Toaster } from "react-hot-toast";
 
-const CourseComments = ({ courseId }) => {
+const CourseComments = ({ courseId,course }) => {
   const [comment, setComment] = useState([]);
+  const [show,setShow]=useState(false)
   const { t } = useTranslation();
+
 
   const formatInsertDate = moment(courseId.insertDate).format("jYYYY/jMM/jDD");
 
@@ -68,11 +71,13 @@ const CourseComments = ({ courseId }) => {
             <p className="text-[#FCFCFC] text-[18px] font-[600] mt-2 ">
               {t("Comments")}
             </p>
-            <button className="text-[#FCFCFC] cursor-pointer text-[14px] font-[500] mt-4">
+            <button onClick={()=>setShow(true)} className="text-[#FCFCFC] cursor-pointer text-[14px] font-[500] mt-4">
               {t("CommentDescription")}
             </button>
           </div>
         </div>
+
+        {show &&  <CourseCommentModal courseId={courseId} course={course} onClose={()=>setShow(false)} />}
 
         {comment.length > 0 ? (
           comment.map((course) => (
@@ -132,7 +137,7 @@ const CourseComments = ({ courseId }) => {
                       {course.likeCount} 
                     </span>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex items-center gap-2">
                     <svg
                       onClick={() => handleDisLike(course.id)}
                       width="20"
