@@ -5,7 +5,7 @@ import { Register } from "../../../core/services/api/post-data";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const GetUserInfo = ({ onPrevious}) => {
+const GetUserInfo = ({ onPrevious }) => {
   const [getEmail, setGetEmail] = useState("");
   const [getPhoneNumber, setGetPhoneNumber] = useState("");
   const [getPassword, setGetPassword] = useState("");
@@ -63,7 +63,6 @@ const GetUserInfo = ({ onPrevious}) => {
       console.log("data before send:", {
         password: getPassword,
         gmail: getEmail,
-
         phoneNumber: getPhoneNumber,
       });
 
@@ -74,7 +73,15 @@ const GetUserInfo = ({ onPrevious}) => {
       });
       console.log(response, "response");
 
-      if (response?.data?.success) {
+      if (response?.data?.success && response.token) {
+        const token = response.token;
+        console.log(response);
+        if (token) {
+          localStorage.setItem("token", token);
+          console.log(token, "token saved in localstorage");
+          localStorage.getItem("token");
+        }
+
         GoLogin();
       }
       console.log("success", GoLogin());
@@ -98,10 +105,7 @@ const GetUserInfo = ({ onPrevious}) => {
           onSubmit={handleSubmit}
           className="flex items-start flex-col mt-[48px]"
         >
-          <label
-            className="text-text font-[600] text-[16px]"
-            htmlFor="number"
-          >
+          <label className="text-text font-[600] text-[16px]" htmlFor="number">
             {t("GetUserPhoneLabel")}{" "}
           </label>
           <input
@@ -112,12 +116,9 @@ const GetUserInfo = ({ onPrevious}) => {
             onChange={handleNumber}
             placeholder={t("GetUserPhonePlaceholder")}
           />
-          <p>{phoneNumberError}</p>
+          <p className="mt-[4px] font-bold text-[12px] text-[red]">{phoneNumberError}</p>
 
-          <label
-            className="text-text font-[600] text-[16px]"
-            htmlFor="email"
-          >
+          <label className="text-text font-[600] text-[16px]" htmlFor="email">
             {t("GetUserEmailLabel")}{" "}
           </label>
           <input

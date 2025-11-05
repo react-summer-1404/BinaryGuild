@@ -5,19 +5,25 @@ import { useNavigate } from "react-router-dom";
 import { ResetPassword } from "../../../core/services/api/post-data";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+import Stepper from "../../Stepper";
 
-const SetNewPassword = ({ onPrevious,getEmail }) => {
+const SetNewPassword = ({ getEmail }) => {
   const [getPassword, setGetPassword] = useState("");
   const [passError, setPassError] = useState();
   const { t } = useTranslation();
-  const {token} = useParams;
 
+  const { resetValue } = useParams();
+  console.log(resetValue, "resetValue");
 
   const navigate = useNavigate();
   const GoLogin = () => {
+    console.log("navigate")
     navigate("/login");
   };
 
+  const goBack = ()=>{
+    navigate("/forgetpassword")
+  }
 
   const handlePass = (e) => {
     const value = e.target.value;
@@ -33,25 +39,30 @@ const SetNewPassword = ({ onPrevious,getEmail }) => {
       setPassError(null);
     }
 
-    if (getEmail.trim() !== "" && getPassword.trim() !== "") {
+    if (getPassword.trim() !== "") {
       console.log("فرم درسته");
-    }
 
-    try {
-      const response = await ResetPassword({
-        gmail:getEmail,
-        newPassword: getPassword,
-        resetValue: token,
-      });
-      GoLogin();
-      console.log("response", response);
-    } catch (error) {
-      console.log(error);
+      try {
+        const response = await ResetPassword({
+          gmail: getEmail,
+          newPassword: getPassword,
+          resetValue: resetValue,
+        });
+        GoLogin();
+        console.log("response", response);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
-
   return (
     <div className="flex flex-col items-start">
+      <div className="flex flex-col gap-5 sm:flex-row items-start ">
+        <Stepper text={t("ChangePasswordStep1")} active={false} />
+        <Stepper text={t("resetLink")} active={false} />
+        <Stepper text={t("ConfirmCode")} active={true} />
+      </div>
+
       <h2 className="text-[28px] font font-[700] text-text mt-[75px]">
         {t("NewPasswordHead")}
       </h2>
@@ -65,10 +76,7 @@ const SetNewPassword = ({ onPrevious,getEmail }) => {
           action=""
           className="flex items-start flex-col mt-[48px]"
         >
-          <label
-            className="text-text font-[600] text-[16px]"
-            htmlFor="newPass"
-          >
+          <label className="text-text font-[600] text-[16px]" htmlFor="newPass">
             {t("NewPasswordLabel")}
           </label>
           <input
@@ -105,10 +113,10 @@ const SetNewPassword = ({ onPrevious,getEmail }) => {
 
       <div className=" w-[397px] flex  items-center justify-center ">
         <div
-          onClick={onPrevious}
+          onClick={goBack}
           className="cursor-pointer mt-[32px] flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px]"
         >
-          <p className="text-[#3772FF]">{t("GoBackButton")}</p>
+          <p className="text-[#1a4608]">{t("GoBackButton")}</p>
           <img
             src="../../../../src/assets/icons/arrow-left-01.png"
             className="mr-0.5"

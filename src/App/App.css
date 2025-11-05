@@ -5,21 +5,19 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-
-@theme{
-  --color-blue: #3772FF;
-  --color-black-900: #2F2F2F;
+@theme {
+  --color-blue: #3772ff;
+  --color-black-900: #2f2f2f;
   --color-black-600: #353535;
   --color-white-200: #efe8ff;
   --color-black: #1a1a1a;
   --color-white: #ffffff;
-  --color-gray-400:#707070;
-  --color-gray-100:#DCDCDC;
-  --color-pink:#FF6C6C;
-  --color-blue-300:#675CFF;
-  --color-blue-100:#87DFFF;
-  --color-yellow:#F0DB4F;
-
+  --color-gray-400: #707070;
+  --color-gray-100: #dcdcdc;
+  --color-pink: #ff6c6c;
+  --color-blue-300: #675cff;
+  --color-blue-100: #87dfff;
+  --color-yellow: #f0db4f;
 
   --font-persian: DanaFaNum;
 
@@ -28,38 +26,50 @@
   --color-boarder: var(--boarder);
   --color-muted: var(--muted);
   --color-backgroundColor: var(--backgroundColor);
-  --color-authbackground:var(--authbackground);
-  --color-authcommonbackground:var(--authcommonbackground);
-  --color-forgetpassbtn:var(--forgetpassbtn);
-
-
-}
-:root{
-  --background:#fff;
-  --authbackground:#fffff;
-  --text:#1a1a1a;
-  --boarder:#DCDCDC;
-  --muted:#707070;
-  --backgroundColor:#F6F6F6;
-  --authcommonbackground:#F1F1F1;
-  --forgetpassbtn:#F6F6F6;
+  --color-authbackground: var(--authbackground);
+  --color-authcommonbackground: var(--authcommonbackground);
+  --color-forgetpassbtn: var(--forgetpassbtn);
+  --color-thumbs: var(--thumbs);
+  --color-text2: var(--text2);
+  --color-buttonBorder: var(--buttonBorder);
+  --color-shadow: var(--shadow);
+  --color-commentHead: var(--commentHead);
 
 }
-.dark{
-  --background:#1a1a1a;
-  --text:#dbdbdb;
-  --boarder:#343434;
-  --muted:#817f7f;
-  --backgroundColor:#202020;
-  --authcommonbackground:#2a2828;
-  --forgetpassbtn:#2a2828;
+:root {
+  --background: #fff;
+  --authbackground: #ffff;
+  --text: #1a1a1a;
+  --boarder: #dcdcdc;
+  --muted: #707070;
+  --backgroundColor: #f6f6f6;
+  --authcommonbackground: #f1f1f1;
+  --forgetpassbtn: #f6f6f6;
+  --thumbs: #000;
+  --text2: #2f2f2f;
+  --buttonBorder:#3772FF;
+  --shadow:#313030;
+  --commentHead:#202020;
+}
+.dark {
+  --background: #1a1a1a;
+  --text: #dbdbdb;
+  --boarder: #343434;
+  --muted: #817f7f;
+  --backgroundColor: #202020;
+  --authcommonbackground: #2a2828;
+  --forgetpassbtn: #2a2828;
+  --thumbs: #fff;
+  --text2: #fff;
+  --buttonBorder:#202020;
+  --shadow:#707070;
+  --commentHead:#707070;
+
 }
 
 #root {
   margin: 0 auto;
-  /* padding: 1rem; */
   text-align: center;
   width: 100%;
   direction: rtl;
 }
-
