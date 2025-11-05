@@ -1,31 +1,42 @@
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@heroui/button";
-import moment from "moment-jalaali";
 import ReactStars from "react-stars";
+import moment from "moment-jalaali";
 import { useState } from "react";
-import { AddReserveCourse } from "../../../src/core/services/api/post-data/index";
-import { AddfavoriteCourse } from "../../../src/core/services/api/post-data/index";
-import { AddCourseLike } from "../../../src/core/services/api/post-data/index";
-import { AddCourseDisLike } from "../../../src/core/services/api/post-data/index";
 import toast, { Toaster } from "react-hot-toast";
+import { AddfavoriteBlogs } from "../../core/services/api/post-data";
+import { AddLikeBlogComments } from "../../core/services/api/post-data";
+import { AddDisLikeBlogComments } from "../../core/services/api/post-data";
 
-const CourseHeader = ({ course, courseId }) => {
+const BlogHeader = ({
+  newsId,
+  title,
+  insertDate,
+  currentImageAddressTumb,
+  newsCatregoryName,
+  newsView,
+  addUserFullName,
+  newsLike,
+  newsDissLike,
+  newsRate,
+  newsComment,
+}) => {
   const { t } = useTranslation();
-  const [reserve, setReserve] = useState("");
+  const [copy, setCopy] = useState(false);
   const [favorite, setFavorite] = useState("");
-  const [like, setLike] = useState(false);
-  const [disLike, setDisLike] = useState(false);
-
-  const formatStartTime = moment(course.startTime).format("jYYYY/jMM/jDD");
-  const formatEndTime = moment(course.endTime).format("jYYYY/jMM/jDD");
+  const [like, setLike] = useState("");
+  const [disLike, setDisLike] = useState("");
+  const formatStartTime = moment(insertDate).format("jYYYY/jMM/jDD");
 
   const handleLike = async () => {
     try {
-      const response = await AddCourseLike(courseId);
+      const response = await AddLikeBlogComments({ NewsId: newsId });
       console.log(response, "response reserve");
       if (response.success) {
         setLike(true);
         setDisLike(false);
+        toast.success("success");
       } else {
         toast.error("problem");
       }
@@ -35,9 +46,9 @@ const CourseHeader = ({ course, courseId }) => {
     }
   };
 
-  const handDisleLike = async () => {
+  const handleDisLike = async () => {
     try {
-      const response = await AddCourseDisLike({ courseId: courseId });
+      const response = await AddDisLikeBlogComments({ NewsId: newsId });
       console.log(response, "response reserve");
       if (response.success) {
         setDisLike(true);
@@ -50,183 +61,168 @@ const CourseHeader = ({ course, courseId }) => {
       toast.error(t("uve already disliked"));
     }
   };
+  const handleCopy = async () => {
+    const Url = window.location.href;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(Url);
+      }
+      console.log(Url);
+      setCopy(true);
+      toast.success(t("copied"));
+      setTimeout(() => {
+        setCopy(false);
+      }, 2000);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleFavorite = async () => {
     try {
-      const response = await AddfavoriteCourse({ courseId: courseId });
-      console.log(response, "response reserve");
+      const response = await AddfavoriteBlogs({ NewsId: newsId });
+      console.log(response);
       setFavorite(response);
+      toast.success(t("Add favorite Notify Successfully"));
     } catch (error) {
-      console.log(error, "error reserve");
+      console.log(error);
       toast.error(t("AddfavoriteNotifyError"));
     }
   };
 
-  const handleReserve = async () => {
-    console.log(handleReserve);
-    try {
-      const response = await AddReserveCourse({ courseId: courseId });
-      console.log(response, "response reserve");
-      setReserve(response);
-    } catch (error) {
-      console.log(error, "error reserve");
-      toast.error(t("uve already reserved"));
-    }
-  };
-
   return (
-    <div className="w-full m-auto h-106 flex gap-8 justify-between items-center max-[540px]:flex-col-reverse max-[540px]:mt-100">
+    <div className="border border-black h-106 flex gap-8 justify-between items-center ">
       <Toaster />
-      <div className=" w-[45%] h-106 max-[1000px]:hidden max-[540px]:block  max-[540px]:w-[100%]  max-[540px]:h-[424px] max-[540px]:mt-25  ">
+
+      <div className="  w-[45%] h-106 max-[1000px]:hidden ">
         <img
-          src={course.imageAddress}
-          className="w-full h-full  rounded-[32px] max-[540px]:block  max-[540px]:w-[100%]  max-[540px]:h-[424px]"
+          src={currentImageAddressTumb}
+          className="w-full h-full  rounded-[32px]"
         />
       </div>
 
-      <div className="w-[55%] h-100 flex flex-col max-[1000px]:w-full">
+      <div className=" border border-black w-[55%] h-100 flex flex-col max-[768px]:w-full">
         {/* headeline */}
 
         <h2 className="text-[32px] font-bold text-text ">
-          {t("CourseName")} {course.title}{" "}
+          {t("CourseName")} {title}
         </h2>
 
         {/* div1 */}
 
-        <div className="w-[100%] border-2 rounded-[16px] border-gray-100 h-40 mt-5 gap-y-2 grid grid-cols-4 max-[540px]:grid-cols-2 max-[540px]:gap-y-0">
-          <div className="border-l-2 border-[#DCDCDC] pb-5 max-[540px]:pb-2 max-[540px]:border-b-2">
-            <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
-              {t("CourseStatus")}
-            </p>
-            <div className="bg-[#FF5353] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 flex justify-center items-center ">
-              {course.courseStatusName}
-            </div>
-          </div>
-          <div className="border-l-2 border-[#DCDCDC] pb-5 max-[540px]:border-l-0 max-[540px]:pb-2 max-[540px]:border-b-2">
+        <div className=" border-2 rounded-[16px] border-gray-100 h-40 mt-5 gap-y-2 grid grid-cols-4  max-[768px]:grid-cols-2 max-[768px]: w-full  ">
+          <div className="border-l-2 border-[#DCDCDC] pb-5">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseType")}
             </p>
-            <div className="bg-[#3772FF] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 flex justify-center items-center "></div>
+            <div className="text-[#FCFCFC] text-4 font-[500] bg-[#3772FF] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 flex justify-center items-center ">
+              {t("CourseName")} {newsCatregoryName}
+            </div>
           </div>
-          <div className="border-l-2 border-[#DCDCDC] pb-5 max-[540px]:pb-2">
+          <div className="border-l-2 border-[#DCDCDC] pb-5">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
-              {t("CourseLevel")}
+              {t("CoursePublisher")}
             </p>
-            <div className="bg-[#FF37F5] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 flex justify-center items-center ">
-              {course.courseLevelName}
+            <div className="text-text text-4 font-[500] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 flex justify-center items-center ">
+              {addUserFullName}
+            </div>
+          </div>
+          <div className="border-l-2 border-[#DCDCDC] pb-5">
+            <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
+              {t("CourseStartPublish")}
+            </p>
+            <div className="text-text text-4 font-[500] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 flex justify-center items-center ">
+              {formatStartTime}
             </div>
           </div>
           <div>
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
-              {t("CourseTeacher")}
+              {t("CourseViewers")}
             </p>
-            <p className=" w-full h-[27px] rounded-[32px] mr-2 mt-2 ">
-              {course.teacherName}
+            <p className="font-[500] text-text w-full h-[27px] rounded-[32px] mr-2 mt-2 ">
+              {newsView}
             </p>
           </div>
         </div>
 
         {/* div2 */}
-        <div className="w-[100%] border-2 rounded-[16px] border-gray-100 h-40 mt-5 gap-y-2 grid grid-cols-4 max-[540px]:grid-cols-2 max-[540px]:gap-y-0 ">
-          <div className="border-l-2 border-[#DCDCDC] pb-5 max-[540px]:pb-2 max-[540px]:border-b-2">
-            <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
-              {t("CourseStart")}
-            </p>
-            <p className=" w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">
-              {formatStartTime}
-            </p>
-          </div>
-          <div className="border-l-2 border-[#DCDCDC] pb-5 max-[540px]:border-l-0  max-[540px]:pb-0 max-[540px]:border-b-2">
-            <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
-              {t("CourseEnd")}
-            </p>
-            <p className=" w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">
-              {formatEndTime}
-            </p>
-          </div>
-
-          <div className="border-l-2 border-[#DCDCDC] pb-5 max-[540px]:pb-0">
+        <div className="w-1/2 border-2 rounded-[16px] border-gray-100 h-40 mt-5 gap-y-2 grid grid-cols-2 ">
+          <div className="border-l-2 border-[#DCDCDC] pb-5">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2">
               {t("CourseLike")}
             </p>
-            <p className=" w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">
-              {course.likeCount} {t("People")}
+            <p className="text-text font-[500] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">
+              {newsLike} {t("People")}
             </p>
           </div>
-
           <div>
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseDislike")}
             </p>
-            <p className=" w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">
-              {course.dissLikeCount} {t("People")}
+            <p className="text-text font-[500] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 ">
+              {newsDissLike} {t("People")}
             </p>
           </div>
         </div>
 
-        {/* rate and price */}
-        <div className="w-full h-[34px]  mt-5 flex justify-between max-[540px]:mt-4">
+        {/* rate */}
+        <div className="w-full h-[34px]  mt-5 flex items-center gap-3">
           <div className="flex items-center gap-2 ">
-            <div>({course.courseRate})</div>
+            <div className="text-text font-[500]">({newsRate})</div>
             <ReactStars
               count={5}
-              value={course.courseRate}
               size={28}
               color1="#D9D9D9"
               color2="#FCFF46"
               edit={false}
             />
           </div>
-
-          <div className="max-[540px]:hidden">
-            {course.cost} {t("Price")}
-          </div>
+          <span className="text-text font-[500]">+</span><div className="text-text font-[500]">({newsComment}) {t("comments")}</div>
         </div>
 
-        {/* buttons */}
+        {/* copy, like,disLike,favorite */}
         <div className="w-full h-14 mt-6 flex justify-between items-center">
-          <Button className="bg-[#3772FF] cursor-pointer w-[194px] h-14 rounded-[40px]  max-[750px]:w-[120px] max-[750px]:h-10 max-[540px]:hidden ">
-            <div
-              onClick={handleReserve}
-              className="w-full flex justify-center items-center gap-2"
-            >
-              <img src="../../../src/assets/icons/archive-02.png" />
-              {reserve.success ? (
-                <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[750px]:text-[16px]">
-                  {t("Reserved")}
-                </p>
-              ) : (
-                <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[750px]:text-[16px]">
-                  {t("ReserveCourse")}
-                </p>
-              )}
-            </div>
-          </Button>
 
-          <Button className="bg-[#2F2F2F] cursor-pointer pl-10 pr-10  h-14 rounded-full flex justify-center items-center gap-2 max-[750px]:w-[250px] max-[750px]:h-10 ">
+          <div className="flex gap-3">
+          <div className="flex">
+            <Button className="border-[1px] cursor-pointer  border-buttonBorder bg-[#FCFCFC]  rounded-[48px] w-[235px] h-14 text-[#3772FF] font-[500] text-[16px]">
+              <div
+                onClick={handleCopy}
+                className=" w-full flex justify-center gap-3 items-center "
+              >
+                <img src="../../../src/assets/icons/Vector.png" />
+                {copy ? t("copied") : t("PageLink")}
+              </div>
+            </Button>
+          </div>
+
+          <Button className="bg-[#2F2F2F] cursor-pointer pl-10 pr-10  h-14 rounded-full flex justify-center items-center gap-2 ">
             <div
               onClick={handleFavorite}
               className="w-full flex justify-center items-center gap-2"
             >
               <img src="../../../src/assets/icons/book-02.png" />
-              {favorite.success ? (
-                <p className="text-[#FCFCFC] text-[20px] font-[500] max-[750px]:text-[16px]">
+              {favorite ? (
+                <p className="text-[#FCFCFC] text-[20px] font-[500]">
                   {" "}
                   {t("Favorited")}{" "}
                 </p>
               ) : (
-                <p className="text-[#FCFCFC] text-[20px] font-[500] max-[750px]:text-[16px]">
+                <p className="text-[#FCFCFC] text-[20px] font-[500]">
                   {" "}
                   {t("AddToFavorite")}{" "}
                 </p>
               )}
             </div>
-          </Button>
+          </Button>            
+          </div>
 
-          <div className="flex gap-3">
-            <button
-              onClick={handleLike}
-              className={`w-14 h-14 cursor-pointer rounded-[56px] flex justify-center items-center max-[750px]:w-12 max-[750px]:h-12 ${
+
+
+
+          <div  className="flex gap-3">
+            <button onClick={handleLike}
+              className={`w-14 h-14 cursor-pointer rounded-[56px] flex justify-center items-center ${
                 like ? "bg-blue-500" : "bg-white-200"
               }`}
             >
@@ -255,8 +251,8 @@ const CourseHeader = ({ course, courseId }) => {
             </button>
 
             <button
-              onClick={handDisleLike}
-              className={`w-14 h-14 cursor-pointer rounded-[56px] flex justify-center items-center max-[750px]:w-12 max-[750px]:h-12 ${
+              onClick={handleDisLike}
+              className={`border border-[#DCDCDC] w-14 h-14 cursor-pointer rounded-[56px] flex justify-center items-center ${
                 disLike ? "bg-blue-500" : "bg-white-200"
               }`}
             >
@@ -269,14 +265,14 @@ const CourseHeader = ({ course, courseId }) => {
               >
                 <path
                   d="M2 11.5C2 12.6046 2.89543 13.5 4 13.5C5.65685 13.5 7 12.1569 7 10.5V6.5C7 4.84315 5.65685 3.5 4 3.5C2.89543 3.5 2 4.39543 2 5.5V11.5Z"
-                  stroke={like ? "#FCFCFC" : "#000"}
+                  stroke={disLike ? "#FCFCFC" : "#000"}
                   stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
                 <path
                   d="M15.4787 16.1937L15.2124 15.3337C14.9942 14.6289 14.8851 14.2765 14.969 13.9982C15.0369 13.7731 15.1859 13.579 15.389 13.4513C15.64 13.2935 16.0197 13.2935 16.7791 13.2935H17.1831C19.7532 13.2935 21.0382 13.2935 21.6452 12.5327C21.7145 12.4458 21.7762 12.3533 21.8296 12.2563C22.2965 11.4079 21.7657 10.2649 20.704 7.9789C19.7297 5.88111 19.2425 4.83222 18.338 4.21485C18.2505 4.15508 18.1605 4.0987 18.0683 4.04586C17.116 3.5 15.9362 3.5 13.5764 3.5H13.0646C10.2057 3.5 8.77628 3.5 7.88814 4.36053C7 5.22106 7 6.60607 7 9.37607V10.3497C7 11.8054 7 12.5332 7.25834 13.1994C7.51668 13.8656 8.01135 14.4134 9.00069 15.5089L13.0921 20.0394C13.1947 20.1531 13.246 20.2099 13.2913 20.2493C13.7135 20.6167 14.3652 20.5754 14.7344 20.1577C14.774 20.1129 14.8172 20.0501 14.9036 19.9245C15.0388 19.728 15.1064 19.6297 15.1654 19.5323C15.6928 18.6609 15.8524 17.6256 15.6108 16.6429C15.5838 16.5331 15.5488 16.4199 15.4787 16.1937Z"
-                  stroke={like ? "#FCFCFC" : "#000"}
+                  stroke={disLike ? "#FCFCFC" : "#000"}
                   stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -290,4 +286,4 @@ const CourseHeader = ({ course, courseId }) => {
   );
 };
 
-export default CourseHeader;
+export default BlogHeader;

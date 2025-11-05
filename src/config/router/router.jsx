@@ -7,6 +7,9 @@ import LoginWrapper from "../../screen/authentication/pages/LoginWrapper";
 import RegisterWrapper from "../../screen/authentication/pages/RegisterWrapper";
 import LandingWrapper from "../../screen/landing-wrapper/LandingWrapper";
 import StudentPanelLayout from "../../components/layouts/StudentPanelLayout";
+import CourseDetailWrapper from "../../../src/screen/course-detail/CourseDetailWrapper"
+import SetNewPassword from "../../pages/authorize/steps/SetNewPassword";
+import BlogsDetailWrapper from "../../screen/blogs-detail/BlogsDetailWrapper";
 import MyCourse from "../../pages/student-panel/my-courses/MyCourse";
 import Dashboard from "../../pages/student-panel/dashboard/Dashboard";
 import MyReserve from "../../pages/student-panel/my-reserve-course/MyReserve";
@@ -21,6 +24,8 @@ const Router = createBrowserRouter([
     children: [
       { path: "/", element: <LandingWrapper /> },
        { path: "courses/:id", element: <CourseDetailWrapper /> },
+       { path: "blogs/:id", element: <BlogsDetailWrapper /> },
+
     ],
     
   },
@@ -29,9 +34,11 @@ const Router = createBrowserRouter([
     path: "/",
     element: <AuthLayout />,
     children: [
-      { path: "register", element: <RegisterWrapper /> },
+      { path: "register", element: <RegisterWrapper />},
       { path: "login", element: <LoginWrapper /> },
       { path: "forgetPassword", element: <ForgetPasswordWrapper /> },
+      { path: "resetpassword/:resetValue", element: <SetNewPassword />, children:[] },
+
     ],
   },
   {

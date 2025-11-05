@@ -1,4 +1,14 @@
 import { useTranslation } from "react-i18next";
+import People  from "./landings-sections/LandingPeople";
+import LandingButton  from "./landings-sections/LandingButton";
+import Goals  from "./landings-sections/Goals";
+import ServicesSection  from "./landings-sections/ServicesSection";
+import Blogs  from "./landings-sections/Blogs";
+import Professors  from "./landings-sections/Professors";
+import TopCourses from "./landings-sections/TopCourses";
+import Text  from './landings-sections/LandingText';
+import GoalsList  from "./items-list/GoalsList";
+import ServicesList  from "./items-list/ServicesList";
 import GoalsList from "./items-list/GoalsList";
 import ServicesList from "./items-list/ServicesList";
 import TopBlogsList from "./items-list/TopBlogsList";

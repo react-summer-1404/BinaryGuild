@@ -5,8 +5,9 @@ import { useState } from "react";
 import { SendVerifyMessage } from "../../../core/services/api/post-data";
 import { useTranslation } from "react-i18next";
 import HomeButton from "../../../components/common/button/HomeButton";
+import toast, { Toaster } from "react-hot-toast";
 
-const GetEmail = ({ onNext,setGetEmail:sendEmail }) => {
+const GetEmail = ({ onNext, setGetEmail: sendEmail }) => {
   const [getEmail, setGetEmail] = useState("");
   const [emailError, setEmailError] = useState("");
 
@@ -16,31 +17,34 @@ const GetEmail = ({ onNext,setGetEmail:sendEmail }) => {
     const value = e.target.value;
     setGetEmail(value);
   };
+  
+
 
   const handleError = async (e) => {
     e.preventDefault();
 
     if (getEmail.trim() === "" || !getEmail.includes("@")) {
+      
       setEmailError(t("EmailError"));
       return;
     } else {
       setEmailError("");
     }
+    localStorage.removeItem("token");
     try {
       const response = await SendVerifyMessage(getEmail);
-
-      console.log(response, "response");
-          sendEmail(getEmail);
+     console.log(response, "response");
+      sendEmail(getEmail);
       onNext();
     } catch (error) {
       console.log("error", error.response);
-      const serverMessage = error.response?.data?.message || "خطا در ارسال کد";
-      setEmailError(serverMessage);
+      toast.error(t("RegisterNotifyErrorStepOne"));
     }
   };
 
   return (
     <div className=" text-text flex flex-col items-start">
+      <Toaster />
       <h2 className="text-[28px] font font-[700] text-text mt-[75px]">
         {t("RegisterHead")}
       </h2>
@@ -50,9 +54,11 @@ const GetEmail = ({ onNext,setGetEmail:sendEmail }) => {
 
       <form
         onSubmit={handleError}
-        
         className="flex items-start flex-col mt-[48px]"
       >
+
+
+        
         <label
           className="text-right text-text font-[600] text-[16px]"
           htmlFor="email"
@@ -70,13 +76,14 @@ const GetEmail = ({ onNext,setGetEmail:sendEmail }) => {
         <p className="mt-[4px] font-bold text-[12px] text-[red]">
           {emailError}
         </p>
+        
         <AuthButton text={t("SendConfirmedCode")} type="submit" />
       </form>
 
       <div className=" w-[397px] flex flex-col items-center justify-center ">
         <div className="flex mt-[16px]">
           <p className="text-[#2F2F2F] font-[600] text-[16px]">
-           {t("HaveAccount")}
+            {t("HaveAccount")}
           </p>
           <Link className="pr-[8px]" to={"/login"}>
             <p className="text-[#3772FF] font-[600] text-[16px]">
@@ -84,7 +91,7 @@ const GetEmail = ({ onNext,setGetEmail:sendEmail }) => {
             </p>
           </Link>
         </div>
-        <HomeButton/>
+        <HomeButton />
       </div>
     </div>
   );
