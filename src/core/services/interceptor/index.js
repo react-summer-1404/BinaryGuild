@@ -22,10 +22,10 @@ const onError = (error) => {
 };
 
 instance.interceptors.response.use(onSuccess, onError);
-// instance.interceptors.request.use((opt) => {
-//   const token = getItem("token");
-//   if (token) opt.headers.Authorization = "Bearer " + token;
-//   return opt;
-// });
+instance.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
 
 export default instance;

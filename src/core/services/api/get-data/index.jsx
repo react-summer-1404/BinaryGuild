@@ -8,8 +8,14 @@ export const TopCoursesData = () => {
   return instance.get("/Home/GetCoursesTop?Count=4");
 };
 
-export const UserData = () => {
-  return instance.get(`/SharePanel/GetProfileInfo`);
+export const UserData = async () => {
+  try {
+    const response = await instance.get("/SharePanel/GetProfileInfo");
+    console.log(response)
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 };
 export const UseGetTopBlogs = async () => {
   try {
@@ -41,6 +47,6 @@ export const UseGetTopBlogs = async () => {
 //   }
 // };
 // export default GetAllCourseByPagination;
-export const GetCourse =(CourseId)=>{
-    return instance.get(`/Home/GetCourseDetails?CourseId=${CourseId}`)
-}
+export const GetCourse = (CourseId) => {
+  return instance.get(`/Home/GetCourseDetails?CourseId=${CourseId}`);
+};

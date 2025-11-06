@@ -19,11 +19,11 @@ const StudentPanelLayout = () => {
           <HeaderIcons />
         </div>
       </div>
-      <div className="w-1/7">
+      <div className="w-1/7 flex flex-wrap">
         <PanelList />
         <SignOut />
       </div>
-      <div className="bg-background text-text rounded-3xl w-5/7 mr-auto ml-auto">
+      <div className="bg-background text-text rounded-3xl w-5/7 mr-auto ml-auto mb-7">
         <Outlet />
       </div>
     </div>

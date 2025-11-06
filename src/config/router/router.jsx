@@ -13,6 +13,7 @@ import MyReserve from "../../pages/student-panel/my-reserve-course/MyReserve";
 import UserProfile from "../../pages/student-panel/profile/UserProfile";
 import CourseFav from "../../pages/student-panel/course-fav/CourseFav";
 import BlogFav from "../../pages/student-panel/blog-fav/BlogFav";
+import PanelWrapper from "../../screen/panel-wrapper/PanelWrapper";
 
 const Router = createBrowserRouter([
   {
@@ -31,9 +32,9 @@ const Router = createBrowserRouter([
   },
   {
     path: "/panel",
-    element: <StudentPanelLayout />,
+    element: <PanelWrapper />,
     children: [
-      { path: "my-panel", element: <MyCourse/> },
+      { path: "my-courses", element: <MyCourse/> },
       { path: "", element: <Dashboard/> },
       {path:"reserve-course" , element: <MyReserve/>},
       {path:"profile" , element:<UserProfile/>},
