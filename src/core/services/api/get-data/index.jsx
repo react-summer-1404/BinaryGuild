@@ -8,7 +8,6 @@ export const GetCourse = (CourseId) => {
 export const GetCourseComments = (CourseId) => {
   console.log(CourseId);
   return instance.get(`/Course/GetCourseCommnets/${CourseId}`, {
-    // params: { CourseId },
   });
 };
 
@@ -46,21 +45,25 @@ export const GetReplyCourseComment = (CourseId, CommentId) => {
 };
 
 
-// const GetAllCourseByPagination = async (apiParams) => {
-//   try {
-//     const request = await http.get(`/Home/GetCoursesWithPagination`, {
-//       params: {
-//         Pagenumber : 1,
-//         Pagenumber : 1,
-//         Pagenumber : 1,
-//         Pagenumber : 1,
+export const Reset = (ConfigValue) => {
+  return instance.get(`/Sign/Reset/${ConfigValue}`);
+};
 
-//       },
-//     });
+export const TopCoursesData = () => {
+  return instance.get("/Home/GetCoursesTop?Count=4");
+};
 
-//     return request;
-//   } catch (error) {
-//     return [];
-//   }
-// };
-// export default GetAllCourseByPagination;
+export const UserData = () => {
+  return instance.get(`/SharePanel/GetProfileInfo`);
+};
+export const UseGetTopBlogs = async () => {
+  try {
+    const response = await instance.get(
+      "/News?PageNumber=1&RowsOfPage=3&SortingCol=insertDate&SortType=desc"
+    );
+
+    return response.news;
+  } catch (error) {
+    console.log(error);
+  }
+};

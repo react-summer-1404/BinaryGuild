@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { ResetPassword } from "../../../core/services/api/post-data";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
-import Stepper from "../../Stepper";
+import Stepper from "./Stepper";
 
 const SetNewPassword = ({ getEmail }) => {
   const [getPassword, setGetPassword] = useState("");

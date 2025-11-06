@@ -7,17 +7,11 @@ import Blogs  from "./landings-sections/Blogs";
 import Professors  from "./landings-sections/Professors";
 import TopCourses from "./landings-sections/TopCourses";
 import Text  from './landings-sections/LandingText';
-import GoalsList  from "./items-list/GoalsList";
-import ServicesList  from "./items-list/ServicesList";
 import GoalsList from "./items-list/GoalsList";
-import ServicesList from "./items-list/ServicesList";
+import ServicesList  from "./items-list/ServicesList";
 import TopBlogsList from "./items-list/TopBlogsList";
 import TopCoursesList from "./items-list/TopCoursesList";
-import LandingButton from "./landings-sections/LandingButton";
 import "./landings-sections/LandingPeople";
-import People from "./landings-sections/LandingPeople";
-import Text from './landings-sections/LandingText';
-import Professors from "./landings-sections/Professors";
 
 const Landing = () => {
   const { t } = useTranslation();
