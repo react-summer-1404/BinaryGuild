@@ -45,6 +45,21 @@ export const GetReplyCourseComment = (CourseId, CommentId) => {
   });
 };
 
+export const TopCoursesData = () => {
+  return instance.get("/Home/GetCoursesTop?Count=4");
+};
+
+export const UseGetTopBlogs = async () => {
+  try {
+    const response = await instance.get(
+      "/News?PageNumber=1&RowsOfPage=3&SortingCol=insertDate&SortType=desc"
+    );
+
+    return response.news;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // const GetAllCourseByPagination = async (apiParams) => {
 //   try {
