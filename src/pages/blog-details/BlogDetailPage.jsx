@@ -28,7 +28,7 @@ const BlogDetailPage = () => {
   if (!blogs) return <p>در حال بارگزاری</p>;
 
   return (
-    <div className="border  border-black  bg-background  flex flex-col items-center text-text rtl:text-right mt-14 ">
+    <div className="border w-full m-auto  border-black  bg-background  flex flex-col text-text rtl:text-right mt-14 ">
       <BlogHeader
         newsId={id}
         title={blogs.detailsNewsDto.title}

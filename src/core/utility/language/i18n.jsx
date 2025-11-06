@@ -143,13 +143,25 @@ i18n.use(initReactI18next).init({
           "یک ایمیل برای تنظیم مجدد رمز عبور به آدرس ایمیل وارد شده شما ارسال شد. برای دریافت آن روی لینک زیر کلیک کنید.",
         ResetLink: "دریافت لینک",
         NoComment: "هنوز نظری ثبت نشده است.",
-        reply:"جواب دادن",
+        reply: "جواب دادن",
+        commentTitle: "عنوان نظر خود را بنویسید",
+        commentDescribe: "متن نظر خود را بنویسید",
+        close: "بستن",
+        successCourseLike: "نظر شما با موفقیت ثبت شد",
+        errorCourseLike: "نظر شما قبلا ثبت شده است",
+        successCourseFavorite: "به علافه مندی شما افزوده شد",
+        errorCourseFavorite: "علاقه مندی شما قبلا ثبت شده است",
+        successCourseReserve: "به رزوی های شما افزوده شد",
+        errorCourseReserve: "این دوره در رزروی های شما قرار دارد",
+        copied:"لینک صفحه کپی شد",
+        successCourseRating:"نظر شما با موفقیت ثبت شد",
+        errorCourseRating:"نظر شما قبلا ثبت شده است",
 
         // blogs details
         CoursePublisher: "منتشرکننده",
         CourseViewers: "بازدیدکنندگان",
         comments: "نظرات",
-        CourseStartPublish:"تاریخ انتشار",
+        CourseStartPublish: "تاریخ انتشار",
 
         //goals
         OurGoals: "اهداف ما در اکادمی",
@@ -321,15 +333,27 @@ i18n.use(initReactI18next).init({
         ResetDes: "",
         ResetLink: "",
         NoComment: "",
-        reply:"reply",
+        reply: "reply",
+        commentTitle: "ٌWrite your comment's title",
+        commentDescribe: "Write your comment",
+        close: "close",
+        successCourseLike: "Your comment has been submitted successfuly",
+        errorCourseLike: "You have already submitted your comment",
+        successCourseFavorite: "Added to your favorites",
+        errorCourseFavorite: "This course is already in your favorites",
+        successCourseReserve: "Added to ypur reserved courses",
+        errorCourseReserve: "This course is already reserved ",
+        copied:"Page link has been copied",
+        successCourseRating:"You rate has been submitted successfuly",
+        errorCourseRating:"You have already submitted your rating",
+
 
 
         // blogs details
         CoursePublisher: "Publisher",
         CourseViewers: "Viewers",
         comments: "comment",
-        CourseStartPublish:"publish date",
-
+        CourseStartPublish: "publish date",
 
         //landing
         //header and footer

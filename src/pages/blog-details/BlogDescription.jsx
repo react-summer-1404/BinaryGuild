@@ -1,14 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { CourseRating } from "../../core/services/api/post-data";
 import { Button } from "@heroui/button";
 import ReactStars from "react-stars";
 import toast, { Toaster } from "react-hot-toast";
 import { AddBlogsRating } from "../../core/services/api/post-data";
-const BlogDescription = ({ describe ,NewsId}) => {
+const BlogDescription = ({ describe, NewsId }) => {
   const { t } = useTranslation();
   const [rating, setRating] = useState(0);
+  const [copy, setCopy] = useState(false);
+
 
   const handleRating = async (newRate) => {
     console.log(typeof courseId);
@@ -17,7 +18,7 @@ const BlogDescription = ({ describe ,NewsId}) => {
     console.log("data before send", Response);
     try {
       const Response = await AddBlogsRating({
-        NewsId:NewsId ,
+        NewsId: NewsId,
         RateNumber: newRate,
       });
       toast.success("نظر شما با موفقیت ثبت شد");
@@ -25,6 +26,23 @@ const BlogDescription = ({ describe ,NewsId}) => {
     } catch (error) {
       console.log(error, "no rate");
       toast.error("نظر شما قبلا ثبت شده است");
+    }
+  };
+
+    const handleCopy = async () => {
+    const Url = window.location.href;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(Url);
+      }
+      console.log(Url);
+      setCopy(true);
+      toast.success(t("copied"));
+      setTimeout(() => {
+        setCopy(false);
+      }, 2000);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -36,7 +54,9 @@ const BlogDescription = ({ describe ,NewsId}) => {
         {t("CourseDesHead")}{" "}
       </h2>
 
-      <p className="text-text2 font-medium text-[16px] flex justify-start">{describe}</p>
+      <p className="text-text2 font-medium text-[16px] flex justify-start">
+        {describe}
+      </p>
 
       <div className="flex items-center gap-2 max-[540px]:block">
         <div className="flex items-center gap-3">
@@ -56,6 +76,17 @@ const BlogDescription = ({ describe ,NewsId}) => {
           />
         </div>
       </div>
+
+      {/* copy */}
+      <Button className="border cursor-pointer border-buttonBorder bg-[#FCFCFC] rounded-[48px] w-[235px] h-14 text-[#3772FF] font-[500] text-[16px]  min-[768px]:hidden  ">
+        <img
+          className="max-[1160px]:w-3 max-[1160px]:h-3 max-[1000px]:w-4 max-[1000px]:h-4 "
+          src="../../../src/assets/icons/Vector.png"
+        />
+        <div onClick={handleCopy} className="">
+          {copy ? t("copied") : t("PageLink")}
+        </div>
+      </Button>
     </div>
   );
 };

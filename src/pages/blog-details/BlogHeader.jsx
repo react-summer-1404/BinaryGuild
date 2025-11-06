@@ -36,13 +36,13 @@ const BlogHeader = ({
       if (response.success) {
         setLike(true);
         setDisLike(false);
-        toast.success("success");
+        toast.success(t("successCourseLike"));
       } else {
         toast.error("problem");
       }
     } catch (error) {
       console.log(error, "error reserve");
-      toast.error(t("uve already liked"));
+      toast.error(t("errorCourseLike"));
     }
   };
 
@@ -53,12 +53,11 @@ const BlogHeader = ({
       if (response.success) {
         setDisLike(true);
         setLike(false);
-      } else {
-        toast.error("problem");
+        toast.success(t("successCourseLike"));
       }
     } catch (error) {
       console.log(error, "error reserve");
-      toast.error(t("uve already disliked"));
+      toast.error(t("errorCourseLike"));
     }
   };
   const handleCopy = async () => {
@@ -83,15 +82,15 @@ const BlogHeader = ({
       const response = await AddfavoriteBlogs({ NewsId: newsId });
       console.log(response);
       setFavorite(response);
-      toast.success(t("Add favorite Notify Successfully"));
+      toast.success(t("successCourseFavorite"));
     } catch (error) {
       console.log(error);
-      toast.error(t("AddfavoriteNotifyError"));
+      toast.error(t("errorCourseFavorite"));
     }
   };
 
   return (
-    <div className="border border-black h-106 flex gap-8 justify-between items-center ">
+    <div className="border border-black  h-106 flex gap-8 justify-between items-center  ">
       <Toaster />
 
       <div className="  w-[45%] h-106 max-[1000px]:hidden ">
@@ -101,17 +100,17 @@ const BlogHeader = ({
         />
       </div>
 
-      <div className=" border border-black w-[55%] h-100 flex flex-col max-[768px]:w-full">
+      <div className=" w-[55%] h-100 flex flex-col max-[1000px]:w-full ">
         {/* headeline */}
 
-        <h2 className="text-[32px] font-bold text-text ">
+        <h2 className="text-[32px] font-bold text-text max-[768px]:w-[300px] ">
           {t("CourseName")} {title}
         </h2>
 
         {/* div1 */}
 
-        <div className=" border-2 rounded-[16px] border-gray-100 h-40 mt-5 gap-y-2 grid grid-cols-4  max-[768px]:grid-cols-2 max-[768px]: w-full  ">
-          <div className="border-l-2 border-[#DCDCDC] pb-5">
+        <div className=" border-2 rounded-[16px] border-gray-100  mt-5 gap-y-2 grid grid-cols-4  max-[768px]:grid-cols-2 ">
+          <div className="border-l-2 border-[#DCDCDC] pb-1  max-[768px]:border-b-2  ">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseType")}
             </p>
@@ -119,7 +118,7 @@ const BlogHeader = ({
               {t("CourseName")} {newsCatregoryName}
             </div>
           </div>
-          <div className="border-l-2 border-[#DCDCDC] pb-5">
+          <div className="border-l-2 border-[#DCDCDC] pb-1 max-[768px]:border-b-2 max-[768px]:border-l-0 ">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CoursePublisher")}
             </p>
@@ -127,7 +126,7 @@ const BlogHeader = ({
               {addUserFullName}
             </div>
           </div>
-          <div className="border-l-2 border-[#DCDCDC] pb-5">
+          <div className="border-l-2 border-[#DCDCDC] pb-1">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseStartPublish")}
             </p>
@@ -146,8 +145,8 @@ const BlogHeader = ({
         </div>
 
         {/* div2 */}
-        <div className="w-1/2 border-2 rounded-[16px] border-gray-100 h-40 mt-5 gap-y-2 grid grid-cols-2 ">
-          <div className="border-l-2 border-[#DCDCDC] pb-5">
+        <div className=" border-2 rounded-[16px] border-gray-100 mt-5 gap-y-2 grid grid-cols-2 ">
+          <div className="border-l-2 border-[#DCDCDC] pb-1">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2">
               {t("CourseLike")}
             </p>
@@ -177,51 +176,55 @@ const BlogHeader = ({
               edit={false}
             />
           </div>
-          <span className="text-text font-[500]">+</span><div className="text-text font-[500]">({newsComment}) {t("comments")}</div>
+          <span className="text-text font-[500]">+</span>
+          <div className="text-text font-[500]">
+            ({newsComment}) {t("comments")}
+          </div>
         </div>
 
         {/* copy, like,disLike,favorite */}
         <div className="w-full h-14 mt-6 flex justify-between items-center">
-
-          <div className="flex gap-3">
-          <div className="flex">
-            <Button className="border-[1px] cursor-pointer  border-buttonBorder bg-[#FCFCFC]  rounded-[48px] w-[235px] h-14 text-[#3772FF] font-[500] text-[16px]">
+          <div className="flex gap-1">
+            <div className="flex">
+              {/* copy */}
+              <Button className="border cursor-pointer border-buttonBorder bg-[#FCFCFC]  rounded-[48px] w-[235px] h-14 text-[#3772FF] font-[500] text-[16px] max-[1400px]:w-[190px] max-[1160px]:w-[150px] max-[1160px]:h-10 max-[1160px]:text-[14px] max-[1000px]:w-[235px] max-[1000px]:h-14 max-[1000px]:text-[16px] max-[768px]:hidden  ">
+              <img
+                className="max-[1160px]:w-3 max-[1160px]:h-3 max-[1000px]:w-4 max-[1000px]:h-4 "
+                src="../../../src/assets/icons/Vector.png"
+              />
+                <div
+                  onClick={handleCopy}
+                  className=""
+                >
+                  {copy ? t("copied") : t("PageLink")}
+                </div>
+              </Button>
+            </div>
+            {/* favorite */}
+            <Button className="bg-[#2F2F2F] cursor-pointer pl-10 pr-10  h-14 rounded-full flex justify-center items-center gap-2 max-[1400px]:w-[250px] max-[1160px]:w-[200px] max-[1160px]:h-10 max-[1000px]:w-[332px] max-[1000px]:h-14  max-[500px]:w-50 ">
               <div
-                onClick={handleCopy}
-                className=" w-full flex justify-center gap-3 items-center "
+                onClick={handleFavorite}
+                className="w-full flex justify-center items-center gap-2"
               >
-                <img src="../../../src/assets/icons/Vector.png" />
-                {copy ? t("copied") : t("PageLink")}
+                <img src="../../../src/assets/icons/book-02.png" className="max-[1160px]:w-5 max-[1160px]:h-5 max-[1000px]:w-6 max-[1000px]:h-6 max-[500px]:w-4 max-[500px]:h-4 " />
+                {favorite ? (
+                  <p className="text-[#FCFCFC] text-[20px] font-[500] max-[1400px]:text-[16px] max-[1160px]:text-[14px] max-[1000px]:text-[20px] max-[500px]:text-[14px] ">
+                    {" "}
+                    {t("Favorited")}{" "}
+                  </p>
+                ) : (
+                  <p className="text-[#FCFCFC] text-[20px] font-[500] max-[1400px]:text-[16px] max-[1160px]:text-[14px] max-[1000px]:text-[20px]  max-[500px]:text-[14px] ">
+                    {" "}
+                    {t("AddToFavorite")}{" "}
+                  </p>
+                )}
               </div>
             </Button>
           </div>
-
-          <Button className="bg-[#2F2F2F] cursor-pointer pl-10 pr-10  h-14 rounded-full flex justify-center items-center gap-2 ">
-            <div
-              onClick={handleFavorite}
-              className="w-full flex justify-center items-center gap-2"
-            >
-              <img src="../../../src/assets/icons/book-02.png" />
-              {favorite ? (
-                <p className="text-[#FCFCFC] text-[20px] font-[500]">
-                  {" "}
-                  {t("Favorited")}{" "}
-                </p>
-              ) : (
-                <p className="text-[#FCFCFC] text-[20px] font-[500]">
-                  {" "}
-                  {t("AddToFavorite")}{" "}
-                </p>
-              )}
-            </div>
-          </Button>            
-          </div>
-
-
-
-
-          <div  className="flex gap-3">
-            <button onClick={handleLike}
+          {/* like && dislike */}
+          <div className="flex gap-1">
+            <button
+              onClick={handleLike}
               className={`w-14 h-14 cursor-pointer rounded-[56px] flex justify-center items-center ${
                 like ? "bg-blue-500" : "bg-white-200"
               }`}

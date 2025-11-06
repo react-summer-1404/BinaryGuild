@@ -32,21 +32,20 @@ const CourseDescription = ({ course, courseId }) => {
   }
 
   const handleRating = async (newRate) => {
-    console.log(courseId)
-    console.log(typeof courseId)
+
     setRating(newRate);
-    console.log(handleRating);
+
     console.log("data before send",Response);
     try {
       const Response = await CourseRating({
         courseId: courseId,
         RateNumber: newRate,
       });
-      toast.success("نظر شما با موفقیت ثبت شد")
+      toast.success(t("successCourseRating"))
       console.log(Response);
     } catch (error) {
       console.log(error,"no rate");
-      toast.error("نظر شما قبلا ثبت شده است")
+      toast.error(t("errorCourseRating"))
       
     }
   };

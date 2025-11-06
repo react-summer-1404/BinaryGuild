@@ -24,11 +24,12 @@ const onError = (error) => {
 instance.interceptors.response.use(onSuccess, onError);
 instance.interceptors.request.use((config) => {
   
-    const token = localStorage.getItem("token");
-    console.log("token")
+  if (typeof window !== "undefined") {
+    const token = localStorage.getItem("token") || sessionStorage.getItem("token");
+    console.log("token in header:", token)
     if (token) config.headers.Authorization = `Bearer ${token}`;
-    console.log("token")
-  
+    console.log("token in local:",localStorage.getItem("token"))
+  }
 
   return config;
 });
