@@ -8,9 +8,9 @@ import Dashboard from "../../pages/student-panel/dashboard/Dashboard";
 import MyCourse from "../../pages/student-panel/my-courses/MyCourse";
 import MyReserve from "../../pages/student-panel/my-reserve-course/MyReserve";
 import UserProfile from "../../pages/student-panel/profile/UserProfile";
-import ForgetPasswordWrapper from "../../screen/authentication/pages/ForgetPasswordWrapper";
-import LoginWrapper from "../../screen/authentication/pages/LoginWrapper";
-import RegisterWrapper from "../../screen/authentication/pages/RegisterWrapper";
+import ForgetPasswordWrapper from "../../screen/authentication/ForgetPasswordWrapper";
+import LoginWrapper from "../../screen/authentication/LoginWrapper";
+import RegisterWrapper from "../../screen/authentication/RegisterWrapper";
 import LandingWrapper from "../../screen/landing-wrapper/LandingWrapper";
 import PanelWrapper from "../../screen/panel-wrapper/PanelWrapper";
 
