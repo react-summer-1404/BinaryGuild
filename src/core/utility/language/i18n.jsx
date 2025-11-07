@@ -26,20 +26,21 @@ i18n.use(initReactI18next).init({
         RegisterStep3: "واردکردن اطلاعات شخصی",
         RegisterHead: "خوش اومدی! ",
         RegisterCaption:
-          "لطفا ایمیل خود را وارد کنید تا کد تایید برای شما ارسال شود",
+          "لطفا ایمیل را وارد کنید تا کد تایید برای شما ارسال شود",
         RegisterLabel: "ایمیل",
         RegisterPlaceholder: "ایمیل خود را وارد کنید",
         HaveAccount: "حساب کاربری دارید؟",
         GoToAccount: "ورود به حساب کاربری",
         GetUserPhoneLabel: "شماره همراه",
-        GetUserPhonePlaceholder: "شماره همراه خود را وارد کنید",
+        GetUserPhonePlaceholder: "شماره تلفن خود را وارد کنید",
         RegisterNotifysuccessStepOne:"ثبت نام با موفقیت انجام شد",
         RegisterNotifyError:"ثبت نام انجام نشد، لطفا دوباره تلاش کنید",
 
         //GetCode
 
         GetCodeHead: "تایید کد ارسال شده",
-        GetCodeCaption: "لطفا کد ارسال شده به ایمیل را وارد کنید",
+        GetCodeCaption:
+          "لطفا کد ارسال شده به ایمیل را وارد کنید",
         GetCodeLabel: "کد تایید",
         GetCodePlaceholder: "کد تایید خود را وارد کنید",
         GetCodeAgain: " ارسال مجدد کد",
@@ -55,6 +56,7 @@ i18n.use(initReactI18next).init({
 
         //Login
         LoginStep1: "واردکردن شماره همراه",
+
         LoginHead: "خوش برگشتی! ",
         LoginCaption:
           "لطفا شماره همراه یا ایمیل و رمزعبور خود را برای ورود به حساب کاربری را وارد کنید",
@@ -64,12 +66,12 @@ i18n.use(initReactI18next).init({
         LoginPassCaption: "رمزعبور خود را وارد کنید",
         LoginRemember: "مرا به خاطر بسپار",
         NotHaveingAccount: "حساب کاربری ندارید؟",
-        EmailOrPhoneError: "لطفا شماره همراه یا ایمیل خود را وارد کنید.",
         MakeAccount: "ایجاد حساب کاربری",
         ForgetPass: "رمزعبور را فراموش کردید؟",
         LoginNotify: "ورود با موفقیت انجام شد",
         LoginNotifyError: "ورود شما ناموفق بود، لطفا دوباره تلاش کنید.",
         LoginNotifyErrorforPassword: "رمز عبور یا ایمیل شما اشتباه است!",
+
         // ForgetPassword
 
         ChangePasswordStep1: "واردکردن ایمیل",
@@ -81,7 +83,6 @@ i18n.use(initReactI18next).init({
         ForgetPassLabelNewPassword: "رمزعبور جدید",
         ForgetPassLabelNewPasswordRepeat: "تکرار رمزعبور جدید",
         ChangePasswordPlaceholder: "ایمیل خود را وارد کنید",
-        resetLink: "لینک تغییر رمز عبور",
 
         //SetNewPassword
         NewPasswordHead: "رمزعبور جدید! ",
@@ -91,6 +92,9 @@ i18n.use(initReactI18next).init({
         NewPasswordLabelPlaceholder: "رمزعبور خود را وارد کنید",
         NewPasswordRepeatLabelPlaceholder: "تکرار رمزعبور خود را وارد کنید",
         ResetNotify:"رمز شما تغییر کرد",
+
+        // LoginForm
+
         //Buttons
         SendLinkButton: "ارسال لینک",
         GoBackButton: "بازگشت",
@@ -174,6 +178,7 @@ i18n.use(initReactI18next).init({
         CourseViewers: "بازدیدکنندگان",
         comments: "نظرات",
         CourseStartPublish: "تاریخ انتشار",
+        RealatedBlogs:"بلاگ های مرتبط",
 
         //goals
         OurGoals: "اهداف ما در اکادمی",
@@ -203,18 +208,18 @@ i18n.use(initReactI18next).init({
         ServicesDescription3: "مشاورین ما 24 ساعته جوابگو سوال های شما هستند",
         ServicesDescription4:
           "با توجه به سطح توانایی شما فرصت های شغلی به شما پیشنهاد داده میشه",
-
+        
         //introduction
-        ModernEducation: "آموزش مدرن",
-        RapidProgress: "پیشرفت سریع",
-        Description: "آکادمی آموزش تخصصی برنامه نویسی بحر از کودکان تا بزرگسال",
-        OurProfessors: "+50 اساتید برتر جهان",
-        OurStudents: "+100 دانشجوی فعال در دوره",
-        Now: "همین حالا",
-        Start: "شروع کن به یادگیری!",
-        NewCourses: "جدیدترین دوره‌ها",
-        GoodsCourses: "دوره های برتر هفته",
-        GoodsBlogs: "بلاگ های برتر هفته",
+        ModernEducation:"آموزش مدرن",
+        RapidProgress:"پیشرفت سریع",
+        Description:"آکادمی آموزش تخصصی برنامه نویسی بحر از کودکان تا بزرگسال",
+        OurProfessors:"+50 اساتید برتر جهان",
+        OurStudents:"+100 دانشجوی فعال در دوره",
+        Now:"همین حالا",
+        Start:"شروع کن به یادگیری!",
+        NewCourses:"جدیدترین دوره‌ها",
+        GoodsCourses:"دوره های برتر هفته",
+        GoodsBlogs:"بلاگ های برتر هفته",
 
         //professors
         AcademiesProfessors: "اساتید برتر هفته آکادمی",
@@ -254,14 +259,14 @@ i18n.use(initReactI18next).init({
         GoHomePage: "Home Page",
 
         //Register
-        RegisterStep1: "Enter mobile number",
+        RegisterStep1: "Enter your email",
         RegisterStep2: "Verify sent code",
         RegisterStep3: "Enter personal information",
         RegisterHead: "Welcome!",
         RegisterCaption:
-          "Please enter your mobile number to receive verification code",
-        RegisterLabel: "Phone Number",
-        RegisterPlaceholder: "Enter your phone number",
+          "Please enter your email to receive verification code",
+        RegisterLabel: "email",
+        RegisterPlaceholder: "Enter your email",
         HaveAccount: "Already have an account?",
         GoToAccount: "Login to account",
         GetUserPhoneLabel: "Phone Number",
@@ -270,7 +275,7 @@ i18n.use(initReactI18next).init({
 
         //GetCode
         GetCodeHead: "Verify sent code",
-        GetCodeCaption: "Please enter the code sent to {{phoneNumber}}",
+        GetCodeCaption: "Please enter the code sent to your email",
         GetCodeLabel: "Verification Code",
         GetCodePlaceholder: "Enter your verification code",
         GetCodeAgain: "Resend code",
@@ -312,7 +317,6 @@ i18n.use(initReactI18next).init({
         ForgetPassLabelNewPassword: "New password",
         ForgetPassLabelNewPasswordRepeat: "Repeat new password",
         ChangePasswordPlaceholder: "Enter your email",
-        resetLink: "reset link",
 
         //SetNewPassword
         NewPasswordHead: "New password!",
@@ -393,6 +397,7 @@ i18n.use(initReactI18next).init({
         CourseViewers: "Viewers",
         comments: "comment",
         CourseStartPublish: "publish date",
+        RealatedBlogs:"Realated Blogs",
 
         //landing
         //header and footer
@@ -436,17 +441,16 @@ i18n.use(initReactI18next).init({
           "You will be offered job opportunities based on your ability level.",
 
         //introduction
-        ModernEducation: "Modern education",
-        RapidProgress: "Rapid progress",
-        Description:
-          "Bahr Specialized Programming Training Academy for Children to Adults",
-        OurProfessors: "+50 top professors in the world",
-        OurStudents: "+100 active students in the course",
-        Now: "Right now",
-        Start: "Start learning!",
-        NewCourses: "The latest courses",
-        GoodsCourses: "Top courses of the week",
-        GoodsBlogs: "Top blogs of the week",
+        ModernEducation:"Modern education",
+        RapidProgress:"Rapid progress",
+        Description:"Bahr Specialized Programming Training Academy for Children to Adults",
+        OurProfessors:"+50 top professors in the world",
+        OurStudents:"+100 active students in the course",
+        Now:"Right now",
+        Start:"Start learning!",
+        NewCourses:"The latest courses",
+        GoodsCourses:"Top courses of the week",
+        GoodsBlogs:"Top blogs of the week",
 
         //professors
         AcademiesProfessors: "Top Professors of the Academy Week",
@@ -460,6 +464,8 @@ i18n.use(initReactI18next).init({
         ProfessorsScore2: "4.2",
         ProfessorsScore3: "4.1",
 
+
+        
         //student-panel
         Report: "Report",
         MenuText1: "Dashboard",

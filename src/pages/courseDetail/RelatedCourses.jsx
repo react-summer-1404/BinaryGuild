@@ -51,7 +51,7 @@ const RelatedCourses = ({ courseId }) => {
       </h2>
 
       <div className=" w-full h-[366px] grid grid-cols-4 gap-4 mt-6 max-[768px]:flex max-[768px]:overflow-x-scroll max-[768px]:scrollbar-hide ">
-        {relatedCourses.length > 0 ? (
+        {relatedCourses.length > 0 ? ( 
           relatedCourses.map((course) => (
             <div
               key={course.id}

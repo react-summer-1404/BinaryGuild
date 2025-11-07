@@ -96,13 +96,15 @@ const BlogCommentsModal = ({ onCloseBlogMOdal, title, NewsId }) => {
             >
               {/* name and date */}
               <div className="flex gap-2">
-                <div className="border border-black w-10 h-10 rounded-[400px] ">
-                  <img src={item.pictureAddress} />
+                <div className=" w-10 h-10 rounded-[400px] ">
+                  <img 
+                  src={item.title} onError={(e)=>{e.target.src="../../../src/assets/icons/Flynn.png" }}
+                  />
                 </div>
-                <div>
-                  <p className="font-[600] text-text text-[14px] ">
+                <div className="flex items-center">
+                  {/* <p className="font-[600] text-text text-[14px] ">
                     {"author name"}
-                  </p>
+                  </p> */}
                   <p className="text-[#707070] font-[500] text-[12px] mt-2 ">
                       {formatInsertDate}
                   </p>

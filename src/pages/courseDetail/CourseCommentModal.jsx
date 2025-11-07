@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { GetCourseComments } from "../../core/services/api/get-data";
 import { AddReplyCourseComment } from "../../core/services/api/post-data";
 import moment from "moment-jalaali";
-import ReplyComment from '../../../src/components/common/comment/ReplyComment'
+import ReplyComment from "../../../src/components/common/comment/ReplyComment";
 const CourseCommentModal = ({ onClose, course, courseId }) => {
   const { t } = useTranslation();
   const [showReply, setShowReply] = useState(false);
@@ -34,7 +34,7 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
 
   const handleAddCommentDeskTopMode = () => {
     setShowReplyDesktopMode(!showReplyDesktopMode);
-  };  
+  };
 
   //   comments
   useEffect(() => {
@@ -74,7 +74,10 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
         </button>
       </div>
 
-      <div onClick={handleAddCommentDeskTopMode} className="w-[107px] h-10 cursor-pointer bg-blue rounded-[40px] mt-10 flex justify-center items-center gap-2 max-[768px]:hidden ">
+      <div
+        onClick={handleAddCommentDeskTopMode}
+        className="w-[107px] h-10 cursor-pointer bg-blue rounded-[40px] mt-10 flex justify-center items-center gap-2 max-[768px]:hidden "
+      >
         <img
           className="w-6 h-6"
           src="../../../src/assets/icons/comment-add-01.png"
@@ -91,8 +94,13 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
             <div key={item.key} className="w-full h-auto mt-6">
               {/* name and date */}
               <div className="flex gap-2">
-                <div className="border border-black w-10 h-10 rounded-[400px] ">
-                  <img src={item.pictureAddress} />
+                <div className=" w-10 h-10 rounded-[400px] ">
+                  <img
+                    src={item.title}
+                    onError={(e) => {
+                      e.target.src = "../../../src/assets/icons/Flynn.png";
+                    }}
+                  />
                 </div>
                 <div>
                   <p className="font-[600] text-text text-[14px] ">

@@ -128,3 +128,12 @@ export const AddBlogsLike = ({CommentId,LikeType}) => {
 };
 
 
+export const AddBlogsDissLike = (NewsId) => {
+  return instance.post("/News/NewsDissLike/",null,{
+    params:{
+      NewsId:NewsId
+    }
+  });
+};
+
+

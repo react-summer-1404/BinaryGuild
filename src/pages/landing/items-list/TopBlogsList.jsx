@@ -11,8 +11,8 @@ const TopBlogsList = () => {
   });
 console.log(blogsData)
   return (
-    <div>
-      <div className="w-full flex flex-nowrap">
+    <div className="w-full flex gap-2 flex-wrap">
+      <div className="w-full flex gap-2 flex-nowrap">
         {blogsData?.map((item) => {
           return <TopBlogs key={item.id} item={item} />;
         })}

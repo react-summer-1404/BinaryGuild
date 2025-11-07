@@ -1,9 +1,4 @@
 import instance from "../../interceptor";
-export const GetCourse = (CourseId) => {
-  return instance.get("/Home/GetCourseDetails", {
-    params: { CourseId },
-  });
-};
 
 export const GetCourseComments = (CourseId) => {
   console.log(CourseId);
@@ -24,7 +19,7 @@ export const GetAllCourses = (pageNumber = 1, rowsOgPage = 10) => {
 };
 
 //get related courses
- 
+
 
 export const GetCourseTech = () => {
   return instance.get("/Home/GetTechnologies");
@@ -53,17 +48,23 @@ export const GetReplyCourseComment = (CourseId, CommentId) => {
   });
 };
 
-
-export const Reset = (ConfigValue) => {
-  return instance.get(`/Sign/Reset/${ConfigValue}`);
+//related blogs
+export const GetRelatedBlogs = (id) => {
+  return instance.get(`/News/GetNewsCategory/${id}`);
 };
 
-export const TopCoursesData = () => {
+export const TopCoursesData =async () => {
   return instance.get("/Home/GetCoursesTop?Count=4");
 };
 
-export const UserData = () => {
-  return instance.get(`/SharePanel/GetProfileInfo`);
+export const UserData = async () => {
+  try {
+    const response = await instance.get("/SharePanel/GetProfileInfo");
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 };
 export const UseGetTopBlogs = async () => {
   try {
@@ -76,3 +77,46 @@ export const UseGetTopBlogs = async () => {
     console.log(error);
   }
 };
+export const UserCourses = async () => {
+  try {
+    const response = await instance(
+      "/SharePanel/GetMyCourses?PageNumber=1&RowsOfPage=4&SortingCol=desc&SortType=LastUpdate&Query="
+    );
+    return response.listOfMyCourses;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const UserReserve = async () => {
+  try {
+    const response = await instance("/SharePanel/GetMyCoursesReserve");
+    console.log(response)
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const UserComments = async()=>{
+  try{
+    const response = await instance ("/Course/GetCourseCommnets/t4")
+    return response
+  }catch(error){
+    console.log(error)
+  }
+}
+export const GetCourse =(CourseId)=>{
+  return instance.get(`/Home/GetCourseDetails?CourseId=${CourseId}`)
+}
+export const GetCourseDetail = (CourseId) => {
+  return instance.get("/Home/GetCourseDetails", {
+    params: { CourseId },
+  });
+};
+
+
+
+export const Reset = (ConfigValue) => {
+  return instance.get(`/Sign/Reset/${ConfigValue}`);
+};
+
+

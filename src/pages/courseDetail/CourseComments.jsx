@@ -104,8 +104,9 @@ const CourseComments = ({ courseId, course }) => {
               </div>
               <div className="h-10 w-full flex justify-between">
                 <div className="flex gap-3">
-                  <div className="border border-black w-10 h-10 rounded-[400px] ">
-                    <img src={course.pictureAddress} />
+                  <div className="w-10 h-10 rounded-[400px] ">
+                    <img 
+src={course.title} onError={(e)=>{e.target.src="../../../src/assets/icons/Flynn.png" }}                     />
                   </div>
                   <div>
                     <p className="font-[600] text-text text-[14px] ">

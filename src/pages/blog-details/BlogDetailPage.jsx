@@ -6,7 +6,6 @@ import BlogHeader from "./BlogHeader";
 import BlogDescription from "./BlogDescription";
 import BlogComments from "./BlogComments";
 import RelatedBlogs from "./RelatedBlogs";
-import BlogCommentsModal from "./BlogCommentsModal";
 import { GetBlogs } from "../../core/services/api/get-data";
 
 const BlogDetailPage = () => {
@@ -29,7 +28,7 @@ const BlogDetailPage = () => {
   if (!blogs) return <p>در حال بارگزاری</p>;
 
   return (
-    <div className="w-full m-auto  bg-background  flex flex-col text-text rtl:text-right mt-14 ">
+    <div className="w-[92%] m-auto  bg-background  flex flex-col text-text rtl:text-right mt-14 ">
       <BlogHeader
         newsId={id}
         title={blogs.detailsNewsDto.title}
@@ -48,7 +47,7 @@ const BlogDetailPage = () => {
       <BlogDescription describe={blogs.detailsNewsDto.describe} NewsId={id} />
 
       <BlogComments title={blogs.detailsNewsDto.title} NewsId={id} />
-      <RelatedBlogs />
+      <RelatedBlogs newsCatregoryId={blogs.detailsNewsDto.newsCatregoryId} />
     </div>
   );
 };

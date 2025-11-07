@@ -59,7 +59,7 @@ const BlogComments = ({ NewsId, title, CommentId }) => {
   return (
     <div className=" h-[400px] w-full mt-8">
       <Toaster />
-      <h2 className="text-[#707070] font-[700] text-[20px] ">
+      <h2 className="text-[#707070] text-start font-[700] text-[20px] ">
         {t("CommentsHead")}
       </h2>
 
@@ -94,7 +94,7 @@ const BlogComments = ({ NewsId, title, CommentId }) => {
           visibleComments.map((comments) => (
             <div
               key={comments.id}
-              className="bg-forgetpassbtn p-4 h-90 rounded-[24px] flex flex-col items-center justify-between mt-4 mb-4"
+              className="bg-forgetpassbtn text-start p-4 h-90 rounded-[24px] flex flex-col items-center justify-between mt-4 mb-4"
             >
               <div className=" h-[157px] w-full ">
                 <p className="text-text font-bold text-[18px]">
@@ -106,17 +106,15 @@ const BlogComments = ({ NewsId, title, CommentId }) => {
               </div>
               <div className="h-10 w-full flex justify-between">
                 <div className="flex gap-3">
-                  <div className="w-10 h-10 rounded-[400px] ">
-                    <img
-                      onError={(e) =>
-                        (e.target.src = "../../../src/assets/icons/Flynn.png")
-                      }
-                    />
+                  <div className="w-10 h-10 rounded-[400px]">
+                <img
+                  src={comments.title} onError={(e)=>{e.target.src="../../../src/assets/icons/Flynn.png" }}
+                />
                   </div>
-                  <div>
-                    <p className="font-[600] text-text text-[14px] ">
+                  <div className="flex items-center">
+                    {/* <p className="font-[600] text-text text-[14px] ">
                       {"author name"}
-                    </p>
+                    </p> */}
                     <p className="text-[#707070] font-[500] text-[12px] ">
                       {formatInsertDate}
                     </p>
@@ -126,7 +124,7 @@ const BlogComments = ({ NewsId, title, CommentId }) => {
                 <div className="flex items-center gap-4 max-[1256]:gap-0 max-[1256]:flex-col ">
                   <div className="flex gap-2 ">
                     <svg
-                    onClick={() => handleLike(CommentId)}
+                    onClick={() => handleLike(comments.id)}
                       className="cursor-pointer"
                       width="20"
                       height="20"
