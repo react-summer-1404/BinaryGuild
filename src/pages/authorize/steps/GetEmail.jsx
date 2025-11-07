@@ -26,6 +26,7 @@ const GetEmail = ({ onNext, setGetEmail: sendEmail }) => {
       return;
     } else {
       setEmailError("");
+
     }
     localStorage.removeItem("token");
     try {

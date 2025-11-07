@@ -53,13 +53,12 @@ const GetPhoneNumberLogin = ({ onNext }) => {
       if (response.success && response.token) {
         const token = response.token;
         console.log(response);
-        
-          if (remember) {
-            localStorage.setItem("token", token);
-            console.log(token, "token saved in localstorage");
-            localStorage.getItem("token");
-          }
-        
+
+        if (remember) {
+          localStorage.setItem("token", token);
+          console.log(token, "token saved in localstorage");
+          localStorage.getItem("token");
+        }
 
         setTimeout(() => {
           toast.success(t("LoginNotify"));
@@ -71,7 +70,12 @@ const GetPhoneNumberLogin = ({ onNext }) => {
       }
     } catch (error) {
       console.log("error", error);
-      toast.error(t("LoginNotifyError"));
+      if (error.response.status === 401) {
+        toast.error(t("LoginNotifyErrorforPassword"));
+      }
+      if (error.response.status === 400) {
+        toast.error(t("LoginNotifyError"));
+      }
     }
   };
 

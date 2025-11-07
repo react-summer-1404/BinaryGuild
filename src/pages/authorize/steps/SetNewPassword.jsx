@@ -6,6 +6,7 @@ import { ResetPassword } from "../../../core/services/api/post-data";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import Stepper from "./Stepper";
+import toast, { Toaster } from "react-hot-toast";
 
 const SetNewPassword = ({ getEmail }) => {
   const [getPassword, setGetPassword] = useState("");
@@ -48,7 +49,19 @@ const SetNewPassword = ({ getEmail }) => {
           newPassword: getPassword,
           resetValue: resetValue,
         });
-        GoLogin();
+
+        setTimeout(() => {
+          toast.success(t("ResetNotify"));
+          console.log(toast);
+          setTimeout(() => {
+            GoLogin();
+          }, 1000);
+        }, 100);
+
+        
+
+
+
         console.log("response", response);
       } catch (error) {
         console.log(error);
@@ -57,6 +70,7 @@ const SetNewPassword = ({ getEmail }) => {
   };
   return (
     <div className="flex flex-col items-start">
+      <Toaster/>
       <div className="flex flex-col gap-5 sm:flex-row items-start ">
         <Stepper text={t("ChangePasswordStep1")} active={false} />
         <Stepper text={t("resetLink")} active={false} />

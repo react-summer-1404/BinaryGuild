@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import Stepper from "../steps/Stepper";
 import GetEmail from "../steps/GetEmail";
 import GetCode from "../steps/GetCode";

@@ -6,6 +6,7 @@ import BlogHeader from "./BlogHeader";
 import BlogDescription from "./BlogDescription";
 import BlogComments from "./BlogComments";
 import RelatedBlogs from "./RelatedBlogs";
+import BlogCommentsModal from "./BlogCommentsModal";
 import { GetBlogs } from "../../core/services/api/get-data";
 
 const BlogDetailPage = () => {
@@ -46,7 +47,7 @@ const BlogDetailPage = () => {
       />
       <BlogDescription describe={blogs.detailsNewsDto.describe} NewsId={id} />
 
-      <BlogComments NewsId={id} />
+      <BlogComments title={blogs.detailsNewsDto.title} NewsId={id} />
       <RelatedBlogs />
     </div>
   );

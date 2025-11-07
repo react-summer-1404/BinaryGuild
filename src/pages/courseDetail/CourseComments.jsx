@@ -52,7 +52,7 @@ const CourseComments = ({ courseId, course }) => {
     if (courseId) comments();
   }, [courseId]);
 
-  
+
 
   return (
     <div className=" h-[400px] w-full mt-8 ">
@@ -181,7 +181,7 @@ const CourseComments = ({ courseId, course }) => {
             </div>
           ))
         ) : (
-          <div className=" flex items-center max-[540px]:mt-4 justify-center">
+          <div className=" flex items-center max-[768px]:mt-10 justify-center ">
             {" "}
             {t("NoComment")}
           </div>

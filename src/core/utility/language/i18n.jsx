@@ -33,6 +33,8 @@ i18n.use(initReactI18next).init({
         GoToAccount: "ورود به حساب کاربری",
         GetUserPhoneLabel: "شماره همراه",
         GetUserPhonePlaceholder: "شماره همراه خود را وارد کنید",
+        RegisterNotifysuccessStepOne:"ثبت نام با موفقیت انجام شد",
+        RegisterNotifyError:"ثبت نام انجام نشد، لطفا دوباره تلاش کنید",
 
         //GetCode
 
@@ -67,7 +69,7 @@ i18n.use(initReactI18next).init({
         ForgetPass: "رمزعبور را فراموش کردید؟",
         LoginNotify: "ورود با موفقیت انجام شد",
         LoginNotifyError: "ورود شما ناموفق بود، لطفا دوباره تلاش کنید.",
-
+        LoginNotifyErrorforPassword: "رمز عبور یا ایمیل شما اشتباه است!",
         // ForgetPassword
 
         ChangePasswordStep1: "واردکردن ایمیل",
@@ -88,7 +90,7 @@ i18n.use(initReactI18next).init({
         NewPasswordRepeatLabel: "تکرار رمزعبور جدید",
         NewPasswordLabelPlaceholder: "رمزعبور خود را وارد کنید",
         NewPasswordRepeatLabelPlaceholder: "تکرار رمزعبور خود را وارد کنید",
-
+        ResetNotify:"رمز شما تغییر کرد",
         //Buttons
         SendLinkButton: "ارسال لینک",
         GoBackButton: "بازگشت",
@@ -108,6 +110,7 @@ i18n.use(initReactI18next).init({
         AboutUs: "درباره ما",
         Registration: "ثبت نام / ورود",
         SeeMore: "مشاهده بیشتر",
+        SeeLess: "مشاهده کمتر",
         Professors: "اساتید",
         ContactUs: "ارتباط با ما",
         Services: "خدمات ما",
@@ -164,6 +167,7 @@ i18n.use(initReactI18next).init({
         ok: "باشه",
         errorCourseReserveUserProfileNotComplete:
           "لطفا ابتدا پروفایل خود را کامل کنید",
+        NoRelatedCourse: "دوره مرتبطی وجود ندارد",
 
         // blogs details
         CoursePublisher: "منتشرکننده",
@@ -262,6 +266,7 @@ i18n.use(initReactI18next).init({
         GoToAccount: "Login to account",
         GetUserPhoneLabel: "Phone Number",
         GetUserPhonePlaceholder: "Enter your phone number",
+        RegisterNotifysuccessStepOne: "You registered successfully",
 
         //GetCode
         GetCodeHead: "Verify sent code",
@@ -295,10 +300,11 @@ i18n.use(initReactI18next).init({
         LoginNotify: "You loggined successfully",
         LoginNotifyError: "You couldn't login successfully",
         EmailOrPhoneError: "Please enter your email or phone number",
+        LoginNotifyErrorforPassword: "Your email or password is wrong!",
 
         // ForgetPassword
         ChangePasswordStep1: "Enter email",
-        ConfirmCode: "Two-factor authentication code verification",
+        ConfirmCode: "Two-factor authentication code",
         ForgetPassHead: "Forgot Password!",
         ForgetPassCaption:
           "If you forgot your password, enter your email to receive password reset link",
@@ -315,7 +321,7 @@ i18n.use(initReactI18next).init({
         NewPasswordRepeatLabel: "Repeat new password",
         NewPasswordLabelPlaceholder: "Enter your password",
         NewPasswordRepeatLabelPlaceholder: "Repeat your password",
-
+        ResetNotify:"Your password has changed",
         //Buttons
         SendLinkButton: "Send link",
         GoBackButton: "Back",
@@ -352,13 +358,14 @@ i18n.use(initReactI18next).init({
         comment: "comment",
         CommentsHead: "Student Reviews",
         SeeMore: "See More",
+        SeeLess: "See less",
         RealatedCourses: "Related Courses",
         Comments: "Your Comment",
         CommentDescription: "Click for review",
         ResetHead: "",
         ResetDes: "",
         ResetLink: "",
-        NoComment: "",
+        NoComment: "there is no comment yet",
         reply: "reply",
         commentTitle: "ٌWrite your comment's title",
         commentDescribe: "Write your comment",
@@ -379,6 +386,7 @@ i18n.use(initReactI18next).init({
         ok: "ok",
         errorCourseReserveUserProfileNotComplete:
           "Please complete your profile",
+        NoRelatedCourse: "There is no related course yet",
 
         // blogs details
         CoursePublisher: "Publisher",

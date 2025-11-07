@@ -37,7 +37,7 @@ const Router = createBrowserRouter([
       { path: "register", element: <RegisterWrapper />},
       { path: "login", element: <LoginWrapper /> },
       { path: "forgetPassword", element: <ForgetPasswordWrapper /> },
-      { path: "resetpassword/:resetValue", element: <SetNewPassword />, children:[] },
+      { path: "resetpassword/:resetValue", element: <SetNewPassword />,},
 
     ],
   },

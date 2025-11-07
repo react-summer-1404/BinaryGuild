@@ -39,7 +39,9 @@ export const ResetPassword = ({ gmail, newPassword, resetValue }) => {
 
 // course rating
 export const CourseRating = ({ courseId, RateNumber }) => {
-  return instance.post(`/Course/SetCourseRating?CourseId=${courseId}&RateNumber=${RateNumber}`);
+  return instance.post(
+    `/Course/SetCourseRating?CourseId=${courseId}&RateNumber=${RateNumber}`
+  );
 };
 
 // reserve course
@@ -63,39 +65,38 @@ export const AddCourseDisLike = ({ courseId }) => {
 };
 
 // Add like to comment
-export const AddCourseCommentLike = ( CourseCommandId ) => {
+export const AddCourseCommentLike = (CourseCommandId) => {
   return instance.post("/Course/AddCourseCommentLike", null, {
     params: {
-      CourseCommandId
+      CourseCommandId,
     },
   });
 };
 
 // Add dislike to comment
-export const AddCourseCommentDisLike = ( CourseCommandId ) => {
+export const AddCourseCommentDisLike = (CourseCommandId) => {
   return instance.post("/Course/AddCourseCommentDissLike", null, {
     params: {
-      CourseCommandId
+      CourseCommandId,
     },
   });
 };
 
 // Add post reply comment
 
-export const AddReplyCourseComment = (CommentId,CourseId,Title,Describe)=>{
+export const AddReplyCourseComment = (CommentId, CourseId, Title, Describe) => {
   const FormData = new FormData();
-  FormData.append("CommentId",CommentId);
-  FormData.append("CourseId",CourseId);
-  FormData.append("Title",Title);
-  FormData.append("Describe",Describe);
-  return instance.post("/Course/AddReplyCourseComment",FormData)
-}
-
+  FormData.append("CommentId", CommentId);
+  FormData.append("CourseId", CourseId);
+  FormData.append("Title", Title);
+  FormData.append("Describe", Describe);
+  return instance.post("/Course/AddReplyCourseComment", FormData);
+};
 
 // Add to favorite blogs
 export const AddfavoriteBlogs = ({ NewsId }) => {
-  return instance.post("/News/AddFavoriteNews/" , null ,{
-    params:{NewsId}
+  return instance.post("/News/AddFavoriteNews/", null, {
+    params: { NewsId },
   });
 };
 
@@ -116,3 +117,14 @@ export const AddBlogsRating = ({ NewsId, RateNumber }) => {
     },
   });
 };
+
+// Add Like && Dislike for Course
+export const AddBlogsLike = ({CommentId,LikeType}) => {
+  return instance.post(`/News/CommentLike/${CommentId}`,null,{
+    params:{
+      LikeType:LikeType
+    }
+  });
+};
+
+

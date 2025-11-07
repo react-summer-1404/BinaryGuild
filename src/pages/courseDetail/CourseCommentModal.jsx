@@ -5,12 +5,12 @@ import { useTranslation } from "react-i18next";
 import { GetCourseComments } from "../../core/services/api/get-data";
 import { AddReplyCourseComment } from "../../core/services/api/post-data";
 import moment from "moment-jalaali";
-import CourseReplyComment from "./CourseReplyComment";
+import ReplyComment from '../../../src/components/common/comment/ReplyComment'
 const CourseCommentModal = ({ onClose, course, courseId }) => {
   const { t } = useTranslation();
   const [showReply, setShowReply] = useState(false);
   const [showReplyDesktopMode, setShowReplyDesktopMode] = useState(false);
-  const [showReplyToReply, setShowReplyToReply] = useState(false);
+  // const [showReplyToReply, setShowReplyToReply] = useState(false);
   const [showCommentBox, setShowCommentBox] = useState(false);
 
   const [comment, setComment] = useState([]);
@@ -23,9 +23,9 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
     setShowReply(!showReply);
   };
 
-  const handleReplyTheReplyComment = () => {
-    setShowReplyToReply(!showReplyToReply);
-  };
+  // const handleReplyTheReplyComment = () => {
+  //   setShowReplyToReply(!showReplyToReply);
+  // };
 
   // add comment
   const handleAddComment = () => {
@@ -51,7 +51,7 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
   }, [courseId]);
 
   return (
-    <div className="border text-right overflow-y-scroll scroll- text-text shadow-shadow shadow-xs border-boarder p-4 fixed inset-0 z-50 m-auto  w-200 h-[653px] rounded-[32px] bg-authcommonbackground max-[1245px]:w-160 max-[1245px]:h-120 max-[700px]:w-120 max-[500px]:w-95 ">
+    <div className="border text-right overflow-y-scroll scrollbar-hide text-text shadow-shadow shadow-xs border-boarder p-4 fixed inset-0 z-50 m-auto  w-200 h-[653px] rounded-[32px] bg-authcommonbackground max-[1245px]:w-160 max-[1245px]:h-120 max-[700px]:w-120 max-[500px]:w-95 ">
       <div className="flex justify-between">
         <div className=" w-full flex">
           <h2 className="text-text2 font-[700] text-[20px] ">
@@ -81,12 +81,12 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
         />
         <p className="text-[#FCFCFC] text-4 font-[500] ">{t("Comments")}</p>
       </div>
-      {showReplyDesktopMode && <CourseReplyComment />}
+      {showReplyDesktopMode && <ReplyComment />}
 
       {/* comment */}
 
       {comment.length > 0 ? (
-        <div className="h-auto overflow-y-scroll mt-6 pr-2">
+        <div className="h-auto mt-6 pr-2">
           {comment.map((item) => (
             <div key={item.key} className="w-full h-auto mt-6">
               {/* name and date */}
@@ -188,12 +188,12 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
           {t("NoComment")}
         </div>
       )}
-      {showReply && <CourseReplyComment />}
+      {showReply && <ReplyComment />}
 
       {/* reply comment */}
-      <div className="border-r-6 pr-4 border-blue flex gap-2">
+      {/* <div className="border-r-6 pr-4 border-blue flex gap-2">
         <div className="w-full h-auto mt-6">
-          {/* name and date */}
+
           <div className="flex gap-2">
             <div className="border border-black w-10 h-10 rounded-[400px] ">
               <img />
@@ -205,13 +205,13 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
               </p>
             </div>
           </div>
-          {/* title */}
+
           <p className="text-text font-bold text-[18px] mt-3">api</p>
-          {/* describe */}
+
 
           <p className="font-[500] text-4 text-[#707070] mt-4 wrap-break-word">
             api
-            {/* reply and like and dislike */}
+
           </p>
 
           <div className="flex items-center mt-4 gap-4 max-[1256]:gap-0 max-[1256]:flex-col ">
@@ -276,9 +276,9 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      {showReplyToReply && <CourseReplyComment />}
+      {/* {showReplyToReply && <ReplyComment />} */}
 
       <div
         onClick={handleAddComment}
@@ -293,7 +293,7 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
         </div>
       </div>
 
-      {showCommentBox && <CourseReplyComment />}
+      {showCommentBox && <ReplyComment />}
     </div>
   );
 };

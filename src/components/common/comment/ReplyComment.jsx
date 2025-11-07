@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-const CourseReplyComment = () => {
+const ReplyComment = () => {
   const { t } = useTranslation();
 
   return (
@@ -40,4 +40,4 @@ const CourseReplyComment = () => {
   );
 };
 
-export default CourseReplyComment;
+export default ReplyComment;
