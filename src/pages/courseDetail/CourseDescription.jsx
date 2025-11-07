@@ -1,58 +1,90 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import ReactStars from "react-stars";
 import { CourseRating } from "../../core/services/api/post-data";
 import { Button } from "@heroui/button";
+import ReactStars from "react-stars";
+import toast, { Toaster } from "react-hot-toast";
 
 
-const CourseDescription = ({ course, CourseId }) => {
+
+const CourseDescription = ({ course, courseId }) => {
   const { t } = useTranslation();
+  const [rating, setRating] = useState(0);
+  const [copy, setCopy] = useState(false);
 
-  const[rating, setRating]=useState(0);
 
-  const handleRating= async(newRate)=>{
+  const handleCopy=async()=>{
+    const Url = window.location.href;
+    try {
+      if(navigator.clipboard && window.isSecureContext){
+        await navigator.clipboard.writeText(Url);
+      }
+      console.log(Url)
+      setCopy(true)
+      toast.success(t("copied"))
+      setTimeout(() => {
+        setCopy(false)
+      }, 2000);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handleRating = async (newRate) => {
+    console.log(courseId)
+    console.log(typeof courseId)
     setRating(newRate);
-  
-
-try{
-  const Response = await CourseRating(CourseId, newRate);
-  console.log(Response)
-}catch(error){
-  console.log(error)
-}
-}
+    console.log(handleRating);
+    console.log("data before send",Response);
+    try {
+      const Response = await CourseRating({
+        courseId: courseId,
+        RateNumber: newRate,
+      });
+      toast.success("نظر شما با موفقیت ثبت شد")
+      console.log(Response);
+    } catch (error) {
+      console.log(error,"no rate");
+      toast.error("نظر شما قبلا ثبت شده است")
+      
+    }
+  };
   return (
-    <div className=" mt-14 flex flex-col justify-between gap-5">
-      <h2 className="text-[#707070] font-[700] text-[20px] h-10 ">
+    <div className=" w-full mt-10 flex flex-col gap-5  max-[540px]:mt-12">
+      <Toaster/>
+      <h2 className="flex justify-start text-[#707070] font-[700] text-[20px] h-10 ">
         {" "}
         {t("CourseDesHead")}{" "}
       </h2>
 
-      <p className=" ">{course.miniDescribe}</p>
+      <p className=" flex justify-start">{course.miniDescribe}</p>
 
-      <div className="flex items-center gap-2 ">
+      <div className="flex items-center gap-2 max-[540px]:block">
         <div className="flex items-center gap-3">
           <p className="text-[#3772FF] font-[600] text-[16px]">
             {t("CourseRate")}
           </p>
 
-            <div className="flex items-center gap-2 ">
-              <ReactStars className="cursor-grab"
-                count={5}
-                value={rating}
-                onChange={handleRating}
-                size={28}
-                color1="#D9D9D9"
-                color2="#FCFF46"
-                edit={false}
-              />
-            </div>
+          <ReactStars
+            className="cursor-pointer"
+            count={5}
+            value={rating}
+            onChange={handleRating}
+            size={24}
+            color1="#D9D9D9"
+            color2="#FCFF46"
+            edit={true}
+          />
         </div>
 
-        <div className="flex">
-          <Button className="border-[1px] cursor-pointer gap-2 border-[#3772FF] bg-[#FCFCFC] pt-2 pb-2 pr-6 pl-6 flex justify-center items-center rounded-[48px] w-[216px] h-[39px] text-[#3772FF] font-[500] text-[16px]">
+        <div  className="flex max-[540px]:mt-4">
+          <Button className="border-[1px] cursor-pointer  border-buttonBorder bg-[#FCFCFC] p-1  rounded-[48px] w-[216px] h-[39px] text-[#3772FF] font-[500] text-[16px]">
+            <div onClick={handleCopy}  className=" w-full flex justify-center gap-3 items-center ">
             <img src="../../../src/assets/icons/Vector.png" />
-            {t("PageLink")}
+            {copy ? t("copied") : t("PageLink")}               
+            </div>
+
           </Button>
         </div>
       </div>

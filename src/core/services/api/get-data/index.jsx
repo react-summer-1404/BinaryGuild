@@ -1,7 +1,43 @@
 import instance from "../../interceptor";
 
-export const Reset = (ConfigValue) => {
-  return instance.get(`/Sign/Reset/${ConfigValue}`);
+export const GetCourseComments = (CourseId) => {
+  console.log(CourseId);
+  return instance.get(`/Course/GetCourseCommnets/${CourseId}`, {
+    // params: { CourseId },
+  });
+};
+
+export const GetAllCourses = (pageNumber = 1, rowsOgPage = 10) => {
+  return instance.get("/Course/CourseList", {
+    params: {
+      pageNumber: pageNumber,
+      RowsOgPage: rowsOgPage,
+      SortingCol: "DESC",
+      SortType: "Expire",
+      Query: "",
+    },
+  });
+};
+
+export const GetBlogs = (id) => {
+  return instance.get(`/News/${id}`);
+};
+
+export const GetBlogsComments = (NewsId) => {
+  return instance.get("/News/GetNewsComments", {
+    params: {
+      NewsId: NewsId,
+    },
+  });
+};
+
+export const GetReplyCourseComment = (CourseId, CommentId) => {
+  return instance.get("/News/GetNewsComments", {
+    params: {
+      CourseId: CourseId,
+      CommentId: CommentId,
+    },
+  });
 };
 
 export const TopCoursesData = () => {
@@ -64,11 +100,6 @@ export const GetCourseDetail = (CourseId) => {
   });
 };
 
-export const GetCourseComments = (CourseId) => {
-  return instance.get(`/Course/GetCourseComments`, {
-    params: { CourseId:CourseId },
-  });
-};
 
 
 // const GetAllCourseByPagination = async (apiParams) => {
@@ -89,6 +120,3 @@ export const GetCourseComments = (CourseId) => {
 //   }
 // };
 // export default GetAllCourseByPagination;
-export const GetCourseId = (CourseId) => {
-  return instance.get(`/Home/GetCourseDetails?CourseId=${CourseId}`);
-};

@@ -1,62 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@heroui/button";
-import { useState, useEffect } from "react";
-import { GetCourseComments } from "../../core/services/api/get-data";
 import moment from "moment-jalaali";
-import { AddCourseCommentLike } from "../../core/services/api/post-data";
-import { AddCourseCommentDisLike } from "../../core/services/api/post-data";
-import CourseCommentModal from "./CourseCommentModal";
-import toast, { Toaster } from "react-hot-toast";
-
-const CourseComments = ({ courseId,course }) => {
-  const [comment, setComment] = useState([]);
-  const [show,setShow]=useState(false)
-  const { t } = useTranslation();
-
-
-  const formatInsertDate = moment(courseId.insertDate).format("jYYYY/jMM/jDD");
-
-  const handleLike = async (commentId) => {
-    try {
-      const response = await AddCourseCommentLike(commentId);
-      setComment((prevComments) => prevComments.map((cmt)=> cmt.id === commentId ? {...cmt, likeCount : cmt.likeCount +1}:cmt ))
-      console.log(response);
-      toast.success("right");
-    } catch (error) {
-      console.log(error);
-      toast.error("wrong");
-    }
-  };
-
-  const handleDisLike = async (commentId) => {
-    try {
-      const response = await AddCourseCommentDisLike(commentId);
-      setComment((prevComments) => prevComments.map((cmt)=> cmt.id === commentId ? {...cmt, disslikeCount : cmt.disslikeCount +1}:cmt ))
-      console.log(response);
-      toast.success("right");
-    } catch (error) {
-      console.log(error);
-      toast.error("wrong");
-    }
-  };
-
-  useEffect(() => {
-    const comments = async () => {
-      try {
-        const response = await GetCourseComments(courseId);
-        console.log(response, "comments response");
-        setComment(response);
-      } catch (error) {
-        console.log(error);
+import { GetBlogsComments } from "../../core/services/api/get-data";
+import { useState } from "react";
+const BlogComments = ({NewsId}) => {
+    const [comments, setComments] = useState([]);
+    const { t } = useTranslation();
+    const formatInsertDate = moment(comments.insertDate).format("jYYYY/jMM/jDD");
+  
+    useEffect(()=>{
+      const fetchBlogsComments =async ()=>{
+        try {
+          const response = await GetBlogsComments(NewsId);
+          console.log(response);
+          setComments(response);
+        } catch (error) {
+          console.log(error)
+        }
       }
-    };
-    if (courseId) comments();
-  }, [courseId]);
+      if(NewsId) fetchBlogsComments();
+    },[NewsId])
 
   return (
     <div className=" h-[400px] w-full mt-8">
-      <Toaster />
       <h2 className="text-[#707070] font-[700] text-[20px] ">
         {t("CommentsHead")}
       </h2>
@@ -71,36 +38,34 @@ const CourseComments = ({ courseId,course }) => {
             <p className="text-[#FCFCFC] text-[18px] font-[600] mt-2 ">
               {t("Comments")}
             </p>
-            <button onClick={()=>setShow(true)} className="text-[#FCFCFC] cursor-pointer text-[14px] font-[500] mt-4">
+            <button className="text-[#FCFCFC] cursor-pointer text-[14px] font-[500] mt-4">
               {t("CommentDescription")}
             </button>
           </div>
         </div>
 
-        {show &&  <CourseCommentModal courseId={courseId} course={course} onClose={()=>setShow(false)} />}
-
-        {comment.length > 0 ? (
-          comment.map((course) => (
+        {comments.length > 0 ? (
+          comments.map((comments) => (
             <div
-              key={course.id}
+              key={comments.id}
               className="bg-forgetpassbtn p-4 h-90 rounded-[24px] flex flex-col items-center justify-between mt-4 mb-4"
             >
               <div className=" h-[157px] w-full ">
                 <p className="text-text font-bold text-[18px]">
-                  {course.title}
+                  {comments.title}
                 </p>
-                <p className="font-[500] text-4 text-[#707070] mt-4 wrap-break-word">
-                  {course.describe}
+                <p className="font-medium text-[16px] text-[#707070] mt-4 wrap-break-word">
+                  {comments.describe}
                 </p>
               </div>
               <div className="h-10 w-full flex justify-between">
                 <div className="flex gap-3">
                   <div className="border border-black w-10 h-10 rounded-[400px] ">
-                    <img src={course.pictureAddress} />
+                    <img src={ ""} />
                   </div>
                   <div>
                     <p className="font-[600] text-text text-[14px] ">
-                      {course.author}
+                      {"author name" }
                     </p>
                     <p className="text-[#707070] font-[500] text-[12px] ">
                       {formatInsertDate}
@@ -111,7 +76,6 @@ const CourseComments = ({ courseId,course }) => {
                 <div className="flex items-center gap-4 max-[1256]:gap-0 max-[1256]:flex-col ">
                   <div className="flex gap-2 ">
                     <svg
-                      onClick={() => handleLike(course.id)}
                       width="20"
                       height="20"
                       viewBox="0 0 24 24"
@@ -133,18 +97,18 @@ const CourseComments = ({ courseId,course }) => {
                         stroke-linejoin="round"
                       />
                     </svg>
-                    <span className="text-[16px] font-[500] max-[1256]:hidden ">
-                      {course.likeCount} 
+                    <span className="text-[16px] font-[500]">
+                      {comments.likeCount}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex gap-2">
                     <svg
-                      onClick={() => handleDisLike(course.id)}
                       width="20"
                       height="20"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      
                     >
                       <path
                         d="M2 11.5C2 12.6046 2.89543 13.5 4 13.5C5.65685 13.5 7 12.1569 7 10.5V6.5C7 4.84315 5.65685 3.5 4 3.5C2.89543 3.5 2 4.39543 2 5.5V11.5Z"
@@ -161,11 +125,12 @@ const CourseComments = ({ courseId,course }) => {
                         stroke-linejoin="round"
                       />
                     </svg>
-                    <span className="text-[16px] font-[500] max-[1256]:hidden ">
-                      {course.disslikeCount}
+                    <span className="text-[16px] font-[500]">
+                      {comments.dissLikeCount}
                     </span>
                   </div>
                 </div>
+
               </div>
             </div>
           ))
@@ -177,7 +142,7 @@ const CourseComments = ({ courseId,course }) => {
         )}
       </div>
 
-      {comment.length > 3 ? (
+      {comments.length > 3 ? (
         <div className="w-full h-[39px] flex justify-center items-center mt-5 max-[768px]:block  max-[768px]:mt-40  ">
           <Button className="bg-[#2F2F2F] mt-8 cursor-pointer w-[125px] h-[39px] p-2 rounded-[40px] flex justify-center items-center gap-2 ">
             <p className="text-[#FCFCFC] text-[16px] font-[500]">
@@ -188,8 +153,7 @@ const CourseComments = ({ courseId,course }) => {
       ) : (
         <p> </p>
       )}
-    </div>
-  );
-};
+    </div>  )
+}
 
-export default CourseComments;
+export default BlogComments

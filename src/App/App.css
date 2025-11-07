@@ -5,21 +5,19 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-
-@theme{
-  --color-blue: #3772FF;
-  --color-black-900: #2F2F2F;
+@theme {
+  --color-blue: #3772ff;
+  --color-black-900: #2f2f2f;
   --color-black-600: #353535;
   --color-white-200: #efe8ff;
   --color-black: #1a1a1a;
   --color-white: #ffffff;
-  --color-gray-400:#707070;
-  --color-gray-100:#DCDCDC;
-  --color-pink:#FF6C6C;
-  --color-blue-300:#675CFF;
-  --color-blue-100:#87DFFF;
-  --color-yellow:#F0DB4F;
-
+  --color-gray-400: #707070;
+  --color-gray-100: #dcdcdc;
+  --color-pink: #ff6c6c;
+  --color-blue-300: #675cff;
+  --color-blue-100: #87dfff;
+  --color-yellow: #f0db4f;
 
   --font-persian: DanaFaNum;
 
@@ -33,6 +31,11 @@
   --color-forgetpassbtn:var(--forgetpassbtn);
   --color-gray-0:var(--gray-0);
   --color-gray-450:var(--gray-450);
+  --color-thumbs: var(--thumbs);
+  --color-text2: var(--text2);
+  --color-buttonBorder: var(--buttonBorder);
+  --color-shadow: var(--shadow);
+  --color-commentHead: var(--commentHead);
 
 
 }
@@ -47,6 +50,11 @@
   --forgetpassbtn:#F6F6F6;
   --gray-0: #e8e8e8;
   --gray-450:#D9D9D9;
+  --thumbs: #000;
+  --text2: #2f2f2f;
+  --buttonBorder:#3772FF;
+  --shadow:#313030;
+  --commentHead:#202020;
 
 }
 .dark{
@@ -59,6 +67,13 @@
   --forgetpassbtn:#2a2828;
   --gray-0: #5d5d5d;
   --gray-450:#3d3d3d;
+  --backgroundColor: #202020;
+  --thumbs: #fff;
+  --text2: #fff;
+  --buttonBorder:#202020;
+  --shadow:#707070;
+  --commentHead:#707070;
+
 }
 
 #root {
@@ -67,4 +82,3 @@
   width: 100%;
   direction: rtl;
 }
-

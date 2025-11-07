@@ -12,7 +12,7 @@ const onSuccess = (response) => {
 
 const onError = (error) => {
   if (error.response.status === 401) {
-    // removeItem("token");
+    // localStorage.removeItem("token");
     console.log(error);
   }
   if (error.response.status >= 404 && error.response.status < 500) {
@@ -22,15 +22,15 @@ const onError = (error) => {
 };
 
 instance.interceptors.response.use(onSuccess, onError);
-instance.interceptors.request.use((opt) => {
-  if (typeof window !== "undefined") {
+instance.interceptors.request.use((config) => {
+  
     const token = localStorage.getItem("token");
-    console.log("token in header:", token)
-    if (token) opt.headers.Authorization = `Bearer ${token}`;
-    console.log(localStorage.getItem("token:", token))
-  }
+    console.log("token")
+    if (token) config.headers.Authorization = `Bearer ${token}`;
+    console.log("token")
+  
 
-  return opt;
+  return config;
 });
 
 export default instance;

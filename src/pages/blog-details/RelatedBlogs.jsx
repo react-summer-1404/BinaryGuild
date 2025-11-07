@@ -1,8 +1,7 @@
 import { Button } from "@heroui/button";
 import { useTranslation } from "react-i18next";
-import { GetAllCourses,GetCourse } from "../../core/services/api/get-data";
 
-const RelatedCourses = () => {
+const RelatedBlogs = () => {
   const { t } = useTranslation();
 
 
@@ -48,4 +47,4 @@ const RelatedCourses = () => {
   );
 };
 
-export default RelatedCourses;
+export default RelatedBlogs;
