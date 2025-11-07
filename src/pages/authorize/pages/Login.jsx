@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Stepper from "../../Stepper";
+import Stepper from "../steps/Stepper";
 import GetPhoneNumberLogin from "../steps/GetPhoneNumberLogin";
 import TwoStepLogin  from "../steps/TwoStepLoginWrapper";
 import { useNavigate } from "react-router-dom";

@@ -33,7 +33,7 @@ export const CourseDetailPage = () => {
       <CourseDescription course={course} courseId={course.courseId} />
       <CourseComments courseId={course.courseId} course={course} />
       <RelatedCourses course={course} courseId={course.courseId} />
-      <CourseReserveMobileMode course={course}/>
+      <CourseReserveMobileMode courseId={course.courseId} course={course}/>
     </div>
   );
 };

@@ -23,6 +23,9 @@ const UserProfile = lazy(() => import("../../pages/student-panel/profile/UserPro
 const CourseFav = lazy(() => import("../../pages/student-panel/course-fav/CourseFav"));
 const BlogFav = lazy(() => import("../../pages/student-panel/blog-fav/BlogFav")); 
 
+const NotFound = lazy(() => import("../../components/common/not-found-section/NotFound")); 
+
+
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -43,7 +46,7 @@ const Router = createBrowserRouter([
       { path: "register", element: <RegisterWrapper />},
       { path: "login", element: <LoginWrapper /> },
       { path: "forgetPassword", element: <ForgetPasswordWrapper /> },
-      { path: "resetpassword/:resetValue", element: <SetNewPassword />, children:[] },
+      { path: "resetpassword/:resetValue", element: <SetNewPassword />,},
 
     ],
   },

@@ -44,11 +44,6 @@ const GetPhoneNumberLogin = ({ onNext }) => {
       console.log("فرم درسته");
     }
     try {
-      console.log("dataLogin", {
-        phoneOrGmail: getUserInfo,
-        password: getPassword,
-        rememberMe: remember,
-      });
       const response = await Login({
         phoneOrGmail: getUserInfo,
         password: getPassword,
@@ -58,15 +53,11 @@ const GetPhoneNumberLogin = ({ onNext }) => {
       if (response.success && response.token) {
         const token = response.token;
         console.log(response);
-        if (token) {
-          if (remember) {
-            localStorage.setItem("token", token);
-            console.log(token, "token saved in localstorage");
-            localStorage.getItem("token");
-          } else {
-            sessionStorage.setItem("token", token);
-            console.log(token, "sessionStorage");
-          }
+
+        if (remember) {
+          localStorage.setItem("token", token);
+          console.log(token, "token saved in localstorage");
+          localStorage.getItem("token");
         }
 
         setTimeout(() => {
@@ -79,7 +70,12 @@ const GetPhoneNumberLogin = ({ onNext }) => {
       }
     } catch (error) {
       console.log("error", error);
-      toast.error(t("LoginNotifyError"));
+      if (error.response.status === 401) {
+        toast.error(t("LoginNotifyErrorforPassword"));
+      }
+      if (error.response.status === 400) {
+        toast.error(t("LoginNotifyError"));
+      }
     }
   };
 

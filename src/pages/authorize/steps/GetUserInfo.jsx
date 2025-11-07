@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Register } from "../../../core/services/api/post-data";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import toast, { Toaster } from "react-hot-toast";
+
 
 const GetUserInfo = ({ onPrevious }) => {
   const [getEmail, setGetEmail] = useState("");
@@ -81,17 +83,21 @@ const GetUserInfo = ({ onPrevious }) => {
           console.log(token, "token saved in localstorage");
           localStorage.getItem("token");
         }
-
         GoLogin();
+        toast.success(t("RegisterNotifysuccessStepOne"));
+
       }
       console.log("success", GoLogin());
     } catch (error) {
-      console.log(error, "خطاااااا");
+      console.log(error)
+        toast.error(t("RegisterNotifyError"));
+
     }
   };
 
   return (
     <div className="flex flex-col items-start">
+      <Toaster/>
       <h2 className="text-[28px] font font-[700] text-text mt-[75px]">
         {t("GetUserInfoHead")}{" "}
       </h2>

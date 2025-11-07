@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import Stepper from "../../Stepper";
+import Stepper from "../steps/Stepper";
 import GoToGmail from "../steps/GoToGmail";
 import SetNewPassword from "../steps/SetNewPassword";
 import { useNavigate } from "react-router-dom";
