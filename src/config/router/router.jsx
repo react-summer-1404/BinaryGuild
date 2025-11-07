@@ -20,6 +20,7 @@ const Router = createBrowserRouter([
     element: <LandingLayout />,
     children: [{ index : true, element: <LandingWrapper /> }],
   },
+ 
   {
     path: "/",
     element: <AuthLayout />,

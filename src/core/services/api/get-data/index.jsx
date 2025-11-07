@@ -55,6 +55,21 @@ export const UserComments = async()=>{
     console.log(error)
   }
 }
+export const GetCourse =(CourseId)=>{
+  return instance.get(`/Home/GetCourseDetails?CourseId=${CourseId}`)
+}
+export const GetCourseDetail = (CourseId) => {
+  return instance.get("/Home/GetCourseDetails", {
+    params: { CourseId },
+  });
+};
+
+export const GetCourseComments = (CourseId) => {
+  return instance.get(`/Course/GetCourseComments`, {
+    params: { CourseId:CourseId },
+  });
+};
+
 
 // const GetAllCourseByPagination = async (apiParams) => {
 //   try {
@@ -74,6 +89,6 @@ export const UserComments = async()=>{
 //   }
 // };
 // export default GetAllCourseByPagination;
-export const GetCourse = (CourseId) => {
+export const GetCourseId = (CourseId) => {
   return instance.get(`/Home/GetCourseDetails?CourseId=${CourseId}`);
 };
