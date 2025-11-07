@@ -9,6 +9,9 @@ import CourseReplyComment from "./CourseReplyComment";
 const CourseCommentModal = ({ onClose, course, courseId }) => {
   const { t } = useTranslation();
   const [showReply, setShowReply] = useState(false);
+  const [showReplyDesktopMode, setShowReplyDesktopMode] = useState(false);
+  const [showReplyToReply, setShowReplyToReply] = useState(false);
+  const [showCommentBox, setShowCommentBox] = useState(false);
 
   const [comment, setComment] = useState([]);
 
@@ -19,6 +22,19 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
   const handleReplyComment = () => {
     setShowReply(!showReply);
   };
+
+  const handleReplyTheReplyComment = () => {
+    setShowReplyToReply(!showReplyToReply);
+  };
+
+  // add comment
+  const handleAddComment = () => {
+    setShowCommentBox(!showCommentBox);
+  };
+
+  const handleAddCommentDeskTopMode = () => {
+    setShowReplyDesktopMode(!showReplyDesktopMode);
+  };  
 
   //   comments
   useEffect(() => {
@@ -58,13 +74,14 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
         </button>
       </div>
 
-      <div className="w-[107px] h-10 bg-blue rounded-[40px] mt-10 flex justify-center items-center gap-2 ">
+      <div onClick={handleAddCommentDeskTopMode} className="w-[107px] h-10 cursor-pointer bg-blue rounded-[40px] mt-10 flex justify-center items-center gap-2 max-[768px]:hidden ">
         <img
           className="w-6 h-6"
           src="../../../src/assets/icons/comment-add-01.png"
         />
         <p className="text-[#FCFCFC] text-4 font-[500] ">{t("Comments")}</p>
       </div>
+      {showReplyDesktopMode && <CourseReplyComment />}
 
       {/* comment */}
 
@@ -171,9 +188,10 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
           {t("NoComment")}
         </div>
       )}
+      {showReply && <CourseReplyComment />}
 
       {/* reply comment */}
-      <div className="border-r-6 pr-4 border-blue flex gap-2"> 
+      <div className="border-r-6 pr-4 border-blue flex gap-2">
         <div className="w-full h-auto mt-6">
           {/* name and date */}
           <div className="flex gap-2">
@@ -251,7 +269,7 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
             </div>
 
             <div
-              onClick={handleReplyComment}
+              onClick={handleReplyTheReplyComment}
               className=" cursor-pointer border flex items-center justify-center w-25 h-10 border-blue text-blue text-4 font-medium rounded-[40px] "
             >
               {t("reply")}
@@ -259,7 +277,23 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
           </div>
         </div>
       </div>
-      {showReply && <CourseReplyComment />}
+
+      {showReplyToReply && <CourseReplyComment />}
+
+      <div
+        onClick={handleAddComment}
+        className=" h-14 rounded-[40px] cursor-pointer bg-blue w-[345px] flex justify-center items-center mt-10 m-auto min-[768px]:hidden "
+      >
+        <div className="w-[107px] h-10 rounded-[40px] flex justify-center items-center gap-2 ">
+          <img
+            className="w-6 h-6"
+            src="../../../src/assets/icons/comment-add-01.png"
+          />
+          <p className="text-[#FCFCFC] text-4 font-[500] ">{t("Comments")}</p>
+        </div>
+      </div>
+
+      {showCommentBox && <CourseReplyComment />}
     </div>
   );
 };

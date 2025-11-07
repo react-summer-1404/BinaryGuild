@@ -28,7 +28,7 @@ const BlogDetailPage = () => {
   if (!blogs) return <p>در حال بارگزاری</p>;
 
   return (
-    <div className="border w-full m-auto  border-black  bg-background  flex flex-col text-text rtl:text-right mt-14 ">
+    <div className="w-full m-auto  bg-background  flex flex-col text-text rtl:text-right mt-14 ">
       <BlogHeader
         newsId={id}
         title={blogs.detailsNewsDto.title}
@@ -41,6 +41,8 @@ const BlogDetailPage = () => {
         newsRate={blogs.detailsNewsDto._count.newsRate}
         newsComment={blogs.detailsNewsDto._count.newsComment}
         newsView={blogs.detailsNewsDto._count.newsView}
+        count={blogs.detailsNewsDto.newsRate.count}
+        avg={blogs.detailsNewsDto.newsRate.avg}
       />
       <BlogDescription describe={blogs.detailsNewsDto.describe} NewsId={id} />
 

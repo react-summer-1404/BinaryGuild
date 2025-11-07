@@ -23,6 +23,15 @@ export const GetAllCourses = (pageNumber = 1, rowsOgPage = 10) => {
   });
 };
 
+//get related courses
+ 
+
+export const GetCourseTech = () => {
+  return instance.get("/Home/GetTechnologies");
+};
+
+
+
 export const GetBlogs = (id) => {
   return instance.get(`/News/${id}`);
 };

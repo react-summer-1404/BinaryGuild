@@ -99,7 +99,7 @@ i18n.use(initReactI18next).init({
         //Errors
         EmailError: "لطفا ایمیل معتبر وارد کنید",
         PasswordError: "لطفا تکرار رمز عبور خود را وارد کنید ",
-        RegisterNotifyErrorStepOne: "لطفا تمام اطلاعات مورد نیاز را پر کنید",
+        RegisterNotifyErrorStepOne: "شما از قبل ثبت نام کرده اید",
 
         //landing
         Home: "خانه",
@@ -153,9 +153,17 @@ i18n.use(initReactI18next).init({
         errorCourseFavorite: "علاقه مندی شما قبلا ثبت شده است",
         successCourseReserve: "به رزوی های شما افزوده شد",
         errorCourseReserve: "این دوره در رزروی های شما قرار دارد",
-        copied:"لینک صفحه کپی شد",
-        successCourseRating:"نظر شما با موفقیت ثبت شد",
-        errorCourseRating:"نظر شما قبلا ثبت شده است",
+        copied: "لینک صفحه کپی شد",
+        successCourseRating: "نظر شما با موفقیت ثبت شد",
+        errorCourseRating: "نظر شما قبلا ثبت شده است",
+        Favorited: "افزوده شد",
+        reserveBoxHead: "دوره به لیست رزروی های شما اضافه شد!",
+        reserveDescription:
+          "بعد از تایید ادمین ، دوره مورد نظر به لیست دوره من شما اضافه خواهد شد ",
+        MyReserve: "رزرو من",
+        ok: "باشه",
+        errorCourseReserveUserProfileNotComplete:
+          "لطفا ابتدا پروفایل خود را کامل کنید",
 
         // blogs details
         CoursePublisher: "منتشرکننده",
@@ -216,25 +224,24 @@ i18n.use(initReactI18next).init({
         ProfessorsScore2: "۴.۲",
         ProfessorsScore3: "۴.۱",
 
-
         //student-panel
-        Report:"گزارش",
-        MenuText1:"داشبرد",
-        MenuText2:"دوره من",
-        MenuText3:"رزرو من",
-        MenuText4:"دوره های موردعلاقه",
-        MenuText5:"بلاگ های موردعلاقه",
-        MenuText6:"پروفایل",
-        MenuText7:"پرداخت ها",
-        DeleteUser:"خروج از حساب کاربری",
-        
+        Report: "گزارش",
+        MenuText1: "داشبرد",
+        MenuText2: "دوره من",
+        MenuText3: "رزرو من",
+        MenuText4: "دوره های موردعلاقه",
+        MenuText5: "بلاگ های موردعلاقه",
+        MenuText6: "پروفایل",
+        MenuText7: "پرداخت ها",
+        DeleteUser: "خروج از حساب کاربری",
+
         //panel
-        Welcome:"سلام ، روزت بخیر",
-        Hope:"امیدوارم امروز روز خوبی رو داشته باشید",
-        HourAndDate1:"ساعت",
-        HourAndDate2:"تاریخ",
-        TimeAndDay1:"۲۰:۲۰",
-        TimeAndDay2:"۲۰ آبان ۱۴۰۴"
+        Welcome: "سلام ، روزت بخیر",
+        Hope: "امیدوارم امروز روز خوبی رو داشته باشید",
+        HourAndDate1: "ساعت",
+        HourAndDate2: "تاریخ",
+        TimeAndDay1: "۲۰:۲۰",
+        TimeAndDay2: "۲۰ آبان ۱۴۰۴",
       },
     },
 
@@ -319,8 +326,7 @@ i18n.use(initReactI18next).init({
         //Errors
         EmailError: "Please enter a valid email",
         PasswordError: "Please enter your password confirmation",
-        RegisterNotifyErrorStepOne:
-          "please fill in all the required information",
+        RegisterNotifyErrorStepOne: "؛You already registered",
 
         //AuthCommon
         AuthTitle: "Start an adventure",
@@ -363,11 +369,16 @@ i18n.use(initReactI18next).init({
         errorCourseFavorite: "This course is already in your favorites",
         successCourseReserve: "Added to ypur reserved courses",
         errorCourseReserve: "This course is already reserved ",
-        copied:"Page link has been copied",
-        successCourseRating:"You rate has been submitted successfuly",
-        errorCourseRating:"You have already submitted your rating",
-
-
+        copied: "Page link has been copied",
+        successCourseRating: "You rate has been submitted successfuly",
+        errorCourseRating: "You have already submitted your rating",
+        Favorited: "favorit",
+        reserveBoxHead: "This course is added to your reserve courses",
+        reserveDescription: "After confirmation course will be added to your",
+        MyReserve: "My Reserve",
+        ok: "ok",
+        errorCourseReserveUserProfileNotComplete:
+          "Please complete your profile",
 
         // blogs details
         CoursePublisher: "Publisher",
@@ -440,25 +451,25 @@ i18n.use(initReactI18next).init({
         ProfessorsScore1: "4.8",
         ProfessorsScore2: "4.2",
         ProfessorsScore3: "4.1",
-        
+
         //student-panel
-        Report:"Report",
-        MenuText1:"Dashboard",
-        MenuText2:"My period",
-        MenuText3:"My reservation",
-        MenuText4:"Favorite courses",
-        MenuText5:"Favorite blogs",
-        MenuText6:"Profile",
-        MenuText7:"Payments",
-        DeleteUser:"Delete user",
+        Report: "Report",
+        MenuText1: "Dashboard",
+        MenuText2: "My period",
+        MenuText3: "My reservation",
+        MenuText4: "Favorite courses",
+        MenuText5: "Favorite blogs",
+        MenuText6: "Profile",
+        MenuText7: "Payments",
+        DeleteUser: "Delete user",
 
         //panel
-        Welcome:"Hello, good day.",
-        Hope:"I hope you have a good day today.",
-        HourAndDate1:"hour",
-        HourAndDate2:"date",
-        TimeAndDay1:"20:20",
-        TimeAndDay2:"2025 November 11"
+        Welcome: "Hello, good day.",
+        Hope: "I hope you have a good day today.",
+        HourAndDate1: "hour",
+        HourAndDate2: "date",
+        TimeAndDay1: "20:20",
+        TimeAndDay2: "2025 November 11",
       },
     },
   },

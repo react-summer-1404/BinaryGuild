@@ -11,6 +11,8 @@ import { AddDisLikeBlogComments } from "../../core/services/api/post-data";
 
 const BlogHeader = ({
   newsId,
+  count,
+  avg,
   title,
   insertDate,
   currentImageAddressTumb,
@@ -19,8 +21,7 @@ const BlogHeader = ({
   addUserFullName,
   newsLike,
   newsDissLike,
-  newsRate,
-  newsComment,
+
 }) => {
   const { t } = useTranslation();
   const [copy, setCopy] = useState(false);
@@ -90,7 +91,7 @@ const BlogHeader = ({
   };
 
   return (
-    <div className="border border-black  h-106 flex gap-8 justify-between items-center  ">
+    <div className=" h-106 flex gap-8 justify-between items-center  ">
       <Toaster />
 
       <div className="  w-[45%] h-106 max-[1000px]:hidden ">
@@ -167,8 +168,9 @@ const BlogHeader = ({
         {/* rate */}
         <div className="w-full h-[34px]  mt-5 flex items-center gap-3">
           <div className="flex items-center gap-2 ">
-            <div className="text-text font-[500]">({newsRate})</div>
+            <div className="text-text font-[500]">({avg})</div>
             <ReactStars
+            value={avg}
               count={5}
               size={28}
               color1="#D9D9D9"
@@ -178,7 +180,7 @@ const BlogHeader = ({
           </div>
           <span className="text-text font-[500]">+</span>
           <div className="text-text font-[500]">
-            ({newsComment}) {t("comments")}
+            ({count}) {t("comments")}
           </div>
         </div>
 

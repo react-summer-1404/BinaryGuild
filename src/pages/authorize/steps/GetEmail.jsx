@@ -17,14 +17,11 @@ const GetEmail = ({ onNext, setGetEmail: sendEmail }) => {
     const value = e.target.value;
     setGetEmail(value);
   };
-  
-
 
   const handleError = async (e) => {
     e.preventDefault();
 
     if (getEmail.trim() === "" || !getEmail.includes("@")) {
-      
       setEmailError(t("EmailError"));
       return;
     } else {
@@ -33,12 +30,15 @@ const GetEmail = ({ onNext, setGetEmail: sendEmail }) => {
     localStorage.removeItem("token");
     try {
       const response = await SendVerifyMessage(getEmail);
-     console.log(response, "response");
+      console.log(response, "response");
       sendEmail(getEmail);
       onNext();
     } catch (error) {
       console.log("error", error.response);
-      toast.error(t("RegisterNotifyErrorStepOne"));
+      if (error.response.status === 400) {
+        toast.error(t("RegisterNotifyErrorStepOne"));
+      }
+
     }
   };
 
@@ -56,9 +56,6 @@ const GetEmail = ({ onNext, setGetEmail: sendEmail }) => {
         onSubmit={handleError}
         className="flex items-start flex-col mt-[48px]"
       >
-
-
-        
         <label
           className="text-right text-text font-[600] text-[16px]"
           htmlFor="email"
@@ -76,7 +73,7 @@ const GetEmail = ({ onNext, setGetEmail: sendEmail }) => {
         <p className="mt-[4px] font-bold text-[12px] text-[red]">
           {emailError}
         </p>
-        
+
         <AuthButton text={t("SendConfirmedCode")} type="submit" />
       </form>
 

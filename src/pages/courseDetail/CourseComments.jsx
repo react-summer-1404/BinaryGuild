@@ -12,6 +12,7 @@ import toast, { Toaster } from "react-hot-toast";
 const CourseComments = ({ courseId, course }) => {
   const [comment, setComment] = useState([]);
   const [show, setShow] = useState(false);
+
   const { t } = useTranslation();
 
   const formatInsertDate = moment(courseId.insertDate).format("jYYYY/jMM/jDD");
@@ -51,10 +52,12 @@ const CourseComments = ({ courseId, course }) => {
     if (courseId) comments();
   }, [courseId]);
 
+  
+
   return (
-    <div className=" h-[400px] w-full mt-8">
+    <div className=" h-[400px] w-full mt-8 ">
       <Toaster />
-      <h2 className="text-[#707070] font-[700] text-[20px] max-[500px]:w-20 ">
+      <h2 className="text-[#707070] flex justify-start font-[700] text-[20px] max-[500px]:w-20 ">
         {t("CommentsHead")}
       </h2>
 
@@ -91,7 +94,7 @@ const CourseComments = ({ courseId, course }) => {
               key={course.id}
               className="bg-forgetpassbtn p-4 h-90 rounded-[24px] flex flex-col items-center justify-between mt-4 mb-4"
             >
-              <div className=" h-[157px] w-full ">
+              <div className=" h-[157px] w-full">
                 <p className="text-text font-bold text-[18px]">
                   {course.title}
                 </p>

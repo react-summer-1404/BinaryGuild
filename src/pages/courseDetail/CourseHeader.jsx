@@ -8,6 +8,7 @@ import { AddfavoriteCourse } from "../../../src/core/services/api/post-data/inde
 import { AddCourseLike } from "../../../src/core/services/api/post-data/index";
 import { AddCourseDisLike } from "../../../src/core/services/api/post-data/index";
 import toast, { Toaster } from "react-hot-toast";
+import ReserveCourseSuccessModal from "./ReserveCourseSuccessModal";
 
 const CourseHeader = ({ course, courseId }) => {
   const { t } = useTranslation();
@@ -15,6 +16,11 @@ const CourseHeader = ({ course, courseId }) => {
   const [favorite, setFavorite] = useState("");
   const [like, setLike] = useState(false);
   const [disLike, setDisLike] = useState(false);
+  const [showReserveBox, setShowReserveBox] = useState(false);
+
+  const handleShowReserveBox = () => {
+    setShowReserveBox(true);
+  };
 
   const formatStartTime = moment(course.startTime).format("jYYYY/jMM/jDD");
   const formatEndTime = moment(course.endTime).format("jYYYY/jMM/jDD");
@@ -55,7 +61,6 @@ const CourseHeader = ({ course, courseId }) => {
       console.log(response, "response reserve");
       setFavorite(response);
       toast.success(t("successCourseFavorite"));
-      
     } catch (error) {
       console.log(error, "error reserve");
       toast.error(t("errorCourseFavorite"));
@@ -69,10 +74,11 @@ const CourseHeader = ({ course, courseId }) => {
       console.log(response, "response reserve");
       setReserve(response);
       toast.success(t("successCourseReserve"));
-
     } catch (error) {
+      if (error.response.status === 401) {
+        toast.error(t("errorCourseReserveUserProfileNotComplete"));
+      }
       console.log(error, "error reserve");
-      toast.error(t("errorCourseReserve"));
     }
   };
 
@@ -187,23 +193,31 @@ const CourseHeader = ({ course, courseId }) => {
 
         {/* buttons */}
         <div className="w-full h-14 mt-6 flex justify-between items-center">
-          <Button className="bg-[#3772FF] cursor-pointer w-[194px] h-14 rounded-[40px]  max-[750px]:w-[120px] max-[750px]:h-10 max-[540px]:hidden ">
-            <div
-              onClick={handleReserve}
-              className="w-full flex justify-center items-center gap-2"
-            >
-              <img src="../../../src/assets/icons/archive-02.png" />
-              {reserve.success ? (
-                <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[750px]:text-[16px]">
-                  {t("Reserved")}
-                </p>
-              ) : (
-                <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[750px]:text-[16px]">
-                  {t("ReserveCourse")}
-                </p>
-              )}
-            </div>
-          </Button>
+          <div
+            onClick={handleShowReserveBox}
+            closeReserveBox={() => setShowReserveBox}
+          >
+            {" "}
+            <Button className="bg-[#3772FF] cursor-pointer w-[194px] h-14 rounded-[40px]  max-[750px]:w-[120px] max-[750px]:h-10 max-[540px]:hidden ">
+              <div
+                onClick={handleReserve}
+                className="w-full flex justify-center items-center gap-2"
+              >
+                <img src="../../../src/assets/icons/archive-02.png" />
+                {reserve.success ? (
+                  <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[750px]:text-[16px]">
+                    {t("Reserved")}
+                  </p>
+                ) : (
+                  <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[750px]:text-[16px]">
+                    {t("ReserveCourse")}
+                  </p>
+                )}
+              </div>
+            </Button>
+          </div>
+
+          {showReserveBox && <ReserveCourseSuccessModal />}
 
           <Button className="bg-[#2F2F2F] cursor-pointer pl-10 pr-10  h-14 rounded-full flex justify-center items-center gap-2 max-[750px]:w-[250px] max-[750px]:h-10 ">
             <div

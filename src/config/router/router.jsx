@@ -5,7 +5,6 @@ import Courses from "../../pages/Courses";
 import ForgetPasswordWrapper from '../../../src/screen/authentication/ForgetPasswordWrapper'
 import LoginWrapper from '../../../src/screen/authentication/LoginWrapper'
 import RegisterWrapper from '../../../src/screen/authentication/RegisterWrapper'
-
 import LandingWrapper from "../../screen/landing-wrapper/LandingWrapper";
 import StudentPanelLayout from "../../components/layouts/StudentPanelLayout";
 import CourseDetailWrapper from "../../../src/screen/course-detail/CourseDetailWrapper"
