@@ -11,7 +11,7 @@ export const TopCoursesData = () => {
 export const UserData = async () => {
   try {
     const response = await instance.get("/SharePanel/GetProfileInfo");
-    console.log(response)
+    console.log(response);
     return response;
   } catch (error) {
     console.log(error);
@@ -28,6 +28,33 @@ export const UseGetTopBlogs = async () => {
     console.log(error);
   }
 };
+export const UserCourses = async () => {
+  try {
+    const response = await instance(
+      "/SharePanel/GetMyCourses?PageNumber=1&RowsOfPage=4&SortingCol=desc&SortType=LastUpdate&Query="
+    );
+    return response.listOfMyCourses;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const UserReserve = async () => {
+  try {
+    const response = await instance("/SharePanel/GetMyCoursesReserve");
+    console.log(response)
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const UserComments = async()=>{
+  try{
+    const response = await instance ("/Course/GetCourseCommnets/t4")
+    return response
+  }catch(error){
+    console.log(error)
+  }
+}
 
 // const GetAllCourseByPagination = async (apiParams) => {
 //   try {

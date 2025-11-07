@@ -1,27 +1,52 @@
-import { Link } from "react-router-dom";
 import { Button } from "@heroui/button";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import Profile1 from "../../../core/icons/Profile1";
+import { useQuery } from "@tanstack/react-query";
+import { UserData } from "../../../core/services/api/get-data";
 
 const Buttons = () => {
   const { t } = useTranslation();
+  const [profile, setProfile] = useState(true);
+  const { data: profileData } = useQuery({
+    queryKey: ["GET_PROFILE_INFO"],
+    queryFn: UserData,
+  });
 
-  // const login = () =>{
-  //   if(){
+  const login = () => {
+    if (localStorage.getItem("token")) setProfile(true);
+    else setProfile(false);
+  };
 
-  //   }else{
+  useEffect(() => {
+    login();
+  }, []);
 
-  //   }
-  // }
+  const RenderItem = () => {
+    if (profile) {
+      return (
+      <div className="w-10 rounded-3xl pl-2 pb-1 pt-1.5 cursor-pointer">
+        <Link to={"/panel"}>
+          <img src={profileData?.userImage} onError={(e)=>{e.target.src="/src/assets/icons/Peppe – 07.svg"}} className="w-full rounded-4xl " />
+        </Link>
+      </div>
+      );
+    } else {
+      return(
+        <div className="w-33 rounded-3xl pt-0.5 cursor-pointer">
+          <Link to={"/register"}>
+            <Button color="primary" radius="full" className="w-32 block">
+              <p className="font-persian text-xs mt-1 font-bold">
+                {t("Registration")}
+              </p>
+            </Button>
+          </Link>
+        </div>)
+    }
+  };
 
-  return (
-    <div className="w-34 rounded-3xl pt-0.5 cursor-pointer">
-      <Link to={"/register"}>
-        <Button color="primary" radius="full" className="w-32 block">
-          <p className="font-persian text-xs mt-1 font-bold">{t("Registration")}</p>
-        </Button>
-      </Link>
-    </div>
-  );
+  return RenderItem();
 };
 
 export default Buttons;

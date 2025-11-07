@@ -5,15 +5,21 @@ import PanelList from "../common/panel-header/lists/panel-menu-list/PanelList";
 import UserPanelList from "../common/panel-header/lists/user-panel-list/UserPanelList";
 import PanelHeaderButton from "../common/panel-header/panel-button/PanelHeaderButton";
 import SignOut from "../common/panel-header/sign-out/SignOut";
+import { useQuery } from "@tanstack/react-query";
+import { UserData } from "../../core/services/api/get-data";
 
 const StudentPanelLayout = () => {
+  const { data: profileData } = useQuery({
+    queryKey: ["GET_PROFILE_INFO"],
+    queryFn: UserData,
+  });
   return (
     <div className="flex bg-black-900 flex-wrap">
       <div className="w-full flex flex-wrap">
         <div className="p-4">
           <Logo />
         </div>
-        <UserPanelList />
+        <UserPanelList profileData={profileData}/>
         <PanelHeaderButton />
         <div className="p-4">
           <HeaderIcons />
