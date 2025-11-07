@@ -6,7 +6,7 @@ import ResponsiveIcon from "./responsive-icon/ResponsiveIcon";
 
 const Header = () => {
   return (
-    <div className="flex h-auto w-full mt-2 flex-nowrap justify-between items-start">
+    <div className="flex h-auto w-11/12 mt-2 flex-nowrap m-auto justify-between items-start">
       <ResponsiveLogo />
       <div className="hidden lg:block">
         <Logo />

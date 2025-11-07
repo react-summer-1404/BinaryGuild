@@ -1,15 +1,57 @@
 import instance from "../../interceptor";
 
-export const Reset = (ConfigValue) => {
-  return instance.get(`/Sign/Reset/${ConfigValue}`);
+export const GetCourseComments = (CourseId) => {
+  console.log(CourseId);
+  return instance.get(`/Course/GetCourseCommnets/${CourseId}`, {
+    // params: { CourseId },
+  });
+};
+
+export const GetAllCourses = (pageNumber = 1, rowsOgPage = 10) => {
+  return instance.get("/Course/CourseList", {
+    params: {
+      pageNumber: pageNumber,
+      RowsOgPage: rowsOgPage,
+      SortingCol: "DESC",
+      SortType: "Expire",
+      Query: "",
+    },
+  });
+};
+
+export const GetBlogs = (id) => {
+  return instance.get(`/News/${id}`);
+};
+
+export const GetBlogsComments = (NewsId) => {
+  return instance.get("/News/GetNewsComments", {
+    params: {
+      NewsId: NewsId,
+    },
+  });
+};
+
+export const GetReplyCourseComment = (CourseId, CommentId) => {
+  return instance.get("/News/GetNewsComments", {
+    params: {
+      CourseId: CourseId,
+      CommentId: CommentId,
+    },
+  });
 };
 
 export const TopCoursesData = () => {
   return instance.get("/Home/GetCoursesTop?Count=4");
 };
 
-export const UserData = () => {
-  return instance.get(`/SharePanel/GetProfileInfo`);
+export const UserData = async () => {
+  try {
+    const response = await instance.get("/SharePanel/GetProfileInfo");
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 };
 export const UseGetTopBlogs = async () => {
   try {
@@ -22,6 +64,33 @@ export const UseGetTopBlogs = async () => {
     console.log(error);
   }
 };
+export const UserCourses = async () => {
+  try {
+    const response = await instance(
+      "/SharePanel/GetMyCourses?PageNumber=1&RowsOfPage=4&SortingCol=desc&SortType=LastUpdate&Query="
+    );
+    return response.listOfMyCourses;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const UserReserve = async () => {
+  try {
+    const response = await instance("/SharePanel/GetMyCoursesReserve");
+    console.log(response)
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const UserComments = async()=>{
+  try{
+    const response = await instance ("/Course/GetCourseCommnets/t4")
+    return response
+  }catch(error){
+    console.log(error)
+  }
+}
 export const GetCourse =(CourseId)=>{
   return instance.get(`/Home/GetCourseDetails?CourseId=${CourseId}`)
 }
@@ -31,11 +100,6 @@ export const GetCourseDetail = (CourseId) => {
   });
 };
 
-export const GetCourseComments = (CourseId) => {
-  return instance.get(`/Course/GetCourseComments`, {
-    params: { CourseId:CourseId },
-  });
-};
 
 
 // const GetAllCourseByPagination = async (apiParams) => {

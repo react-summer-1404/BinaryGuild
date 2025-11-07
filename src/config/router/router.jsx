@@ -28,8 +28,10 @@ const Router = createBrowserRouter([
     path: "/",
     element: <LandingLayout />,
     children: [
-      { path: "/", element: <LandingWrapper /> },
+      { index : true, element: <LandingWrapper /> },
        { path: "courses/:id", element: <CourseDetailWrapper /> },
+       { path: "blogs/:id", element: <BlogsDetailWrapper /> },
+
     ],
     
   },
@@ -38,22 +40,25 @@ const Router = createBrowserRouter([
     path: "/",
     element: <AuthLayout />,
     children: [
-      { path: "register", element: <RegisterWrapper /> },
+      { path: "register", element: <RegisterWrapper />},
       { path: "login", element: <LoginWrapper /> },
       { path: "forgetPassword", element: <ForgetPasswordWrapper /> },
+      { path: "resetpassword/:resetValue", element: <SetNewPassword />, children:[] },
+
     ],
   },
   {
     path: "/panel",
-    element: <StudentPanelLayout />,
+    element: <StudentPanelLayout />, 
     children: [
-      { path: "my-panel", element: <MyCourse/> },
-      { path: "", element: <Dashboard/> },
+      {index:true , element: <Dashboard/> },
+      {path: "my-courses", element: <MyCourse/> },
       {path:"reserve-course" , element: <MyReserve/>},
       {path:"profile" , element:<UserProfile/>},
       {path:"course-fav" , element:<CourseFav/>},
       {path:"blog-fav" , element:<BlogFav/>}
     ],
   },
+  {path:"*" , element: <NotFound/> },
 ]);
 export default Router;

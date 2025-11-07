@@ -6,6 +6,7 @@ import CourseDescription from "./CourseDescription"
 import CourseComments from "./CourseComments";
 import RelatedCourses from "./RelatedCourses"
 import { GetCourse } from "../../core/services/api/get-data";
+import CourseReserveMobileMode from "./CourseReserveMobileMode";
 export const CourseDetailPage = () => {
   const { id : courseId } = useParams();
   const [course, setCourse] = useState(null);
@@ -22,16 +23,17 @@ export const CourseDetailPage = () => {
     };
     if(courseId) CourseData();
   }, [courseId]);
-
+ 
   if(!course) return <p>در حال بارگزاری</p>;
   
 
   return (
-    <div className="w-351 bg-background text-text rtl:text-right mt-14 ">
-      <CourseHeader course={course} />
-      <CourseDescription course={course} />
-      <CourseComments courseId={course.courseId} />
-      <RelatedCourses />
+    <div className=" w-full m-auto bg-background flex flex-col items-center text-text rtl:text-right mt-14 max-[540px]:mt-40 ">
+      <CourseHeader course={course} courseId={course.courseId} />
+      <CourseDescription course={course} courseId={course.courseId} />
+      <CourseComments courseId={course.courseId} course={course} />
+      <RelatedCourses course={course} courseId={course.courseId} />
+      <CourseReserveMobileMode course={course}/>
     </div>
   );
 };

@@ -14,6 +14,7 @@ const Login = () => {
   };
   const { t } = useTranslation();
 
+
   return (
     <div className="block items-center md:w-[648px] md:p-5 md:text-right md:mr-[30px] ">
       <div className="flex justify-between mb-10 md:hidden">
@@ -38,7 +39,7 @@ const Login = () => {
         <Stepper text={t("LoginStep1")} active={step === 1} />
         {/* <Stepper text={"تایید کد ارسال شده دو مرحله‌ای"} active={step === 2} /> */}
       </div>
-      {step === 1 && <GetPhoneNumberLogin onNext={() => setStep(goHome())} />}
+      {step === 1 && <GetPhoneNumberLogin onNext={() => setStep(goHome())}  />}
       {step === 2 && <TwoStepLogin  onPrevious={() => setStep(1)} />}
     </div>
   );
