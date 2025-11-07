@@ -4,7 +4,7 @@ import Footer from "../common/footer/Footer";
 
 const LandingLayout = () => {
   return (
-    <div className="w-full flex flex-wrap gap-6">
+    <div className="w-11/12 m-auto flex flex-wrap gap-6">
       <Header/>
       <Outlet/>
       <Footer/>

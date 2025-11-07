@@ -25,7 +25,7 @@ export const UseGetTopBlogs = async () => {
 export const GetCourse =(CourseId)=>{
   return instance.get(`/Home/GetCourseDetails?CourseId=${CourseId}`)
 }
-export const GetCourse = (CourseId) => {
+export const GetCourseDetail = (CourseId) => {
   return instance.get("/Home/GetCourseDetails", {
     params: { CourseId },
   });

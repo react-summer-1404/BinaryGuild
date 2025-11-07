@@ -179,6 +179,7 @@ i18n.use(initReactI18next).init({
         HourAndDate2:"تاریخ",
         TimeAndDay1:"۲۰:۲۰",
         TimeAndDay2:"۲۰ آبان ۱۴۰۴"
+        
       },
     },
 

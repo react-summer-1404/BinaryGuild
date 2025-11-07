@@ -29,7 +29,7 @@ const TopCoursesList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-wrap gap-4 w-full">
       <div>{isLoading}</div>
       <div>{error}</div>
       
