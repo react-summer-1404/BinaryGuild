@@ -39,7 +39,7 @@ const GoToGmail = ({ onNext, setGetEmail }) => {
       console.log("response", response);
       onNext();
     } catch (error) {
-      console.log("error", error.response || error.message);
+      console.log("error", error);
     }
   };
 
@@ -48,7 +48,7 @@ const GoToGmail = ({ onNext, setGetEmail }) => {
       <h2 className="text-[28px] font font-[700] text-text mt-[75px]">
         {t("ForgetPassHead")}
       </h2>
-      <p className="text-[#707070] text-right font-[500] mt-[12px] text-[16px]">
+      <p className="text-[#707070] text-start font-[500] mt-[12px] text-[16px]">
         {t("ForgetPassCaption")}
       </p>
 
@@ -76,7 +76,7 @@ const GoToGmail = ({ onNext, setGetEmail }) => {
           <AuthButton text={t("SendLinkButton")} type="submit" />
         </form>
       </div>
-      <div className=" w-[397px] flex flex-col items-center justify-center ">
+      <div className=" w-[397px]  flex flex-col items-center justify-center ">
         <Link
           to={"/login"}
           className="cursor-pointer mt-[32px] flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px]"

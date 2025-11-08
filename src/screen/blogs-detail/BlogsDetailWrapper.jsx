@@ -1,12 +1,8 @@
-import React from 'react'
-import BlogDetailPage from '../../pages/blog-details/BlogDetailPage'
+import React from "react";
+import BlogDetailPage from "../../pages/blog-details/BlogDetailPage";
 
 const BlogsDetailWrapper = () => {
-  return (
-    <div>
-        <BlogDetailPage/>
-    </div>
-  )
-}
+  return <BlogDetailPage />;
+};
 
-export default BlogsDetailWrapper
+export default BlogsDetailWrapper;
