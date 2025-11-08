@@ -37,6 +37,9 @@ const CourseHeader = ({ course, courseId }) => {
     } catch (error) {
       console.log(error, "error reserve");
       toast.error(t("errorCourseLike"));
+            if (error.response.status === 401) {
+        toast.error(t("errorCourseReserveUserNotLogin"));
+      }
     }
   };
 
@@ -52,6 +55,9 @@ const CourseHeader = ({ course, courseId }) => {
     } catch (error) {
       console.log(error, "error reserve");
       toast.error(t("errorCourseLike"));
+            if (error.response.status === 401) {
+        toast.error(t("errorCourseReserveUserNotLogin"));
+      }
     }
   };
 
@@ -64,6 +70,9 @@ const CourseHeader = ({ course, courseId }) => {
     } catch (error) {
       console.log(error, "error reserve");
       toast.error(t("errorCourseFavorite"));
+            if (error.response.status === 401) {
+        toast.error(t("errorCourseReserveUserNotLogin"));
+      }
     }
   };
 
@@ -76,9 +85,15 @@ const CourseHeader = ({ course, courseId }) => {
       toast.success(t("successCourseReserve"));
     } catch (error) {
       if (error.response.status === 401) {
-        toast.error(t("errorCourseReserveUserProfileNotComplete"));
+        const token= localStorage.getItem("token")
+        if(!token) {
+        toast.error(t("errorCourseReserveUserNotLogin"));
+
+        }else{
+        toast.error(t("completeProfile"));
+
+        }
       }
-      console.log(error, "error reserve");
     }
   };
 

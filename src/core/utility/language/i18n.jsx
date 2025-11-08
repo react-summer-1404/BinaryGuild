@@ -169,10 +169,10 @@ i18n.use(initReactI18next).init({
           "بعد از تایید ادمین ، دوره مورد نظر به لیست دوره من شما اضافه خواهد شد ",
         MyReserve: "رزرو من",
         ok: "باشه",
-        errorCourseReserveUserProfileNotComplete:
-          "لطفا ابتدا پروفایل خود را کامل کنید",
+        errorCourseReserveUserNotLogin:
+          "لطفا ابتدا وارد شوید  ",
         NoRelatedCourse: "دوره مرتبطی وجود ندارد",
-
+        completeProfile:"ابتدا پروفایل خود را کامل کنید!",
         // blogs details
         CoursePublisher: "منتشرکننده",
         CourseViewers: "بازدیدکنندگان",
@@ -389,8 +389,9 @@ i18n.use(initReactI18next).init({
         MyReserve: "My Reserve",
         ok: "ok",
         errorCourseReserveUserProfileNotComplete:
-          "Please complete your profile",
+          "Please login first",
         NoRelatedCourse: "There is no related course yet",
+        completeProfile:"Complete your profile first!",
 
         // blogs details
         CoursePublisher: "Publisher",
