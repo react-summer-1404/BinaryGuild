@@ -28,7 +28,6 @@ const BlogFav = lazy(() => import("../../pages/student-panel/blog-fav/BlogFav"))
 const NotFound = lazy(()=>import("../../components/common/not-found-section/NotFound"));
 
 
-const NotFound = lazy(() => import("../../components/common/not-found-section/NotFound")); 
 
 
 const Router = createBrowserRouter([

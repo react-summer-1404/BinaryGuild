@@ -383,10 +383,6 @@ i18n.use(initReactI18next).init({
         PasswordError: "Please enter your password confirmation",
         RegisterNotifyErrorStepOne: "؛You already registered",
 
-        //AuthCommon
-        AuthTitle: "Start an adventure",
-        AuthDescription: "Find and learn any course you want with ease",
-
         //Course Details
         CourseDesHead: "course title",
         CourseRate: "Rate us",
@@ -531,7 +527,7 @@ i18n.use(initReactI18next).init({
         HourAndDate2: "date",
         TimeAndDay1: "20:20",
         TimeAndDay2: "2025 November 11",
-        CourseName: "Name",
+        CourseName2: "Name",
         TeachersName: "Teacher",
         StartEvent: "The date of the event",
         Cost: "Cost",
