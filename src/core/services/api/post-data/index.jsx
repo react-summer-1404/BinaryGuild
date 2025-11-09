@@ -135,13 +135,15 @@ export const AddBlogsDissLike = (NewsId) => {
   });
 };
 
-// Add comment for course
+// Add comment for blogs
 
-export const AddCommentCourse = (NewsId) => {
-  return instance.post("/News/NewsDissLike/",null,{
-    params:{
-      NewsId:NewsId
-    }
+export const AddCommentBlogs = ({newsId,userIpAddress,title,describe,userId}) => {
+  return instance.post("/News/CreateNewsComment",{
+    newsId:newsId,
+    userIpAddress:userIpAddress,
+    title:title,
+    describe:describe,
+    userId:userId,
   });
 };
 

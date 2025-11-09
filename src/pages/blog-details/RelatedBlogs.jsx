@@ -6,7 +6,7 @@ import { GetRelatedBlogs } from "../../core/services/api/get-data";
 import moment from "moment-jalaali";
 
 
-const RelatedBlogs = ({ newsCatregoryId,visibleComments}) => {
+const RelatedBlogs = ({ newsCatregoryId}) => {
   const { t } = useTranslation();
   const [relatedBlogs, setRelatedBlogs] = useState([]);
       const formatInsertDate = moment(newsCatregoryId.insertDate).format("jYYYY/jMM/jDD");
@@ -25,11 +25,10 @@ const RelatedBlogs = ({ newsCatregoryId,visibleComments}) => {
     if(newsCatregoryId) fetchRelatedBlogs();
   }, [newsCatregoryId]);
 
-  const marginTop = 
-  window.innerWidth < 768 ? visibleComments?.length === 0 ? "120px" : visibleComments?.length === 3 ? "1280px" : "120px" : "120px";
+
 
   return (
-    <div className=" w-full mb-14   max-[768px]:mt-320 max-[500px]:mt-320 " style={marginTop}>
+    <div className=" w-full mb-14 mt-40   max-[768px]:mt-320 max-[500px]:mt-320 " >
       <h2 className="text-[#707070] font-[700] text-[20px] flex justify-start">
         {t("RealatedBlogs")}
       </h2>

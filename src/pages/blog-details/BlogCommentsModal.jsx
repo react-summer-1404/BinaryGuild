@@ -5,15 +5,19 @@ import { useTranslation } from "react-i18next";
 import ReplyComment from "../../components/common/comment/ReplyComment";
 import { useEffect } from "react";
 import { GetBlogsComments } from "../../core/services/api/get-data";
+import { AddCommentBlogs } from "../../core/services/api/post-data";
+import toast, { Toaster } from "react-hot-toast";
+
 
 const BlogCommentsModal = ({ onCloseBlogMOdal, title, NewsId }) => {
   const { t } = useTranslation();
 
-    const formatInsertDate = moment(NewsId.insertDate).format("jYYYY/jMM/jDD");
-  
-
+  const formatInsertDate = moment(NewsId.insertDate).format("jYYYY/jMM/jDD");
   const [showReply, setShowReply] = useState(false);
   const [showReplyDesktopMode, setShowReplyDesktopMode] = useState(false);
+  const [addcommentTitle, setAddCommentTitle] = useState("");
+  const [addcommentDes, setAddCommentDes] = useState("");
+
   // const [showReplyToReply, setShowReplyToReply] = useState(false);
   //   const [showCommentBox, setShowCommentBox] = useState(false);
   const [comments, setComments] = useState([]);
@@ -35,8 +39,11 @@ const BlogCommentsModal = ({ onCloseBlogMOdal, title, NewsId }) => {
 
   const handleAddCommentDeskTopMode = () => {
     setShowReplyDesktopMode(!showReplyDesktopMode);
+    setAddCommentTitle("");
+    setAddCommentDes("");
   };
 
+  //get comments
   useEffect(() => {
     const fetchBlogsComments = async () => {
       try {
@@ -50,6 +57,27 @@ const BlogCommentsModal = ({ onCloseBlogMOdal, title, NewsId }) => {
     if (NewsId) fetchBlogsComments();
   }, [NewsId]);
 
+  //add comments
+
+  const addComments = async () => {
+    try {
+      const response = await AddCommentBlogs({
+        newsId:NewsId,
+        userIpAddress:"",
+        title:addcommentTitle,
+        describe:addcommentDes,
+        userId:"",
+      });
+      console.log(response);
+      toast.success(t("AddCommentSuccessfully"));
+
+    } catch (error) {
+      console.log(error);
+      toast.error(t("AddCommentError"));
+
+    }
+  };
+  
   return (
     <div className="border text-right overflow-y-scroll   scrollbar-hide  text-text shadow-shadow shadow-xs border-boarder p-4 fixed inset-0 z-50 m-auto  w-200 h-[653px] rounded-[32px] bg-authcommonbackground max-[1245px]:w-160 max-[1245px]:h-120 max-[700px]:w-120 max-[500px]:w-95 ">
       <div className="flex justify-between">
@@ -83,22 +111,30 @@ const BlogCommentsModal = ({ onCloseBlogMOdal, title, NewsId }) => {
         />
         <p className="text-[#FCFCFC] text-4 font-[500] ">{t("Comments")}</p>
       </div>
-      {showReplyDesktopMode && <ReplyComment />}
+      {showReplyDesktopMode && (
+        <ReplyComment
+          onSend={addComments}
+          describe={addcommentDes}
+          setDescribe={setAddCommentDes}
+          title={addcommentTitle}
+          setTitle={setAddCommentTitle}
+        />
+      )}
 
       {/* comments */}
 
       {comments.length > 0 ? (
         <div className="h-auto overflow-y-scroll scrollbar-hide  mt-6 pr-2">
           {comments.map((item) => (
-            <div
-              key={item.key}
-              className=" w-full h-auto mt-6 mb-6 p-2"
-            >
+            <div key={item.key} className=" w-full h-auto mt-6 mb-6 p-2">
               {/* name and date */}
               <div className="flex gap-2">
                 <div className=" w-10 h-10 rounded-[400px] ">
-                  <img 
-                  src={item.title} onError={(e)=>{e.target.src="../../../src/assets/icons/Flynn.png" }}
+                  <img
+                    src={item.title}
+                    onError={(e) => {
+                      e.target.src = "../../../src/assets/icons/Flynn.png";
+                    }}
                   />
                 </div>
                 <div className="flex items-center">
@@ -106,7 +142,7 @@ const BlogCommentsModal = ({ onCloseBlogMOdal, title, NewsId }) => {
                     {"author name"}
                   </p> */}
                   <p className="text-[#707070] font-[500] text-[12px] mt-2 ">
-                      {formatInsertDate}
+                    {formatInsertDate}
                   </p>
                 </div>
               </div>
@@ -124,7 +160,7 @@ const BlogCommentsModal = ({ onCloseBlogMOdal, title, NewsId }) => {
               <div className="flex items-center mt-4 gap-4 max-[1256]:gap-0 max-[1256]:flex-col ">
                 <div className="flex gap-2 ">
                   <svg
-                  className="cursor-pointer"
+                    className="cursor-pointer"
                     width="20"
                     height="20"
                     viewBox="0 0 24 24"
@@ -154,7 +190,7 @@ const BlogCommentsModal = ({ onCloseBlogMOdal, title, NewsId }) => {
 
                 <div className="flex items-center gap-2">
                   <svg
-                  className="cursor-pointer"
+                    className="cursor-pointer"
                     width="20"
                     height="20"
                     viewBox="0 0 24 24"

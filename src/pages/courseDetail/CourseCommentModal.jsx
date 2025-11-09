@@ -28,6 +28,8 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
   // add comment
   const handleAddComment = () => {
     setShowCommentBox(!showCommentBox);
+    setAddCommentTitle("");
+    setAddCommentDes("");
   };
 
   const handleAddCommentDeskTopMode = () => {
@@ -49,6 +51,8 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
     };
     if (courseId) comments();
   }, [courseId]);
+
+  //Add comment
 
   const addComments = async () => {
     try {
