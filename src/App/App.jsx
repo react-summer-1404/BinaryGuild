@@ -5,7 +5,7 @@ import Router from "../config/router/router";
 import "./App.css";
 import { RouterProvider } from "react-router-dom";
 import ThemeModes from "../components/common/them-moods/themeMode";
-
+import "react-circular-progressbar/dist/styles.css";
 
 function App() {
   const { i18n } = useTranslation();

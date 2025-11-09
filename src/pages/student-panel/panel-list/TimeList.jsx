@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 const TimeList = () => {
     const {t} = useTranslation()
   return (
-    <div>
+    <div className='flex flex-nowrap w-full mt-4'>
       {TimeData.map((value)=>{
         return(
             <Time

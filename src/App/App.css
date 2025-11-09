@@ -26,39 +26,50 @@
   --color-boarder: var(--boarder);
   --color-muted: var(--muted);
   --color-backgroundColor: var(--backgroundColor);
-  --color-authbackground: var(--authbackground);
-  --color-authcommonbackground: var(--authcommonbackground);
-  --color-forgetpassbtn: var(--forgetpassbtn);
+  --color-authbackground:var(--authbackground);
+  --color-authcommonbackground:var(--authcommonbackground);
+  --color-forgetpassbtn:var(--forgetpassbtn);
+  --color-gray-0:var(--gray-0);
+  --color-gray-450:var(--gray-450);
   --color-thumbs: var(--thumbs);
   --color-text2: var(--text2);
   --color-buttonBorder: var(--buttonBorder);
   --color-shadow: var(--shadow);
   --color-commentHead: var(--commentHead);
 
+
 }
-:root {
-  --background: #fff;
-  --authbackground: #ffff;
-  --text: #1a1a1a;
-  --boarder: #dcdcdc;
-  --muted: #707070;
-  --backgroundColor: #f6f6f6;
-  --authcommonbackground: #f1f1f1;
-  --forgetpassbtn: #f6f6f6;
+:root{
+  --background:#fff;
+  --authbackground:#fffff;
+  --text:#1a1a1a;
+  --boarder:#DCDCDC;
+  --muted:#707070;
+  --backgroundColor:#F6F6F6;
+  --authcommonbackground:#F1F1F1;
+  --forgetpassbtn:#F6F6F6;
+  --gray-0: #e8e8e8;
+  --gray-450:#D9D9D9;
   --thumbs: #000;
   --text2: #2f2f2f;
   --buttonBorder:#3772FF;
   --shadow:#313030;
   --commentHead:#202020;
+  
+
+
 }
-.dark {
-  --background: #1a1a1a;
-  --text: #dbdbdb;
-  --boarder: #343434;
-  --muted: #817f7f;
+.dark{
+  --background:#1a1a1a;
+  --text:#dbdbdb;
+  --boarder:#343434;
+  --muted:#817f7f;
+  --backgroundColor:#202020;
+  --authcommonbackground:#2a2828;
+  --forgetpassbtn:#2a2828;
+  --gray-0: #5d5d5d;
+  --gray-450:#3d3d3d;
   --backgroundColor: #202020;
-  --authcommonbackground: #2a2828;
-  --forgetpassbtn: #2a2828;
   --thumbs: #fff;
   --text2: #fff;
   --buttonBorder:#202020;

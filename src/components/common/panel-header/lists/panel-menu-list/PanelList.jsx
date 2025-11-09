@@ -5,7 +5,7 @@ import PanelMenu from "../../panel-menu/PanelMenu";
 const PanelList = () => {
   const { t } = useTranslation();
   return (
-    <div className="flex flex-wrap w-full">
+    <div className="flex flex-wrap h-3/5 w-full gap-5">
       {PanelData.map((value) => {
         return (
           <PanelMenu

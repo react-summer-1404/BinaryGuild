@@ -9,35 +9,33 @@ import { AddCourseCommentDisLike } from "../../core/services/api/post-data";
 import CourseCommentModal from "./CourseCommentModal";
 import toast, { Toaster } from "react-hot-toast";
 
-const CourseComments = ({ courseId,course }) => {
+const CourseComments = ({ courseId, course }) => {
   const [comment, setComment] = useState([]);
-  const [show,setShow]=useState(false)
-  const { t } = useTranslation();
+  const [show, setShow] = useState(false);
 
+  const { t } = useTranslation();
 
   const formatInsertDate = moment(courseId.insertDate).format("jYYYY/jMM/jDD");
 
   const handleLike = async (commentId) => {
     try {
       const response = await AddCourseCommentLike(commentId);
-      setComment((prevComments) => prevComments.map((cmt)=> cmt.id === commentId ? {...cmt, likeCount : cmt.likeCount +1}:cmt ))
       console.log(response);
-      toast.success("right");
+      toast.success(t("successCourseLike"));
     } catch (error) {
       console.log(error);
-      toast.error("wrong");
+      toast.error(t("errorCourseLike"));
     }
   };
 
   const handleDisLike = async (commentId) => {
     try {
       const response = await AddCourseCommentDisLike(commentId);
-      setComment((prevComments) => prevComments.map((cmt)=> cmt.id === commentId ? {...cmt, disslikeCount : cmt.disslikeCount +1}:cmt ))
       console.log(response);
-      toast.success("right");
+      toast.success(t("successCourseLike"));
     } catch (error) {
       console.log(error);
-      toast.error("wrong");
+      toast.error(t("errorCourseLike"));
     }
   };
 
@@ -54,10 +52,12 @@ const CourseComments = ({ courseId,course }) => {
     if (courseId) comments();
   }, [courseId]);
 
+
+
   return (
-    <div className=" h-[400px] w-full mt-8">
+    <div className=" h-[400px] w-full mt-8 ">
       <Toaster />
-      <h2 className="text-[#707070] font-[700] text-[20px] ">
+      <h2 className="text-[#707070] flex justify-start font-[700] text-[20px] max-[500px]:w-20 ">
         {t("CommentsHead")}
       </h2>
 
@@ -71,13 +71,22 @@ const CourseComments = ({ courseId,course }) => {
             <p className="text-[#FCFCFC] text-[18px] font-[600] mt-2 ">
               {t("Comments")}
             </p>
-            <button onClick={()=>setShow(true)} className="text-[#FCFCFC] cursor-pointer text-[14px] font-[500] mt-4">
+            <button
+              onClick={() => setShow(true)}
+              className="text-[#FCFCFC] cursor-pointer text-[14px] font-[500] mt-4"
+            >
               {t("CommentDescription")}
             </button>
           </div>
         </div>
 
-        {show &&  <CourseCommentModal courseId={courseId} course={course} onClose={()=>setShow(false)} />}
+        {show && (
+          <CourseCommentModal
+            courseId={courseId}
+            course={course}
+            onClose={() => setShow(false)}
+          />
+        )}
 
         {comment.length > 0 ? (
           comment.map((course) => (
@@ -85,7 +94,7 @@ const CourseComments = ({ courseId,course }) => {
               key={course.id}
               className="bg-forgetpassbtn p-4 h-90 rounded-[24px] flex flex-col items-center justify-between mt-4 mb-4"
             >
-              <div className=" h-[157px] w-full ">
+              <div className=" h-[157px] w-full">
                 <p className="text-text font-bold text-[18px]">
                   {course.title}
                 </p>
@@ -95,8 +104,9 @@ const CourseComments = ({ courseId,course }) => {
               </div>
               <div className="h-10 w-full flex justify-between">
                 <div className="flex gap-3">
-                  <div className="border border-black w-10 h-10 rounded-[400px] ">
-                    <img src={course.pictureAddress} />
+                  <div className="w-10 h-10 rounded-[400px] ">
+                    <img 
+src={course.title} onError={(e)=>{e.target.src="../../../src/assets/icons/Flynn.png" }}                     />
                   </div>
                   <div>
                     <p className="font-[600] text-text text-[14px] ">
@@ -108,9 +118,10 @@ const CourseComments = ({ courseId,course }) => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 max-[1256]:gap-0 max-[1256]:flex-col ">
-                  <div className="flex gap-2 ">
+                <div className="flex items-center gap-2 max-[1256]:gap-0 max-[930px]:hidden max-[768px]:flex ">
+                  <div className="flex gap-0.5">
                     <svg
+                      className="cursor-pointer"
                       onClick={() => handleLike(course.id)}
                       width="20"
                       height="20"
@@ -133,12 +144,13 @@ const CourseComments = ({ courseId,course }) => {
                         stroke-linejoin="round"
                       />
                     </svg>
-                    <span className="text-[16px] font-[500] max-[1256]:hidden ">
-                      {course.likeCount} 
+                    <span className="text-[16px] font-[500] max-[1000px]:hidden max-[768px]:block ">
+                      {course.likeCount}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-0.5">
                     <svg
+                      className="cursor-pointer"
                       onClick={() => handleDisLike(course.id)}
                       width="20"
                       height="20"
@@ -161,7 +173,7 @@ const CourseComments = ({ courseId,course }) => {
                         stroke-linejoin="round"
                       />
                     </svg>
-                    <span className="text-[16px] font-[500] max-[1256]:hidden ">
+                    <span className="text-[16px] font-[500] max-[1000px]:hidden max-[768px]:block ">
                       {course.disslikeCount}
                     </span>
                   </div>
@@ -170,7 +182,7 @@ const CourseComments = ({ courseId,course }) => {
             </div>
           ))
         ) : (
-          <div className=" flex items-center max-[540px]:mt-4 justify-center">
+          <div className=" flex items-center max-[768px]:mt-10 justify-center ">
             {" "}
             {t("NoComment")}
           </div>

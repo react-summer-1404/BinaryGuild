@@ -26,18 +26,25 @@ i18n.use(initReactI18next).init({
         RegisterStep3: "واردکردن اطلاعات شخصی",
         RegisterHead: "خوش اومدی! ",
         RegisterCaption:
-          "لطفا ایمیل خود را وارد کنید تا کد تایید برای شما ارسال شود",
+          "لطفا ایمیل را وارد کنید تا کد تایید برای شما ارسال شود",
         RegisterLabel: "ایمیل",
         RegisterPlaceholder: "ایمیل خود را وارد کنید",
         HaveAccount: "حساب کاربری دارید؟",
         GoToAccount: "ورود به حساب کاربری",
         GetUserPhoneLabel: "شماره همراه",
-        GetUserPhonePlaceholder: "شماره همراه خود را وارد کنید",
+        GetUserPhonePlaceholder: "شماره تلفن خود را وارد کنید",
+        RegisterNotifysuccessStepOne: "ثبت نام با موفقیت انجام شد",
+        RegisterNotifyError: "ثبت نام انجام نشد، لطفا دوباره تلاش کنید",
+
+        //AuthCommon
+        AuthTitle: "شروع یک ماجراجویی",
+        AuthDescription: "هر دوره ای که بخوای رو به راحتی پیدا کن و یاد بگیر",
 
         //GetCode
 
         GetCodeHead: "تایید کد ارسال شده",
-        GetCodeCaption: "لطفا کد ارسال شده به ایمیل را وارد کنید",
+        GetCodeCaption:
+          "لطفا کد ارسال شده به ایمیل را وارد کنید",
         GetCodeLabel: "کد تایید",
         GetCodePlaceholder: "کد تایید خود را وارد کنید",
         GetCodeAgain: " ارسال مجدد کد",
@@ -53,6 +60,7 @@ i18n.use(initReactI18next).init({
 
         //Login
         LoginStep1: "واردکردن شماره همراه",
+
         LoginHead: "خوش برگشتی! ",
         LoginCaption:
           "لطفا شماره همراه یا ایمیل و رمزعبور خود را برای ورود به حساب کاربری را وارد کنید",
@@ -62,11 +70,11 @@ i18n.use(initReactI18next).init({
         LoginPassCaption: "رمزعبور خود را وارد کنید",
         LoginRemember: "مرا به خاطر بسپار",
         NotHaveingAccount: "حساب کاربری ندارید؟",
-        EmailOrPhoneError: "لطفا شماره همراه یا ایمیل خود را وارد کنید.",
         MakeAccount: "ایجاد حساب کاربری",
         ForgetPass: "رمزعبور را فراموش کردید؟",
         LoginNotify: "ورود با موفقیت انجام شد",
         LoginNotifyError: "ورود شما ناموفق بود، لطفا دوباره تلاش کنید.",
+        LoginNotifyErrorforPassword: "رمز عبور یا ایمیل شما اشتباه است!",
 
         // ForgetPassword
 
@@ -79,7 +87,6 @@ i18n.use(initReactI18next).init({
         ForgetPassLabelNewPassword: "رمزعبور جدید",
         ForgetPassLabelNewPasswordRepeat: "تکرار رمزعبور جدید",
         ChangePasswordPlaceholder: "ایمیل خود را وارد کنید",
-        resetLink: "لینک تغییر رمز عبور",
 
         //SetNewPassword
         NewPasswordHead: "رمزعبور جدید! ",
@@ -88,6 +95,9 @@ i18n.use(initReactI18next).init({
         NewPasswordRepeatLabel: "تکرار رمزعبور جدید",
         NewPasswordLabelPlaceholder: "رمزعبور خود را وارد کنید",
         NewPasswordRepeatLabelPlaceholder: "تکرار رمزعبور خود را وارد کنید",
+        ResetNotify:"رمز شما تغییر کرد",
+
+        // LoginForm
 
         //Buttons
         SendLinkButton: "ارسال لینک",
@@ -99,7 +109,7 @@ i18n.use(initReactI18next).init({
         //Errors
         EmailError: "لطفا ایمیل معتبر وارد کنید",
         PasswordError: "لطفا تکرار رمز عبور خود را وارد کنید ",
-        RegisterNotifyErrorStepOne: "لطفا تمام اطلاعات مورد نیاز را پر کنید",
+        RegisterNotifyErrorStepOne: "شما از قبل ثبت نام کرده اید",
 
         //landing
         Home: "خانه",
@@ -108,6 +118,7 @@ i18n.use(initReactI18next).init({
         AboutUs: "درباره ما",
         Registration: "ثبت نام / ورود",
         SeeMore: "مشاهده بیشتر",
+        SeeLess: "مشاهده کمتر",
         Professors: "اساتید",
         ContactUs: "ارتباط با ما",
         Services: "خدمات ما",
@@ -143,13 +154,35 @@ i18n.use(initReactI18next).init({
           "یک ایمیل برای تنظیم مجدد رمز عبور به آدرس ایمیل وارد شده شما ارسال شد. برای دریافت آن روی لینک زیر کلیک کنید.",
         ResetLink: "دریافت لینک",
         NoComment: "هنوز نظری ثبت نشده است.",
-        reply:"جواب دادن",
+        reply: "جواب دادن",
+        commentTitle: "عنوان نظر خود را بنویسید",
+        commentDescribe: "متن نظر خود را بنویسید",
+        close: "بستن",
+        successCourseLike: "نظر شما با موفقیت ثبت شد",
+        errorCourseLike: "نظر شما قبلا ثبت شده است",
+        successCourseFavorite: "به علافه مندی شما افزوده شد",
+        errorCourseFavorite: "علاقه مندی شما قبلا ثبت شده است",
+        successCourseReserve: "به رزوی های شما افزوده شد",
+        errorCourseReserve: "این دوره در رزروی های شما قرار دارد",
+        copied: "لینک صفحه کپی شد",
+        successCourseRating: "نظر شما با موفقیت ثبت شد",
+        errorCourseRating: "نظر شما قبلا ثبت شده است",
+        Favorited: "افزوده شد",
+        reserveBoxHead: "دوره به لیست رزروی های شما اضافه شد!",
+        reserveDescription:
+          "بعد از تایید ادمین ، دوره مورد نظر به لیست دوره من شما اضافه خواهد شد ",
+        MyReserve: "رزرو من",
+        ok: "باشه",
+        errorCourseReserveUserProfileNotComplete:
+          "لطفا ابتدا پروفایل خود را کامل کنید",
+        NoRelatedCourse: "دوره مرتبطی وجود ندارد",
 
         // blogs details
         CoursePublisher: "منتشرکننده",
         CourseViewers: "بازدیدکنندگان",
         comments: "نظرات",
-        CourseStartPublish:"تاریخ انتشار",
+        CourseStartPublish: "تاریخ انتشار",
+        RealatedBlogs:"بلاگ های مرتبط",
 
         //goals
         OurGoals: "اهداف ما در اکادمی",
@@ -203,34 +236,62 @@ i18n.use(initReactI18next).init({
         ProfessorsScore1: "۴.۸",
         ProfessorsScore2: "۴.۲",
         ProfessorsScore3: "۴.۱",
-        AcademiesProfessors:"اساتید برتر هفته آکادمی",
-        DescriptionAboutProfessors:" در هفته جاری، اکادمی برنامه‌نویسی ما مفتخر است که از اساتید برتر خود تقدیر کند. این اساتید با دانش عمیق و تجربه گسترده خود در زمینه‌های مختلف برنامه‌نویسی، نه تنها به ارتقاء مهارت‌های دانشجویان کمک کرده‌اند، بلکه با برگزاری کارگاه‌ها و جلسات مشاوره، فضایی پویا و انگیزشی را برای یادگیری فراهم آورده‌اند.",
-        TeachersPage:"صفحه اساتید",
-        ProfessorsName1:"محمدحسین بحرالعلومی",
-        ProfessorsName2:"محسن اسفندیاری",
-        ProfessorsName3:"محمدحسین خلیل‌پور",
-        ProfessorsScore1:"۴.۸",
-        ProfessorsScore2:"۴.۲",
-        ProfessorsScore3:"۴.۱",
 
         //student-panel
-        Report:"گزارش",
-        MenuText1:"داشبرد",
-        MenuText2:"دوره من",
-        MenuText3:"رزرو من",
-        MenuText4:"دوره های موردعلاقه",
-        MenuText5:"بلاگ های موردعلاقه",
-        MenuText6:"پروفایل",
-        MenuText7:"پرداخت ها",
-        DeleteUser:"خروج از حساب کاربری",
-        
+        Report: "گزارش",
+        MenuText1: "داشبرد",
+        MenuText2: "دوره من",
+        MenuText3: "رزرو من",
+        MenuText4: "دوره های موردعلاقه",
+        MenuText5: "بلاگ های موردعلاقه",
+        MenuText6: "پروفایل",
+        MenuText7: "پرداخت ها",
+        DeleteUser: "خروج از حساب کاربری",
+
         //panel
-        Welcome:"سلام ، روزت بخیر",
-        Hope:"امیدوارم امروز روز خوبی رو داشته باشید",
-        HourAndDate1:"ساعت",
-        HourAndDate2:"تاریخ",
-        TimeAndDay1:"۲۰:۲۰",
-        TimeAndDay2:"۲۰ آبان ۱۴۰۴"
+        Hello: "سلام ",
+        Welcome: "، روزت بخیر",
+        Hope: "امیدوارم امروز روز خوبی رو داشته باشید",
+        HourAndDate1: "ساعت",
+        HourAndDate2: "تاریخ",
+        TimeAndDay1: "۲۰:۲۰",
+        TimeAndDay2: "۲۰ آبان ۱۴۰۴",
+        CourseName: "نام",
+        TeachersName: "مدرس",
+        StartEvent: "تاریخ برگزاری",
+        Cost: "قیمت",
+        SeeOther: "مشاهده بیشتر >",
+        Status: "وضعیت",
+        NoRow: "ردیفی برای نمایش وجود ندارد.",
+        YourInformation: "وضعیت اطلاعات حساب کاربری",
+        IsNotComplete: "اطلاعات حساب کاربری شما کامل نیست",
+        YourComment: "نظرات شما",
+        CourseAndBlog: "دوره ها و بلاگ ها",
+        Error: "صفحه مورد نظر شما یافت نشد . ",
+        NotConfirmed: "تایید نشده",
+        Confrimed: "تایید شد",
+        Toman: "تومان",
+
+        //profile
+        MyProfile: "پروفایل من",
+
+        //courses
+        Search: "جست‌جو",
+        SearchCourses: "دوره مورد نظر را جست‌جو کنید...",
+        Filter: "فیلتر",
+        Category: "دسته بندی",
+        SelectCategory: "دسته مورد نظر را انتخاب کنید",
+        Level: "سطح آموزشی",
+        SelectLevel: "سطح مورد نظر را انتخاب کنید",
+        Teachers: "اساتید",
+        SelectTeachers: "استاد مورد نظر را انتخاب کنید",
+        date: "تاریخ برگزاری - اتمام",
+        ErrorCourses: "دوره مورد نظر موجود نمی باشد",
+        ErrorBlogs: "بلاگ مورد نظر موجود نمی باشد",
+        FirstTime: "زمان اول",
+        SecondTime: "زمان دوم",
+        To: "تا",
+        From: "از",
       },
     },
 
@@ -239,22 +300,27 @@ i18n.use(initReactI18next).init({
         GoHomePage: "Home Page",
 
         //Register
-        RegisterStep1: "Enter mobile number",
+        RegisterStep1: "Enter your email",
         RegisterStep2: "Verify sent code",
         RegisterStep3: "Enter personal information",
         RegisterHead: "Welcome!",
         RegisterCaption:
-          "Please enter your mobile number to receive verification code",
-        RegisterLabel: "Phone Number",
-        RegisterPlaceholder: "Enter your phone number",
+          "Please enter your email to receive verification code",
+        RegisterLabel: "email",
+        RegisterPlaceholder: "Enter your email",
         HaveAccount: "Already have an account?",
         GoToAccount: "Login to account",
         GetUserPhoneLabel: "Phone Number",
         GetUserPhonePlaceholder: "Enter your phone number",
+        RegisterNotifysuccessStepOne: "You registered successfully",
+
+        //AuthCommon
+        AuthTitle: "Start an adventure",
+        AuthDescription: "Find and learn any course you want with ease",
 
         //GetCode
         GetCodeHead: "Verify sent code",
-        GetCodeCaption: "Please enter the code sent to {{phoneNumber}}",
+        GetCodeCaption: "Please enter the code sent to your email",
         GetCodeLabel: "Verification Code",
         GetCodePlaceholder: "Enter your verification code",
         GetCodeAgain: "Resend code",
@@ -284,10 +350,11 @@ i18n.use(initReactI18next).init({
         LoginNotify: "You loggined successfully",
         LoginNotifyError: "You couldn't login successfully",
         EmailOrPhoneError: "Please enter your email or phone number",
+        LoginNotifyErrorforPassword: "Your email or password is wrong!",
 
         // ForgetPassword
         ChangePasswordStep1: "Enter email",
-        ConfirmCode: "Two-factor authentication code verification",
+        ConfirmCode: "Two-factor authentication code",
         ForgetPassHead: "Forgot Password!",
         ForgetPassCaption:
           "If you forgot your password, enter your email to receive password reset link",
@@ -295,7 +362,6 @@ i18n.use(initReactI18next).init({
         ForgetPassLabelNewPassword: "New password",
         ForgetPassLabelNewPasswordRepeat: "Repeat new password",
         ChangePasswordPlaceholder: "Enter your email",
-        resetLink: "reset link",
 
         //SetNewPassword
         NewPasswordHead: "New password!",
@@ -304,7 +370,7 @@ i18n.use(initReactI18next).init({
         NewPasswordRepeatLabel: "Repeat new password",
         NewPasswordLabelPlaceholder: "Enter your password",
         NewPasswordRepeatLabelPlaceholder: "Repeat your password",
-
+        ResetNotify:"Your password has changed",
         //Buttons
         SendLinkButton: "Send link",
         GoBackButton: "Back",
@@ -315,12 +381,7 @@ i18n.use(initReactI18next).init({
         //Errors
         EmailError: "Please enter a valid email",
         PasswordError: "Please enter your password confirmation",
-        RegisterNotifyErrorStepOne:
-          "please fill in all the required information",
-
-        //AuthCommon
-        AuthTitle: "Start an adventure",
-        AuthDescription: "Find and learn any course you want with ease",
+        RegisterNotifyErrorStepOne: "؛You already registered",
 
         //Course Details
         CourseDesHead: "course title",
@@ -342,22 +403,42 @@ i18n.use(initReactI18next).init({
         comment: "comment",
         CommentsHead: "Student Reviews",
         SeeMore: "See More",
+        SeeLess: "See less",
         RealatedCourses: "Related Courses",
         Comments: "Your Comment",
         CommentDescription: "Click for review",
         ResetHead: "",
         ResetDes: "",
         ResetLink: "",
-        NoComment: "",
-        reply:"reply",
-
+        NoComment: "there is no comment yet",
+        reply: "reply",
+        commentTitle: "ٌWrite your comment's title",
+        commentDescribe: "Write your comment",
+        close: "close",
+        successCourseLike: "Your comment has been submitted successfuly",
+        errorCourseLike: "You have already submitted your comment",
+        successCourseFavorite: "Added to your favorites",
+        errorCourseFavorite: "This course is already in your favorites",
+        successCourseReserve: "Added to ypur reserved courses",
+        errorCourseReserve: "This course is already reserved ",
+        copied: "Page link has been copied",
+        successCourseRating: "You rate has been submitted successfuly",
+        errorCourseRating: "You have already submitted your rating",
+        Favorited: "favorit",
+        reserveBoxHead: "This course is added to your reserve courses",
+        reserveDescription: "After confirmation course will be added to your",
+        MyReserve: "My Reserve",
+        ok: "ok",
+        errorCourseReserveUserProfileNotComplete:
+          "Please complete your profile",
+        NoRelatedCourse: "There is no related course yet",
 
         // blogs details
         CoursePublisher: "Publisher",
         CourseViewers: "Viewers",
         comments: "comment",
-        CourseStartPublish:"publish date",
-
+        CourseStartPublish: "publish date",
+        RealatedBlogs:"Realated Blogs",
 
         //landing
         //header and footer
@@ -424,34 +505,66 @@ i18n.use(initReactI18next).init({
         ProfessorsScore1: "4.8",
         ProfessorsScore2: "4.2",
         ProfessorsScore3: "4.1",
-        AcademiesProfessors:"Top Professors of the Academy Week",
-        DescriptionAboutProfessors:"This week, our Programming Academy is proud to recognize our top instructors. With their deep knowledge and extensive experience in various programming fields, these instructors have not only helped students improve their skills, but also provided a dynamic and motivating learning environment by organizing workshops and consulting sessions.",
-        TeachersPage:"Teachers page",
-        ProfessorsName1:"Mohammad Hossein Bahrul Oloomi",
-        ProfessorsName2:"Mohsen Esfandiari",
-        ProfessorsName3:"Mohammad Hossein Khalilpour",
-        ProfessorsScore1:"4.8",
-        ProfessorsScore2:"4.2",
-        ProfessorsScore3:"4.1",
+
+
         
         //student-panel
-        Report:"Report",
-        MenuText1:"Dashboard",
-        MenuText2:"My period",
-        MenuText3:"My reservation",
-        MenuText4:"Favorite courses",
-        MenuText5:"Favorite blogs",
-        MenuText6:"Profile",
-        MenuText7:"Payments",
-        DeleteUser:"Delete user",
+        Report: "Report",
+        MenuText1: "Dashboard",
+        MenuText2: "My period",
+        MenuText3: "My reservation",
+        MenuText4: "Favorite courses",
+        MenuText5: "Favorite blogs",
+        MenuText6: "Profile",
+        MenuText7: "Payments",
+        DeleteUser: "Delete user",
 
         //panel
-        Welcome:"Hello, good day.",
-        Hope:"I hope you have a good day today.",
-        HourAndDate1:"hour",
-        HourAndDate2:"date",
-        TimeAndDay1:"20:20",
-        TimeAndDay2:"2025 November 11"
+        Hello: "Hello ",
+        Welcome: ", good day.",
+        Hope: "I hope you have a good day today.",
+        HourAndDate1: "hour",
+        HourAndDate2: "date",
+        TimeAndDay1: "20:20",
+        TimeAndDay2: "2025 November 11",
+        CourseName2: "Name",
+        TeachersName: "Teacher",
+        StartEvent: "The date of the event",
+        Cost: "Cost",
+        SeeOther: "See more >",
+        Status: "Status",
+        NoRow: "No rows to display.",
+        YourInformation: "Account Information Status",
+        IsNotComplete: "Your account information is incomplete",
+        YourComment: "Your comments",
+        CourseAndBlog: "Courses and blogs",
+        Error: "The page you requested was not found.",
+        NotConfirmed: "not confirmed",
+        Confrimed: "It was confirmed",
+        Toman: "Toman",
+
+        //profile
+        MyProfile: "My profile",
+
+        //courses & blogs
+        Search: "Search",
+        SearchCourses: "Search for the desired course...",
+        Filter: "Filter",
+        Category: "Category",
+        SelectCategory: "Select the desired category.",
+        Level: "Educational level",
+        SelectLevel: "Select the desired level.",
+        Teachers: "Teachers",
+        SelectTeachers: "Select the desired teacher.",
+        Date: "Date of holding - Completion",
+        ErrorCourses: "The desired course is not available.",
+        ErrorBlogs: "The desired blog does not exist.",
+        FirstTime: "First time",
+        SecondTime: "Second time",
+        FirstPrice: "First price",
+        SecondPrice: "Second price",
+        To: "to",
+        From: "from",
       },
     },
   },

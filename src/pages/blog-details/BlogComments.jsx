@@ -1,30 +1,65 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Button } from "@heroui/button";
 import moment from "moment-jalaali";
 import { GetBlogsComments } from "../../core/services/api/get-data";
 import { useState } from "react";
-const BlogComments = ({NewsId}) => {
-    const [comments, setComments] = useState([]);
-    const { t } = useTranslation();
-    const formatInsertDate = moment(comments.insertDate).format("jYYYY/jMM/jDD");
-  
-    useEffect(()=>{
-      const fetchBlogsComments =async ()=>{
-        try {
-          const response = await GetBlogsComments(NewsId);
-          console.log(response);
-          setComments(response);
-        } catch (error) {
-          console.log(error)
-        }
+import toast, { Toaster } from "react-hot-toast";
+import BlogCommentsModal from "./BlogCommentsModal";
+import { AddBlogsLike } from "../../core/services/api/post-data";
+
+const BlogComments = ({ NewsId, title, CommentId }) => {
+  const [comments, setComments] = useState([]);
+  const [show, setShow] = useState(false);
+  const [like, setLike] = useState(false);
+
+  const { t } = useTranslation();
+  const formatInsertDate = moment(comments.insertDate).format("jYYYY/jMM/jDD");
+
+  const visibleComments = comments.slice(0, 3);
+
+  const handleLike = async () => {
+    try {
+      const response = await AddBlogsLike({
+        CommentId: CommentId,
+        LikeType: like,
+      });
+      setLike(response);
+      console.log(response);
+      toast.success(t("successCourseLike"));
+    } catch (error) {
+      console.log(error);
+      toast.error(t("errorCourseLike"));
+    }
+  };
+
+  // const handleDisLike = async (commentId) => {
+  //   try {
+  //     const response = await AddCourseCommentDisLike(commentId);
+  //     console.log(response);
+  //     toast.success(t("successCourseLike"));
+  //   } catch (error) {
+  //     console.log(error);
+  //     toast.error(t("errorCourseLike"));
+  //   }
+  // };
+
+  useEffect(() => {
+    const fetchBlogsComments = async () => {
+      try {
+        const response = await GetBlogsComments(NewsId);
+        console.log(response);
+        setComments(response);
+      } catch (error) {
+        console.log(error);
       }
-      if(NewsId) fetchBlogsComments();
-    },[NewsId])
+    };
+    if (NewsId) fetchBlogsComments();
+  }, [NewsId]);
 
   return (
     <div className=" h-[400px] w-full mt-8">
-      <h2 className="text-[#707070] font-[700] text-[20px] ">
+      <Toaster />
+      <h2 className="text-[#707070] text-start font-[700] text-[20px] ">
         {t("CommentsHead")}
       </h2>
 
@@ -38,17 +73,28 @@ const BlogComments = ({NewsId}) => {
             <p className="text-[#FCFCFC] text-[18px] font-[600] mt-2 ">
               {t("Comments")}
             </p>
-            <button className="text-[#FCFCFC] cursor-pointer text-[14px] font-[500] mt-4">
+            <button
+              onClick={() => setShow(true)}
+              className="text-[#FCFCFC] cursor-pointer text-[14px] font-[500] mt-4"
+            >
               {t("CommentDescription")}
             </button>
           </div>
         </div>
 
-        {comments.length > 0 ? (
-          comments.map((comments) => (
+        {show && (
+          <BlogCommentsModal
+            NewsId={NewsId}
+            title={title}
+            onCloseBlogMOdal={() => setShow(false)}
+          />
+        )}
+
+        {visibleComments.length > 0 ? (
+          visibleComments.map((comments) => (
             <div
               key={comments.id}
-              className="bg-forgetpassbtn p-4 h-90 rounded-[24px] flex flex-col items-center justify-between mt-4 mb-4"
+              className="bg-forgetpassbtn text-start p-4 h-90 rounded-[24px] flex flex-col items-center justify-between mt-4 mb-4"
             >
               <div className=" h-[157px] w-full ">
                 <p className="text-text font-bold text-[18px]">
@@ -60,13 +106,15 @@ const BlogComments = ({NewsId}) => {
               </div>
               <div className="h-10 w-full flex justify-between">
                 <div className="flex gap-3">
-                  <div className="border border-black w-10 h-10 rounded-[400px] ">
-                    <img src={ ""} />
+                  <div className="w-10 h-10 rounded-[400px]">
+                <img
+                  src={comments.title} onError={(e)=>{e.target.src="../../../src/assets/icons/Flynn.png" }}
+                />
                   </div>
-                  <div>
-                    <p className="font-[600] text-text text-[14px] ">
-                      {"author name" }
-                    </p>
+                  <div className="flex items-center">
+                    {/* <p className="font-[600] text-text text-[14px] ">
+                      {"author name"}
+                    </p> */}
                     <p className="text-[#707070] font-[500] text-[12px] ">
                       {formatInsertDate}
                     </p>
@@ -76,6 +124,8 @@ const BlogComments = ({NewsId}) => {
                 <div className="flex items-center gap-4 max-[1256]:gap-0 max-[1256]:flex-col ">
                   <div className="flex gap-2 ">
                     <svg
+                    onClick={() => handleLike(comments.id)}
+                      className="cursor-pointer"
                       width="20"
                       height="20"
                       viewBox="0 0 24 24"
@@ -103,12 +153,12 @@ const BlogComments = ({NewsId}) => {
                   </div>
                   <div className="flex gap-2">
                     <svg
+                      className="cursor-pointer"
                       width="20"
                       height="20"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      
                     >
                       <path
                         d="M2 11.5C2 12.6046 2.89543 13.5 4 13.5C5.65685 13.5 7 12.1569 7 10.5V6.5C7 4.84315 5.65685 3.5 4 3.5C2.89543 3.5 2 4.39543 2 5.5V11.5Z"
@@ -130,7 +180,6 @@ const BlogComments = ({NewsId}) => {
                     </span>
                   </div>
                 </div>
-
               </div>
             </div>
           ))
@@ -144,16 +193,20 @@ const BlogComments = ({NewsId}) => {
 
       {comments.length > 3 ? (
         <div className="w-full h-[39px] flex justify-center items-center mt-5 max-[768px]:block  max-[768px]:mt-40  ">
-          <Button className="bg-[#2F2F2F] mt-8 cursor-pointer w-[125px] h-[39px] p-2 rounded-[40px] flex justify-center items-center gap-2 ">
-            <p className="text-[#FCFCFC] text-[16px] font-[500]">
+          <button className="bg-[#2F2F2F] text-[#FCFCFC]  mt-50 cursor-pointer w-[125px] h-[39px] p-2 rounded-[40px] flex justify-center items-center gap-2 ">
+            <button
+              onClick={() => setShow(!show)}
+              className="text-[#FCFCFC] text-[16px] cursor-pointer font-[500]"
+            >
               {t("SeeMore")}
-            </p>
-          </Button>
+            </button>
+          </button>
         </div>
       ) : (
         <p> </p>
       )}
-    </div>  )
-}
+    </div>
+  );
+};
 
-export default BlogComments
+export default BlogComments;
