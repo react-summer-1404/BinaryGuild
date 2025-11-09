@@ -90,30 +90,80 @@ export const UserCourses = async () => {
 export const UserReserve = async () => {
   try {
     const response = await instance("/SharePanel/GetMyCoursesReserve");
-    console.log(response)
+    console.log(response);
     return response;
   } catch (error) {
     console.log(error);
   }
 };
-export const UserComments = async()=>{
-  try{
-    const response = await instance ("/Course/GetCourseCommnets/t4")
-    return response
-  }catch(error){
-    console.log(error)
+export const UserComments = async () => {
+  try {
+    const response = await instance("/Course/GetCourseCommnets/t4");
+    return response;
+  } catch (error) {
+    console.log(error);
   }
-}
-export const GetCourse =(CourseId)=>{
-  return instance.get(`/Home/GetCourseDetails?CourseId=${CourseId}`)
-}
+};
+export const GetCourse = (CourseId) => {
+  return instance.get(`/Home/GetCourseDetails?CourseId=${CourseId}`);
+};
 export const GetCourseDetail = (CourseId) => {
   return instance.get("/Home/GetCourseDetails", {
     params: { CourseId },
   });
 };
+export const GetCourses = async ({ params }) => {
+  console.log("params : ",params)
+  try {
+    const response = await instance.get(
+      "/Home/GetCoursesWithPagination",
+      { params: {...params} }
+    );
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const GetCoursesLevel = async () => {
+  try {
+    const response = await instance.get(
+      "/CourseLevel/GetAllCourseLevel"
+    );
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const GetCoursesTeacher = async () => {
+  try {
+    const response = await instance.get(
+      "/Home/GetTeachers"
+    );
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const GetBlogsData = async ({ params }) => {
+  try {
+    const response = await instance.get(
+      "/News" ,
+      { params: {...params} }
+    );
+    return response.news;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-
+export const GetCategory = async () => {
+  try {
+    const response = await instance.get("/Home/GetTechnologies");
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const Reset = (ConfigValue) => {
   return instance.get(`/Sign/Reset/${ConfigValue}`);

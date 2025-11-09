@@ -33,8 +33,10 @@ i18n.use(initReactI18next).init({
         GoToAccount: "ورود به حساب کاربری",
         GetUserPhoneLabel: "شماره همراه",
         GetUserPhonePlaceholder: "شماره تلفن خود را وارد کنید",
-        RegisterNotifysuccessStepOne:"ثبت نام با موفقیت انجام شد",
-        RegisterNotifyError:"ثبت نام انجام نشد، لطفا دوباره تلاش کنید",
+        RegisterNotifysuccessStepOne: "ثبت نام با موفقیت انجام شد",
+        RegisterNotifyError: "ثبت نام انجام نشد، لطفا دوباره تلاش کنید",
+        getCodNotifyError:"خطا در ارسال کد، لطفا دوباره تلاش کنید",
+
 
         //GetCode
 
@@ -70,6 +72,7 @@ i18n.use(initReactI18next).init({
         ForgetPass: "رمزعبور را فراموش کردید؟",
         LoginNotify: "ورود با موفقیت انجام شد",
         LoginNotifyError: "ورود شما ناموفق بود، لطفا دوباره تلاش کنید.",
+        EmailOrPhoneError:"لطفا ایمیل یا شماره تلفن خود را وارد کنید",
         LoginNotifyErrorforPassword: "رمز عبور یا ایمیل شما اشتباه است!",
 
         // ForgetPassword
@@ -106,6 +109,9 @@ i18n.use(initReactI18next).init({
         EmailError: "لطفا ایمیل معتبر وارد کنید",
         PasswordError: "لطفا تکرار رمز عبور خود را وارد کنید ",
         RegisterNotifyErrorStepOne: "شما از قبل ثبت نام کرده اید",
+        gmailError:"لطفا ایمیل خود را به درستی وارد کنید",
+
+
 
         //landing
         Home: "خانه",
@@ -208,18 +214,18 @@ i18n.use(initReactI18next).init({
         ServicesDescription3: "مشاورین ما 24 ساعته جوابگو سوال های شما هستند",
         ServicesDescription4:
           "با توجه به سطح توانایی شما فرصت های شغلی به شما پیشنهاد داده میشه",
-        
+
         //introduction
-        ModernEducation:"آموزش مدرن",
-        RapidProgress:"پیشرفت سریع",
-        Description:"آکادمی آموزش تخصصی برنامه نویسی بحر از کودکان تا بزرگسال",
-        OurProfessors:"+50 اساتید برتر جهان",
-        OurStudents:"+100 دانشجوی فعال در دوره",
-        Now:"همین حالا",
-        Start:"شروع کن به یادگیری!",
-        NewCourses:"جدیدترین دوره‌ها",
-        GoodsCourses:"دوره های برتر هفته",
-        GoodsBlogs:"بلاگ های برتر هفته",
+        ModernEducation: "آموزش مدرن",
+        RapidProgress: "پیشرفت سریع",
+        Description: "آکادمی آموزش تخصصی برنامه نویسی بحر از کودکان تا بزرگسال",
+        OurProfessors: "+50 اساتید برتر جهان",
+        OurStudents: "+100 دانشجوی فعال در دوره",
+        Now: "همین حالا",
+        Start: "شروع کن به یادگیری!",
+        NewCourses: "جدیدترین دوره‌ها",
+        GoodsCourses: "دوره های برتر هفته",
+        GoodsBlogs: "بلاگ های برتر هفته",
 
         //professors
         AcademiesProfessors: "اساتید برتر هفته آکادمی",
@@ -245,12 +251,48 @@ i18n.use(initReactI18next).init({
         DeleteUser: "خروج از حساب کاربری",
 
         //panel
-        Welcome: "سلام ، روزت بخیر",
+        Hello: "سلام ",
+        Welcome: "، روزت بخیر",
         Hope: "امیدوارم امروز روز خوبی رو داشته باشید",
         HourAndDate1: "ساعت",
         HourAndDate2: "تاریخ",
         TimeAndDay1: "۲۰:۲۰",
         TimeAndDay2: "۲۰ آبان ۱۴۰۴",
+        TeachersName: "مدرس",
+        StartEvent: "تاریخ برگزاری",
+        Cost: "قیمت",
+        SeeOther: "مشاهده بیشتر >",
+        Status: "وضعیت",
+        NoRow: "ردیفی برای نمایش وجود ندارد.",
+        YourInformation: "وضعیت اطلاعات حساب کاربری",
+        IsNotComplete: "اطلاعات حساب کاربری شما کامل نیست",
+        YourComment: "نظرات شما",
+        CourseAndBlog: "دوره ها و بلاگ ها",
+        Error: "صفحه مورد نظر شما یافت نشد . ",
+        NotConfirmed: "تایید نشده",
+        Confrimed: "تایید شد",
+        Toman: "تومان",
+
+        //profile
+        MyProfile: "پروفایل من",
+
+        //courses
+        Search: "جست‌جو",
+        SearchCourses: "دوره مورد نظر را جست‌جو کنید...",
+        Filter: "فیلتر",
+        Category: "دسته بندی",
+        SelectCategory: "دسته مورد نظر را انتخاب کنید",
+        Level: "سطح آموزشی",
+        SelectLevel: "سطح مورد نظر را انتخاب کنید",
+        Teachers: "اساتید",
+        SelectTeachers: "استاد مورد نظر را انتخاب کنید",
+        date: "تاریخ برگزاری - اتمام",
+        ErrorCourses: "دوره مورد نظر موجود نمی باشد",
+        ErrorBlogs: "بلاگ مورد نظر موجود نمی باشد",
+        FirstTime: "زمان اول",
+        SecondTime: "زمان دوم",
+        To: "تا",
+        From: "از",
       },
     },
 
@@ -272,6 +314,12 @@ i18n.use(initReactI18next).init({
         GetUserPhoneLabel: "Phone Number",
         GetUserPhonePlaceholder: "Enter your phone number",
         RegisterNotifysuccessStepOne: "You registered successfully",
+        RegisterNotifyError:"You couldn't registered successfully, Please try again",
+        getCodNotifyError:"Error sending the code, pleae try again",
+
+        //AuthCommon
+        AuthTitle: "Start an adventure",
+        AuthDescription: "Find and learn any course you want with ease",
 
         //GetCode
         GetCodeHead: "Verify sent code",
@@ -337,10 +385,7 @@ i18n.use(initReactI18next).init({
         EmailError: "Please enter a valid email",
         PasswordError: "Please enter your password confirmation",
         RegisterNotifyErrorStepOne: "؛You already registered",
-
-        //AuthCommon
-        AuthTitle: "Start an adventure",
-        AuthDescription: "Find and learn any course you want with ease",
+        gmailError:"Please Enter your password correctly",
 
         //Course Details
         CourseDesHead: "course title",
@@ -356,7 +401,7 @@ i18n.use(initReactI18next).init({
         CourseDislike: "Dislikes",
         ReserveCourse: "Reserve Course",
         AddToFavorite: "Status",
-        CourseName: "Course",
+        CourseName: "name",
         people: "people",
         Price: "Toman",
         comment: "comment",
@@ -366,9 +411,9 @@ i18n.use(initReactI18next).init({
         RealatedCourses: "Related Courses",
         Comments: "Your Comment",
         CommentDescription: "Click for review",
-        ResetHead: "",
-        ResetDes: "",
-        ResetLink: "",
+        ResetHead: "Password reset Email sent",
+        ResetDes: "A password reset email has been sent to your Email address. Please click the link to continue.",
+        ResetLink: "Get link",
         NoComment: "there is no comment yet",
         reply: "reply",
         commentTitle: "ٌWrite your comment's title",
@@ -442,16 +487,17 @@ i18n.use(initReactI18next).init({
           "You will be offered job opportunities based on your ability level.",
 
         //introduction
-        ModernEducation:"Modern education",
-        RapidProgress:"Rapid progress",
-        Description:"Bahr Specialized Programming Training Academy for Children to Adults",
-        OurProfessors:"+50 top professors in the world",
-        OurStudents:"+100 active students in the course",
-        Now:"Right now",
-        Start:"Start learning!",
-        NewCourses:"The latest courses",
-        GoodsCourses:"Top courses of the week",
-        GoodsBlogs:"Top blogs of the week",
+        ModernEducation: "Modern education",
+        RapidProgress: "Rapid progress",
+        Description:
+          "Bahr Specialized Programming Training Academy for Children to Adults",
+        OurProfessors: "+50 top professors in the world",
+        OurStudents: "+100 active students in the course",
+        Now: "Right now",
+        Start: "Start learning!",
+        NewCourses: "The latest courses",
+        GoodsCourses: "Top courses of the week",
+        GoodsBlogs: "Top blogs of the week",
 
         //professors
         AcademiesProfessors: "Top Professors of the Academy Week",
@@ -479,12 +525,50 @@ i18n.use(initReactI18next).init({
         DeleteUser: "Delete user",
 
         //panel
-        Welcome: "Hello, good day.",
+        Hello: "Hello ",
+        Welcome: ", good day.",
         Hope: "I hope you have a good day today.",
         HourAndDate1: "hour",
         HourAndDate2: "date",
         TimeAndDay1: "20:20",
         TimeAndDay2: "2025 November 11",
+        TeachersName: "Teacher",
+        StartEvent: "The date of the event",
+        Cost: "Cost",
+        SeeOther: "See more >",
+        Status: "Status",
+        NoRow: "No rows to display.",
+        YourInformation: "Account Information Status",
+        IsNotComplete: "Your account information is incomplete",
+        YourComment: "Your comments",
+        CourseAndBlog: "Courses and blogs",
+        Error: "The page you requested was not found.",
+        NotConfirmed: "not confirmed",
+        Confrimed: "It was confirmed",
+        Toman: "Toman",
+
+        //profile
+        MyProfile: "My profile",
+
+        //courses & blogs
+        Search: "Search",
+        SearchCourses: "Search for the desired course...",
+        Filter: "Filter",
+        Category: "Category",
+        SelectCategory: "Select the desired category.",
+        Level: "Educational level",
+        SelectLevel: "Select the desired level.",
+        Teachers: "Teachers",
+        SelectTeachers: "Select the desired teacher.",
+        Date: "Date of holding - Completion",
+        ErrorCourses: "The desired course is not available.",
+        ErrorBlogs: "The desired blog does not exist.",
+        FirstTime: "First time",
+        SecondTime: "Second time",
+        FirstPrice: "First price",
+        SecondPrice: "Second price",
+        To: "to",
+        From: "from",
       },
     },
   },

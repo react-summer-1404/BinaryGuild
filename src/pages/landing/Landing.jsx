@@ -13,14 +13,14 @@ import Professors from "./landings-sections/Professors";
 const Landing = () => {
   const { t } = useTranslation();
   return (
-    <div className="flex flex-wrap gap-10 bg-background text-text">
+    <div className="flex flex-wrap  gap-10 m-auto bg-background text-text">
       <div className="flex flex-wrap justify-center lg:justify-between w-full gap-2">
         <div className="hidden m-auto lg:block">
           <People />
         </div>
-        <Text />
-        <div className="block m-auto w-1/2 lg:hidden">
-          <People />
+        <Text  />
+        <div className="block m-auto w-2/3 lg:hidden">
+          <People  />
         </div>
         <LandingButton />
       </div>

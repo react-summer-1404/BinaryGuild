@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
-
+import BlogsWrapper from "../../screen/blogs-wrapper/BlogsWrapper";
 // Layouts
 const AuthLayout = lazy(() => import("../../components/layouts/AuthLayout"));
 const LandingLayout = lazy(() => import('../../components/layouts/LandingLayout'));
@@ -13,6 +13,7 @@ const RegisterWrapper = lazy(() => import("../../screen/authentication/RegisterW
 const LandingWrapper = lazy(() => import("../../screen/landing-wrapper/LandingWrapper"));
 const CourseDetailWrapper = lazy(() => import("../../screen/course-detail/CourseDetailWrapper"));
 const SetNewPassword = lazy(() => import("../../pages/authorize/steps/SetNewPassword"));
+const CoursesWrapper = lazy(()=> import ("../../screen/courses-wrapper/CoursesWrapper"));
 const BlogsDetailWrapper = lazy(() => import("../../screen/blogs-detail/BlogsDetailWrapper"));
 
 // Student Panel
@@ -21,9 +22,12 @@ const Dashboard = lazy(() => import("../../pages/student-panel/dashboard/Dashboa
 const MyReserve = lazy(() => import("../../pages/student-panel/my-reserve-course/MyReserve"));
 const UserProfile = lazy(() => import("../../pages/student-panel/profile/UserProfile"));
 const CourseFav = lazy(() => import("../../pages/student-panel/course-fav/CourseFav"));
-const BlogFav = lazy(() => import("../../pages/student-panel/blog-fav/BlogFav")); 
+const BlogFav = lazy(() => import("../../pages/student-panel/blog-fav/BlogFav"));
 
-const NotFound = lazy(() => import("../../components/common/not-found-section/NotFound")); 
+//Not Found 
+const NotFound = lazy(()=>import("../../components/common/not-found-section/NotFound"));
+
+
 
 
 const Router = createBrowserRouter([
@@ -32,8 +36,10 @@ const Router = createBrowserRouter([
     element: <LandingLayout />,
     children: [
       { index : true, element: <LandingWrapper /> },
-       { path: "courses/:id", element: <CourseDetailWrapper /> },
-       { path: "blogs/:id", element: <BlogsDetailWrapper /> },
+      {path:"courses-page" , element:<CoursesWrapper/>},
+      {path:"blogs-page" , element:<BlogsWrapper/>},
+       { path: "courses-page/:id", element: <CourseDetailWrapper /> },
+       { path: "blogs-page/:id", element: <BlogsDetailWrapper /> },
 
     ],
     
