@@ -22,7 +22,7 @@ const GetCode = ({ onNext, onPrevious, getEmail }) => {
   };
 
   const handleError = async (e) => {
-    console.log("sending data",{getEmail,getCode})
+    console.log("sending data", { getEmail, getCode });
     e.preventDefault();
     // if (getCode.trim() === "" || getCode.trim().length !== 4) {
     //   setErrorCode("لطفا کد معتبر وارد کنید");
@@ -30,19 +30,21 @@ const GetCode = ({ onNext, onPrevious, getEmail }) => {
     //   setErrorCode("");
     // }
     try {
-      const response = await VerifyMessage( getEmail,getCode);
+      const response = await VerifyMessage(getEmail, getCode);
       console.log(response);
       if (response.success) {
         onNext();
       }
     } catch (error) {
       console.log(error);
-      setErrorCode("خطا در ارسال کد، دوباره تلاش کنید");
+      setErrorCode(t("getCodNotifyError"));
+
     }
   };
 
   return (
     <div className="flex flex-col items-start">
+
       <h2 className="text-[28px] font font-[700] text-text mt-[75px]">
         {t("GetCodeHead")}
       </h2>
@@ -55,10 +57,7 @@ const GetCode = ({ onNext, onPrevious, getEmail }) => {
         action=""
         className="flex items-start flex-col mt-[48px]"
       >
-        <label
-          className="text-text font-[600] text-[16px]"
-          htmlFor="getCode"
-        >
+        <label className="text-text font-[600] text-[16px]" htmlFor="getCode">
           {t("GetCodeLabel")}
         </label>
         <input
@@ -80,7 +79,10 @@ const GetCode = ({ onNext, onPrevious, getEmail }) => {
           className="cursor-pointer mt-[32px] flex items-center justify-center border-[1px] border-[#DCDCDC] rounded-[34px] w-[141px] h-[40px]"
         >
           <p className="text-[#3772FF]">{t("GoBackButton")}</p>
-          <img src="../../../../src/assets/icons/arrow-left-01.png" className="mr-0.5" />
+          <img
+            src="../../../../src/assets/icons/arrow-left-01.png"
+            className="mr-0.5"
+          />
         </div>
       </div>
     </div>

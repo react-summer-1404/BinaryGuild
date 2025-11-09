@@ -12,7 +12,7 @@ const Search = ({ setFilter }) => {
     if (value!==undefined) {
       setFilter((prev) => ({ ...prev, Query: value }));
     }
-  }, [value]);
+  }, [value,setFilter]);
 
   return (
     <div className="flex flex-wrap w-11/12 m-auto">
