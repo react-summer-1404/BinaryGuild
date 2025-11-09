@@ -43,19 +43,20 @@ const RelatedCourses = ({ courseId }) => {
     };
     if (courseId) relatedCourse();
   }, [courseId]);
+   
 
   return (
-    <div className="  h-[400px] w-full mt-20 mb-14  max-[768px]:mt-60 max-[500px]:mt-100 ">
+    <div className="  h-[400px] w-full mt-20 " >
       <h2 className="text-[#707070] font-[700] text-[20px] flex justify-start">
         {t("RealatedCourses")}
       </h2>
 
-      <div className=" w-full h-[366px] grid grid-cols-4 gap-4 mt-6 max-[768px]:flex max-[768px]:overflow-x-scroll max-[768px]:scrollbar-hide ">
-        {relatedCourses.length > 0 ? ( 
+      <div className=" w-full h-[366px] grid grid-cols-4 gap-6 mt-6  max-[1200px]:grid-cols-3 max-[1000px]:flex max-[1000px]:overflow-x-scroll   max-[1000px]:scrollbar-hide ">
+        {relatedCourses.length > 0 ? (
           relatedCourses.map((course) => (
             <div
               key={course.id}
-              className="h-full flex flex-col justify-between "
+              className="h-full flex flex-col flex-shrink-0 justify-between "
             >
               <div className="relative gap-2 flex ">
                 <img
@@ -69,7 +70,7 @@ const RelatedCourses = ({ courseId }) => {
                 {/* <div className=" w-[89px] h-6 rounded-[32px] bg-blue ">{} </div> */}
               </div>
 
-              <div className=" h-[61px] ">
+              <div className=" h-[61px] pr-2 pl-2 ">
                 <h2 className="text-text  font-bold text-[24px] ">
                   {course.techName}{" "}
                 </h2>
@@ -90,8 +91,11 @@ const RelatedCourses = ({ courseId }) => {
             </div>
           ))
         ) : (
-          <p className="relative right-50 flex items-center max-[768px]:mt-10 justify-center "> {t("NoRelatedCourse")}</p>
-        )   }
+          <p className=" w-full h-1/2 flex justify-center items-center ">
+            {" "}
+            {t("NoRelatedCourse")}
+          </p>
+        )}
       </div>
     </div>
   );

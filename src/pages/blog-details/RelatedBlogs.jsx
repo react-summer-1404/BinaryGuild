@@ -6,7 +6,7 @@ import { GetRelatedBlogs } from "../../core/services/api/get-data";
 import moment from "moment-jalaali";
 
 
-const RelatedBlogs = ({ newsCatregoryId}) => {
+const RelatedBlogs = ({ newsCatregoryId,visibleComments}) => {
   const { t } = useTranslation();
   const [relatedBlogs, setRelatedBlogs] = useState([]);
       const formatInsertDate = moment(newsCatregoryId.insertDate).format("jYYYY/jMM/jDD");
@@ -25,18 +25,21 @@ const RelatedBlogs = ({ newsCatregoryId}) => {
     if(newsCatregoryId) fetchRelatedBlogs();
   }, [newsCatregoryId]);
 
+  const marginTop = 
+  window.innerWidth < 768 ? visibleComments?.length === 0 ? "120px" : visibleComments?.length === 3 ? "1280px" : "120px" : "120px";
+
   return (
-    <div className="  h-[400px] w-full mt-30 mb-14  max-[768px]:mt-60 max-[500px]:mt-100 ">
+    <div className=" w-full mb-14   max-[768px]:mt-320 max-[500px]:mt-320 " style={marginTop}>
       <h2 className="text-[#707070] font-[700] text-[20px] flex justify-start">
         {t("RealatedBlogs")}
       </h2>
 
-      <div className=" w-full h-[366px] grid grid-cols-4 gap-4 mt-6 max-[768px]:flex max-[768px]:overflow-scroll ">
+      <div className=" h-95 overflow-hidden w-full grid grid-cols-4 gap-4 mt-6 max-[1200px]:grid-cols-3 max-[1000px]:flex max-[1000px]:overflow-x-scroll max-[1000px]:scrollbar-hide   ">
         {relatedBlogs.length > 0 ? (
           relatedBlogs.map((items) => (
             <div
               key={items.id}
-              className="h-full flex flex-col justify-between "
+              className=" flex flex-col justify-between  flex-shrink-0"
             >
               <div className="relative gap-2 flex ">
                 <img
@@ -47,12 +50,12 @@ const RelatedBlogs = ({ newsCatregoryId}) => {
                 {/* <div className=" w-[89px] h-6 rounded-[32px] bg-blue ">{} </div> */}
               </div>
 
-              <div className=" h-[61px] ">
-                <h2 className="text-text  text-start font-bold text-[24px] ">
+              <div className="  ">
+                <h2 className="text-text mt-3 w-70 truncate text-start font-bold text-[22px] ">
                   {items.title}{" "}
                 </h2>
                 <div className="flex justify-between mt-3">
-                  <div className="flex">
+                  <div className="flex gap-2">
                     <p className="text-[#707070] font-medium text-[14px] ">
                       {formatInsertDate}
                     </p>{" "}

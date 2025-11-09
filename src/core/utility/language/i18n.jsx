@@ -111,7 +111,9 @@ i18n.use(initReactI18next).init({
         RegisterNotifyErrorStepOne: "شما از قبل ثبت نام کرده اید",
         gmailError:"لطفا ایمیل خود را به درستی وارد کنید",
 
-
+        //Add comment
+        AddCommentSuccessfully:"پیام شما با موفقیت ثبت شد، لطفا در انتطار تایید ادمین بمانید...",
+        AddCommentError:"متاسفانه در ارسال پیام شما خطایی رخ داده است!",
 
         //landing
         Home: "خانه",

@@ -96,7 +96,7 @@ const BlogHeader = ({
 
       <div className="  w-[45%] h-106 max-[1000px]:hidden ">
         <img
-          src={currentImageAddressTumb}
+          src={currentImageAddressTumb} onError={(e)=>{e.target.src="../../../src/assets/icons/default-fallback-image.png" }}
           className="w-full h-full  rounded-[32px]"
         />
       </div>

@@ -37,7 +37,7 @@ const CourseHeader = ({ course, courseId }) => {
     } catch (error) {
       console.log(error, "error reserve");
       toast.error(t("errorCourseLike"));
-            if (error.response.status === 401) {
+      if (error.response.status === 401) {
         toast.error(t("errorCourseReserveUserNotLogin"));
       }
     }
@@ -55,7 +55,7 @@ const CourseHeader = ({ course, courseId }) => {
     } catch (error) {
       console.log(error, "error reserve");
       toast.error(t("errorCourseLike"));
-            if (error.response.status === 401) {
+      if (error.response.status === 401) {
         toast.error(t("errorCourseReserveUserNotLogin"));
       }
     }
@@ -70,7 +70,7 @@ const CourseHeader = ({ course, courseId }) => {
     } catch (error) {
       console.log(error, "error reserve");
       toast.error(t("errorCourseFavorite"));
-            if (error.response.status === 401) {
+      if (error.response.status === 401) {
         toast.error(t("errorCourseReserveUserNotLogin"));
       }
     }
@@ -85,13 +85,11 @@ const CourseHeader = ({ course, courseId }) => {
       toast.success(t("successCourseReserve"));
     } catch (error) {
       if (error.response.status === 401) {
-        const token= localStorage.getItem("token")
-        if(!token) {
-        toast.error(t("errorCourseReserveUserNotLogin"));
-
-        }else{
-        toast.error(t("completeProfile"));
-
+        const token = localStorage.getItem("token");
+        if (!token) {
+          toast.error(t("errorCourseReserveUserNotLogin"));
+        } else {
+          toast.error(t("completeProfile"));
         }
       }
     }
@@ -103,6 +101,10 @@ const CourseHeader = ({ course, courseId }) => {
       <div className=" w-[45%] h-106 max-[1000px]:hidden max-[540px]:block  max-[540px]:w-[100%]  max-[540px]:h-[424px] max-[540px]:mt-25  ">
         <img
           src={course.imageAddress}
+          onError={(e) => {
+            e.target.src =
+              "../../../src/assets/icons/default-fallback-image.png";
+          }}
           className="w-full h-full  rounded-[32px] max-[540px]:block  max-[540px]:w-[100%]  max-[540px]:h-[424px]"
         />
       </div>
@@ -207,54 +209,56 @@ const CourseHeader = ({ course, courseId }) => {
         </div>
 
         {/* buttons */}
-        <div className="w-full h-14 mt-6 flex justify-between items-center">
-          <div
-            onClick={handleShowReserveBox}
-            closeReserveBox={() => setShowReserveBox}
-          >
-            {" "}
-            <Button className="bg-[#3772FF] cursor-pointer w-[194px] h-14 rounded-[40px]  max-[750px]:w-[120px] max-[750px]:h-10 max-[540px]:hidden ">
+        <div className="  w-full h-14 mt-6 flex justify-between items-center">
+          {/* reserve & favorite */}
+          <div className="flex gap-1">
+            <div
+              onClick={handleShowReserveBox}
+              closeReserveBox={() => setShowReserveBox(false)}
+            >
+              {" "}
+              <Button className="bg-[#3772FF] cursor-pointer w-[194px] h-14 rounded-[40px] max-[1280px]:w-40 max-[1444px]:w-45 max-[1135px]:w-30 max-[1135px]:h-12 max-[1000px]:w-50 max-[1000px]:h-14  max-[750px]:w-[120px] max-[750px]:h-12 max-[540px]:hidden ">
+                <div
+                  onClick={handleReserve}
+                  className="w-full flex justify-center items-center gap-2"
+                >
+                  <img src="../../../src/assets/icons/archive-02.png" />
+                  {reserve.success ? (
+                    <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[1280px]:text-[16px] max-[750px]:text-[16px]">
+                      {t("Reserved")}
+                    </p>
+                  ) : (
+                    <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[1280px]:text-[16px] max-[750px]:text-[16px]">
+                      {t("ReserveCourse")}
+                    </p>
+                  )}
+                </div>
+              </Button>
+            </div>
+
+            <Button className="bg-[#2F2F2F] cursor-pointer pl-10 pr-10  h-14 rounded-full flex justify-center items-center gap-2 max-[1135px]:w-50 max-[1135px]:h-12 max-[1444px]:w-65 max-[1280px]:w-53 max-[1000px]:w-60 max-[1000px]:h-14 max-[750px]:w-[250px] max-[750px]:h-12 max-[500px]:w-[230px]">
               <div
-                onClick={handleReserve}
+                onClick={handleFavorite}
                 className="w-full flex justify-center items-center gap-2"
               >
-                <img src="../../../src/assets/icons/archive-02.png" />
-                {reserve.success ? (
-                  <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[750px]:text-[16px]">
-                    {t("Reserved")}
+                <img src="../../../src/assets/icons/book-02.png" />
+                {favorite ? (
+                  <p className="text-[#FCFCFC] text-[20px] font-[500] max-[1444px]:text-[16px] max-[1280px]:text-[14px] max-[750px]:text-[16px]">
+                    {" "}
+                    {t("Favorited")}{" "}
                   </p>
                 ) : (
-                  <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[750px]:text-[16px]">
-                    {t("ReserveCourse")}
+                  <p className="text-[#FCFCFC] text-[20px] font-[500] max-[1444px]:text-[16px] max-[1280px]:text-[14px] max-[750px]:text-[16px]">
+                    {" "}
+                    {t("AddToFavorite")}{" "}
                   </p>
                 )}
               </div>
             </Button>
           </div>
 
-          {showReserveBox && <ReserveCourseSuccessModal />}
-
-          <Button className="bg-[#2F2F2F] cursor-pointer pl-10 pr-10  h-14 rounded-full flex justify-center items-center gap-2 max-[750px]:w-[250px] max-[750px]:h-10 ">
-            <div
-              onClick={handleFavorite}
-              className="w-full flex justify-center items-center gap-2"
-            >
-              <img src="../../../src/assets/icons/book-02.png" />
-              {favorite ? (
-                <p className="text-[#FCFCFC] text-[20px] font-[500] max-[750px]:text-[16px]">
-                  {" "}
-                  {t("Favorited")}{" "}
-                </p>
-              ) : (
-                <p className="text-[#FCFCFC] text-[20px] font-[500] max-[750px]:text-[16px]">
-                  {" "}
-                  {t("AddToFavorite")}{" "}
-                </p>
-              )}
-            </div>
-          </Button>
-
-          <div className="flex gap-3">
+          {/* like & dislike */}
+          <div className="flex gap-2">
             <button
               onClick={handleLike}
               className={`w-14 h-14 cursor-pointer rounded-[56px] flex justify-center items-center max-[750px]:w-12 max-[750px]:h-12 ${
@@ -315,6 +319,8 @@ const CourseHeader = ({ course, courseId }) => {
               </svg>
             </button>
           </div>
+
+          {showReserveBox && <ReserveCourseSuccessModal />}
         </div>
       </div>
     </div>

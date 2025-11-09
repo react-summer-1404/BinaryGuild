@@ -3,19 +3,22 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@heroui/button";
 import { useState, useEffect } from "react";
 import { GetCourseComments } from "../../core/services/api/get-data";
+import { GetReplyCourseComment } from "../../core/services/api/get-data";
 import moment from "moment-jalaali";
 import { AddCourseCommentLike } from "../../core/services/api/post-data";
 import { AddCourseCommentDisLike } from "../../core/services/api/post-data";
 import CourseCommentModal from "./CourseCommentModal";
 import toast, { Toaster } from "react-hot-toast";
 
-const CourseComments = ({ courseId, course }) => {
+const CourseComments = ({ courseId, course}) => {
   const [comment, setComment] = useState([]);
+
   const [show, setShow] = useState(false);
 
   const { t } = useTranslation();
 
   const formatInsertDate = moment(courseId.insertDate).format("jYYYY/jMM/jDD");
+  const comments = comment.slice(0, 3);
 
   const handleLike = async (commentId) => {
     try {
@@ -39,6 +42,7 @@ const CourseComments = ({ courseId, course }) => {
     }
   };
 
+  // Get comments
   useEffect(() => {
     const comments = async () => {
       try {
@@ -54,15 +58,17 @@ const CourseComments = ({ courseId, course }) => {
 
 
 
+
+
   return (
     <div className=" h-[400px] w-full mt-8 ">
       <Toaster />
-      <h2 className="text-[#707070] flex justify-start font-[700] text-[20px] max-[500px]:w-20 ">
+      <h2 className="text-[#707070] flex justify-start font-[700] text-[20px]">
         {t("CommentsHead")}
       </h2>
 
-      <div className=" w-full h-[282px] grid grid-cols-4 gap-4 mt-6 max-[768px]:block ">
-        <div className=" h-full rounded-[24px] bg-[#3772FF] flex justify-center items-center gap-2">
+      <div className=" w-full h-[282px] grid grid-cols-4 gap-4 mt-6 max-[1200px]:grid-cols-3 max-[768px]:block max-[768px]:overflow-visible ">
+        <div className=" h-90 rounded-[24px] mt-4 mb-4 bg-[#3772FF] flex justify-center items-center gap-2">
           <div className="flex flex-col items-center justify-center">
             <img
               src="../../../src/assets/icons/comment-add-01.png"
@@ -88,8 +94,8 @@ const CourseComments = ({ courseId, course }) => {
           />
         )}
 
-        {comment.length > 0 ? (
-          comment.map((course) => (
+        {comments.length > 0 ? (
+          comments.map((course) => (
             <div
               key={course.id}
               className="bg-forgetpassbtn p-4 h-90 rounded-[24px] flex flex-col items-center justify-between mt-4 mb-4"
@@ -105,8 +111,12 @@ const CourseComments = ({ courseId, course }) => {
               <div className="h-10 w-full flex justify-between">
                 <div className="flex gap-3">
                   <div className="w-10 h-10 rounded-[400px] ">
-                    <img 
-src={course.title} onError={(e)=>{e.target.src="../../../src/assets/icons/Flynn.png" }}                     />
+                    <img
+                      src={course.title}
+                      onError={(e) => {
+                        e.target.src = "../../../src/assets/icons/Flynn.png";
+                      }}
+                    />
                   </div>
                   <div>
                     <p className="font-[600] text-text text-[14px] ">
@@ -190,7 +200,7 @@ src={course.title} onError={(e)=>{e.target.src="../../../src/assets/icons/Flynn.
       </div>
 
       {comment.length > 3 ? (
-        <div className="w-full h-[39px] flex justify-center items-center mt-5 max-[768px]:block  max-[768px]:mt-40  ">
+        <div className=" w-full h-[39px] flex justify-center items-center mt-5 max-[768px]:block  max-[768px]:mt-40  ">
           <Button className="bg-[#2F2F2F] mt-8 cursor-pointer w-[125px] h-[39px] p-2 rounded-[40px] flex justify-center items-center gap-2 ">
             <p className="text-[#FCFCFC] text-[16px] font-[500]">
               {t("SeeMore")}

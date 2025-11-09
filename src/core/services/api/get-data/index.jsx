@@ -48,6 +48,9 @@ export const GetReplyCourseComment = (CourseId, CommentId) => {
   });
 };
 
+
+
+
 //related blogs
 export const GetRelatedBlogs = (id) => {
   return instance.get(`/News/GetNewsCategory/${id}`);

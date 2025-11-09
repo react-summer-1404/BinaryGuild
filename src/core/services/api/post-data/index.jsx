@@ -82,15 +82,14 @@ export const AddCourseCommentDisLike = (CourseCommandId) => {
   });
 };
 
-// Add post reply comment
+// Add post  comment
 
-export const AddReplyCourseComment = (CommentId, CourseId, Title, Describe) => {
-  const FormData = new FormData();
-  FormData.append("CommentId", CommentId);
-  FormData.append("CourseId", CourseId);
-  FormData.append("Title", Title);
-  FormData.append("Describe", Describe);
-  return instance.post("/Course/AddReplyCourseComment", FormData);
+export const AddCommentCourses = ( {CourseId, Title, Describe}) => {
+  const formData = new FormData();
+  formData.append("CourseId", CourseId);
+  formData.append("Title", Title);
+  formData.append("Describe", Describe);
+  return instance.post("/Course/AddCommentCourse", formData);
 };
 
 // Add to favorite blogs
@@ -129,6 +128,16 @@ export const AddBlogsLike = ({CommentId,LikeType}) => {
 
 
 export const AddBlogsDissLike = (NewsId) => {
+  return instance.post("/News/NewsDissLike/",null,{
+    params:{
+      NewsId:NewsId
+    }
+  });
+};
+
+// Add comment for course
+
+export const AddCommentCourse = (NewsId) => {
   return instance.post("/News/NewsDissLike/",null,{
     params:{
       NewsId:NewsId

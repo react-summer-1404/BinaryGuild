@@ -28,7 +28,7 @@ export const CourseDetailPage = () => {
   
 
   return (
-    <div className=" w-full m-auto bg-background flex flex-col items-center text-text rtl:text-right mt-14 max-[540px]:mt-40 ">
+    <div className=" w-[92%] m-auto bg-background flex flex-col items-center text-text rtl:text-right mt-14 max-[540px]:mt-40 ">
       <CourseHeader course={course} courseId={course.courseId} />
       <CourseDescription course={course} courseId={course.courseId} />
       <CourseComments courseId={course.courseId} course={course} />
