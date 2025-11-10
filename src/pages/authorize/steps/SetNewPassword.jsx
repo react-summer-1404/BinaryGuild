@@ -51,9 +51,9 @@ const SetNewPassword = ({ getEmail }) => {
         });
 
         setTimeout(() => {
-          toast.success(t("ResetNotify"));
-          console.log(toast);
           setTimeout(() => {
+          toast.success(t("ResetNotify"));
+
             GoLogin();
           }, 1000);
         }, 100);

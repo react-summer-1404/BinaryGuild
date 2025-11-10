@@ -21,8 +21,8 @@ const GetEmail = ({ onNext, setGetEmail: sendEmail }) => {
   const handleError = async (e) => {
     e.preventDefault();
 
-    if (getEmail.trim() === "" || !getEmail.includes("@")) {
-      setEmailError(t("EmailError"));
+    if (getEmail.trim() === "" || !getEmail.includes("@") ||!getEmail.includes(".com"))  {
+        toast.error(t("gmailError"));
       return;
     } else {
       setEmailError("");

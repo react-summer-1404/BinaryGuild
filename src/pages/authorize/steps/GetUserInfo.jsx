@@ -57,7 +57,7 @@ const GetUserInfo = ({ onPrevious }) => {
       setPassError(null);
     }
 
-    if (getEmail.trim() !== "" && getPassword.trim() !== "") {
+    if (getEmail.trim() !== "" && getPassword.trim() !== "" ||!getEmail.includes(".com")) {
       console.log("فرم درسته");
     }
 
@@ -75,7 +75,7 @@ const GetUserInfo = ({ onPrevious }) => {
       });
       console.log(response, "response");
 
-      if (response?.data?.success && response.token) {
+      if (response.success && response.token) {
         const token = response.token;
         console.log(response);
         if (token) {

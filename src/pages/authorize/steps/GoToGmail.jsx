@@ -22,7 +22,7 @@ const GoToGmail = ({ onNext, setGetEmail }) => {
 
   const handleError = async (e) => {
     e.preventDefault();
-    if (getUserInfo.trim() === "") {
+    if (getUserInfo.trim() === ""|| !getUserInfo.includes("@") ||!getUserInfo.includes(".com")  ) {
       setErrorCode(t("EmailError"));
       return;
     } else {

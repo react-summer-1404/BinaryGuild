@@ -40,7 +40,7 @@ const ForgetPassword = () => {
 
       <div className="flex flex-col gap-5 sm:flex-row items-start ">
         <Stepper text={t("ChangePasswordStep1")} active={step === 1} />
-        <Stepper text={t("resetLink")} active={step === 2} />
+        <Stepper text={t("ResetLink")} active={step === 2} />
         <Stepper text={t("ConfirmCode")} active={step === 3} />
       </div>
       {step === 1 && (

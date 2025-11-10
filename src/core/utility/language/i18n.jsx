@@ -35,10 +35,8 @@ i18n.use(initReactI18next).init({
         GetUserPhonePlaceholder: "شماره تلفن خود را وارد کنید",
         RegisterNotifysuccessStepOne: "ثبت نام با موفقیت انجام شد",
         RegisterNotifyError: "ثبت نام انجام نشد، لطفا دوباره تلاش کنید",
+        getCodNotifyError:"خطا در ارسال کد، لطفا دوباره تلاش کنید",
 
-        //AuthCommon
-        AuthTitle: "شروع یک ماجراجویی",
-        AuthDescription: "هر دوره ای که بخوای رو به راحتی پیدا کن و یاد بگیر",
 
         //GetCode
 
@@ -74,6 +72,7 @@ i18n.use(initReactI18next).init({
         ForgetPass: "رمزعبور را فراموش کردید؟",
         LoginNotify: "ورود با موفقیت انجام شد",
         LoginNotifyError: "ورود شما ناموفق بود، لطفا دوباره تلاش کنید.",
+        EmailOrPhoneError:"لطفا ایمیل یا شماره تلفن خود را وارد کنید",
         LoginNotifyErrorforPassword: "رمز عبور یا ایمیل شما اشتباه است!",
 
         // ForgetPassword
@@ -110,6 +109,9 @@ i18n.use(initReactI18next).init({
         EmailError: "لطفا ایمیل معتبر وارد کنید",
         PasswordError: "لطفا تکرار رمز عبور خود را وارد کنید ",
         RegisterNotifyErrorStepOne: "شما از قبل ثبت نام کرده اید",
+        gmailError:"لطفا ایمیل خود را به درستی وارد کنید",
+
+
 
         //landing
         Home: "خانه",
@@ -256,7 +258,6 @@ i18n.use(initReactI18next).init({
         HourAndDate2: "تاریخ",
         TimeAndDay1: "۲۰:۲۰",
         TimeAndDay2: "۲۰ آبان ۱۴۰۴",
-        CourseName: "نام",
         TeachersName: "مدرس",
         StartEvent: "تاریخ برگزاری",
         Cost: "قیمت",
@@ -313,6 +314,8 @@ i18n.use(initReactI18next).init({
         GetUserPhoneLabel: "Phone Number",
         GetUserPhonePlaceholder: "Enter your phone number",
         RegisterNotifysuccessStepOne: "You registered successfully",
+        RegisterNotifyError:"You couldn't registered successfully, Please try again",
+        getCodNotifyError:"Error sending the code, pleae try again",
 
         //AuthCommon
         AuthTitle: "Start an adventure",
@@ -382,6 +385,7 @@ i18n.use(initReactI18next).init({
         EmailError: "Please enter a valid email",
         PasswordError: "Please enter your password confirmation",
         RegisterNotifyErrorStepOne: "؛You already registered",
+        gmailError:"Please Enter your password correctly",
 
         //Course Details
         CourseDesHead: "course title",
@@ -397,7 +401,7 @@ i18n.use(initReactI18next).init({
         CourseDislike: "Dislikes",
         ReserveCourse: "Reserve Course",
         AddToFavorite: "Status",
-        CourseName: "Course",
+        CourseName: "name",
         people: "people",
         Price: "Toman",
         comment: "comment",
@@ -407,9 +411,9 @@ i18n.use(initReactI18next).init({
         RealatedCourses: "Related Courses",
         Comments: "Your Comment",
         CommentDescription: "Click for review",
-        ResetHead: "",
-        ResetDes: "",
-        ResetLink: "",
+        ResetHead: "Password reset Email sent",
+        ResetDes: "A password reset email has been sent to your Email address. Please click the link to continue.",
+        ResetLink: "Get link",
         NoComment: "there is no comment yet",
         reply: "reply",
         commentTitle: "ٌWrite your comment's title",
@@ -527,7 +531,6 @@ i18n.use(initReactI18next).init({
         HourAndDate2: "date",
         TimeAndDay1: "20:20",
         TimeAndDay2: "2025 November 11",
-        CourseName2: "Name",
         TeachersName: "Teacher",
         StartEvent: "The date of the event",
         Cost: "Cost",
