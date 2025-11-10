@@ -24,7 +24,7 @@ const TopCoursesList = () => {
 
   return (
     <div className=" w-full flex flex-wrap gap-4">
-      <div className="w-full flex flex-nowrap">
+      <div className="w-full flex flex-nowrap overflow-x-scroll lg:overflow-hidden  ">
         {courses.map((item) => {
           return <TopCourses key={item.id} {...item} />;
         })}

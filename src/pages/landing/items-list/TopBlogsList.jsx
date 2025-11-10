@@ -9,7 +9,7 @@ const TopBlogsList = () => {
     queryKey: ["GET_NEWS"],
     queryFn: UseGetTopBlogs,
   });
-console.log(blogsData)
+  console.log(blogsData);
   return (
     <div className="w-full flex gap-2 flex-wrap">
       <div className="w-full flex gap-2 flex-nowrap">
