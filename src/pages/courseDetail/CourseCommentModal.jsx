@@ -4,8 +4,9 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { GetCourseComments } from "../../core/services/api/get-data";
 import { AddCommentCourses } from "../../core/services/api/post-data";
+import { AddReplyCommentCourse } from "../../core/services/api/post-data";
 import moment from "moment-jalaali";
-import ReplyComment from "../../../src/components/common/comment/ReplyComment";
+import AddComment from "../../components/common/comment/AddComment";
 import toast, { Toaster } from "react-hot-toast";
 
 const CourseCommentModal = ({ onClose, course, courseId }) => {
@@ -14,15 +15,20 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
   const [showReplyDesktopMode, setShowReplyDesktopMode] = useState(false);
   const [showCommentBox, setShowCommentBox] = useState(false);
   const [comment, setComment] = useState([]);
+  const [selectedComment, setSelectedComment] = useState(null);
+
   const [addcommentTitle, setAddCommentTitle] = useState("");
   const [addcommentDes, setAddCommentDes] = useState("");
+  const [addcommentReplyTitle, setAddCommentReplyTitle] = useState("");
+  const [addcommentReplyDes, setAddCommentReplyDes] = useState("");
 
   const formatInsertDate = moment(courseId.insertDate).format("jYYYY/jMM/jDD");
 
   //   replies
 
-  const handleReplyComment = () => {
+  const handleReplyComment = (commentId) => {
     setShowReply(!showReply);
+    setSelectedComment(commentId);
   };
 
   // add comment
@@ -69,6 +75,33 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
     }
   };
 
+  // add comment reply
+  const addCommentsReply = async () => {
+    console.log("reply comments:", {
+      CommentId: selectedComment,
+      CourseId: courseId,
+      Title: addcommentReplyTitle,
+      Describe: addcommentReplyDes,
+    });
+
+    try {
+      const response = await AddReplyCommentCourse({
+        CommentId: selectedComment,
+        CourseId: courseId,
+        Title: addcommentReplyTitle,
+        Describe: addcommentReplyDes,
+      });
+      console.log(response, "comment reply added");
+      if (response.status === 204) {
+        toast.success(t("AddCommentSuccessfully"));        
+      }
+
+    } catch (error) {
+      console.log("api error:", error);
+      toast.error(t("AddCommentError"));
+    }
+  };
+
   return (
     <div className="border text-right overflow-y-scroll scrollbar-hide text-text shadow-shadow shadow-xs border-boarder p-4 fixed inset-0 z-50 m-auto  w-200 h-[653px] rounded-[32px] bg-authcommonbackground max-[1245px]:w-160 max-[1245px]:h-120 max-[700px]:w-120 max-[500px]:w-95 ">
       <Toaster />
@@ -93,7 +126,6 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
           </span>
         </button>
       </div>
-
       <div
         onClick={handleAddCommentDeskTopMode}
         className="w-[107px] h-10 cursor-pointer bg-blue rounded-[40px] mt-10 flex justify-center items-center gap-2 max-[768px]:hidden "
@@ -105,7 +137,7 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
         <p className="text-[#FCFCFC] text-4 font-[500] ">{t("Comments")}</p>
       </div>
       {showReplyDesktopMode && (
-        <ReplyComment
+        <AddComment
           onSend={addComments}
           describe={addcommentDes}
           setDescribe={setAddCommentDes}
@@ -113,13 +145,11 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
           setTitle={setAddCommentTitle}
         />
       )}
-
       {/* comment */}
-
       {comment.length > 0 ? (
         <div className="h-auto mt-6 pr-2">
           {comment.map((item) => (
-            <div key={item.key} className="w-full h-auto mt-6">
+            <div key={item.id} className="w-full h-auto mt-6">
               {/* name and date */}
               <div className="flex gap-2">
                 <div className=" w-10 h-10 rounded-[400px] ">
@@ -209,7 +239,7 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
                 </div>
 
                 <div
-                  onClick={handleReplyComment}
+                  onClick={() => handleReplyComment(item.id)}
                   className=" cursor-pointer border flex items-center justify-center w-25 h-10 border-blue text-blue text-4 font-medium rounded-[40px] "
                 >
                   {t("reply")}
@@ -224,9 +254,18 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
           {t("NoComment")}
         </div>
       )}
-      {showReply && <ReplyComment />}
-
+      {showReply && (
+        <AddComment
+          onSend={addCommentsReply}
+          describe={addcommentReplyDes}
+          setDescribe={setAddCommentReplyDes}
+          title={addcommentReplyTitle}
+          setTitle={setAddCommentReplyTitle}
+        />
+      )}
       {/* add comment mobile mode */}
+
+
       <div
         onClick={handleAddComment}
         className=" h-14 rounded-[40px] cursor-pointer bg-blue w-[345px] flex justify-center items-center mt-10 m-auto min-[768px]:hidden "
@@ -240,7 +279,15 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
         </div>
       </div>
 
-      {showCommentBox && <ReplyComment />}
+      {showCommentBox && (
+        <AddComment
+          onSend={addComments}
+          describe={addcommentDes}
+          setDescribe={setAddCommentDes}
+          title={addcommentTitle}
+          setTitle={setAddCommentTitle}
+        />
+      )}{" "}
     </div>
   );
 };

@@ -47,14 +47,25 @@ export const GetReplyCourseComment = (CourseId, CommentId) => {
     },
   });
 };
-
-
-
-
 //related blogs
 export const GetRelatedBlogs = (id) => {
   return instance.get(`/News/GetNewsCategory/${id}`);
 };
+
+//get blogs reply comment
+
+export const GetBlogsCommentsReply = (id) => {
+  return instance.get("/News/GetRepliesComments", {
+    params: {
+      Id: id,
+    },
+
+  });
+};
+
+
+
+
 
 export const TopCoursesData =async () => {
   return instance.get("/Home/GetCoursesTop?Count=4");

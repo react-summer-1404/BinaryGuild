@@ -91,7 +91,7 @@ const BlogHeader = ({
   };
 
   return (
-    <div className=" h-106 flex gap-8 justify-between items-center  ">
+    <div className=" h-106 flex gap-8 justify-between items-center max-[768px]:mb-20  ">
       <Toaster />
 
       <div className="  w-[45%] h-106 max-[1000px]:hidden ">

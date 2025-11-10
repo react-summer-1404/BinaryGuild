@@ -7,7 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 import BlogCommentsModal from "./BlogCommentsModal";
 import { AddBlogsLike } from "../../core/services/api/post-data";
 
-const BlogComments = ({ NewsId, title, CommentId }) => {
+const BlogComments = ({ NewsId, title,CommentId,newsComment }) => {
   const [comments, setComments] = useState([]);
   const [show, setShow] = useState(false);
   const [like, setLike] = useState(false);
@@ -85,6 +85,7 @@ const BlogComments = ({ NewsId, title, CommentId }) => {
         {show && (
           <BlogCommentsModal
             NewsId={NewsId}
+            newsComment={newsComment}
             title={title}
             onCloseBlogMOdal={() => setShow(false)}
           />
@@ -196,14 +197,14 @@ const BlogComments = ({ NewsId, title, CommentId }) => {
 
       {comments.length > 3 ? (
         <div className="w-full h-[39px] flex justify-center items-center mt-5  max-[768px]:mt-290  ">
-          <button className="bg-[#2F2F2F] text-[#FCFCFC]  mt-3 cursor-pointer w-[125px] h-[39px] p-2 rounded-[40px] flex justify-center items-center gap-2 ">
+          <div className="bg-[#2F2F2F] text-[#FCFCFC]  mt-3 cursor-pointer w-[125px] h-[39px] p-2 rounded-[40px] flex justify-center items-center gap-2 ">
             <button
               onClick={() => setShow(!show)}
               className="text-[#FCFCFC] text-[16px] cursor-pointer font-[500]"
             >
               {t("SeeMore")}
             </button>
-          </button>
+          </div>
         </div>
       ) : (
         <p> </p>

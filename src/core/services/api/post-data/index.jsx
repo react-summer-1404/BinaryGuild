@@ -84,12 +84,23 @@ export const AddCourseCommentDisLike = (CourseCommandId) => {
 
 // Add post  comment
 
-export const AddCommentCourses = ( {CourseId, Title, Describe}) => {
+export const AddCommentCourses = ({ CourseId, Title, Describe }) => {
   const formData = new FormData();
   formData.append("CourseId", CourseId);
   formData.append("Title", Title);
   formData.append("Describe", Describe);
   return instance.post("/Course/AddCommentCourse", formData);
+};
+
+// Add reply comment for course
+
+export const AddReplyCommentCourse = ({CommentId, CourseId, Title, Describe}) => {
+  return instance.post("/Course/AddReplyCourseComment", {
+    CommentId,
+    CourseId,
+    Title,
+    Describe,
+  });
 };
 
 // Add to favorite blogs
@@ -118,33 +129,56 @@ export const AddBlogsRating = ({ NewsId, RateNumber }) => {
 };
 
 // Add Like && Dislike for Course
-export const AddBlogsLike = ({CommentId,LikeType}) => {
-  return instance.post(`/News/CommentLike/${CommentId}`,null,{
-    params:{
-      LikeType:LikeType
-    }
+export const AddBlogsLike = ({ CommentId, LikeType }) => {
+  return instance.post(`/News/CommentLike/${CommentId}`, null, {
+    params: {
+      LikeType: LikeType,
+    },
   });
 };
 
-
 export const AddBlogsDissLike = (NewsId) => {
-  return instance.post("/News/NewsDissLike/",null,{
-    params:{
-      NewsId:NewsId
-    }
+  return instance.post("/News/NewsDissLike/", null, {
+    params: {
+      NewsId: NewsId,
+    },
   });
 };
 
 // Add comment for blogs
 
-export const AddCommentBlogs = ({newsId,userIpAddress,title,describe,userId}) => {
-  return instance.post("/News/CreateNewsComment",{
-    newsId:newsId,
-    userIpAddress:userIpAddress,
-    title:title,
-    describe:describe,
-    userId:userId,
+export const AddCommentBlogs = ({
+  newsId,
+  userIpAddress,
+  title,
+  describe,
+  userId,
+}) => {
+  return instance.post("/News/CreateNewsComment", {
+    newsId: newsId,
+    userIpAddress: userIpAddress,
+    title: title,
+    describe: describe,
+    userId: userId,
   });
 };
 
+// Add reply comment for blogs
 
+export const AddReplyCommentBlogs = ({
+  newsId,
+  userIpAddress,
+  title,
+  describe,
+  userId,
+  parentId,
+}) => {
+  return instance.post("/News/CreateNewsReplyComment", {
+    newsId: newsId,
+    userIpAddress: userIpAddress,
+    title: title,
+    describe: describe,
+    userId: userId,
+    parentId: parentId,
+  });
+};

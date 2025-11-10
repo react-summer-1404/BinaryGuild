@@ -14,6 +14,7 @@ const GetPhoneNumberLogin = ({ onNext }) => {
   const [getPassword, setGetPassword] = useState("");
   const [passError, setPassError] = useState();
   const [remember, setRemember] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const { t } = useTranslation();
 
@@ -119,14 +120,20 @@ const GetPhoneNumberLogin = ({ onNext }) => {
           >
             {t("LoginPassLabel")}{" "}
           </label>
-          <input
-            className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
-            type="password"
-            id="password"
-            value={getPassword}
-            onChange={handlePass}
-            placeholder={t("LoginPassCaption")}
-          />
+          <div className="relative">
+            <input
+              className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
+              type={showPassword ? "text" : "password"}
+              id="password"
+              value={getPassword}
+              onChange={handlePass}
+              placeholder={t("LoginPassCaption")}
+            />
+            <div onClick={()=>setShowPassword((prev)=>(!prev))}>
+              <img className="cursor-pointer w-6 absolute left-3 bottom-4" src={showPassword ? "../../../../src/assets/icons/showpass.png" : "../../../../src/assets/icons/notshowpass.png"  } />
+            </div>
+          </div>
+
           <p className="mt-[4px] font-bold text-[12px] text-[red]">
             {passError}
           </p>

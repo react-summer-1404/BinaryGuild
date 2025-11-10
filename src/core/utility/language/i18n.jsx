@@ -35,14 +35,12 @@ i18n.use(initReactI18next).init({
         GetUserPhonePlaceholder: "شماره تلفن خود را وارد کنید",
         RegisterNotifysuccessStepOne: "ثبت نام با موفقیت انجام شد",
         RegisterNotifyError: "ثبت نام انجام نشد، لطفا دوباره تلاش کنید",
-        getCodNotifyError:"خطا در ارسال کد، لطفا دوباره تلاش کنید",
-
+        getCodNotifyError: "خطا در ارسال کد، لطفا دوباره تلاش کنید",
 
         //GetCode
 
         GetCodeHead: "تایید کد ارسال شده",
-        GetCodeCaption:
-          "لطفا کد ارسال شده به ایمیل را وارد کنید",
+        GetCodeCaption: "لطفا کد ارسال شده به ایمیل را وارد کنید",
         GetCodeLabel: "کد تایید",
         GetCodePlaceholder: "کد تایید خود را وارد کنید",
         GetCodeAgain: " ارسال مجدد کد",
@@ -72,7 +70,7 @@ i18n.use(initReactI18next).init({
         ForgetPass: "رمزعبور را فراموش کردید؟",
         LoginNotify: "ورود با موفقیت انجام شد",
         LoginNotifyError: "ورود شما ناموفق بود، لطفا دوباره تلاش کنید.",
-        EmailOrPhoneError:"لطفا ایمیل یا شماره تلفن خود را وارد کنید",
+        EmailOrPhoneError: "لطفا ایمیل یا شماره تلفن خود را وارد کنید",
         LoginNotifyErrorforPassword: "رمز عبور یا ایمیل شما اشتباه است!",
 
         // ForgetPassword
@@ -94,7 +92,7 @@ i18n.use(initReactI18next).init({
         NewPasswordRepeatLabel: "تکرار رمزعبور جدید",
         NewPasswordLabelPlaceholder: "رمزعبور خود را وارد کنید",
         NewPasswordRepeatLabelPlaceholder: "تکرار رمزعبور خود را وارد کنید",
-        ResetNotify:"رمز شما تغییر کرد",
+        ResetNotify: "رمز شما تغییر کرد",
 
         // LoginForm
 
@@ -109,11 +107,13 @@ i18n.use(initReactI18next).init({
         EmailError: "لطفا ایمیل معتبر وارد کنید",
         PasswordError: "لطفا تکرار رمز عبور خود را وارد کنید ",
         RegisterNotifyErrorStepOne: "شما از قبل ثبت نام کرده اید",
-        gmailError:"لطفا ایمیل خود را به درستی وارد کنید",
+        gmailError: "لطفا ایمیل خود را به درستی وارد کنید",
 
         //Add comment
-        AddCommentSuccessfully:"پیام شما با موفقیت ثبت شد، لطفا در انتطار تایید ادمین بمانید...",
-        AddCommentError:"متاسفانه در ارسال پیام شما خطایی رخ داده است!",
+        AddCommentSuccessfullyBlog: "پیام شما با موفقیت ثبت شد.",
+        AddCommentSuccessfully:
+          "پیام شما با موفقیت ثبت شد، لطفا در انتطار تایید ادمین بمانید...",
+        AddCommentError: "متاسفانه در ارسال پیام شما خطایی رخ داده است!",
 
         //landing
         Home: "خانه",
@@ -177,16 +177,15 @@ i18n.use(initReactI18next).init({
           "بعد از تایید ادمین ، دوره مورد نظر به لیست دوره من شما اضافه خواهد شد ",
         MyReserve: "رزرو من",
         ok: "باشه",
-        errorCourseReserveUserNotLogin:
-          "لطفا ابتدا وارد شوید  ",
+        errorCourseReserveUserNotLogin: "لطفا ابتدا وارد شوید  ",
         NoRelatedCourse: "دوره مرتبطی وجود ندارد",
-        completeProfile:"ابتدا پروفایل خود را کامل کنید!",
+        completeProfile: "ابتدا پروفایل خود را کامل کنید!",
         // blogs details
         CoursePublisher: "منتشرکننده",
         CourseViewers: "بازدیدکنندگان",
         comments: "نظرات",
         CourseStartPublish: "تاریخ انتشار",
-        RealatedBlogs:"بلاگ های مرتبط",
+        RealatedBlogs: "بلاگ های مرتبط",
 
         //goals
         OurGoals: "اهداف ما در اکادمی",
@@ -307,8 +306,7 @@ i18n.use(initReactI18next).init({
         RegisterStep2: "Verify sent code",
         RegisterStep3: "Enter personal information",
         RegisterHead: "Welcome!",
-        RegisterCaption:
-          "Please enter your email to receive verification code",
+        RegisterCaption: "Please enter your email to receive verification code",
         RegisterLabel: "email",
         RegisterPlaceholder: "Enter your email",
         HaveAccount: "Already have an account?",
@@ -316,8 +314,9 @@ i18n.use(initReactI18next).init({
         GetUserPhoneLabel: "Phone Number",
         GetUserPhonePlaceholder: "Enter your phone number",
         RegisterNotifysuccessStepOne: "You registered successfully",
-        RegisterNotifyError:"You couldn't registered successfully, Please try again",
-        getCodNotifyError:"Error sending the code, pleae try again",
+        RegisterNotifyError:
+          "You couldn't registered successfully, Please try again",
+        getCodNotifyError: "Error sending the code, pleae try again",
 
         //AuthCommon
         AuthTitle: "Start an adventure",
@@ -375,7 +374,7 @@ i18n.use(initReactI18next).init({
         NewPasswordRepeatLabel: "Repeat new password",
         NewPasswordLabelPlaceholder: "Enter your password",
         NewPasswordRepeatLabelPlaceholder: "Repeat your password",
-        ResetNotify:"Your password has changed",
+        ResetNotify: "Your password has changed",
         //Buttons
         SendLinkButton: "Send link",
         GoBackButton: "Back",
@@ -387,7 +386,13 @@ i18n.use(initReactI18next).init({
         EmailError: "Please enter a valid email",
         PasswordError: "Please enter your password confirmation",
         RegisterNotifyErrorStepOne: "؛You already registered",
-        gmailError:"Please Enter your password correctly",
+        gmailError: "Please Enter your password correctly",
+
+        //Add comment
+        AddCommentSuccessfullyBlog: "Your message has submitted successfully",
+        AddCommentSuccessfully:
+          "Your message has been submited successfully. Please wait for admin approval.",
+        AddCommentError: "Unfotunately an error accured while sending your message.",
 
         //Course Details
         CourseDesHead: "course title",
@@ -414,7 +419,8 @@ i18n.use(initReactI18next).init({
         Comments: "Your Comment",
         CommentDescription: "Click for review",
         ResetHead: "Password reset Email sent",
-        ResetDes: "A password reset email has been sent to your Email address. Please click the link to continue.",
+        ResetDes:
+          "A password reset email has been sent to your Email address. Please click the link to continue.",
         ResetLink: "Get link",
         NoComment: "there is no comment yet",
         reply: "reply",
@@ -435,17 +441,16 @@ i18n.use(initReactI18next).init({
         reserveDescription: "After confirmation course will be added to your",
         MyReserve: "My Reserve",
         ok: "ok",
-        errorCourseReserveUserProfileNotComplete:
-          "Please login first",
+        errorCourseReserveUserProfileNotComplete: "Please login first",
         NoRelatedCourse: "There is no related course yet",
-        completeProfile:"Complete your profile first!",
+        completeProfile: "Complete your profile first!",
 
         // blogs details
         CoursePublisher: "Publisher",
         CourseViewers: "Viewers",
         comments: "comment",
         CourseStartPublish: "publish date",
-        RealatedBlogs:"Realated Blogs",
+        RealatedBlogs: "Realated Blogs",
 
         //landing
         //header and footer
@@ -513,8 +518,6 @@ i18n.use(initReactI18next).init({
         ProfessorsScore2: "4.2",
         ProfessorsScore3: "4.1",
 
-
-        
         //student-panel
         Report: "Report",
         MenuText1: "Dashboard",

@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import toast, { Toaster } from "react-hot-toast";
 
-
 const GetUserInfo = ({ onPrevious }) => {
   const [getEmail, setGetEmail] = useState("");
   const [getPhoneNumber, setGetPhoneNumber] = useState("");
@@ -14,6 +13,7 @@ const GetUserInfo = ({ onPrevious }) => {
   const [emailError, setEmailError] = useState(null);
   const [passError, setPassError] = useState();
   const [phoneNumberError, setPhoneNumberError] = useState();
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
   const GoLogin = () => {
@@ -57,7 +57,10 @@ const GetUserInfo = ({ onPrevious }) => {
       setPassError(null);
     }
 
-    if (getEmail.trim() !== "" && getPassword.trim() !== "" ||!getEmail.includes(".com")) {
+    if (
+      (getEmail.trim() !== "" && getPassword.trim() !== "") ||
+      !getEmail.includes(".com")
+    ) {
       console.log("فرم درسته");
     }
 
@@ -85,19 +88,17 @@ const GetUserInfo = ({ onPrevious }) => {
         }
         GoLogin();
         toast.success(t("RegisterNotifysuccessStepOne"));
-
       }
       console.log("success", GoLogin());
     } catch (error) {
-      console.log(error)
-        toast.error(t("RegisterNotifyError"));
-
+      console.log(error);
+      toast.error(t("RegisterNotifyError"));
     }
   };
 
   return (
     <div className="flex flex-col items-start">
-      <Toaster/>
+      <Toaster />
       <h2 className="text-[28px] font font-[700] text-text mt-[75px]">
         {t("GetUserInfoHead")}{" "}
       </h2>
@@ -122,7 +123,9 @@ const GetUserInfo = ({ onPrevious }) => {
             onChange={handleNumber}
             placeholder={t("GetUserPhonePlaceholder")}
           />
-          <p className="mt-[4px] font-bold text-[12px] text-[red]">{phoneNumberError}</p>
+          <p className="mt-[4px] font-bold text-[12px] text-[red]">
+            {phoneNumberError}
+          </p>
 
           <label className="text-text font-[600] text-[16px]" htmlFor="email">
             {t("GetUserEmailLabel")}{" "}
@@ -145,14 +148,27 @@ const GetUserInfo = ({ onPrevious }) => {
           >
             {t("GetUserPassLabel")}{" "}
           </label>
-          <input
-            className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
-            type="password"
-            id="password"
-            value={getPassword}
-            onChange={handlePass}
-            placeholder={t("GetUserPassPlaceholder")}
-          />
+          <div className="relative">
+            <input
+              className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
+              type={showPassword ? "text" : "password"}
+              id="password"
+              value={getPassword}
+              onChange={handlePass}
+              placeholder={t("GetUserPassPlaceholder")}
+            />
+            <div onClick={() => setShowPassword((prev) => !prev)}>
+              <img
+                className="cursor-pointer w-6 absolute left-3 bottom-4"
+                src={
+                  showPassword
+                    ? "../../../../src/assets/icons/showpass.png"
+                    : "../../../../src/assets/icons/notshowpass.png"
+                }
+              />
+            </div>
+          </div>
+
           <p className="mt-[4px] font-bold text-[12px] text-[red]">
             {passError}
           </p>

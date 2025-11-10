@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-const ReplyComment = ({title,setTitle,describe,setDescribe,onSend}) => {
+const AddComment = ({title,setTitle,describe,setDescribe,onSend}) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(true);
 
@@ -64,4 +64,4 @@ const ReplyComment = ({title,setTitle,describe,setDescribe,onSend}) => {
   );
 };
 
-export default ReplyComment;
+export default AddComment;

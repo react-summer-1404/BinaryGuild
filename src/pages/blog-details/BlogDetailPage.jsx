@@ -46,7 +46,7 @@ const BlogDetailPage = () => {
       />
       <BlogDescription describe={blogs.detailsNewsDto.describe} NewsId={id} />
 
-      <BlogComments title={blogs.detailsNewsDto.title} NewsId={id} />
+      <BlogComments title={blogs.detailsNewsDto.title} newsComment={blogs.detailsNewsDto.newsComment}  NewsId={id} />
       <RelatedBlogs newsCatregoryId={blogs.detailsNewsDto.newsCatregoryId} />
     </div>
   );
