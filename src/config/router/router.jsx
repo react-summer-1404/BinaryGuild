@@ -132,7 +132,7 @@ const Router = createBrowserRouter([
     path: "/admin-panel",
     element: <AdminPanelLayout />,
     children: [
-      { path:"Dashboard",  element: <AdminDashboard /> },
+      { path:"admin-panel",  element: <AdminDashboard /> },
       { path:"User-management" , element: <AdminUserManagement /> },
       { path:"Blogs-management" , element: <AdminBlogsManagement /> },
       { path:"Courses-management" , element: <AdminCoursesManagement /> },

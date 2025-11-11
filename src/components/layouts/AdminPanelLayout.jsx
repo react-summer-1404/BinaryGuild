@@ -4,7 +4,7 @@ import AdminPanelSideBar from "../common/adminPanel-sideBar/AdminPanelSideBar";
 import { Outlet } from "react-router-dom";
 const AdminPanelLayout = () => {
   return (
-    <div className="  w-screen h-screen pr-10 pt-10 flex bg-black-900 flex-wrap">
+    <div className="  w-screen h-screen pr-10 pt-5 flex bg-black-900 flex-wrap">
       {/* */}
       <div className=" flex flex-col items-center justify-center w-[15%] ">
         <AdminPanelSideBar />{" "}
@@ -15,7 +15,7 @@ const AdminPanelLayout = () => {
           <AdminPanelHeader />
           
         </div>
-        <div className="border border-black rounded-3xl bg-amber-50  h-full ">
+        <div className="border border-black rounded-3xl bg-background  h-full ">
         <Outlet />
 
         </div>

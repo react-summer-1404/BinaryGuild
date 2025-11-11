@@ -74,7 +74,7 @@ export const TopCoursesData =async () => {
 export const UserData = async () => {
   try {
     const response = await instance.get("/SharePanel/GetProfileInfo");
-    console.log(response);
+    console.log("response profile:" ,response);
     return response;
   } catch (error) {
     console.log(error);
