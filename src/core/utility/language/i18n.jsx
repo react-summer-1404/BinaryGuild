@@ -251,6 +251,15 @@ i18n.use(initReactI18next).init({
         MenuText7: "پرداخت ها",
         DeleteUser: "خروج از حساب کاربری",
 
+        //admin-panel
+        adminMenuText1: "داشبرد",
+        adminMenuText2: "مدریت کاربران",
+        adminMenuText3: "مدریت اخبار",
+        adminMenuText4: "مدریت دوره ها",
+        adminMenuText5: "مدریت کامنت ها",
+        adminMenuText6: "پشتیبانی",
+        adminMenuText7: "تنطیمات سایت",
+
         //panel
         Hello: "سلام ",
         Welcome: "، روزت بخیر",
@@ -392,7 +401,8 @@ i18n.use(initReactI18next).init({
         AddCommentSuccessfullyBlog: "Your message has submitted successfully",
         AddCommentSuccessfully:
           "Your message has been submited successfully. Please wait for admin approval.",
-        AddCommentError: "Unfotunately an error accured while sending your message.",
+        AddCommentError:
+          "Unfotunately an error accured while sending your message.",
 
         //Course Details
         CourseDesHead: "course title",
@@ -528,6 +538,15 @@ i18n.use(initReactI18next).init({
         MenuText6: "Profile",
         MenuText7: "Payments",
         DeleteUser: "Delete user",
+
+        //admin-panel
+        adminMenuText1: "Dashboard",
+        adminMenuText2: "User Management",
+        adminMenuText3: "Blogs Management",
+        adminMenuText4: "Courses Management",
+        adminMenuText5: "Comments Management",
+        adminMenuText6: "Support",
+        adminMenuText7: "Setting",
 
         //panel
         Hello: "Hello ",

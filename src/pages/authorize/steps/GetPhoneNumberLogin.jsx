@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Login } from "../../../core/services/api/post-data";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import HomeButton from "../../../components/common/button/HomeButton";
 import { Checkbox } from "@heroui/checkbox";
 import toast, { Toaster } from "react-hot-toast";
@@ -17,6 +18,10 @@ const GetPhoneNumberLogin = ({ onNext }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const GoToPanel = () => {
+    navigate("/admin-panel");
+  };
 
   const handleUserInfo = (e) => {
     const value = e.target.value;
@@ -59,8 +64,14 @@ const GetPhoneNumberLogin = ({ onNext }) => {
           localStorage.setItem("token", token);
           console.log(token, "token saved in localstorage");
           localStorage.getItem("token");
+          localStorage.setItem("roles", response.token);
         }
+        if (response.roles.includes("admin")) {
+          toast.success(t("LoginNotify"));
 
+          GoToPanel();
+        }
+        if (!response.roles.includes("admin")) {
         setTimeout(() => {
           toast.success(t("LoginNotify"));
           console.log(toast);
@@ -68,7 +79,10 @@ const GetPhoneNumberLogin = ({ onNext }) => {
             onNext();
           }, 1500);
         }, 100);
-      }
+      }          
+        }
+
+
     } catch (error) {
       console.log("error", error);
       if (error.response.status === 401) {
@@ -129,8 +143,15 @@ const GetPhoneNumberLogin = ({ onNext }) => {
               onChange={handlePass}
               placeholder={t("LoginPassCaption")}
             />
-            <div onClick={()=>setShowPassword((prev)=>(!prev))}>
-              <img className="cursor-pointer w-6 absolute left-3 bottom-4" src={showPassword ? "../../../../src/assets/icons/showpass.png" : "../../../../src/assets/icons/notshowpass.png"  } />
+            <div onClick={() => setShowPassword((prev) => !prev)}>
+              <img
+                className="cursor-pointer w-6 absolute left-3 bottom-4"
+                src={
+                  showPassword
+                    ? "../../../../src/assets/icons/showpass.png"
+                    : "../../../../src/assets/icons/notshowpass.png"
+                }
+              />
             </div>
           </div>
 
