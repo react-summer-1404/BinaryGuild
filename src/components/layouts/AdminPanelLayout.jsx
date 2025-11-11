@@ -6,7 +6,7 @@ const AdminPanelLayout = () => {
   return (
     <div className="  w-screen h-screen pr-10 pt-10 flex bg-black-900 flex-wrap">
       {/* */}
-      <div className="border border-black flex flex-col items-center justify-center w-[15%] bg-amber-600 ">
+      <div className=" flex flex-col items-center justify-center w-[15%] ">
         <AdminPanelSideBar />{" "}
       </div>
 

@@ -6,7 +6,8 @@ const AdminPanelSideBar = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="border text-black border-black w-full h-full ">
+    <div className="border text-black border-black rounded-2xl w-full h-full ">
+      <div className="border border-black w-full h-20">logo</div>
       {adminPanelData.map((value) => {
         return (
           <PanelMenu
