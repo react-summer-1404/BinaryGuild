@@ -1,8 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import BlogsWrapper from "../../screen/blogs-wrapper/BlogsWrapper";
-import UserManagement from "../../pages/admin-panel/UserManagement";
-import Support from "../../pages/admin-panel/Support";
 // Layouts
 const AuthLayout = lazy(() => import("../../components/layouts/AuthLayout"));
 const LandingLayout = lazy(() =>
@@ -67,7 +65,10 @@ const AdminDashboard = lazy(() =>
   import("../../pages/admin-panel/AdminDashboard")
 );
 const AdminUserManagement = lazy(() =>
-  import("../../pages/admin-panel/UserManagement")
+  import("../../pages/admin-panel/userManagement/UserManagement")
+);
+const UserJobHistory = lazy(() =>
+  import("../../pages/admin-panel/userManagement/UserJobHistory")
 );
 const AdminBlogsManagement = lazy(() =>
   import("../../pages/admin-panel/BlogsManagement")
@@ -132,8 +133,10 @@ const Router = createBrowserRouter([
     path: "/admin-panel",
     element: <AdminPanelLayout />,
     children: [
-      { path:"admin-panel",  element: <AdminDashboard /> },
+      { path:"Dashboard",  element: <AdminDashboard /> },
       { path:"User-management" , element: <AdminUserManagement /> },
+      { path:"User-Job-history" , element: <UserJobHistory /> },
+
       { path:"Blogs-management" , element: <AdminBlogsManagement /> },
       { path:"Courses-management" , element: <AdminCoursesManagement /> },
 

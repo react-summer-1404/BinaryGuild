@@ -13,7 +13,7 @@ const AdminProfile = () => {
       <img
         src={profileData?.currentPictureAddress}
 onError={(e)=>{e.target.src="/src/assets/icons/Peppe – 07.svg"}}
-        className="w-10 border border-black h-10 rounded-3xl"
+        className="w-10 border border-white h-10 rounded-3xl"
       />
       <div className="  flex flex-col items-start ">
         <p className=" text-[12px] text-white font-bold ">{profileData?.email}</p>

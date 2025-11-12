@@ -5,10 +5,10 @@ import HeaderIcons from '../landing-header/header-icons/HeaderIcons'
 
 const AdminPanelHeader = () => {
   return (
-    <div className='rounded-2xl  h-full m-auto border border-black flex justify-between items-center pr-2'>
+    <div className='rounded-2xl  h-full m-auto border bg-[#222]  flex justify-between items-center pr-2'>
         <AdminProfile/>
         <PanelHeaderButton/>
-        <HeaderIcons/>
+        <HeaderIcons className="ml-3" />
     </div>
   )
 }
