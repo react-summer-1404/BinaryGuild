@@ -1,18 +1,17 @@
 import instance from "../../../interceptor";
 
 export const usersList = async (
-  pageNumber = 1,
-  rowsOgPage = 10,
+  pageNumber = 10,
+  rowsOfPage = 1000,
   IsActiveUser = true,
   IsDeletedUser = true,
-  roleId = "",
+  roleId = ""
 ) => {
-    
   try {
     const response = await instance.get("/User/UserMannage", {
       params: {
-        pageNumber: pageNumber,
-        RowsOgPage: rowsOgPage,
+        pageNumber,
+        RowsOfPage: rowsOfPage,
         SortingCol: "DESC",
         SortType: "InsertDate",
         Query: "",
@@ -27,3 +26,5 @@ export const usersList = async (
     console.log(error);
   }
 };
+
+

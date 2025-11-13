@@ -1,44 +1,76 @@
 import { useTranslation } from "react-i18next";
-import { Button } from "@heroui/button";
 import TableCommon from "../Table/TableCommon";
 import { useDispatch, useSelector } from "react-redux";
-import { setNumber, setSearch } from "../../../store/filterSlice";
+import { setNumber, setQueryUsers } from "../../../store/filterSlice";
 import { useQuery } from "@tanstack/react-query";
 import { usersList } from "../../../core/services/api/adminPanel/get-data";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import AddUser from "./AddUser";
 const UsersInfo = () => {
   const { t } = useTranslation();
+  const[open,setOpen]=useState(false);
+
+  const handleOpen=()=>{
+    setOpen(!open);
+  }
 
   const dispatch = useDispatch();
-  const {role,status, number, search } = useSelector((state) => state.UserFilter);
-  const showOptions = [5, 10, 15];
+  const { role, status, number, Query } = useSelector(
+    (state) => state.UserFilter
+  );
+  const showOptions = [5, 10, 15,20,25,30,40];
+
 
   const {
     data: users,
     isLoading,
-    isError,
+    isError, refetch
   } = useQuery({
     queryKey: ["users", number],
     queryFn: () => usersList(1, number),
   });
 
+
+  const handleAddUser =  ()=>{
+      refetch()
+      setOpen(false)
+    } 
+
+  const queryUser = (e) => {
+    if (e.target.value !== "") {
+      console.log("value", e.target.value);
+      dispatch(setQueryUsers(e.target.value));
+    } else {
+      dispatch(setQueryUsers(undefined));
+    }
+  };
+
+
   const filterUser = useMemo(() => {
     if (!users || !users.listUser) return [];
     return users.listUser.filter((user) => {
       const roleMatch =
-        role === t("allUsers") ? true : user.roles.includes(role);
+        role === t("allUsers") ? true : user.roles.includes(role) ||user.roles.includes([]) ;
+
       const statusMatch =
         status === t("active")
           ? user.active === true
           : status === t("deActive")
           ? user.active === false
           : true;
+      const searchMatch = Query
+        ? user.fname?.toLowerCase().includes(Query.toLowerCase()) ||
+          user.lname?.toLowerCase().includes(Query.toLowerCase()) ||
+          user.userName?.toLowerCase().includes(Query.toLowerCase()) ||
+          user.gmail?.toLowerCase().includes(Query.toLowerCase()) ||
+          user.phoneNumber?.toLowerCase().includes(Query.toLowerCase())
+        : true;
 
-      return roleMatch && statusMatch;
+      return roleMatch && statusMatch && searchMatch;
     });
-  }, [users, status, t, role]);
-
+  }, [users, status, t, role, Query]);
   console.log("filtered users", filterUser);
+
   if (isLoading) return <p>Loading... please wait</p>;
   if (isError) return <p>An Error accoured :( </p>;
 
@@ -65,14 +97,15 @@ const UsersInfo = () => {
         <div className="  flex gap-3 items-center ml-5 h-full">
           <input
             className="bg-black-900 border border-boarder focus:outline-none indent-2 rounded-[5px] w-75 h-10 placeholder:text-[12px] "
-            value={search}
-            onChange={(e) => dispatch(setSearch(e.target.value))}
+            value={Query}
+            onChange={(e) => queryUser(e)}
             type="text"
             placeholder={t("search")}
           />
-          <Button className="border border-boarder rounded-[5px] flex items-center justify-center w-34 h-10 bg-blue">
+          <button onClick={handleOpen} className="border border-boarder cursor-pointer rounded-[5px] flex items-center justify-center w-34 h-10 bg-blue">
             {t("Adduser")}
-          </Button>
+          </button>
+          {open && <AddUser onSuccess={handleAddUser} onClose={()=>setOpen(false)}/> }
         </div>
       </div>
 

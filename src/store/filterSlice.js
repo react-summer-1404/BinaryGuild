@@ -5,7 +5,7 @@ const initialState = {
   role: "allUsers",
   status: "active",
   number:5,
-  search:""
+  Query:undefined,
 };
 
 const userFilterSlice = createSlice({
@@ -22,9 +22,10 @@ const userFilterSlice = createSlice({
       state.number = action.payload;
     }, 
 
-    setSearch(state, action) {
-      state.search = action.payload;
+    setQueryUsers(state, action) {
+      state.Query = action.payload;
     },     
+
     resetFilters(state) {
       state.role = "all";
       state.status = "all";
@@ -34,5 +35,5 @@ const userFilterSlice = createSlice({
     
   },
 });
-export const { setRole, setStatus,setNumber,setSearch, resetFilters } = userFilterSlice.actions;
+export const { setRole, setStatus,setNumber, setQueryUsers, resetFilters } = userFilterSlice.actions;
 export default userFilterSlice.reducer;
