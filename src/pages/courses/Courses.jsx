@@ -23,7 +23,7 @@ const Courses = () => {
       console.log('object',filter)
       refetchBlogsData();
     }
-  }, [filter]);
+  }, [filter,refetchBlogsData]);
   return (
     <>
     <div className="flex flex-wrap gap-2">

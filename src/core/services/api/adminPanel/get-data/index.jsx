@@ -2,10 +2,10 @@ import instance from "../../../interceptor";
 
 export const usersList = async (
   pageNumber = 1,
-  rowsOgPage = 5,
+  rowsOgPage = 10,
   IsActiveUser = true,
   IsDeletedUser = true,
-  roleId = 1
+  roleId = "",
 ) => {
     
   try {

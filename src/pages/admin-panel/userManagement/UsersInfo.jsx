@@ -1,23 +1,46 @@
 import { useTranslation } from "react-i18next";
 import { Button } from "@heroui/button";
-import TableCommon from "../../../components/common/Table/TableCommon";
+import TableCommon from "../Table/TableCommon";
 import { useDispatch, useSelector } from "react-redux";
 import { setNumber, setSearch } from "../../../store/filterSlice";
 import { useQuery } from "@tanstack/react-query";
 import { usersList } from "../../../core/services/api/adminPanel/get-data";
+import { useMemo } from "react";
 const UsersInfo = () => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
-  const { number, search } = useSelector((state) => state.UserFilter);
+  const {role,status, number, search } = useSelector((state) => state.UserFilter);
   const showOptions = [5, 10, 15];
 
-  const {data,isLoading,isError}=useQuery({
-    queryKey:["users",number],
-    queryFn:()=>usersList(1,number)
-  })
+  const {
+    data: users,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["users", number],
+    queryFn: () => usersList(1, number),
+  });
 
-  if(isLoading){ <p>Loading... please wait</p> } if(isError){ <p>An Error accoured :( </p> }
+  const filterUser = useMemo(() => {
+    if (!users || !users.listUser) return [];
+    return users.listUser.filter((user) => {
+      const roleMatch =
+        role === t("allUsers") ? true : user.roles.includes(role);
+      const statusMatch =
+        status === t("active")
+          ? user.active === true
+          : status === t("deActive")
+          ? user.active === false
+          : true;
+
+      return roleMatch && statusMatch;
+    });
+  }, [users, status, t, role]);
+
+  console.log("filtered users", filterUser);
+  if (isLoading) return <p>Loading... please wait</p>;
+  if (isError) return <p>An Error accoured :( </p>;
 
   return (
     <div className=" w-full">
@@ -53,8 +76,8 @@ const UsersInfo = () => {
         </div>
       </div>
 
-      <div className="border border-boarder h-80 bg-[#222] mt-8 rounded-xl">
-        <TableCommon users={data} />
+      <div className="border border-boarder h-80 bg-[#222] mt-8 rounded-xl overflow-scroll">
+        <TableCommon users={{ listUser: filterUser }} />
       </div>
     </div>
   );
