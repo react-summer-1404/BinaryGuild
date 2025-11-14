@@ -1,9 +1,8 @@
 import instance from "../../interceptor";
 
 export const GetCourseComments = (CourseId) => {
-  console.log(CourseId);
-  return instance.get(`/Course/GetCourseCommnets/${CourseId}`, {
-  });
+  // console.log(CourseId);
+  return instance.get(`/Course/GetCourseCommnets/${CourseId}`, {});
 };
 
 export const GetAllCourses = (pageNumber = 1, rowsOgPage = 10) => {
@@ -20,12 +19,9 @@ export const GetAllCourses = (pageNumber = 1, rowsOgPage = 10) => {
 
 //get related courses
 
-
 export const GetCourseTech = () => {
   return instance.get("/Home/GetTechnologies");
 };
-
-
 
 export const GetBlogs = (id) => {
   return instance.get(`/News/${id}`);
@@ -53,14 +49,14 @@ export const GetRelatedBlogs = (id) => {
   return instance.get(`/News/GetNewsCategory/${id}`);
 };
 
-export const TopCoursesData =async () => {
+export const TopCoursesData = async () => {
   return instance.get("/Home/GetCoursesTop?Count=4");
 };
 
 export const UserData = async () => {
   try {
     const response = await instance.get("/SharePanel/GetProfileInfo");
-    console.log(response);
+    // console.log(response);
     return response;
   } catch (error) {
     console.log(error);
@@ -90,7 +86,7 @@ export const UserCourses = async () => {
 export const UserReserve = async () => {
   try {
     const response = await instance("/SharePanel/GetMyCoursesReserve");
-    console.log(response);
+    // console.log(response);
     return response;
   } catch (error) {
     console.log(error);
@@ -113,12 +109,11 @@ export const GetCourseDetail = (CourseId) => {
   });
 };
 export const GetCourses = async ({ params }) => {
-  console.log("params : ",params)
+  // console.log("params : ", params);
   try {
-    const response = await instance.get(
-      "/Home/GetCoursesWithPagination",
-      { params: {...params} }
-    );
+    const response = await instance.get("/Home/GetCoursesWithPagination", {
+      params: { ...params },
+    });
     return response;
   } catch (error) {
     console.log(error);
@@ -126,9 +121,7 @@ export const GetCourses = async ({ params }) => {
 };
 export const GetCoursesLevel = async () => {
   try {
-    const response = await instance.get(
-      "/CourseLevel/GetAllCourseLevel"
-    );
+    const response = await instance.get("/CourseLevel/GetAllCourseLevel");
     return response;
   } catch (error) {
     console.log(error);
@@ -136,9 +129,7 @@ export const GetCoursesLevel = async () => {
 };
 export const GetCoursesTeacher = async () => {
   try {
-    const response = await instance.get(
-      "/Home/GetTeachers"
-    );
+    const response = await instance.get("/Home/GetTeachers");
     return response;
   } catch (error) {
     console.log(error);
@@ -146,10 +137,7 @@ export const GetCoursesTeacher = async () => {
 };
 export const GetBlogsData = async ({ params }) => {
   try {
-    const response = await instance.get(
-      "/News" ,
-      { params: {...params} }
-    );
+    const response = await instance.get("/News", { params: { ...params } });
     return response.news;
   } catch (error) {
     console.log(error);
@@ -169,4 +157,21 @@ export const Reset = (ConfigValue) => {
   return instance.get(`/Sign/Reset/${ConfigValue}`);
 };
 
+export const GetFavoriteBlogs = async () => {
+  try {
+    const response = await instance.get("/SharePanel/GetMyFavoriteNews");
+    return response.myFavoriteNews;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
+
+export const GetFavoriteCourses = async () => {
+  try {
+    const response = await instance.get("/SharePanel/GetMyFavoriteCourses");
+    return response.favoriteCourseDto;
+  } catch (error) {
+    console.log(error);
+  }
+};

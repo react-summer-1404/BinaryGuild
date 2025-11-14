@@ -10,11 +10,13 @@ const Cost = ({ setFilter }) => {
   const [value1] = useDebounce(firstPrice, 1000);
   const [value2] = useDebounce(secondPrice, 1000);
   useEffect(() => {
+    console.log("value1", typeof value1, "firstPrice", typeof firstPrice);
     if (value1 !== "") {
       setFilter((prev) => ({ ...prev, CostDown: value1 }));
     } else setFilter((prev) => ({ ...prev, CostDown: undefined }));
   }, [value1]);
   useEffect(() => {
+    console.log("value2", typeof value2, "secondPrice", typeof secondPrice);
     if (value2 !== "") {
       setFilter((prev) => ({ ...prev, CostUp: value2 }));
     } else setFilter((prev) => ({ ...prev, CostUp: undefined }));

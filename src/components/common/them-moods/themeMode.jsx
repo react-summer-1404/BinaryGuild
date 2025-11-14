@@ -23,10 +23,9 @@ const ThemeModes = () => {
       <Button
         isIconOnly
         aria-label="dark/light mode"
-        color="default"
         variant="faded"
         onPress={changeMode}
-        className="bg-boarder border-boarder lg:inline-block hidden"
+        className="bg-forgetpassbtn border-forgetpassbtn lg:inline-block hidden"
       >
         <Moon />
       </Button>

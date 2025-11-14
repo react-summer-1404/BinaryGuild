@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import SearchImage from "../../../../core/icons/SearchImage";
 import { useDebounce } from "use-debounce";
+import SearchImage from "../../../../core/icons/SearchImage";
 
 const Search = ({ setFilter }) => {
   const { t } = useTranslation();

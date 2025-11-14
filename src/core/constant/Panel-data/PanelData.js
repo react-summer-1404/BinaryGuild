@@ -3,13 +3,13 @@ export const PanelData = [
     id: 1,
     image: "/src/assets/icons/activity-01.svg",
     name: "",
-    link: "/panel/dashboard",
+    link: "/panel",
   },
   {
     id: 2,
     image: "/src/assets/icons/course.svg",
     name: "",
-    link: "/panel/my-panel",
+    link: "/panel/my-courses",
   },
   {
     id: 3,

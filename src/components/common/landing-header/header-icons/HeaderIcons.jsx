@@ -6,13 +6,13 @@ import LanguageSelector from "./language-selector/LanguageSelector";
 const HeaderIcons = () => {
   return (
     <div className=" gap-3 hidden lg:flex">
-      <div className=" border-boarder relative cursor-pointer" >
+      <div className=" border-forgetpassbtn relative cursor-pointer" >
         
         <Button
           isIconOnly
           aria-label="notification"
           variant="faded"
-          className="bg-boarder border-boarder hidden lg:flex"
+          className="bg-forgetpassbtn border-forgetpassbtn hidden lg:flex"
         >
           <Notification />
         </Button>

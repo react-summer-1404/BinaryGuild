@@ -3,9 +3,9 @@ import { GetCategory } from "../../../core/services/api/get-data";
 import CategorySection from "./category/CategorySection";
 import Cost from "./cost/Cost";
 import Level from "./level/Level";
-import Search from "./search/Search";
 import Teacher from "./teachers/Teacher";
-import Date from "./date/Date";
+import Search from "../../../components/common/search-and-date/search/Search";
+import Date from "../../../components/common/search-and-date/date/Date";
 
 const CourseCategory = ({ setFilter }) => {
   const { data: categoryData } = useQuery({

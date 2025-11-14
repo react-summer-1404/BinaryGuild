@@ -9,11 +9,11 @@ const Courses = () => {
   const { t } = useTranslation();
   const [filter, setFilter] = useState({
     PageNumber: 1,
-    RowsOfPage: 5,
+    RowsOfPage: 8,
     SortingCol: "Active",
     SortType: "desc",
   });
-  const { data: coursesData, refetch: refetchBlogsData } = useQuery({
+  const { data: coursesData, refetch: refetchCoursesData } = useQuery({
     queryKey: ["GET_COURSES_DATA"],
     queryFn: () => GetCourses({ params: filter }),
   });
@@ -21,7 +21,7 @@ const Courses = () => {
   useEffect(() => {
     if (filter) {
       console.log('object',filter)
-      refetchBlogsData();
+      refetchCoursesData();
     }
   }, [filter]);
   return (
@@ -39,7 +39,7 @@ const Courses = () => {
                   <img src={value.imageAddress} className="rounded-4xl" />
                   <div className="w-11/12 m-auto">
                     <p className="w-full text-2xl font-bold text-text text-start">
-                      {value.googleTitle}
+                      {value.title}
                     </p>
                     <div className="w-full flex flex-nowrap justify-between">
                       <p className="text-start text-muted text-[14px] ">

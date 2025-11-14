@@ -35,14 +35,12 @@ i18n.use(initReactI18next).init({
         GetUserPhonePlaceholder: "شماره تلفن خود را وارد کنید",
         RegisterNotifysuccessStepOne: "ثبت نام با موفقیت انجام شد",
         RegisterNotifyError: "ثبت نام انجام نشد، لطفا دوباره تلاش کنید",
-        getCodNotifyError:"خطا در ارسال کد، لطفا دوباره تلاش کنید",
-
+        getCodNotifyError: "خطا در ارسال کد، لطفا دوباره تلاش کنید",
 
         //GetCode
 
         GetCodeHead: "تایید کد ارسال شده",
-        GetCodeCaption:
-          "لطفا کد ارسال شده به ایمیل را وارد کنید",
+        GetCodeCaption: "لطفا کد ارسال شده به ایمیل را وارد کنید",
         GetCodeLabel: "کد تایید",
         GetCodePlaceholder: "کد تایید خود را وارد کنید",
         GetCodeAgain: " ارسال مجدد کد",
@@ -72,7 +70,7 @@ i18n.use(initReactI18next).init({
         ForgetPass: "رمزعبور را فراموش کردید؟",
         LoginNotify: "ورود با موفقیت انجام شد",
         LoginNotifyError: "ورود شما ناموفق بود، لطفا دوباره تلاش کنید.",
-        EmailOrPhoneError:"لطفا ایمیل یا شماره تلفن خود را وارد کنید",
+        EmailOrPhoneError: "لطفا ایمیل یا شماره تلفن خود را وارد کنید",
         LoginNotifyErrorforPassword: "رمز عبور یا ایمیل شما اشتباه است!",
 
         // ForgetPassword
@@ -94,7 +92,7 @@ i18n.use(initReactI18next).init({
         NewPasswordRepeatLabel: "تکرار رمزعبور جدید",
         NewPasswordLabelPlaceholder: "رمزعبور خود را وارد کنید",
         NewPasswordRepeatLabelPlaceholder: "تکرار رمزعبور خود را وارد کنید",
-        ResetNotify:"رمز شما تغییر کرد",
+        ResetNotify: "رمز شما تغییر کرد",
 
         // LoginForm
 
@@ -109,9 +107,7 @@ i18n.use(initReactI18next).init({
         EmailError: "لطفا ایمیل معتبر وارد کنید",
         PasswordError: "لطفا تکرار رمز عبور خود را وارد کنید ",
         RegisterNotifyErrorStepOne: "شما از قبل ثبت نام کرده اید",
-        gmailError:"لطفا ایمیل خود را به درستی وارد کنید",
-
-
+        gmailError: "لطفا ایمیل خود را به درستی وارد کنید",
 
         //landing
         Home: "خانه",
@@ -184,7 +180,7 @@ i18n.use(initReactI18next).init({
         CourseViewers: "بازدیدکنندگان",
         comments: "نظرات",
         CourseStartPublish: "تاریخ انتشار",
-        RealatedBlogs:"بلاگ های مرتبط",
+        RealatedBlogs: "بلاگ های مرتبط",
 
         //goals
         OurGoals: "اهداف ما در اکادمی",
@@ -249,6 +245,7 @@ i18n.use(initReactI18next).init({
         MenuText6: "پروفایل",
         MenuText7: "پرداخت ها",
         DeleteUser: "خروج از حساب کاربری",
+        Student: "دانشجو",
 
         //panel
         Hello: "سلام ",
@@ -263,20 +260,56 @@ i18n.use(initReactI18next).init({
         Cost: "قیمت",
         SeeOther: "مشاهده بیشتر >",
         Status: "وضعیت",
-        NoRow: "ردیفی برای نمایش وجود ندارد.",
+        NoCourse: "دوره ای برای نمایش وجود ندارد.",
         YourInformation: "وضعیت اطلاعات حساب کاربری",
         IsNotComplete: "اطلاعات حساب کاربری شما کامل نیست",
         YourComment: "نظرات شما",
         CourseAndBlog: "دوره ها و بلاگ ها",
-        Error: "صفحه مورد نظر شما یافت نشد . ",
         NotConfirmed: "تایید نشده",
-        Confrimed: "تایید شد",
+        Confirmed: "تایید شد",
         Toman: "تومان",
+        Name: "نام",
+        EndEvent: "تاریخ اتمام",
+        Order:"ترتیب",
 
         //profile
         MyProfile: "پروفایل من",
+        Information: "اطلاعات حساب کاربری",
+        Images: "عکس ها",
+        HomeAddress: "محل سکونت",
+        Links: "لینک ها",
 
-        //courses
+        //information
+        LastName:"نام خانوادگی",
+        YourName:"نام خود را وارد کنید",
+        YourLastName:"نام خانوادگی خود را وارد کنید",
+        AboutMe:"درباره من",
+        AboutYourself:"متن درباره خود را وارد کنید",
+        NationalCode:"کد ملی",
+        YourNationalCode:"کد ملی خود را وارد کنید",
+        MobileNumber:"شماره همراه",
+        YourMobileNumber:"شماره همراه خود را وارد کنید",
+        DateOfBirth:"تاریخ تولد",
+        YourDateOfBirth:"تاریخ تولد خود را وارد کنید",
+        Gender:"جنسیت",
+        Man:"مرد",
+        Woman:"زن",
+        choose:"انتخاب کنید",
+        Email:"ایمیل",
+        YourEmail:"ایمیل خود را وارد کنید",
+        Address:"آدرس سکونت",
+        YourAddress:"آدرس محل سکونت خود را وارد کنید",
+        ApplyChanges:"اعمال تغییرات",
+        AddPhoto:"اضافه کردن عکس",
+        SelectLocation:"داخل نقشه موقعیت مکانی محل سکونت خود را انتخاب کنید",
+        Telegram:"تلگرام",
+        LinkedIn:"لینکدین",
+        TelegramLink:"لینک تلگرام خود را وارد کنید",
+        LinkedInLink:"لینک لینکدین خود را وارد کنید",
+  
+        //courses & blogs
+        TextCoursesHeader:"شروع ماجراجویی جدید",
+        TextCourses:"یک شروع قوی برای یادگیری یک مسئله جدید میتونه تو پیشرفت کمکت کنه",
         Search: "جست‌جو",
         SearchCourses: "دوره مورد نظر را جست‌جو کنید...",
         Filter: "فیلتر",
@@ -286,13 +319,18 @@ i18n.use(initReactI18next).init({
         SelectLevel: "سطح مورد نظر را انتخاب کنید",
         Teachers: "اساتید",
         SelectTeachers: "استاد مورد نظر را انتخاب کنید",
-        date: "تاریخ برگزاری - اتمام",
+        Date: "تاریخ برگزاری - اتمام",
         ErrorCourses: "دوره مورد نظر موجود نمی باشد",
         ErrorBlogs: "بلاگ مورد نظر موجود نمی باشد",
         FirstTime: "زمان اول",
         SecondTime: "زمان دوم",
         To: "تا",
         From: "از",
+        TextBlogsHeader:"اطلاعات بیشتر ، درک بهتر",
+        TextBlogs:"ما در بلاگ ها اطلاعات شما رو نسبت به تکنولوژی ای که یاد میگیرید بیشتر میکنیم",
+
+        //not found
+        Error: "صفحه مورد نظر شما یافت نشد . ",
       },
     },
 
@@ -305,8 +343,7 @@ i18n.use(initReactI18next).init({
         RegisterStep2: "Verify sent code",
         RegisterStep3: "Enter personal information",
         RegisterHead: "Welcome!",
-        RegisterCaption:
-          "Please enter your email to receive verification code",
+        RegisterCaption: "Please enter your email to receive verification code",
         RegisterLabel: "email",
         RegisterPlaceholder: "Enter your email",
         HaveAccount: "Already have an account?",
@@ -314,8 +351,9 @@ i18n.use(initReactI18next).init({
         GetUserPhoneLabel: "Phone Number",
         GetUserPhonePlaceholder: "Enter your phone number",
         RegisterNotifysuccessStepOne: "You registered successfully",
-        RegisterNotifyError:"You couldn't registered successfully, Please try again",
-        getCodNotifyError:"Error sending the code, pleae try again",
+        RegisterNotifyError:
+          "You couldn't registered successfully, Please try again",
+        getCodNotifyError: "Error sending the code, pleae try again",
 
         //AuthCommon
         AuthTitle: "Start an adventure",
@@ -373,7 +411,7 @@ i18n.use(initReactI18next).init({
         NewPasswordRepeatLabel: "Repeat new password",
         NewPasswordLabelPlaceholder: "Enter your password",
         NewPasswordRepeatLabelPlaceholder: "Repeat your password",
-        ResetNotify:"Your password has changed",
+        ResetNotify: "Your password has changed",
         //Buttons
         SendLinkButton: "Send link",
         GoBackButton: "Back",
@@ -385,7 +423,7 @@ i18n.use(initReactI18next).init({
         EmailError: "Please enter a valid email",
         PasswordError: "Please enter your password confirmation",
         RegisterNotifyErrorStepOne: "؛You already registered",
-        gmailError:"Please Enter your password correctly",
+        gmailError: "Please Enter your password correctly",
 
         //Course Details
         CourseDesHead: "course title",
@@ -412,7 +450,8 @@ i18n.use(initReactI18next).init({
         Comments: "Your Comment",
         CommentDescription: "Click for review",
         ResetHead: "Password reset Email sent",
-        ResetDes: "A password reset email has been sent to your Email address. Please click the link to continue.",
+        ResetDes:
+          "A password reset email has been sent to your Email address. Please click the link to continue.",
         ResetLink: "Get link",
         NoComment: "there is no comment yet",
         reply: "reply",
@@ -442,7 +481,7 @@ i18n.use(initReactI18next).init({
         CourseViewers: "Viewers",
         comments: "comment",
         CourseStartPublish: "publish date",
-        RealatedBlogs:"Realated Blogs",
+        RealatedBlogs: "Realated Blogs",
 
         //landing
         //header and footer
@@ -510,18 +549,17 @@ i18n.use(initReactI18next).init({
         ProfessorsScore2: "4.2",
         ProfessorsScore3: "4.1",
 
-
-        
         //student-panel
         Report: "Report",
         MenuText1: "Dashboard",
-        MenuText2: "My period",
+        MenuText2: "My courses",
         MenuText3: "My reservation",
         MenuText4: "Favorite courses",
         MenuText5: "Favorite blogs",
         MenuText6: "Profile",
         MenuText7: "Payments",
         DeleteUser: "Delete user",
+        Student: "Student",
 
         //panel
         Hello: "Hello ",
@@ -536,20 +574,56 @@ i18n.use(initReactI18next).init({
         Cost: "Cost",
         SeeOther: "See more >",
         Status: "Status",
-        NoRow: "No rows to display.",
+        NoCourse: "There is no course to display.",
         YourInformation: "Account Information Status",
         IsNotComplete: "Your account information is incomplete",
         YourComment: "Your comments",
         CourseAndBlog: "Courses and blogs",
-        Error: "The page you requested was not found.",
         NotConfirmed: "not confirmed",
-        Confrimed: "It was confirmed",
+        Confirmed: "It was confirmed",
         Toman: "Toman",
+        Name: "Name",
+        EndEvent: "Completion date",
+        Order:"Order",
 
         //profile
         MyProfile: "My profile",
+        Information: "User account information",
+        Images: "Photos",
+        HomeAddress: "Place of residence",
+        Links: "Links",
+
+        //information
+        LastName:"last name",
+        YourName:"Enter your name",
+        YourLastName:"Enter your last name",
+        AboutMe:"About me",
+        AboutYourself:"Enter text about yourself",
+        NationalCode:"National code",
+         YourNationalCode:"Enter your national code.",
+         MobileNumber:"Mobile number",
+        YourMobileNumber:"Enter your mobile number.",
+        DateOfBirth:"Date of birth",
+        YourDateOfBirth:"Enter your date of birth.",
+        Gender:"Gender",
+        Man:"Man",
+        Woman:"Woman",
+        Choose:"Choose",
+        Email:"Email",
+        YourEmail:"Enter your email.",
+        Address:"Residential address",
+        YourAddress:"Enter your residential address.",
+        ApplyChanges:"Apply changes",
+        AddPhoto:"Add photo",
+        SelectLocation:"Select your location on the map.",
+        Telegram:"Telegram",
+        LinkedIn:"LinkedIn",
+        TelegramLink:"Enter your Telegram link.",
+        LinkedInLink:"Enter your LinkedIn link.",
 
         //courses & blogs
+        TextCoursesHeader:"Starting a new adventure",
+        TextCourses:"A strong start to learning a new subject can help you progress.",
         Search: "Search",
         SearchCourses: "Search for the desired course...",
         Filter: "Filter",
@@ -568,6 +642,11 @@ i18n.use(initReactI18next).init({
         SecondPrice: "Second price",
         To: "to",
         From: "from",
+        TextBlogsHeader:"More information, better understanding",
+        TextBlogs:"We will increase your knowledge about the technology you are learning in our blogs.",
+
+        //not found
+        Error: "The page you requested was not found.",
       },
     },
   },

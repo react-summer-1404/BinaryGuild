@@ -98,6 +98,7 @@ const BlogHeader = ({
         <img
           src={currentImageAddressTumb}
           className="w-full h-full  rounded-[32px]"
+          onError={(e)=>e.target.src="/src/assets/images/script.png"}
         />
       </div>
 

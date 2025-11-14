@@ -5,13 +5,11 @@ import {
   TableColumn,
   TableHeader,
   TableRow,
-  User,
 } from "@heroui/react";
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { UserCourses } from "../../../../core/services/api/get-data";
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+import View from "../../../../core/icons/View";
+import { UserCourses } from "../../../../core/services/api/get-data";
 
 const CourseTable = () => {
   const { t } = useTranslation();
@@ -19,16 +17,8 @@ const CourseTable = () => {
     queryKey: ["GET_USER_COURSES"],
     queryFn: UserCourses,
   });
-  console.log(myCoursesData);
-
   return (
-    <div className="w-3/4 flex flex-wrap">
-      <div className="w-full flex flex-nowrap h-0 justify-between">
-        <p className="w-1/2 text-start font-persian">{t("MenuText2")}</p>
-        <Link to={"/panel/my-courses"} className="w-1/2 text-end">
-          <p className=" text-blue font-persian">{t("SeeOther")}</p>
-        </Link>
-      </div>
+    <div className="w-full ">
       <Table
         classNames={{ wrapper: "bg-background" }}
         aria-label="Example empty table"
@@ -36,7 +26,7 @@ const CourseTable = () => {
         <TableHeader>
           <TableColumn className="bg-forgetpassbtn text-muted">#</TableColumn>
           <TableColumn className="bg-forgetpassbtn text-muted">
-            {t("CourseName")}
+            {t("Name")}
           </TableColumn>
           <TableColumn className="bg-forgetpassbtn text-muted">
             {t("TeachersName")}
@@ -45,21 +35,29 @@ const CourseTable = () => {
             {t("StartEvent")}
           </TableColumn>
           <TableColumn className="bg-forgetpassbtn text-muted">
-            {t("Cost")}
+            {t("EndEvent")}
+          </TableColumn>
+          <TableColumn className="bg-forgetpassbtn text-muted">
+            {t("")}
           </TableColumn>
         </TableHeader>
-        <TableBody emptyContent={t("NoRow")}>
+        <TableBody emptyContent={t("NoCourse")}>
           {myCoursesData?.map((value) => {
             return (
               <TableRow key="1">
                 <TableCell>
-                  <img src={value.tumbImageAddress} className="size-14"/>
+                  <img src={value.tumbImageAddress} className="size-14" />
                 </TableCell>
                 <TableCell>{value.courseTitle}</TableCell>
                 <TableCell>{value.fullName}</TableCell>
                 <TableCell>{value.lastUpdate}</TableCell>
                 <TableCell>
-                  <span> {t("Toman")} {value.cost}</span>
+                  <span>
+                    {t("Toman")} {value.cost}
+                  </span>
+                </TableCell>
+                <TableCell className="flex justify-center flex-nowrap pt-7">
+                  <View />
                 </TableCell>
               </TableRow>
             );

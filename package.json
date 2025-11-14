@@ -28,6 +28,7 @@
     "react-dom": "^19.2.0",
     "react-hot-toast": "^2.6.0",
     "react-i18next": "^16.1.5",
+    "react-leaflet": "^5.0.0",
     "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^7.9.3",
     "react-stars": "^2.2.5",

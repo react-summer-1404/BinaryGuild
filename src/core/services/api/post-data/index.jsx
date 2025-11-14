@@ -1,4 +1,3 @@
-import React from "react";
 import instance from "../../interceptor";
 
 export const SendVerifyMessage = (gmail) => {
@@ -119,21 +118,19 @@ export const AddBlogsRating = ({ NewsId, RateNumber }) => {
 };
 
 // Add Like && Dislike for Course
-export const AddBlogsLike = ({CommentId,LikeType}) => {
-  return instance.post(`/News/CommentLike/${CommentId}`,null,{
-    params:{
-      LikeType:LikeType
-    }
+export const AddBlogsLike = ({ CommentId, LikeType }) => {
+  return instance.post(`/News/CommentLike/${CommentId}`, null, {
+    params: {
+      LikeType: LikeType,
+    },
   });
 };
-
 
 export const AddBlogsDissLike = (NewsId) => {
-  return instance.post("/News/NewsDissLike/",null,{
-    params:{
-      NewsId:NewsId
-    }
+  return instance.post("/News/NewsDissLike/", null, {
+    params: {
+      NewsId: NewsId,
+    },
   });
 };
-
 

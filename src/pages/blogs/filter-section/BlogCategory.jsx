@@ -1,8 +1,9 @@
 import React from 'react'
-import Search from './search/Search';
+import Search from '../../../components/common/search-and-date/search/Search';
 import CategorySection from './category/CategorySection';
 import { GetCategory } from '../../../core/services/api/get-data';
 import { useQuery } from '@tanstack/react-query';
+import Date from '../../../components/common/search-and-date/date/Date';
 
 const BlogCategory = ({setFilter}) => {
     const {data : categoryData} = useQuery({
@@ -14,7 +15,8 @@ const BlogCategory = ({setFilter}) => {
     <div className='flex flex-wrap mt-4 mb-2 w-10/12 m-auto gap-2'>
     
       <Search setFilter={setFilter}/>
-      <CategorySection ListTech={categoryData}/>
+      <CategorySection NewsCategoryId={categoryData}/>
+      <Date setFilter={setFilter}/>
     </div>
   )
 }

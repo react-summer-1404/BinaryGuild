@@ -1,19 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import CourseTable from "../../../components/common/table/course-table/CourseTable";
+import ReserveTable from "../../../components/common/table/reserve-table/ReserveTable";
 import { UserData } from "../../../core/services/api/get-data";
 import TimeList from "../panel-list/TimeList";
 import YourComments from "./comment/YourComments";
-import CourseTable from "./course-table/CourseTable";
 import PanelChart from "./panel-chart/PanelChart";
-import ReserveTable from "./reserve-table/ReserveTable";
-import CommentsList from "../panel-list/CommentsList";
 
 const Dashboard = () => {
   const { data: profileData } = useQuery({
     queryKey: ["GET_PROFILE_INFO"],
     queryFn: UserData,
   });
-  console.log(profileData)
+  console.log(profileData);
   const { t } = useTranslation();
   return (
     <div className="flex flex-wrap gap-8 m-5">
@@ -35,13 +35,31 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="w-full flex justify-between">
-        <CourseTable />
-        <PanelChart profileCompletionPercentage={profileData?.profileCompletionPercentage} />
+        <div className="w-3/4 gap-4 flex flex-wrap">
+          <div className="w-full flex flex-nowrap h-0 justify-between">
+            <p className="w-1/2 text-start font-persian">{t("MenuText2")}</p>
+            <Link to={"/panel/my-courses"} className="w-1/2 text-end">
+              <p className=" text-blue font-persian">{t("SeeOther")}</p>
+            </Link>
+          </div>
+          <CourseTable />
+        </div>
+        <PanelChart
+          profileCompletionPercentage={profileData?.profileCompletionPercentage}
+        />
       </div>
       <div className="w-full flex justify-between">
-        <ReserveTable />
+        <div className="w-3/5 flex flex-wrap gap-1">
+          <div className="w-full flex flex-nowrap justify-between">
+            <p className="w-1/2 text-start font-persian">{t("MenuText3")}</p>
+            <Link to={"/panel/reserve-course"} className="w-1/2 text-end">
+              <p className=" text-blue font-persian">{t("SeeOther")}</p>
+            </Link>
+          </div>
+          <ReserveTable />
+        </div>
         <div className="w-1/3 flex border-forgetpassbtn border-1 rounded-3xl bg-forgetpassbtn ">
-          <CommentsList profileData={profileData}/>
+          <YourComments profileData={profileData} />
         </div>
       </div>
     </div>

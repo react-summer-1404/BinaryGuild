@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Calender from "../../../../core/icons/Calender";
 import { useDebounce } from "use-debounce";
+import Calender from "../../../../core/icons/Calender";
 
 const Date = ({ setFilter }) => {
   const [firstDate, setFirstDate] = useState();
   const [secondDate, setSecondDate] = useState();
   const { t } = useTranslation();
-  const [value] = useDebounce(firstDate, 1000);
+  const [value1] = useDebounce(firstDate, 1000);
+  const [value2] = useDebounce(secondDate, 1000);
   useEffect(() => {
-    console.log("value", typeof value, "query", typeof firstDate , "date" , typeof secondDate);
-    if (value !== undefined) {
-      setFilter((prev) => ({ ...prev, Query: value }));
-    }
-  }, [value]);
+    console.log("value1", typeof value1, "firstDate", typeof firstDate);
+    if (value1 !== "") {
+      setFilter((prev) => ({ ...prev, StartDate: value1 }));
+    } else setFilter((prev) => ({ ...prev, StartDate: undefined }));
+  }, [value1]);
+  useEffect(() => {
+    console.log("value2", typeof value2, "secondDate", typeof secondDate);
+    if (value2 !== "") {
+      setFilter((prev) => ({ ...prev, EndDate: value2 }));
+    } else setFilter((prev) => ({ ...prev, EndDate: undefined }));
+  }, [value2]);
   return (
     <div className="w-11/12 flex flex-wrap m-auto gap-4">
       <div className="flex flex-nowrap w-full gap-2">
@@ -26,12 +33,14 @@ const Date = ({ setFilter }) => {
           className="w-1/3 text-[12px] text-text"
           placeholder={t("FirstTime")}
           onChange={(e) => setFirstDate(e.target.value)}
-
         />
         <p className="text-text">-</p>
-        <input type="text" className="w-1/3 text-[12px] text-text"
+        <input
+          type="text"
+          className="w-1/3 text-[12px] text-text"
           placeholder={t("SecondTime")}
-          onChange={(e) => setSecondDate(e.target.value)} />
+          onChange={(e) => setSecondDate(e.target.value)}
+        />
       </div>
     </div>
   );

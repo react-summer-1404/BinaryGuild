@@ -19,10 +19,10 @@ const LanguageSelector = () => {
           items={LANGUAGES}
           placeholder="Languages"
           onSelectionChange={ChangeLanguage}
-          classNames={{ trigger: "bg-boarder hover:bg-boarder" }}
+          classNames={{ trigger: "bg-forgetpassbtn hover:bg-forgetpassbtn", value:"" }}
         >
           {(lng) => (
-            <SelectItem key={lng.code} className="bg-boarder  text-text">
+            <SelectItem key={lng.code} className="bg-forgetpassbtn text-text">
               {lng.label}
             </SelectItem>
           )}
