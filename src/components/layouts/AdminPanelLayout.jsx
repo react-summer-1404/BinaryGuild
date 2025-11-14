@@ -10,7 +10,7 @@ const AdminPanelLayout = () => {
         <AdminPanelSideBar />{" "}
       </div>
 
-      <main className=" flex flex-col gap-3 text-text w-[75%] mr-auto ml-auto mb-7">
+      <main className=" flex flex-col gap-3 text-text w-[80%] mr-auto ml-auto mb-7">
         <div className="w-full h-[10%] rounded-3xl  ">
           <AdminPanelHeader />
           

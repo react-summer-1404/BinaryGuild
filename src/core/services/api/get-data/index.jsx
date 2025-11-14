@@ -184,3 +184,12 @@ export const Reset = (ConfigValue) => {
 };
 
 
+export const UserDetail = async (UserId ) => {
+  try {
+    const response = await instance.get(`/User/UserDetails/${UserId}`);
+    console.log("response user list:", response);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

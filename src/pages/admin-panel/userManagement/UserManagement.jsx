@@ -1,16 +1,21 @@
-import React from 'react'
-import UserManagementHeader from './UserManagementHeader'
-import UserManageFilter from './UserManageFilter'
-import UsersInfo from './UsersInfo'
+import React from "react";
+import { useState } from "react";
+import UserManagementHeader from "./UserManagementHeader";
+import UserManageFilter from "./UserManageFilter";
+import UsersInfo from "./UsersInfo";
+import UsersDetail from "./users-detail/UsersDetail";
 
 const UserManagement = () => {
-  return (
-    <div className='flex flex-col gap-8 mt-4'>
-      <UserManagementHeader/>
-      <UserManageFilter/>
-      <UsersInfo/>
-    </div>
-  )
-}
+  const [openDetailId, setOpenDetailId] = useState(false);
 
-export default UserManagement
+  return (
+    <div className="flex flex-col relative gap-8 mt-4">
+      <UserManagementHeader />
+      <UserManageFilter />
+      <UsersInfo openDetailId={openDetailId} setOpenDetailId={setOpenDetailId} />
+      {openDetailId && <UsersDetail UserId={openDetailId} onCloseDetail={()=>{setOpenDetailId(false)}} />}
+    </div>
+  );
+};
+
+export default UserManagement;

@@ -4,7 +4,7 @@ import { useState } from "react";
 import UserAction from "../userManagement/UserAction";
 
 
-const TableUser = ({ users }) => {
+const TableUser = ({ users,openDetailId,setOpenDetailId }) => {
   const { t } = useTranslation();
   const [activeUserId, setActiveUserId] = useState(false);
 
@@ -83,7 +83,7 @@ const TableUser = ({ users }) => {
                       </g>{" "}
                     </g>
                   </svg>
-                  {activeUserId === user.id && <UserAction />}
+                  {activeUserId === user.id && <UserAction openId={openDetailId} setOpenId={setOpenDetailId} user={user} />}
                 </div>
               </td>
             </tr>

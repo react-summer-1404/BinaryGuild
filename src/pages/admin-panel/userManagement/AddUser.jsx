@@ -13,10 +13,7 @@ const validationSchema = Yup.object({
   password: Yup.string().required("please enter pass"),
 });
 
-const AddUser = ({
-  onSuccess,
-  onClose,
-}) => {
+const AddUser = ({ onSuccess, onClose }) => {
   const { t } = useTranslation();
 
   const handleSend = async (values) => {
@@ -29,10 +26,10 @@ const AddUser = ({
         values.password,
         values.phoneNumber,
         values.isStudent,
-        values.isTeacher,
+        values.isTeacher
       );
       onSuccess();
-          toast.success(t("UserAddedSuccessfully"));
+      toast.success(t("UserAddedSuccessfully"));
 
       console.log("new user", response);
     } catch (error) {
@@ -45,7 +42,7 @@ const AddUser = ({
 
   return (
     <div className="border border-white p-2 w-[40%] overflow-scroll bg-black-900 shadow-amber-50 shadow-xl/10 h-4/5  right-130 top-20 fixed z-20 ">
-        <Toaster/>
+      <Toaster />
       <div className="flex justify-between">
         <h3 className="border border-white p-2 text-start ">
           {t("pleaser enter user's info")}
@@ -171,7 +168,8 @@ const AddUser = ({
             </button>
 
             <button
-              onClick={onClose} type="button"
+              onClick={onClose}
+              type="button"
               className="border border-white w-18 h-10 cursor-pointer "
             >
               cancel

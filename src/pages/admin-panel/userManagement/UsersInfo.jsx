@@ -6,7 +6,7 @@ import TableUser from "../Table/TableUser";
 import { usersList } from "../../../core/services/api/adminPanel/get-data";
 import { useMemo, useState } from "react";
 import AddUser from "./AddUser";
-const UsersInfo = () => {
+const UsersInfo = ({openDetailId,setOpenDetailId}) => {
   const { t } = useTranslation();
   const[open,setOpen]=useState(false);
 
@@ -75,7 +75,7 @@ const UsersInfo = () => {
   if (isError) return <p>An Error accoured :( </p>;
 
   return (
-    <div className=" w-full">
+    <div className="">
       <div className="border border-white  flex justify-between h-18 bg-[#222] rounded-xl">
         <div className="flex items-center pr-5 gap-2">
           <p>{t("show")}</p>
@@ -110,8 +110,7 @@ const UsersInfo = () => {
       </div>
 
       <div className="border border-boarder h-80 bg-[#222] mt-8 rounded-xl overflow-scroll">
-        {/* <TableCommon users={{ listUser: filterUser }} /> */}
-        <TableUser users={{ listUser: filterUser }} />
+        <TableUser openDetailId={openDetailId} setOpenDetailId={setOpenDetailId} users={{ listUser: filterUser }} />
       </div>
     </div>
   );

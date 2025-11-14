@@ -282,6 +282,7 @@ i18n.use(initReactI18next).init({
         deActive: "غیر فعال",
         nameOfUser: "نام",
         lastNameOfUser: "نام خانوادگی",
+        reservedCourses:"دوره های رزرو شده",
 
         //panel
         Hello: "سلام ",
@@ -593,6 +594,7 @@ i18n.use(initReactI18next).init({
         deActive: "deActive",
         nameOfUser: "name",
         lastNameOfUser: "last name",
+        reservedCourses:"reserved courses",
 
         //panel
         Hello: "Hello ",
