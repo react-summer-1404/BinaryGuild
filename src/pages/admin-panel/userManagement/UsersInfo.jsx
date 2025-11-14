@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
-import TableCommon from "../Table/TableCommon";
 import { useDispatch, useSelector } from "react-redux";
 import { setNumber, setQueryUsers } from "../../../store/filterSlice";
 import { useQuery } from "@tanstack/react-query";
+import TableUser from "../Table/TableUser";
 import { usersList } from "../../../core/services/api/adminPanel/get-data";
 import { useMemo, useState } from "react";
 import AddUser from "./AddUser";
@@ -110,7 +110,8 @@ const UsersInfo = () => {
       </div>
 
       <div className="border border-boarder h-80 bg-[#222] mt-8 rounded-xl overflow-scroll">
-        <TableCommon users={{ listUser: filterUser }} />
+        {/* <TableCommon users={{ listUser: filterUser }} /> */}
+        <TableUser users={{ listUser: filterUser }} />
       </div>
     </div>
   );
