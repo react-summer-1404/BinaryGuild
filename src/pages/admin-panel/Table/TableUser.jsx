@@ -2,9 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import UserAction from "../userManagement/UserAction";
-
-
-const TableUser = ({ users,openDetailId,setOpenDetailId }) => {
+const TableUser = ({ users, openDetailId, setOpenDetailId }) => {
   const { t } = useTranslation();
   const [activeUserId, setActiveUserId] = useState(false);
 
@@ -16,8 +14,6 @@ const TableUser = ({ users,openDetailId,setOpenDetailId }) => {
     }
   };
   console.log(activeUserId);
-
-
 
   return (
     <div className="z-56">
@@ -83,13 +79,20 @@ const TableUser = ({ users,openDetailId,setOpenDetailId }) => {
                       </g>{" "}
                     </g>
                   </svg>
-                  {activeUserId === user.id && <UserAction openId={openDetailId} setOpenId={setOpenDetailId} user={user} />}
+                  {activeUserId === user.id && (
+                    <UserAction
+                      openId={openDetailId}
+                      setOpenId={setOpenDetailId}
+                      user={user}
+                    />
+                  )}
                 </div>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <div className=" w-full"></div>
     </div>
   );
 };

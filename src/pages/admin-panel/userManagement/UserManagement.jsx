@@ -9,7 +9,7 @@ const UserManagement = () => {
   const [openDetailId, setOpenDetailId] = useState(false);
 
   return (
-    <div className="flex flex-col relative gap-8 mt-4">
+    <div className="flex flex-col relative gap-3 mt-2">
       <UserManagementHeader />
       <UserManageFilter />
       <UsersInfo openDetailId={openDetailId} setOpenDetailId={setOpenDetailId} />

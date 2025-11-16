@@ -5,36 +5,48 @@ import { useQuery } from "@tanstack/react-query";
 import TableUser from "../Table/TableUser";
 import { usersList } from "../../../core/services/api/adminPanel/get-data";
 import { useMemo, useState } from "react";
-import AddUser from "./AddUser";
-const UsersInfo = ({openDetailId,setOpenDetailId}) => {
-  const { t } = useTranslation();
-  const[open,setOpen]=useState(false);
+import ResponsivePagination from "react-responsive-pagination";
+import "react-responsive-pagination/themes/classic-light-dark.css";
 
-  const handleOpen=()=>{
+import AddUser from "./AddUser";
+const UsersInfo = ({ openDetailId, setOpenDetailId }) => {
+  const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
     setOpen(!open);
-  }
+  };
+
+  const [currentPage, setCurrentPage] = useState(1);
+
 
   const dispatch = useDispatch();
   const { role, status, number, Query } = useSelector(
     (state) => state.UserFilter
   );
-  const showOptions = [5,20,30,50];
-
+  const showOptions = [5, 20, 30, 50];
 
   const {
     data: users,
     isLoading,
-    isError, refetch
+    isError,
+    refetch,
   } = useQuery({
-    queryKey: ["users", number],
-    queryFn: () => usersList(1, number),
+    queryKey: ["users",currentPage, number],
+    queryFn: () => usersList(currentPage, number),
   });
 
+  const totalPage= users? Math.ceil(users.totalCount/number) : 1;
+  console.log(totalPage);
+    function handlePageChange(page) {
+    setCurrentPage(page);
+    // ... do something with `page`
+  }
 
-  const handleAddUser =  ()=>{
-      refetch()
-      setOpen(false)
-    } 
+  const handleAddUser = () => {
+    refetch();
+    setOpen(false);
+  };
 
   const queryUser = (e) => {
     if (e.target.value !== "") {
@@ -45,12 +57,13 @@ const UsersInfo = ({openDetailId,setOpenDetailId}) => {
     }
   };
 
-
   const filterUser = useMemo(() => {
     if (!users || !users.listUser) return [];
     return users.listUser.filter((user) => {
       const roleMatch =
-        role === t("allUsers") ? true : user.roles.includes(role) ||user.roles.includes([]) ;
+        role === t("allUsers")
+          ? true
+          : user.roles.includes(role) || user.roles.includes([]);
 
       const statusMatch =
         status === t("active")
@@ -83,7 +96,7 @@ const UsersInfo = ({openDetailId,setOpenDetailId}) => {
             <select
               className="bg-black-600 mt-2 p-2 rounded-[5px] text-white cursor-pointer "
               value={number}
-              onChange={(e) => dispatch(setNumber(e.target.value))}
+              onChange={(e) =>{dispatch(setNumber(e.target.value));setCurrentPage(currentPage)} }
             >
               {showOptions.map((item) => (
                 <option key={item} value={item}>
@@ -102,15 +115,31 @@ const UsersInfo = ({openDetailId,setOpenDetailId}) => {
             type="text"
             placeholder={t("search")}
           />
-          <button onClick={handleOpen} className="border border-boarder cursor-pointer rounded-[5px] flex items-center justify-center w-34 h-10 bg-blue">
+          <button
+            onClick={handleOpen}
+            className="border border-boarder cursor-pointer rounded-[5px] flex items-center justify-center w-34 h-10 bg-blue"
+          >
             {t("Adduser")}
           </button>
-          {open && <AddUser onSuccess={handleAddUser} onClose={()=>setOpen(false)}/> }
+          {open && (
+            <AddUser onSuccess={handleAddUser} onClose={() => setOpen(false)} />
+          )}
         </div>
       </div>
 
       <div className="border border-boarder h-80 bg-[#222] mt-1 rounded-xl overflow-scroll">
-        <TableUser openDetailId={openDetailId} setOpenDetailId={setOpenDetailId} users={{ listUser: filterUser }} />
+        <TableUser
+          openDetailId={openDetailId}
+          setOpenDetailId={setOpenDetailId}
+          users={{ listUser: filterUser }}
+        />
+      </div>
+      <div className="mt-5">
+        <ResponsivePagination
+          current={currentPage}
+          total={totalPage}
+          onPageChange={(page) => handlePageChange(page)}
+        />
       </div>
     </div>
   );
