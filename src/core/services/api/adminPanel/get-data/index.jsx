@@ -27,7 +27,7 @@ export const usersList = async (
   }
 };
 
-export const getAllCommentsAccepted = async (PageNumber= 1, RowsOfPage= 100,Accept=true,TeacherId="",userId="",) => {
+export const getAllCommentsAccepted = async (PageNumber= 1, RowsOfPage= 100,Accept="",TeacherId="",userId="",) => {
   try {
     const response = await instance.get("/Course/CommentManagment", {
       params: {

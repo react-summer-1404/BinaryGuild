@@ -6,6 +6,9 @@ const initialState = {
   status: "active",
   number:5,
   Query:undefined,
+  jobNumber:5,
+  QueryJob:undefined,
+ 
 };
 
 const userFilterSlice = createSlice({
@@ -24,8 +27,15 @@ const userFilterSlice = createSlice({
 
     setQueryUsers(state, action) {
       state.Query = action.payload;
-    },     
-
+    },    
+    
+    setJobNumber(state, action) {
+      state.jobNumber = action.payload;
+    }, 
+         
+    setQueryJob(state, action) {
+      state.QueryJob = action.payload;
+    }, 
     resetFilters(state) {
       state.role = "all";
       state.status = "all";
@@ -35,5 +45,5 @@ const userFilterSlice = createSlice({
     
   },
 });
-export const { setRole, setStatus,setNumber, setQueryUsers, resetFilters } = userFilterSlice.actions;
+export const { setRole, setStatus,setNumber, setQueryUsers,setJobNumber, setQueryJob, resetFilters } = userFilterSlice.actions;
 export default userFilterSlice.reducer;

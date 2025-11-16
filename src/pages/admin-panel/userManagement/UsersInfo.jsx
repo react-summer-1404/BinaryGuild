@@ -109,7 +109,7 @@ const UsersInfo = ({openDetailId,setOpenDetailId}) => {
         </div>
       </div>
 
-      <div className="border border-boarder h-80 bg-[#222] mt-8 rounded-xl overflow-scroll">
+      <div className="border border-boarder h-80 bg-[#222] mt-1 rounded-xl overflow-scroll">
         <TableUser openDetailId={openDetailId} setOpenDetailId={setOpenDetailId} users={{ listUser: filterUser }} />
       </div>
     </div>

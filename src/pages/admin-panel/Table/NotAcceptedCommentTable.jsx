@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-const AcceptedCommentsTable = ({ usersAcceptComments }) => {
+const NotAccAcceptedCommentsTable = ({ usersNotAcceptedComments }) => {
   const { t } = useTranslation();
 
 
@@ -17,7 +17,7 @@ const AcceptedCommentsTable = ({ usersAcceptComments }) => {
           </tr>
         </thead>
         <tbody>
-          {usersAcceptComments?.map((comment) => (
+          {usersNotAcceptedComments?.map((comment) => (
             <tr key={comment.id} className=" text-[14px] ">
               <td className="pr-4 h-12 text-start">{comment?.commentTitle}</td>
               <td className="text-start">{comment?.describe}</td>
@@ -72,4 +72,4 @@ const AcceptedCommentsTable = ({ usersAcceptComments }) => {
   );
 };
 
-export default AcceptedCommentsTable;
+export default NotAccAcceptedCommentsTable;
