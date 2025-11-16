@@ -27,4 +27,23 @@ export const usersList = async (
   }
 };
 
-
+export const getAllCommentsAccepted = async (PageNumber= 1, RowsOfPage= 100,Accept=true,TeacherId="",userId="",) => {
+  try {
+    const response = await instance.get("/Course/CommentManagment", {
+      params: {
+        PageNumber,
+        RowsOfPage,
+        SortingCol:"desc",
+        SortType:"InsertDate",
+        Query:"",
+        Accept,
+        TeacherId,
+        userId
+      },
+    });
+    console.log("response all comments" ,response)
+    return response;
+  } catch (error) {
+    console.log(error)
+  }
+};

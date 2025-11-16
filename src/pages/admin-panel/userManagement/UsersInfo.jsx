@@ -18,7 +18,7 @@ const UsersInfo = ({openDetailId,setOpenDetailId}) => {
   const { role, status, number, Query } = useSelector(
     (state) => state.UserFilter
   );
-  const showOptions = [5, 10, 15,20,25,30,40];
+  const showOptions = [5,20,30,50];
 
 
   const {
