@@ -62,7 +62,7 @@ const BlogFav = lazy(() =>
 //admin panel
 
 const AdminDashboard = lazy(() =>
-  import("../../pages/admin-panel/AdminDashboard")
+  import("../../pages/admin-panel/adminDashboard/AdminDashboard")
 );
 const AdminUserManagement = lazy(() =>
   import("../../pages/admin-panel/userManagement/UserManagement")
@@ -133,7 +133,9 @@ const Router = createBrowserRouter([
     path: "/admin-panel",
     element: <AdminPanelLayout />,
     children: [
+      { index:true ,  element: <AdminDashboard /> },
       { path:"Dashboard",  element: <AdminDashboard /> },
+
       { path:"User-management" , element: <AdminUserManagement /> },
       { path:"User-Job-history" , element: <UserJobHistory /> },
 

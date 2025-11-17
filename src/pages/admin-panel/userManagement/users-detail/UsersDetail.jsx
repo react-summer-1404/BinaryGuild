@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { UserDetail } from "../../../../core/services/api/get-data";
+import { UserDetail } from "../../../../core/services/api/adminPanel/get-data";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import UserDetailComments from "./UserDetailComments";
@@ -7,8 +7,9 @@ import UserDetailCourse from "./UserDetailCourse";
 import UserDetailReservedCourse from "./UserDetailReservedCourse";
 import UserOtherInfo from "./UserOtherInfo";
 import EditUser from "./EditUser";
+import { Spinner } from "@heroui/spinner";
 
-const UsersDetail = ({ onCloseDetail, UserId, }) => {
+const UsersDetail = ({ onCloseDetail, UserId }) => {
   const [openEdit, setOpenEdit] = useState(false);
   const [openActive, setOpenActive] = useState(false);
 
@@ -24,8 +25,6 @@ const UsersDetail = ({ onCloseDetail, UserId, }) => {
     queryFn: () => UserDetail(UserId),
   });
 
-
- 
   const handleOpenActive = () => {
     setOpenActive(!openActive);
   };
@@ -34,15 +33,17 @@ const UsersDetail = ({ onCloseDetail, UserId, }) => {
     setOpenEdit(true);
   };
 
-
-
-
-
-
   const userCoursesCount = usersDetails?.courses?.length;
   const userReservedCoursesCount = usersDetails?.coursesReseves?.length;
 
-  if (isLoading) return <p>Loading... please wait</p>;
+  if (isLoading)
+    return (
+      <Spinner
+        classNames={{ label: "text-foreground mt-4" }}
+        size="lg"
+        variant="wave"
+      />
+    );
   if (isError) return <p>An Error accoured :( </p>;
 
   return (
@@ -139,16 +140,27 @@ const UsersDetail = ({ onCloseDetail, UserId, }) => {
               deactive
             </button>
 
-            {openActive && <div className="border border-white fixed w-100 h-70 top-40 right-150 bg-black-900">
-
-              <div className="border h-2/5"><img src="" alt="" /></div>
-              <h2 className="text-[26px] ">Are u sure?</h2>
-              <div>
-                <button  type="submit" className="border border-white pl-3 pr-3" >yes</button>
-                <button onClick={()=>setOpenActive(false)} type="button" className="border border-white pl-3 pr-3" ></button>
-
+            {openActive && (
+              <div className="border border-white fixed w-100 h-70 top-40 right-150 bg-black-900">
+                <div className="border h-2/5">
+                  <img src="" alt="" />
+                </div>
+                <h2 className="text-[26px] ">Are u sure?</h2>
+                <div>
+                  <button
+                    type="submit"
+                    className="border border-white pl-3 pr-3"
+                  >
+                    yes
+                  </button>
+                  <button
+                    onClick={() => setOpenActive(false)}
+                    type="button"
+                    className="border border-white pl-3 pr-3"
+                  ></button>
+                </div>
               </div>
-              </div>}
+            )}
           </div>
           {openEdit && (
             <EditUser
@@ -197,7 +209,9 @@ const UsersDetail = ({ onCloseDetail, UserId, }) => {
           {activeTab === "reserved" && (
             <UserDetailReservedCourse usersDetails={usersDetails} />
           )}
-          {activeTab === "comments" && usersDetails && <UserDetailComments  usersDetails={usersDetails} />}
+          {activeTab === "comments" && usersDetails && (
+            <UserDetailComments usersDetails={usersDetails} />
+          )}
           {activeTab === "other info" && (
             <UserOtherInfo usersDetails={usersDetails} />
           )}

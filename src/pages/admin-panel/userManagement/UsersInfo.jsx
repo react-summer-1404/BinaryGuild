@@ -7,6 +7,7 @@ import { usersList } from "../../../core/services/api/adminPanel/get-data";
 import { useMemo, useState } from "react";
 import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic-light-dark.css";
+import { Spinner } from "@heroui/spinner";
 
 import AddUser from "./AddUser";
 const UsersInfo = ({ openDetailId, setOpenDetailId }) => {
@@ -84,7 +85,7 @@ const UsersInfo = ({ openDetailId, setOpenDetailId }) => {
   }, [users, status, t, role, Query]);
   console.log("filtered users", filterUser);
 
-  if (isLoading) return <p>Loading... please wait</p>;
+  if (isLoading) return <Spinner classNames={{label: "text-foreground mt-4"}} size="lg" variant="wave" />;
   if (isError) return <p>An Error accoured :( </p>;
 
   return (

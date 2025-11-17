@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { usersList } from "../../../core/services/api/adminPanel/get-data";
 import { useQuery } from "@tanstack/react-query";
+import { Spinner } from "@heroui/spinner";
 const UserManagementHeader = () => {
   const { t } = useTranslation();
 
@@ -11,7 +12,7 @@ const UserManagementHeader = () => {
       queryFn:()=>usersList(1,100)
     })
   
-    if(isLoading) return <p>Loading... please wait</p> 
+    if(isLoading) return <Spinner classNames={{label: "text-foreground mt-4"}} size="lg"  variant="wave" /> 
     if(isError) return<p>An Error accoured :( </p> 
 
       
