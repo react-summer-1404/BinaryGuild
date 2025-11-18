@@ -49,10 +49,10 @@ const UsersDetail = ({ onCloseDetail, UserId }) => {
   return (
     <div className=" flex gap-5 border-white h-full  absolute bg-[#252323] w-full z-100   ">
       <div className="border border-black shadow-2xl  bg-[#252323] h-full w-[30%] p-4 pt-2 ">
-        <div
-          onClick={onCloseDetail}
-          className="border border-white bg-amber-50 w-6 h-6"
-        ></div>
+          <div
+            onClick={onCloseDetail}
+            className=" p-1 rounded-small bg-[#c40101] cursor-pointer w-6 h-6 "
+          ><img src="../../../../src/assets/icons/close (2).png" alt="" /></div>
 
         <div className=" border border-white flex flex-col  ">
           {/* img */}

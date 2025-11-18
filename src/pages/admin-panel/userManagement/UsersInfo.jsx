@@ -13,6 +13,7 @@ import AddUser from "./AddUser";
 const UsersInfo = ({ openDetailId, setOpenDetailId }) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
+  
 
   const handleOpen = () => {
     setOpen(!open);
@@ -25,7 +26,7 @@ const UsersInfo = ({ openDetailId, setOpenDetailId }) => {
   const { role, status, number, Query } = useSelector(
     (state) => state.UserFilter
   );
-  const showOptions = [5, 20, 30, 50];
+  const showOptions = [10, 20, 40, 60];
 
   const {
     data: users,

@@ -11,7 +11,7 @@ const UserManageFilter = () => {
 
 
 
-  const roleOptions = [t("admin"), t("teacher"), t("student"), t("allUsers")];
+  const roleOptions = ["admin", "teacher","student", t("allUsers")];
   const statusOptions = [t("active"), t("deActive")];
 
   return (

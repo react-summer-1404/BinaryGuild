@@ -1,7 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { UserData } from "../../../core/services/api/get-data";
+import { useTranslation } from "react-i18next";
 
 const AdminProfile = () => {
+
+  const { t } = useTranslation();
+
+
   const { data: profileData } = useQuery({
     queryKey: ["GET_PROFILE_INFO"],
     queryFn: UserData,
@@ -13,15 +18,15 @@ const AdminProfile = () => {
       <img
         src={profileData?.currentPictureAddress}
         onError={(e) => {
-          e.target.src = "/src/assets/icons/Peppe – 07.svg";
+          e.target.src = "../../../../src/assets/icons/Flynn.png";
         }}
         className="w-10 border border-white h-10 rounded-3xl"
       />
       <div className="  flex flex-col items-start ">
         <p className=" text-[12px] text-white font-bold ">
-          {profileData?.email}
+          {profileData?.fName}
         </p>
-        <p className=" text-[12px] text-white ">ادمین</p>
+        <p className=" text-[12px] text-white ">{t("admin")}</p>
       </div>
     </div>
   );

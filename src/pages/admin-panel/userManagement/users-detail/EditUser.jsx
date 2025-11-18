@@ -22,10 +22,10 @@ const EditUser = ({ onCloseEdit, usersDetails }) => {
 
   return (
     <div className=" flex flex-col gap-5 bg-[#686363] shadow-2xl shadow-black border-white h-[70%] top-30 right-[30%] fixed w-[55%] z-101   ">
-      <div
-        onClick={onCloseEdit}
-        className="border border-white bg-amber-50 w-6 h-6"
-      ></div>
+          <div
+            onClick={onCloseEdit}
+            className=" p-1 rounded-small bg-[#c40101] cursor-pointer w-6 h-6 "
+          ><img src="../../../../src/assets/icons/close (2).png" alt="" /></div>
       <div className="border border-white w-full h-full">
         <h2>Edit Users info</h2>
         <Formik

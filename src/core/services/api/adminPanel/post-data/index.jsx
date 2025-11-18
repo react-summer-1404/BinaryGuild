@@ -19,3 +19,6 @@ export const addUser = (
     isTeacher,
   });
 };
+
+
+// add role for user

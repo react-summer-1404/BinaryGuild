@@ -103,13 +103,9 @@ export const GetAllTeachers = async () => {
 
 // get courses payment
 
-export const GetCoursesPayment = async (CourseId) => {
+export const GetCoursesPayment = async () => {
   try {
-    const response = await instance.get("/CoursePayment", {
-      params: {
-        CourseId,
-      },
-    });
+    const response = await instance.get("/CoursePayment");
     console.log(" course payments:", response);
     return response;
   } catch (error) {

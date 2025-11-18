@@ -30,12 +30,12 @@ const AdminPanelSideBar = () => {
             <ul  className=" p-2 ">
               <Link to={"User-management"}>
                 {" "}
-                <li className="mt-3">list</li>
+                <li className="mt-3">{t("userList")}</li>
               </Link>
 
               <Link to={"User-Job-history"}>
                 {" "}
-                <li className="mt-4">job history</li>
+                <li className="mt-4">{t("jobHistory")}</li>
               </Link>
             </ul>
           )}

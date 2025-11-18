@@ -41,142 +41,147 @@ const AddUser = ({ onSuccess, onClose }) => {
   };
 
   return (
-    <div className="border border-white p-2 w-[40%] overflow-scroll bg-black-900 shadow-amber-50 shadow-xl/10 h-4/5  right-130 top-20 fixed z-20 ">
+    <div className="p-3 w-[40%] overflow-scroll bg-black-900 shadow-[#676767] shadow-medium h-7/8  right-130 top-10 fixed z-20 ">
       <Toaster />
-      <div className="flex justify-between">
-        <h3 className="border border-white p-2 text-start ">
-          {t("pleaser enter user's info")}
-        </h3>
-        <div
-          onClick={onClose}
-          className="border border-white bg-amber-50 w-6 h-6"
-        ></div>
-      </div>
+      <div className="border border-[#888] p-4">
+        <div className="flex justify-between">
+          <h3 className=" p-2 text-start ">{t("addUserTitle")}</h3>
+          <div
+            onClick={onClose}
+            className=" p-1 rounded-small bg-[#c40101] cursor-pointer w-6 h-6 "
+          ><img src="../../../../src/assets/icons/close (2).png" alt="" /></div>
+        </div>
 
-      {/* form */}
+        {/* form */}
 
-      <Formik
-        initialValues={{
-          lastName: "",
-          firstName: "",
-          gmail: "",
-          password: "",
-          phoneNumber: "",
-          isStudent: false,
-          isTeacher: false,
-        }}
-        validationSchema={validationSchema}
-        onSubmit={handleSend}
-        className="border border-white"
-      >
-        {({ errors, touched }) => (
-          <Form>
-            <div className=" flex flex-col flex-start mt-4">
-              <label className=" text-start " htmlFor="firstName">
-                {t("nameOfUser")}
-              </label>
-              <Field
-                className="border border-blue mt-3"
-                name="firstName"
-                type="text"
-              />
-              {errors.firstName && touched.firstName ? (
-                <div>{errors.firstName}</div>
-              ) : null}
-            </div>
-            <div className=" flex flex-col flex-start mt-5">
-              <label className=" text-start " htmlFor="lastName">
-                {t("lastNameOfUser")}
-              </label>
-              <Field
-                className="border border-blue mt-3"
-                name="lastName"
-                type="text"
-              />
-              {errors.lastName && touched.lastName ? (
-                <div>{errors.lastName}</div>
-              ) : null}
-            </div>
-
-            <div className=" flex flex-col flex-start mt-5">
-              <label className=" text-start " htmlFor="gmail">
-                {t("gmail")}
-              </label>
-              <Field
-                className="border border-blue mt-3"
-                name="gmail"
-                type="email"
-              />
-              {errors.gmail && touched.gmail ? <div>{errors.gmail}</div> : null}
-            </div>
-
-            <div className=" flex flex-col flex-start mt-5">
-              <label className=" text-start " htmlFor="phoneNumber">
-                {t("phoneNumber")}
-              </label>
-              <Field
-                className="border border-blue mt-3"
-                name="phoneNumber"
-                type="text"
-              />
-            </div>
-
-            <div className=" flex flex-col flex-start mt-5">
-              <label className=" text-start " htmlFor="password">
-                {t("password")}
-              </label>
-              <Field
-                className="border border-blue mt-3"
-                name="password"
-                type="password"
-              />
-              {errors.password && touched.password ? (
-                <div>{errors.password}</div>
-              ) : null}
-            </div>
-
-            <div className=" flex flex-col flex-start mt-5">
-              <p className=" text-start ">{t("confirmRole")}</p>
-              <div className="flex items-center gap-8">
-                <div className="flex items-center gap-2">
-                  <label htmlFor="isStudent"></label>{" "}
-                  <Field
-                    className="border border-blue mt-3"
-                    type="checkbox"
-                    name="isStudent"
-                  />
-                  {t("student")}
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <label htmlFor="isTeacher"></label>
-                  <Field
-                    className="border border-blue mt-3"
-                    type="checkbox"
-                    name="isTeacher"
-                  />{" "}
-                  {t("teacher")}
-                </div>
+        <Formik
+          initialValues={{
+            lastName: "",
+            firstName: "",
+            gmail: "",
+            password: "",
+            phoneNumber: "",
+            isStudent: false,
+            isTeacher: false,
+          }}
+          validationSchema={validationSchema}
+          onSubmit={handleSend}
+          className="border border-white"
+        >
+          {({ errors, touched }) => (
+            <Form>
+              <div className=" flex flex-col flex-start mt-4">
+                <label className=" text-start " htmlFor="firstName">
+                  {t("nameOfUser")}
+                </label>
+                <Field
+                  className="border border-[#888] hover:outline-0 h-7 rounded-small mt-3"
+                  name="firstName"
+                  type="text"
+                />
+                {errors.firstName && touched.firstName ? (
+                  <div>{errors.firstName}</div>
+                ) : null}
               </div>
-            </div>
+              <div className=" flex flex-col flex-start mt-5">
+                <label className=" text-start " htmlFor="lastName">
+                  {t("lastNameOfUser")}
+                </label>
+                <Field
+                  className="border border-[#888] h-7 hover:outline-0 rounded-small mt-3"
+                  name="lastName"
+                  type="text"
+                />
+                {errors.lastName && touched.lastName ? (
+                  <div>{errors.lastName}</div>
+                ) : null}
+              </div>
 
-            <button
-              type="submit"
-              className="border border-white w-18 h-10 cursor-pointer "
-            >
-              confirm
-            </button>
+              <div className=" flex flex-col flex-start mt-5">
+                <label className=" text-start " htmlFor="gmail">
+                  {t("gmail")}
+                </label>
+                <Field
+                  className="border border-[#888] hover:outline-0 h-7 rounded-small mt-3"
+                  name="gmail"
+                  type="email"
+                />
+                {errors.gmail && touched.gmail ? (
+                  <div>{errors.gmail}</div>
+                ) : null}
+              </div>
 
-            <button
-              onClick={onClose}
-              type="button"
-              className="border border-white w-18 h-10 cursor-pointer "
-            >
-              cancel
-            </button>
-          </Form>
-        )}
-      </Formik>
+              <div className=" flex flex-col flex-start mt-5">
+                <label className=" text-start " htmlFor="phoneNumber">
+                  {t("phoneNumber")}
+                </label>
+                <Field
+                  className="border border-[#888] hover:outline-0 h-7 rounded-small mt-3"
+                  name="phoneNumber"
+                  type="text"
+                />
+              </div>
+
+              <div className=" flex flex-col flex-start mt-5">
+                <label className=" text-start " htmlFor="password">
+                  {t("password")}
+                </label>
+                <Field
+                  className="border border-[#888] hover:outline-0 h-7 rounded-small mt-3"
+                  name="password"
+                  type="password"
+                />
+                {errors.password && touched.password ? (
+                  <div>{errors.password}</div>
+                ) : null}
+              </div>
+
+              {/* <div className=" flex flex-col flex-start mt-5">
+                <p className=" text-start ">{t("confirmRole")}</p>
+                <div className="flex items-center gap-8">
+                  <div className="flex items-center gap-2">
+                    <label htmlFor="isStudent"></label>{" "}
+                    <Field
+                      className="border border-[#888] h-7 rounded-small mt-3"
+                      type="checkbox"
+                      name="isStudent"
+                    />
+                    {t("student")}
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <label htmlFor="isTeacher"></label>
+                    <Field
+                      className="border border-[#888] h-7 rounded-small mt-3"
+                      type="checkbox"
+                      name="isTeacher"
+                    />{" "}
+                    {t("teacher")}
+                  </div>
+                </div>
+              </div> */}
+
+              <div className="flex justify-center mt-10 gap-4">
+                <button
+                  type="submit"
+                  className=" w-18 p-2 bg-blue font-bold cursor-pointer rounded-small"
+                >
+                  {t("confirm")}
+                </button>
+
+                <button
+                  onClick={onClose}
+                  type="button"
+                  className="border-2 border-[#c40101]  w-18 p-2 cursor-pointer rounded-small "
+                >
+                  {t("cancel")}
+                </button>
+              </div>
+            </Form>
+          )}
+        </Formik>
+
+      </div>
     </div>
   );
 };
