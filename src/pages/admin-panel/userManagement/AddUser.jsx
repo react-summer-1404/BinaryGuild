@@ -48,8 +48,8 @@ const AddUser = ({ onSuccess, onClose }) => {
           <h3 className=" p-2 text-start ">{t("addUserTitle")}</h3>
           <div
             onClick={onClose}
-            className=" p-1 rounded-small bg-[#c40101] cursor-pointer w-6 h-6 "
-          ><img src="../../../../src/assets/icons/close (2).png" alt="" /></div>
+            className=" p-1 rounded-small bg-[#5f0505] cursor-pointer w-6 h-6 "
+          ><img src="../../../../src/assets/icons/close.png" alt="" /></div>
         </div>
 
         {/* form */}

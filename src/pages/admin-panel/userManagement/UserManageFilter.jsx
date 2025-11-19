@@ -15,7 +15,7 @@ const UserManageFilter = () => {
   const statusOptions = [t("active"), t("deActive")];
 
   return (
-    <div className=" w-full border border-white bg-[#222] rounded-xl h-40">
+    <div className=" w-full shadow-small shadow-amber-50 bg-[#222] rounded-xl h-40">
       <h3 className=" w-full text-start p-3 pr-5">{t("filters")}</h3>
 
       <div className="  h-23 w-full flex  items-center justify-around ">

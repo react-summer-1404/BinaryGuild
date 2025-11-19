@@ -20,7 +20,7 @@ const AdminPanelSideBar = () => {
         </div>
       </div>
 
-      <ul className="border border-white rounded-2xl bg-[#222] mt-4 text-start p-2">
+      <ul className="shadow-small shadow-amber-50 rounded-2xl bg-[#222] mt-4 text-start p-4">
         <Link to={"Dashboard"}>
           <li className="w-full h-full cursor-pointer pt-2 pb-2 ">{t("adminMenuText1")}</li>
         </Link>

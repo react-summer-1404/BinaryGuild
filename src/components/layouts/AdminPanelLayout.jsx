@@ -15,7 +15,7 @@ const AdminPanelLayout = () => {
           <AdminPanelHeader />
           
         </div>
-        <div className=" rounded-3xl  text-white h-full p-2 ">
+        <div className=" rounded-3xl  h-full p-2 ">
         <Outlet />
 
         </div>

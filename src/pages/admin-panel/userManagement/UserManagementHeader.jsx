@@ -26,30 +26,30 @@ const UserManagementHeader = () => {
 
   return (
     <div className=" w-full flex justify-between items-center gap-4">
-      <div className="border border-white bg-[#222] rounded-xl w-1/4 h-30 flex items-center justify-between p-4">
-        <div className="flex flex-col items-start">
-          <div>{allUsersCount}</div>
+      <div className=" shadow-small shadow-amber-50 bg-[#222] rounded-xl w-1/4 h-30 flex items-center justify-between p-4">
+        <div className="flex flex-col items-start p-3">
+          <div className="font-bold text-2xl">{allUsersCount}</div>
           <p className="mt-2">{t("Users")}</p>
         </div>
         <div className="border border-black w-13 h-13 rounded-[100%] "> img </div>
       </div>
-      <div className="border border-white bg-[#222] rounded-xl w-1/4 h-30 flex items-center justify-between p-4">
-        <div className="flex flex-col items-start">
-          <div>{adminCount}</div>
+      <div className=" shadow-small shadow-amber-50 bg-[#222] rounded-xl w-1/4 h-30 flex items-center justify-between p-4">
+        <div className="flex flex-col items-start p-3">
+          <div className="font-bold text-2xl">{adminCount}</div>
           <p className="mt-2">{t("Admins")} </p>
         </div>
         <div className="border border-black w-13 h-13 rounded-[100%] ">img</div>
       </div>
-      <div className="border border-white bg-[#222] rounded-xl w-1/4 h-30 flex items-center justify-between p-4">
-        <div className="flex flex-col items-start"> 
-          <div>{teacherCount}</div>
+      <div className=" shadow-small shadow-amber-50 bg-[#222] rounded-xl w-1/4 h-30 flex items-center justify-between p-4">
+        <div className="flex flex-col items-start p-3"> 
+          <div className="font-bold text-2xl">{teacherCount}</div>
           <p className="mt-2">{t("Teachers")}</p>
         </div>
         <div className="border border-black w-13 h-13 rounded-[100%] ">img</div>
       </div>
-      <div className="border border-white bg-[#222] rounded-xl w-1/4 h-30 flex items-center justify-between p-4">
-        <div className="flex flex-col items-start">
-          <div>{studentCount}</div>
+      <div className=" shadow-small shadow-amber-50 bg-[#222] rounded-xl w-1/4 h-30 flex items-center justify-between p-4">
+        <div className="flex flex-col items-start p-3">
+          <div className="font-bold text-2xl">{studentCount}</div>
           <p className="mt-2">{t("Students")}</p>
         </div>
         <div className="border border-black w-13 h-13 rounded-[100%] ">img</div>

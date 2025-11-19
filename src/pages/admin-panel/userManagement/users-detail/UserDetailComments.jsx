@@ -3,8 +3,13 @@ import { getAllCommentsAccepted } from "../../../../core/services/api/adminPanel
 import { useQuery } from "@tanstack/react-query";
 import AcceptedCommentsTable from "../../Table/AcceptedCommentsTable";
 import NotAccAcceptedCommentsTable from "../../Table/NotAcceptedCommentTable";
+import { useTranslation } from "react-i18next";
+import "react-responsive-pagination/themes/classic-light-dark.css";
+import { Spinner } from "@heroui/spinner";
 
 const UserDetailComments = ({ usersDetails }) => {
+  const { t } = useTranslation();
+
   const {
     data: usersCommentsAccepted,
     isLoading,
@@ -21,28 +26,46 @@ const UserDetailComments = ({ usersDetails }) => {
   console.log("usersComments:", usersAcceptComments);
 
   //not accepted comments
-  const usersNotAcceptedComments = usersCommentsAccepted?.comments?.filter((comment) => comment.userId === usersDetails?.id).filter((c)=>c.accept == false);
+  const usersNotAcceptedComments = usersCommentsAccepted?.comments
+    ?.filter((comment) => comment.userId === usersDetails?.id)
+    .filter((c) => c.accept == false);
   console.log("usersComments:", usersNotAcceptedComments);
 
-  if (isLoading) return <p>Loading... please wait</p>;
+  if (isLoading)
+    return (
+      <Spinner
+        classNames={{ label: "text-foreground mt-4" }}
+        size="lg"
+        variant="wave"
+      />
+    );
   if (isError) return <p>An Error accoured :( </p>;
 
   return (
-    <div className=" border border-white h-full flex flex-col items-stretch gap-20 justify-between">
-      <div>
-        <h2>accepted comments</h2>
-        {usersAcceptComments?.length > 0 && (
+    <div className=" flex flex-col ">
+      <div className=" w-full  overflow-y-scroll ">
+        <h2 className="text-start p-4 pr-0 text-2xl font-bold">
+          {t("acceptedComments")}
+        </h2>
+        {usersAcceptComments?.length > 0 ? (
           <AcceptedCommentsTable usersAcceptComments={usersAcceptComments} />
+        ) : (
+          <p className=" mt-10 text-small">{t("noAcceptedComments")}</p>
         )}
       </div>
 
-      <div>
-        <h2> not accepted comments</h2>
-        {usersNotAcceptedComments?.length > 0 && (
-          <NotAccAcceptedCommentsTable usersNotAcceptedComments={usersNotAcceptedComments} />
+      <div className=" w-full  overflow-y-scroll ">
+        <h2 className="text-start p-4 pr-0 text-2xl font-bold">
+          {t("notAcceptedComments")}
+        </h2>
+        {usersNotAcceptedComments?.length > 0 ? (
+          <NotAccAcceptedCommentsTable
+            usersNotAcceptedComments={usersNotAcceptedComments}
+          />
+        ) : (
+          <p className=" mt-10 text-small">{t("noNotAcceptedComments")}</p>
         )}
       </div>
-      
     </div>
   );
 };

@@ -91,7 +91,7 @@ const UsersInfo = ({ openDetailId, setOpenDetailId }) => {
 
   return (
     <div className="">
-      <div className="border border-white  flex justify-between h-18 bg-[#222] rounded-xl">
+      <div className=" shadow-small shadow-amber-50  flex justify-between h-18 bg-[#222] rounded-xl">
         <div className="flex items-center pr-5 gap-2">
           <p>{t("show")}</p>
           <div>
@@ -129,7 +129,7 @@ const UsersInfo = ({ openDetailId, setOpenDetailId }) => {
         </div>
       </div>
 
-      <div className="border border-boarder h-80 bg-[#222] mt-1 rounded-xl overflow-scroll">
+      <div className=" h-80 bg-[#222] mt-1 rounded-xl overflow-scroll">
         <TableUser
           openDetailId={openDetailId}
           setOpenDetailId={setOpenDetailId}

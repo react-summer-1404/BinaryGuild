@@ -5,7 +5,7 @@ import HeaderIcons from '../landing-header/header-icons/HeaderIcons'
 
 const AdminPanelHeader = () => {
   return (
-    <div className='rounded-2xl  h-full m-auto border bg-[#222] justify-center  flex  items-center pr-2'>
+    <div className='rounded-2xl  shadow-small shadow-amber-50  h-full m-auto bg-[#222] justify-center  flex  items-center pr-2'>
         <AdminProfile/>
         <PanelHeaderButton/>
         <HeaderIcons />

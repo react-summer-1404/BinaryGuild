@@ -1,13 +1,15 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import ResponsivePagination from "react-responsive-pagination";
 
 const AcceptedCommentsTable = ({ usersAcceptComments }) => {
   const { t } = useTranslation();
 
-
   return (
-    <div className="z-56">
-      <table className="min-w-full  divide-y divide-gray-600">
+    <div className="z-56 mt-3">
+      
+      <table className="min-w-full border border-gray-400  divide-y divide-gray-600">
+        
         <thead className="bg-gray-800 p-5 h-10 text-small text-gray-300 ">
           <tr className="">
             <th className=" text-start pr-4  ">{t("commentName")}</th>
@@ -18,48 +20,35 @@ const AcceptedCommentsTable = ({ usersAcceptComments }) => {
         </thead>
         <tbody>
           {usersAcceptComments?.map((comment) => (
-            <tr key={comment.id} className=" text-[14px] ">
+            <tr
+              key={comment.id}
+              className=" border border-gray-400  text-[14px] "
+            >
               <td className="pr-4 h-12 text-start">{comment?.commentTitle}</td>
               <td className="text-start">{comment?.describe}</td>
               <td className="text-start">
-                {comment?.accept ? "confirmed" : "not confirmed"}
+                {comment?.accept ? t("accepted") : t("notAccepted")}
               </td>
               <td className="text-start">
-                <div className=" flex justify-center items-center">
+                <div className=" flex gap-2 items-center">
+                  <div className="border border-gray-400 w-4 h-4 rounded-full"></div>
+
                   <svg
-                    className="cursor-pointer"
-                    // onClick={() => handleOpen(user.id)}
-                    width="20px"
-                    height="20px"
-                    viewBox="0 0 32 32"
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="#fff"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                   >
-                    <g id="SVGRepo_bgCarrier" stroke-width="0" />
-
-                    <g
-                      id="SVGRepo_tracerCarrier"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-
-                    <g id="SVGRepo_iconCarrier">
-                      {" "}
-                      <defs>
-                        {" "}
-                        <style></style>{" "}
-                      </defs>{" "}
-                      <title />{" "}
-                      <g id="dots">
-                        {" "}
-                        <circle class="cls-1" cx="16" cy="16" r="3" />{" "}
-                        <circle class="cls-1" cx="16" cy="8" r="3" />{" "}
-                        <circle class="cls-1" cx="16" cy="24" r="3" />{" "}
-                        <path class="cls-2" d="M16,13v6a3,3,0,0,0,0-6Z" />{" "}
-                        <path class="cls-2" d="M16,5v6a3,3,0,0,0,0-6Z" />{" "}
-                        <path class="cls-2" d="M16,21v6a3,3,0,0,0,0-6Z" />{" "}
-                      </g>{" "}
-                    </g>
+                    <path d="M4 7l16 0" />
+                    <path d="M10 11l0 6" />
+                    <path d="M14 11l0 6" />
+                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
                   </svg>
                   {/* {activeUserId === user.id && <UserAction openId={openDetailId} setOpenId={setOpenDetailId} user={user} />} */}
                 </div>
@@ -68,6 +57,15 @@ const AcceptedCommentsTable = ({ usersAcceptComments }) => {
           ))}
         </tbody>
       </table>
+
+
+      <div className="mt-5">
+        <ResponsivePagination
+          current={""}
+          total={usersAcceptComments?.length}
+          // onPageChange={(page) => handlePageChange(page)}
+        />
+      </div>
     </div>
   );
 };

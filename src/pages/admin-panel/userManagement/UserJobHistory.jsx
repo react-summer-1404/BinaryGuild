@@ -30,9 +30,9 @@ const UserJobHistory = () => {
   }
 
   return (
-    <div className="border border-white w-full h-9/10 bg-[#222] rounded-small ">
-      <div className="border border-white w-full h-[15%] flex justify-between">
-        <div className="flex items-center gap-3">
+    <div className=" shadow-small shadow-amber-50 w-full h-9/10 bg-[#222] rounded-small ">
+      <div className="  w-full h-[15%] flex justify-between">
+        <div className="flex items-center gap-3 mr-3">
           <p>{t("show")}</p>
           <div>
             <select
@@ -62,7 +62,7 @@ const UserJobHistory = () => {
         </div>
       </div>
 
-      <div className="border border-white w-full h-[85%] ">
+      <div className="rounded-medium shadow-small shadow-amber-50 w-full h-[85%] ">
         <JobTable />
       </div>
       <div className="mt-5">

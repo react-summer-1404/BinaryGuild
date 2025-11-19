@@ -47,97 +47,132 @@ const UsersDetail = ({ onCloseDetail, UserId }) => {
   if (isError) return <p>An Error accoured :( </p>;
 
   return (
-    <div className=" flex gap-5 border-white h-full  absolute bg-[#252323] w-full z-100   ">
-      <div className="border border-black shadow-2xl  bg-[#252323] h-full w-[30%] p-4 pt-2 ">
-          <div
-            onClick={onCloseDetail}
-            className=" p-1 rounded-small bg-[#c40101] cursor-pointer w-6 h-6 "
-          ><img src="../../../../src/assets/icons/close (2).png" alt="" /></div>
+    <div className=" flex gap-5 h-full  absolute bg-black-900 w-full z-100   ">
+      <div className="shadow-small shadow-amber-50   bg-[#252323] h-full w-[30%] p-4 pt-2 ">
+        <div
+          onClick={onCloseDetail}
+          className=" p-1 rounded-small bg-[#5f0505] cursor-pointer w-6 h-6 "
+        >
+          <img src="../../../../src/assets/icons/close.png" />
+        </div>
 
-        <div className=" border border-white flex flex-col  ">
+        <div className=" rounded-2xl  shadow-small shadow-amber-50 pb-4 flex flex-col gap-3 mt-3 ">
           {/* img */}
-          <div className=" border border-white p-2 flex justify-center items-center">
+          <div className="  p-2 flex justify-center items-center">
             <img
               src={usersDetails.currentPictureAddress}
+              onError={(e) => {
+                e.target.src = "../../../../assets/icons/Wumpus – 09.png";
+              }}
               className=" border border-white rounded-full w-20 h-20 "
             />
           </div>
 
-          <p className=" border border-white h-8">{usersDetails.fName}</p>
+          <p className=" h-8">{usersDetails.fName}</p>
 
           {/* roles with map */}
-          <div className=" border border-white h-10 flex ">
-            {usersDetails.roles.map((item) => (
-              <div>{item.roleName} </div>
-            ))}
-          </div>
+          {usersDetails.roles.length > 0 && (
+            <div className=" h-10 flex items-center justify-center flex-wrap gap-2 p-3">
+              {usersDetails.roles.map((item) => (
+                <div className="border border-white pr-1 pl-1 rounded-small h-8 flex justify-center items-center text-small bg-[#291b73]">
+                  {item.roleName}{" "}
+                </div>
+              ))}
+            </div>
+          )}
 
           {/* course and reserved */}
-          <div className=" border border-white h-15 flex items-center gap-4 ">
-            <div className=" border border-white h-[30px]  flex gap-2  text-[14px]">
+          <div className="  h-15 flex items-center justify-center gap-4 ">
+            <div className="  h-[30px]  flex gap-2  text-[14px]">
               <p> {userCoursesCount} </p>
               <p>{t("Courses")}</p>
             </div>
 
-            <div className=" border border-white h-[30px] flex gap-2 text-[14px]  ">
+            <div className="  h-[30px] flex gap-2 text-[14px]  ">
               <p>{userReservedCoursesCount}</p>
               <p>{t("reservedCourses")}</p>
             </div>
           </div>
 
           {/* details */}
-          <div className=" border border-white flex flex-col  gap-3  ">
-            <h4 className="text-start">details</h4>
-            <div className="flex gap-2">
-              <p>user name:</p>
-              {usersDetails.userName}
-              <p></p>{" "}
+          <div className=" flex flex-col   gap-3 p-3 ">
+            <h4 className="text-start font-bold text-2xl">
+              {" "}
+              {t("userDetails")}{" "}
+            </h4>
+            <div className="flex items-center mt-3 gap-2">
+              <p className="whitespace-nowrap">{t("userName")}: </p>
+              <p className="text-small">
+                {" "}
+                {usersDetails.userName ? (
+                  <p className="font-bold">{usersDetails.userName}</p>
+                ) : (
+                  <p>__</p>
+                )}
+              </p>{" "}
             </div>
 
-            <div className="flex gap-2">
-              <p>email:</p>
-              {usersDetails.gmail}
-              <p></p>{" "}
+            <div className="flex items-center gap-2">
+              <p>{t("email")}: </p>
+              <p className="text-small">
+                {usersDetails.gmail ? (
+                  <p className="font-bold">{usersDetails.gmail}</p>
+                ) : (
+                  <p>__</p>
+                )}
+              </p>{" "}
             </div>
-            <div className="flex gap-2">
-              <p>status:</p>
-              {usersDetails.active ? "active" : "deactive"}
-              <p></p>{" "}
-            </div>
-
-            <div className="flex gap-2">
-              <p>natinal code:</p>
-              {usersDetails.nationalCode}
-              <p></p>{" "}
-            </div>
-
-            <div className="flex gap-2">
-              <p>gender:</p>
-              {usersDetails.gender ? "Female" : "Male"}
-              <p></p>{" "}
+            <div className="flex items-center gap-2">
+              <p>{t("status")}:</p>
+              <p className="text-small">
+                {usersDetails.active ? t("active") :  t("deActive")}
+              </p>{" "}
             </div>
 
-            <div className="flex gap-2">
-              <p>mobile number:</p>
-              {usersDetails.phoneNumber}
-              <p></p>{" "}
+            <div className="flex items-center gap-2">
+              <p>{t("nationalCode")}:</p>
+              <p className="text-small">
+                {usersDetails.nationalCode ? (
+                  <p className="font-bold">{usersDetails.nationalCode}</p>
+                ) : (
+                  <p>__</p>
+                )}
+              </p>{" "}
+            </div>
+
+            <div className="flex items-center gap-2">
+              <p> {t("gender")}:</p>
+              <p className="text-small">
+                {usersDetails.gender ? t("male") :  t("female")}
+              </p>{" "}
+            </div>
+
+            <div className="flex items-center gap-2">
+              <p> {t("phoneNumber")}:</p>
+              <p className="text-small">
+                {usersDetails.phoneNumber ? (
+                  <p className="font-bold">{usersDetails.phoneNumber}</p>
+                ) : (
+                  <p>__</p>
+                )}
+              </p>{" "}
             </div>
           </div>
 
           {/* buttons */}
-          <div className=" border border-white relative flex justify-center gap-4 items-center mt-3 ">
+          <div className="  relative flex justify-center gap-4 items-center mt-3 ">
             <button
               onClick={handleOpenEdit}
-              className=" border border-white rounded-xl  p-2 w-18 "
+              className=" cursor-pointer  shadow-small shadow-amber-50 bg-[#291b73] rounded-xl font-bold  p-2 w-20 "
             >
-              edit
+              {t("edit")}
             </button>
 
             <button
               onClick={handleOpenActive}
-              className=" border border-white p-2 w-22 rounded-xl "
+              className="cursor-pointer  shadow-small shadow-amber-50 bg-[#5f0505] p-2 font-bold rounded-xl "
             >
-              deactive
+              {t("deactive")}
             </button>
 
             {openActive && (
@@ -172,37 +207,37 @@ const UsersDetail = ({ onCloseDetail, UserId }) => {
         </div>
       </div>
 
-      <div className="border border-black shadow-2xl bg-[#252323] h-full w-[70%] ">
-        <div className=" h-[10%] flex justify-star items-center gap-4 ">
+      <div className="rounded-2xl  shadow-small shadow-amber-50  bg-[#252323] h-full w-[70%] ">
+        <div className=" h-[10%] flex justify-star  items-center pr-3 gap-4 ">
           <div
             onClick={() => setActiveTab("courses")}
-            className="border border-white p-5 cursor-pointer rounded-medium "
+            className=" border-white p-3 cursor-pointer rounded-sm bg-[#291b73] "
           >
-            courses
+            {t("courses")}
           </div>
           <div
             onClick={() => setActiveTab("reserved")}
-            className="border border-white p-5 cursor-pointer rounded-medium "
+            className=" border-white p-3 cursor-pointer rounded-sm bg-[#291b73] "
           >
-            reserved
+            {t("reserved")}
           </div>
           <div
             onClick={() => setActiveTab("comments")}
-            className="border border-white p-5 cursor-pointer rounded-medium "
+            className=" border-white p-3 cursor-pointer rounded-sm bg-[#291b73] "
           >
-            comments
+            {t("comments")}
           </div>
           <div
             onClick={() => setActiveTab("other info")}
-            className="border border-white p-5 cursor-pointer rounded-medium "
+            className=" border-white p-3 cursor-pointer rounded-sm bg-[#291b73] "
           >
-            other info
+            {t("otherInfo")}
           </div>
         </div>
 
         {/* pages */}
 
-        <div>
+        <div className="p-3">
           {activeTab === "courses" && (
             <UserDetailCourse usersDetails={usersDetails} />
           )}
