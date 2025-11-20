@@ -176,7 +176,7 @@ const UsersDetail = ({ onCloseDetail, UserId }) => {
             </button>
 
             {openActive && (
-              <div className="border border-white fixed w-100 h-70 top-40 right-150 bg-black-900">
+              <div className="border border-white z-200 fixed w-100 h-70 top-40 right-150 bg-black-900">
                 <div className="border h-2/5">
                   <img src="" alt="" />
                 </div>

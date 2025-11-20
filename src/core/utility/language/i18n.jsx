@@ -360,6 +360,14 @@ i18n.use(initReactI18next).init({
         female: "زن",
         noAcceptedComments: "هیچ کامنت تایید شده ای برای کاربر یافت نشد",
         noNotAcceptedComments: "هیچ کامنت تایید نشده ای برای کاربر یافت نشد",
+        newsList: "لیست اخبار و مجلات",
+        totalNews: "مجموع اخبار و مقالات",
+        activeNews: "اخبار و مقالات فعال",
+        deActiveNews: "اخبار و مقالات غیرفعال",
+        sortBy: "دسته بندی بر اساس",
+        mostPopular: "محبوب ترین ها",
+        mostViewed: "پربازدیدترین ها ",
+        AddNews: "افزودن اخبار و مقالات",
 
         //panel
         Hello: "سلام ",
@@ -751,6 +759,14 @@ i18n.use(initReactI18next).init({
         female: "female",
         noAcceptedComments: "There is no approved comment for user",
         noNotAcceptedComments: "There is no  unapproved comment for user.",
+        newsList: "news list",
+        totalNews: "total news",
+        activeNews: "active news",
+        deActiveNews: "inactive News",
+        sortBy: "categorized by",
+        mostPopular: "most popular",
+        mostViewed: "most viewed",
+        AddNews: "Add News",
 
         //panel
         Hello: "Hello ",

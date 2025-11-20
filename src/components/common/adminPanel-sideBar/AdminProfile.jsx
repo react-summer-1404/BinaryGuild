@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { UserData } from "../../../core/services/api/get-data";
+import adminImage from '../../../assets/images/admin.png'
 import { useTranslation } from "react-i18next";
 
 const AdminProfile = () => {
@@ -16,11 +17,11 @@ const AdminProfile = () => {
   return (
     <div className=" h-full flex items-center justify-center gap-2">
       <img
-        src={profileData?.currentPictureAddress}
+        src={profileData?.currentPictureAddress || adminImage}
         onError={(e) => {
-          e.target.src = "../../../../src/assets/icons/Flynn.png";
+          e.target.src =adminImage ;
         }}
-        className="w-10 border border-white h-10 rounded-3xl"
+        className="w-10 border border-white object-cover h-10 rounded-3xl"
       />
       <div className="  flex flex-col items-start ">
         <p className=" text-[12px] text-white font-bold ">

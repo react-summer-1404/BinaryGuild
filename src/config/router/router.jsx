@@ -71,7 +71,10 @@ const UserJobHistory = lazy(() =>
   import("../../pages/admin-panel/userManagement/UserJobHistory")
 );
 const AdminBlogsManagement = lazy(() =>
-  import("../../pages/admin-panel/BlogsManagement")
+  import("../../pages/admin-panel/blogsManagement/BlogsManagement")
+);
+const AdminAddBlogs = lazy(() =>
+  import("../../pages/admin-panel/blogsManagement/AddBlogs")
 );
 const AdminCoursesManagement = lazy(() =>
   import("../../pages/admin-panel/CoursesManagement")
@@ -140,6 +143,8 @@ const Router = createBrowserRouter([
       { path:"User-Job-history" , element: <UserJobHistory /> },
 
       { path:"Blogs-management" , element: <AdminBlogsManagement /> },
+      { path:"add-Blogs" , element: <AdminAddBlogs/> },
+
       { path:"Courses-management" , element: <AdminCoursesManagement /> },
 
       { path:"comments-management" , element: <AdminCommentsManagement /> },

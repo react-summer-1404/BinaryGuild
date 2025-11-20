@@ -37,32 +37,7 @@ export const UserDetail = async (UserId ) => {
   }
 };
 
-export const getAllCommentsAccepted = async (
-  PageNumber = 1,
-  RowsOfPage = 100,
-  Accept = "",
-  TeacherId = "",
-  userId = ""
-) => {
-  try {
-    const response = await instance.get("/Course/CommentManagment", {
-      params: {
-        PageNumber,
-        RowsOfPage,
-        SortingCol: "desc",
-        SortType: "InsertDate",
-        Query: "",
-        Accept,
-        TeacherId,
-        userId,
-      },
-    });
-    console.log("response all comments", response);
-    return response;
-  } catch (error) {
-    console.log(error);
-  }
-};
+
 
 export const GetAllComments = async ({
   PageNumber = 1,
@@ -107,6 +82,33 @@ export const GetCoursesPayment = async () => {
   try {
     const response = await instance.get("/CoursePayment");
     console.log(" course payments:", response);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+// get news list
+
+export const GetNewsList = async ({
+  PageNumber = 1,
+  RowsOfPage = 100,
+  Accept = "",
+}) => {
+  try {
+    const response = await instance.get("/News/AdminNewsFilterList", {
+      params: {
+        PageNumber,
+        RowsOfPage,
+        SortingCol: "InsertDate",
+        SortType: "DESC",
+        Query: "",
+        Accept,
+
+      },
+    });
+    console.log(" all news", response);
     return response;
   } catch (error) {
     console.log(error);

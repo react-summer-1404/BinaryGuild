@@ -1,5 +1,5 @@
 import React from "react";
-import { getAllCommentsAccepted } from "../../../../core/services/api/adminPanel/get-data";
+import { GetAllComments } from "../../../../core/services/api/adminPanel/get-data";
 import { useQuery } from "@tanstack/react-query";
 import AcceptedCommentsTable from "../../Table/AcceptedCommentsTable";
 import NotAccAcceptedCommentsTable from "../../Table/NotAcceptedCommentTable";
@@ -16,7 +16,7 @@ const UserDetailComments = ({ usersDetails }) => {
     isError,
   } = useQuery({
     queryKey: ["users-comments-accepted"],
-    queryFn: () => getAllCommentsAccepted(1, 100),
+    queryFn: () => GetAllComments(1, 100),
   });
 
   // accepted comments
