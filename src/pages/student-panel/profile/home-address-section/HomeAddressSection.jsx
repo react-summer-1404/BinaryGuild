@@ -1,10 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { useTranslation } from "react-i18next";
-import { AddProfileInfo } from "../../../../core/services/api/put-data/index";
 import "react-leaflet";
-import { MapContainer, TileLayer } from "react-leaflet";
-// import Map from "./map/Map";
+import ApplyChanges from "../../../../components/common/button/ApplyChanges";
+import Map from "./map/Map";
 
 const HomeAddressSection = () => {
   const { t } = useTranslation();
@@ -13,7 +10,8 @@ const HomeAddressSection = () => {
       <p className="text-blue w-full text-right mr-11 ">
         {t("SelectLocation")}
       </p>
-      {/* <Map/> */}
+      <Map/>
+      <ApplyChanges/>
     </div>
   );
 };

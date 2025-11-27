@@ -2,9 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import BlogsOrder from "../../components/common/data-order/BlogsOrder";
 import { GetBlogsData } from "../../core/services/api/get-data";
 import BlogCategory from "./filter-section/BlogCategory";
-import ReserveOrder from "../../components/common/reserve-order/ReserveOrder";
 
 const Blogs = () => {
   const [filter, setFilter] = useState({
@@ -27,17 +27,22 @@ const Blogs = () => {
   }, [filter]);
 
   return (
-    <div className="flex flex-wrap gap-10 ">
-      <div className="w-full m-auto flex flex-wrap gap-6 ">
-        <h2 className="text-text w-4/6 pl-24 m-auto text-[40px] font-bold">{t("TextBlogsHeader")}</h2>
-        <p className="text-muted w-2/6 pr-9 pl-[140px] m-auto">{t("TextBlogs")}</p>
+    <div className="flex flex-wrap gap-10 mb-20">
+      <div className="w-full m-auto flex flex-wrap gap-6 mt-12 mb-12  ">
+        <h2 className="text-text w-4/6 pl-24 m-auto text-[40px] font-bold">
+          {t("TextBlogsHeader")}
+        </h2>
+        <p className="text-muted w-2/6 pr-9 pl-[140px] m-auto">
+          {t("TextBlogs")}
+        </p>
       </div>
-      <div className="w-1/6 border-3 rounded-4xl border-gray-0">
+      <div className="w-1/6 border-3 rounded-4xl h-[320px] border-gray-0">
         <BlogCategory setFilter={setFilter} />
       </div>
       <div className="flex w-4/5 m-auto flex-wrap gap-6">
-      <div className="w-full items-start">
-        <ReserveOrder /></div>
+        <div className="w-full items-start">
+          <BlogsOrder setFilter={setFilter}/>
+        </div>
         {blogsData?.length > 0 ? (
           blogsData?.map((value) => {
             return (

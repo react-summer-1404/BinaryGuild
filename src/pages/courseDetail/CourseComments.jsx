@@ -52,8 +52,6 @@ const CourseComments = ({ courseId, course }) => {
     if (courseId) comments();
   }, [courseId]);
 
-
-
   return (
     <div className=" h-[400px] w-full mt-8 ">
       <Toaster />
@@ -105,8 +103,12 @@ const CourseComments = ({ courseId, course }) => {
               <div className="h-10 w-full flex justify-between">
                 <div className="flex gap-3">
                   <div className="w-10 h-10 rounded-[400px] ">
-                    <img 
-src={course.title} onError={(e)=>{e.target.src="../../../src/assets/icons/Flynn.png" }}                     />
+                    <img
+                      src={course.title}
+                      onError={(e) => {
+                        e.target.src = "../../../src/assets/icons/Flynn.png";
+                      }}
+                    />
                   </div>
                   <div>
                     <p className="font-[600] text-text text-[14px] ">

@@ -11,7 +11,7 @@ const UserIcon = ({ ...props }) => {
     >
       <g
         fill="none"
-        stroke="#4d0218"
+        stroke="#e7000b"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit={10}

@@ -49,7 +49,7 @@ const Dashboard = () => {
         />
       </div>
       <div className="w-full flex justify-between">
-        <div className="w-3/5 flex flex-wrap gap-1">
+        <div className="w-7/12 flex flex-wrap gap-1">
           <div className="w-full flex flex-nowrap justify-between">
             <p className="w-1/2 text-start font-persian">{t("MenuText3")}</p>
             <Link to={"/panel/reserve-course"} className="w-1/2 text-end">

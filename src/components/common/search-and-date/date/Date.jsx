@@ -27,19 +27,13 @@ const Date = ({ setFilter }) => {
         <Calender />
         <p className="text-text">{t("Date")}</p>
       </div>
-      <div className="flex flex-nowrap gap-2">
+      <div className="flex w-full flex-nowrap gap-2">
         <input
           type="text"
-          className="w-1/3 text-[12px] text-text"
-          placeholder={t("FirstTime")}
+          className="text-[12px] w-full bg-forgetpassbtn p-2 rounded-3xl text-text"
+          placeholder={t("Time")}
           onChange={(e) => setFirstDate(e.target.value)}
-        />
-        <p className="text-text">-</p>
-        <input
-          type="text"
-          className="w-1/3 text-[12px] text-text"
-          placeholder={t("SecondTime")}
-          onChange={(e) => setSecondDate(e.target.value)}
+
         />
       </div>
     </div>

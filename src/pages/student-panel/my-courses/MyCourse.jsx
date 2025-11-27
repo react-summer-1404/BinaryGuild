@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import SearchAndDate from "../../../components/common/search-and-date/SearchAndDate";
+import Search from "../../../components/common/search-and-date/search/Search";
 import CourseTable from "../../../components/common/table/course-table/CourseTable";
 import { GetCourses } from "../../../core/services/api/get-data";
 
@@ -29,8 +29,8 @@ const MyCourse = () => {
       <div className="w-full flex justify-start">
         <p className="text-text font-bold text-2xl">{t("MenuText2")}</p>
       </div>
-      <div className="flex flex-nowrap gap-4 w-1/2">
-      <SearchAndDate setFilter={setFilter}/>
+      <div className="flex flex-nowrap gap-4 w-1/3">
+      <Search setFilter={setFilter}/>
       </div>
       <CourseTable />
     </div>

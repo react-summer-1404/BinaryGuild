@@ -56,7 +56,6 @@ export const TopCoursesData = async () => {
 export const UserData = async () => {
   try {
     const response = await instance.get("/SharePanel/GetProfileInfo");
-    // console.log(response);
     return response;
   } catch (error) {
     console.log(error);
@@ -92,13 +91,17 @@ export const UserReserve = async () => {
     console.log(error);
   }
 };
-export const UserComments = async () => {
+export const UserCoursesComments = async () => {
   try {
-    const response = await instance("/Course/GetCourseCommnets/t4");
+    const response = await instance.get("/Course/GetCourseCommnets/t4");
     return response;
   } catch (error) {
     console.log(error);
   }
+};
+export const UserBlogsComments = async() => {
+  const response = await instance.get("/News/GetNewsComments?NewsId=a7b7caff-c324-49cf-8c34-0378b0a80fd4");
+  return response
 };
 export const GetCourse = (CourseId) => {
   return instance.get(`/Home/GetCourseDetails?CourseId=${CourseId}`);
@@ -153,6 +156,14 @@ export const GetCategory = async () => {
   }
 };
 
+export const GetBlogsCategory = async () => {
+  try {
+    const response = await instance.get("/News/GetListNewsCategory");
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
 export const Reset = (ConfigValue) => {
   return instance.get(`/Sign/Reset/${ConfigValue}`);
 };
@@ -160,18 +171,33 @@ export const Reset = (ConfigValue) => {
 export const GetFavoriteBlogs = async () => {
   try {
     const response = await instance.get("/SharePanel/GetMyFavoriteNews");
-    return response.myFavoriteNews;
+    return response;
   } catch (error) {
     console.log(error);
   }
 };
 
-
 export const GetFavoriteCourses = async () => {
   try {
     const response = await instance.get("/SharePanel/GetMyFavoriteCourses");
-    return response.favoriteCourseDto;
+    return response;
   } catch (error) {
     console.log(error);
   }
+};
+
+export const GetAllUserCourses = async ({ params }) => {
+  try {
+    const response = await instance.get("/SharePanel/GetMyCourses?", {
+      params: { ...params },
+    });
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const GetBlogsDetail = (Id) => {
+  const response = instance.get(`/News/${Id}`);
+  return response.detailsNewsDto;
 };

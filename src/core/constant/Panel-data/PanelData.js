@@ -21,23 +21,18 @@ export const PanelData = [
     id: 4,
     image: "/src/assets/icons/books-02.svg",
     name: "",
-    link: "/panel/course-fav",
+    link: "/panel/fav-courses-and-news",
   },
   {
     id: 5,
-    image: "/src/assets/icons/library.svg",
-    name: "",
-    link: "/panel/blog-fav",
-  },
-  {
-    id: 6,
     image: "/src/assets/icons/user-square.svg",
     name: "",
     link: "/panel/profile",
   },
   {
-    id: 7,
+    id: 6,
     image: "/src/assets/icons/money-send-02-stroke-rounded 1.svg",
     name: "",
+    link: "/panel/payment",
   },
 ];

@@ -5,10 +5,10 @@ import Services  from "../landings-sections/ServicesSection";
 const ServicesList  = () => {
   const {t} = useTranslation()
   return (
-    <div className="flex flex-wrap w-[100%] gap-8 justify-center">
+    <div className="flex flex-wrap w-full gap-8 justify-center">
       {ServicesData.map((value) => {
         return (
-          <Services 
+          <Services
             key={value.id}
             id={value.id}
             name={t("ServicesName"+value.id)}

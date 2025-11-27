@@ -1,6 +1,6 @@
-import React from "react";
 
 const Calender = () => {
+
   return (
     <svg
       width="24"

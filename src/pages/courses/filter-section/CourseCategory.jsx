@@ -14,7 +14,8 @@ const CourseCategory = ({ setFilter }) => {
   });
   console.log("categoryData", categoryData);
   return (
-    <div className="flex flex-wrap mt-4 mb-2 w-10/12 m-auto gap-2">
+    <>
+    <div className="lg:flex flex-wrap hidden mt-4 mb-2 w-10/12 m-auto gap-3">
       <Search setFilter={setFilter} />
       <CategorySection setFilter={setFilter} ListTech={categoryData} />
       <Level setFilter={setFilter}  courseLevelId={categoryData} />
@@ -22,6 +23,7 @@ const CourseCategory = ({ setFilter }) => {
       <Cost setFilter={setFilter} />
       <Date setFilter={setFilter} />
     </div>
+    </>
   );
 };
 

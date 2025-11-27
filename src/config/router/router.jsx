@@ -1,6 +1,5 @@
-import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
-import BlogsWrapper from "../../screen/blogs-wrapper/BlogsWrapper";
+import { createBrowserRouter } from "react-router-dom";
 // Layouts
 const AuthLayout = lazy(() => import("../../components/layouts/AuthLayout"));
 const LandingLayout = lazy(() =>
@@ -35,6 +34,15 @@ const CoursesWrapper = lazy(() =>
 const BlogsDetailWrapper = lazy(() =>
   import("../../screen/blogs-detail/BlogsDetailWrapper")
 );
+const BlogsWrapper = lazy(() =>
+  import("../../screen/blogs-wrapper/BlogsWrapper")
+);
+const BlogDetail = lazy(() =>
+  import("../../components/common/details/blog/BlogDetail")
+);
+const CourseDetail = lazy(() =>
+  import("../../components/common/details/course/CourseDetail")
+);
 
 // Student Panel
 const MyCourse = lazy(() =>
@@ -49,11 +57,11 @@ const MyReserve = lazy(() =>
 const UserProfile = lazy(() =>
   import("../../pages/student-panel/profile/UserProfile")
 );
-const CourseFav = lazy(() =>
-  import("../../pages/student-panel/course-fav/CourseFav")
+const Favorite = lazy(() =>
+  import("../../pages/student-panel/favorite/Favorite")
 );
-const BlogFav = lazy(() =>
-  import("../../pages/student-panel/blog-fav/BlogFav")
+const Payment = lazy(() =>
+  import("../../pages/student-panel/payment/Payment")
 );
 
 // Profile Section
@@ -109,6 +117,7 @@ const Router = createBrowserRouter([
       { index: true, element: <Dashboard /> },
       { path: "my-courses", element: <MyCourse /> },
       { path: "reserve-course", element: <MyReserve /> },
+      { path: "payment", element: <Payment /> },
       {
         path: "profile",
         element: <UserProfile />,
@@ -119,8 +128,9 @@ const Router = createBrowserRouter([
           { path: "links", element: <LinksSection/> },
         ],
       },
-      { path: "course-fav", element: <CourseFav /> },
-      { path: "blog-fav", element: <BlogFav /> },
+      { path: "fav-courses-and-news", element: <Favorite /> },
+      { path: "/panel/:id", element: <BlogDetail /> },
+      { path: "/panel/:id", element: <CourseDetail /> },
     ],
   },
   { path: "*", element: <NotFound /> },

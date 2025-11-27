@@ -10,6 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import View from "../../../../core/icons/View";
 import { UserCourses } from "../../../../core/services/api/get-data";
+import moment from "moment-jalaali";
 
 const CourseTable = () => {
   const { t } = useTranslation();
@@ -17,6 +18,9 @@ const CourseTable = () => {
     queryKey: ["GET_USER_COURSES"],
     queryFn: UserCourses,
   });
+    const formatInsertDate = moment(myCoursesData?.lastUpdate).format(
+      "jYYYY/jMM/jDD"
+    );
   return (
     <div className="w-full ">
       <Table
@@ -50,14 +54,14 @@ const CourseTable = () => {
                 </TableCell>
                 <TableCell>{value.courseTitle}</TableCell>
                 <TableCell>{value.fullName}</TableCell>
-                <TableCell>{value.lastUpdate}</TableCell>
+                <TableCell>{formatInsertDate}</TableCell>
                 <TableCell>
                   <span>
                     {t("Toman")} {value.cost}
                   </span>
                 </TableCell>
                 <TableCell className="flex justify-center flex-nowrap pt-7">
-                  <View />
+                  <View id={value.courseId}/>
                 </TableCell>
               </TableRow>
             );

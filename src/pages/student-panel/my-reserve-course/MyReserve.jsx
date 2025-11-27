@@ -1,10 +1,10 @@
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import ReserveOrder from "../../../components/common/data-order/ReserveOrder";
+import Search from "../../../components/common/search-and-date/search/Search";
 import ReserveTable from "../../../components/common/table/reserve-table/ReserveTable";
 import { GetCourses } from "../../../core/services/api/get-data";
-import { useQuery } from "@tanstack/react-query";
-import { useTranslation } from "react-i18next";
-import SearchAndDate from "../../../components/common/search-and-date/SearchAndDate";
-import ReserveOrder from "./reserve-order/ReserveOrder";
 
 const MyReserve = () => {
   const { t } = useTranslation();
@@ -32,8 +32,10 @@ const MyReserve = () => {
         <p className="text-text font-bold text-2xl">{t("MenuText3")}</p>
       </div>
       <div className="flex flex-nowrap gap-4 w-5/6">
-        <SearchAndDate setFilter={setFilter} />
-        <ReserveOrder/>
+      <div className="w-1/3">
+        <Search setFilter={setFilter} /></div>
+        <div className=" mt-6">
+        <ReserveOrder setFilter={setFilter}/></div>
       </div>
       <ReserveTable />
     </div>

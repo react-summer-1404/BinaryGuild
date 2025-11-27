@@ -1,9 +1,8 @@
 import instance from "../../interceptor";
 
 // Add profile information
-export const AddProfileInfo = ({params})=> {
+export const AddProfileInfo = ()=> {
   return instance.put("/SharePanel/UpdateProfileInfo"
-    , {params:{...params}}
   )
 };
 console.log( "AddProfileInfo",AddProfileInfo)

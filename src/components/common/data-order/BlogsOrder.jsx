@@ -1,11 +1,12 @@
-import { Button } from "@heroui/button";
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { Button } from '@heroui/button';
+import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next';
 
-const ReserveOrder = () => {
+const BlogsOrder = () => {
   const { t } = useTranslation();
   const [border, setBorder] = useState("text-text");
   const [background, setBackground] = useState("text-text");
+  
 
   const changeBorder = () => {
     if (border == "text-text") {
@@ -27,17 +28,23 @@ const ReserveOrder = () => {
     <div className="flex flex-nowrap gap-3 mt-4">
       <p className="font-bold text-text mt-1.5">{t("Order")}</p>
       <Button
+        radius="full"
         variant="bordered"
         onPress={changeBackground}
         className={`${background}`}
       >
-        <p className="font-bold">{t("Confirmed")}</p>
+        <p className="font-bold">{t("New")}</p>
       </Button>
-      <Button variant="bordered" onPress={changeBorder} className={`${border}`}>
-        <p className="font-bold">{t("NotConfirmed")}</p>
+      <Button
+        variant="bordered"
+        radius="full"
+        onPress={changeBorder}
+        className={`${border}`}
+      >
+        <p className="font-bold">{t("Popular")}</p>
       </Button>
     </div>
-  );
-};
+  )
+}
 
-export default ReserveOrder;
+export default BlogsOrder

@@ -134,3 +134,14 @@ export const AddBlogsDissLike = (NewsId) => {
   });
 };
 
+export const AddProfileImage = (formFile) => {
+  return instance.post("/SharePanel/AddProfileImage", {
+    params: { formFile: formFile },
+  });
+};
+
+export const SelectProfileImage = (ImageId) => {
+  return instance.post("/SharePanel/SelectProfileImage", {
+    params: { ImageId: ImageId },
+  });
+};

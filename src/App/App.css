@@ -36,6 +36,11 @@
   --color-buttonBorder: var(--buttonBorder);
   --color-shadow: var(--shadow);
   --color-commentHead: var(--commentHead);
+  --color-lightBlue: var(--lightBlue);
+  --color-lightRed: var(--lightRed);
+  --color-textBlue: var(--textBlue);
+  --color-textRed: var(--textRed);
+  --color-textBlue2: var(--textBlue2);
 
 
 }
@@ -55,8 +60,11 @@
   --buttonBorder:#3772FF;
   --shadow:#313030;
   --commentHead:#202020;
-  
-
+  --lightBlue:#EEFFFC;
+  --lightRed:#FFECEC;
+  --textBlue:#008C78;
+  --textRed:#E7000B;
+  --textBlue2:#3C8B85;
 
 }
 .dark{
@@ -75,6 +83,11 @@
   --buttonBorder:#202020;
   --shadow:#707070;
   --commentHead:#707070;
+  --lightBlue:#72908a;
+  --lightRed:#897e7e;
+  --textBlue:#008C78;
+  --textRed:#E7000B;
+  --textBlue2:#3C8B85;
 
 }
 
