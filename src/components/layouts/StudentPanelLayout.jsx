@@ -40,11 +40,13 @@ const StudentPanelLayout = () => {
           <HeaderIcons />
         </div>
       </div>
-      <div className="w-1/7 flex flex-wrap">
-        <PanelList />
+      <div className="w-1/7  flex flex-wrap">
+        <div className="h-[340px] mt-8 ">
+          <PanelList />
+        </div>
         <SignOut />
       </div>
-      <div className="bg-background text-text rounded-3xl w-5/7 mr-auto ml-auto mb-7">
+      <div className="bg-background min-h-[589px] text-text rounded-3xl w-5/7 mr-auto ml-auto mb-7">
         <Outlet />
       </div>
     </div>

@@ -75,7 +75,7 @@ export const UseGetTopBlogs = async () => {
 export const UserCourses = async () => {
   try {
     const response = await instance(
-      "/SharePanel/GetMyCourses?PageNumber=1&RowsOfPage=4&SortingCol=desc&SortType=LastUpdate&Query="
+      "/SharePanel/GetMyCourses"
     );
     return response.listOfMyCourses;
   } catch (error) {
@@ -93,15 +93,15 @@ export const UserReserve = async () => {
 };
 export const UserCoursesComments = async () => {
   try {
-    const response = await instance.get("/Course/GetCourseCommnets/t4");
+    const response = await instance.get("/Course/GetCourseCommnets/t5");
     return response;
   } catch (error) {
     console.log(error);
   }
 };
-export const UserBlogsComments = async() => {
-  const response = await instance.get("/News/GetNewsComments?NewsId=a7b7caff-c324-49cf-8c34-0378b0a80fd4");
-  return response
+export const UserBlogsComments = async () => {
+  const response = await instance.get("/News/GetNewsComments?NewsId=6600106f-83d7-4424-a660-136850b1b050");
+  return response;
 };
 export const GetCourse = (CourseId) => {
   return instance.get(`/Home/GetCourseDetails?CourseId=${CourseId}`);
@@ -112,7 +112,6 @@ export const GetCourseDetail = (CourseId) => {
   });
 };
 export const GetCourses = async ({ params }) => {
-  // console.log("params : ", params);
   try {
     const response = await instance.get("/Home/GetCoursesWithPagination", {
       params: { ...params },
@@ -122,6 +121,8 @@ export const GetCourses = async ({ params }) => {
     console.log(error);
   }
 };
+
+
 export const GetCoursesLevel = async () => {
   try {
     const response = await instance.get("/CourseLevel/GetAllCourseLevel");
@@ -200,4 +201,10 @@ export const GetAllUserCourses = async ({ params }) => {
 export const GetBlogsDetail = (Id) => {
   const response = instance.get(`/News/${Id}`);
   return response.detailsNewsDto;
+};
+
+
+export const PatchCoursePayment = (reserveId) => {
+  const response = instance.get(`/NewVersion/CoursePayment/StepOneToPay/${reserveId}`);
+  return response;
 };

@@ -272,14 +272,14 @@ i18n.use(initReactI18next).init({
         Order: "ترتیب",
         NoRow: "آیتمی موجود نمی باشد!!",
         Payment: "پرداخت",
-        PaymentDate:"تاریخ پرداخت",
-        DateEntered:"تاریخ وارد شده",
-        PaymentStatus:"وضعیت پرداخت",
-        PaymentToman:"پرداختی (تومان)",
-        Operation:"عملیات",
-        CourseGroup:"گروه دوره",
-        NotPaid:"پرداخت نشده",
-        Paid:"پرداخت شده",
+        PaymentDate: "تاریخ پرداخت",
+        DateEntered: "تاریخ وارد شده",
+        PaymentStatus: "وضعیت پرداخت",
+        PaymentToman: "پرداختی (تومان)",
+        Operation: "عملیات",
+        CourseGroup: "گروه دوره",
+        NotPaid: "پرداخت نشده",
+        Paid: "پرداخت شده",
 
         //profile
         MyProfile: "پروفایل من",
@@ -356,10 +356,25 @@ i18n.use(initReactI18next).init({
         Expensive: "گران‌ترین",
         Cheapest: "ارزان‌ترین",
         FavBlogAndCourse: "دوره ها و اخبار های مورد علاقه",
-        
+
         //delete
         CantDelete: "اخبار مورد نظر حذف نشد!!",
         DeleteBlog: "اخبار مورد نظر حذف شد!!",
+
+        //payment section
+        PaymentForm: "فرم ثبت اطلاعات پرداختی",
+        PaymentForm2: "(دوره جامع آموزش js)",
+        PaymentID: "شناسه پرداختی",
+        PaymentsDate: "تاریخ پرداخت",
+        AmountPaid: "مبلغ پرداختی ( به تومان)",
+        RecordInformation: "ثبت اطلاعات",
+        SelectDesired:"فایل مورد نظر را انتخاب کنید",
+        PaymentSlip:"فیش پرداختی",
+        PreviousStage:"مرحله قبل",
+        AmountPaid2:"مبلغ پرداختی",
+        FinalRegistration:"ثبت نهایی",
+        Close:"بستن",
+        PaymentSuccessfully:"اطلاعات پرداختی با موفقیت ثبت شد",
 
         //not found
         Error: "صفحه مورد نظر شما یافت نشد . ",
@@ -618,14 +633,14 @@ i18n.use(initReactI18next).init({
         Order: "Order",
         NoRow: "No item available!!",
         Payment: "Payment",
-        PaymentDate:"Payment date",
-        DateEntered:"Date entered",
-        PaymentStatus:"Payment status",
-        PaymentToman:"Payment (toman)",
-        Operation:"Operation",
-        CourseGroup:"Course group",
-        NotPaid:"Not paid",
-        Paid:"paid",
+        PaymentDate: "Payment date",
+        DateEntered: "Date entered",
+        PaymentStatus: "Payment status",
+        PaymentToman: "Payment (toman)",
+        Operation: "Operation",
+        CourseGroup: "Course group",
+        NotPaid: "Not paid",
+        Paid: "paid",
 
         //profile
         MyProfile: "My profile",
@@ -707,6 +722,21 @@ i18n.use(initReactI18next).init({
         //delete
         CantDelete: "The desired news was not deleted !!",
         DeleteBlog: "The news in question was deleted !!",
+
+        //payment section
+        PaymentForm: "Payment Information Registration Form",
+        PaymentForm2: "(Comprehensive js Training Course)",
+        PaymentID: "Payment ID",
+        PaymentsDate: "payment date",
+        AmountPaid: "Amount paid (in Tomans)",
+        RecordInformation: "Record information",
+        SelectDesired:"Select the desired file",
+        PaymentSlip:"Payment slip",
+        PreviousStage:"Previous stage",
+        AmountPaid2:"Amount paid",
+        FinalRegistration:"Final registration",
+        Close:"to close",
+        PaymentSuccessfully:"Payment information was successfully registered.",
 
         //not found
         Error: "The page you requested was not found.",

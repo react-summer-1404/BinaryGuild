@@ -41,6 +41,7 @@
   --color-textBlue: var(--textBlue);
   --color-textRed: var(--textRed);
   --color-textBlue2: var(--textBlue2);
+  --color-paymentBackground: var(--paymentBackground);
 
 
 }
@@ -65,7 +66,7 @@
   --textBlue:#008C78;
   --textRed:#E7000B;
   --textBlue2:#3C8B85;
-
+  --paymentBackground:#222222B2;
 }
 .dark{
   --background:#1a1a1a;
@@ -88,6 +89,7 @@
   --textBlue:#008C78;
   --textRed:#E7000B;
   --textBlue2:#3C8B85;
+  --paymentBackground:#575757d8;
 
 }
 

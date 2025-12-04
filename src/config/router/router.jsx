@@ -60,9 +60,6 @@ const UserProfile = lazy(() =>
 const Favorite = lazy(() =>
   import("../../pages/student-panel/favorite/Favorite")
 );
-const Payment = lazy(() =>
-  import("../../pages/student-panel/payment/Payment")
-);
 
 // Profile Section
 const HomeAddressSection = lazy(() =>
@@ -117,7 +114,6 @@ const Router = createBrowserRouter([
       { index: true, element: <Dashboard /> },
       { path: "my-courses", element: <MyCourse /> },
       { path: "reserve-course", element: <MyReserve /> },
-      { path: "payment", element: <Payment /> },
       {
         path: "profile",
         element: <UserProfile />,

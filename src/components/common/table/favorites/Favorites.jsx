@@ -26,22 +26,6 @@ const Favorites = ({favoriteBlogs ,favoriteCourses}) => {
   const formatsCoursesDateEnd = moment(
     favoriteCourses?.favoriteCourseDto?.course?.endTime
   ).format("jYYYY/jMM/jDD");
-  // const { mutate: deleteBlogs } = useMutation({
-  //   mutationFn: async (favoriteId) => {
-  //     const response = await instance.delete("/News/DeleteFavoriteNews", {
-  //       favoriteId,
-  //     });
-  //     console.log("cccccsoooooooooooooossssssssssssss", response);
-  //     return response;
-  //   },
-  //   onSuccess: () => {
-  //     toast.success(t("DeleteBlog"));
-  //   },
-  // });
-  // const handelDeleteBlogs = () => {
-  //   {favoriteBlogs?.myFavoriteNews?.map((value)=>{
-  //   deleteBlogs(value.favoriteId);})}
-  //   // console.log("cccccsoooooooooooooossssssssssssss",deleteBlogs)
   // };
   return (
     <div className="w-full">
@@ -51,17 +35,17 @@ const Favorites = ({favoriteBlogs ,favoriteCourses}) => {
         aria-label="Example empty table"
       >
         <TableHeader>
-          <TableColumn className="bg-forgetpassbtn text-muted">#</TableColumn>
-          <TableColumn className="bg-forgetpassbtn text-muted">
+          <TableColumn className="bg-forgetpassbtn font-persian text-muted">#</TableColumn>
+          <TableColumn className="bg-forgetpassbtn font-persian text-muted">
             {t("Name")}
           </TableColumn>
-          <TableColumn className="bg-forgetpassbtn text-muted">
+          <TableColumn className="bg-forgetpassbtn font-persian text-muted">
             {t("TeachersName")}
           </TableColumn>
-          <TableColumn className="bg-forgetpassbtn text-muted">
+          <TableColumn className="bg-forgetpassbtn font-persian text-muted">
             {t("StartEvent")}
           </TableColumn>
-          <TableColumn className="bg-forgetpassbtn text-muted">
+          <TableColumn className="bg-forgetpassbtn font-persian text-muted">
             {t("EndEvent")}
           </TableColumn>
           <TableColumn className="bg-forgetpassbtn"></TableColumn>
@@ -79,21 +63,12 @@ const Favorites = ({favoriteBlogs ,favoriteCourses}) => {
                     className="size-16"
                   />
                 </TableCell>
-                <TableCell>{value.title}</TableCell>
-                <TableCell>{value.auther}</TableCell>
-                <TableCell>{formatsBlogsDateStart}</TableCell>
-                <TableCell>{formatsBlogsDateEnd}</TableCell>
+                <TableCell className="font-persian">{value.title}</TableCell>
+                <TableCell className="font-persian">{value.auther}</TableCell>
+                <TableCell className="font-persian">{formatsBlogsDateStart}</TableCell>
+                <TableCell className="font-persian">{formatsBlogsDateEnd}</TableCell>
                 <TableCell className="flex justify-center flex-nowrap pt-7">
-                  <div className="m-auto"
-                    // onClick={() => {
-                    //   if (value.favoriteId) {
-                    //     handelDeleteBlogs(favoriteId);
-                    //     // toast.success(t("DeleteBlog"));
-                    //   } else {
-                    //     toast.error("CantDelete");
-                    //   }
-                    // }}
-                  >
+                  <div className="m-auto">
                     <Cross />
                   </div>
                   <View id={value.id}/>
@@ -107,10 +82,10 @@ const Favorites = ({favoriteBlogs ,favoriteCourses}) => {
                 <TableCell>
                   <img src={value.course?.imageAddress} className="size-16" />
                 </TableCell>
-                <TableCell>{value.courseTitle}</TableCell>
-                <TableCell>{value.teacheName}</TableCell>
-                <TableCell>{formatsCoursesDateStart}</TableCell>
-                <TableCell>{formatsCoursesDateEnd}</TableCell>
+                <TableCell className="font-persian">{value.courseTitle}</TableCell>
+                <TableCell className="font-persian">{value.teacheName}</TableCell>
+                <TableCell className="font-persian">{formatsCoursesDateStart}</TableCell>
+                <TableCell className="font-persian">{formatsCoursesDateEnd}</TableCell>
                 <TableCell className="flex justify-center flex-nowrap pt-7">
                   <Cross />
                   <View id={value.courseId} />

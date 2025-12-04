@@ -29,10 +29,4 @@ export const PanelData = [
     name: "",
     link: "/panel/profile",
   },
-  {
-    id: 6,
-    image: "/src/assets/icons/money-send-02-stroke-rounded 1.svg",
-    name: "",
-    link: "/panel/payment",
-  },
 ];

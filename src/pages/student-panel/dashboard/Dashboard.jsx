@@ -48,8 +48,8 @@ const Dashboard = () => {
           profileCompletionPercentage={profileData?.profileCompletionPercentage}
         />
       </div>
-      <div className="w-full flex justify-between">
-        <div className="w-7/12 flex flex-wrap gap-1">
+      <div className="w-full flex h-[540px] justify-between">
+        <div className="w-3/5 flex flex-wrap gap-1">
           <div className="w-full flex flex-nowrap justify-between">
             <p className="w-1/2 text-start font-persian">{t("MenuText3")}</p>
             <Link to={"/panel/reserve-course"} className="w-1/2 text-end">
@@ -58,7 +58,7 @@ const Dashboard = () => {
           </div>
           <ReserveTable />
         </div>
-        <div className="w-1/3 flex border-forgetpassbtn border-1 rounded-3xl bg-forgetpassbtn ">
+        <div className="w-[31%] flex border-forgetpassbtn border-1 overflow-x-hidden overflow-y-scroll rounded-3xl bg-forgetpassbtn ">
           <YourComments profileData={profileData} />
         </div>
       </div>

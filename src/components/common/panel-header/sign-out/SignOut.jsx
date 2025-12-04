@@ -12,7 +12,7 @@ const SignOut = () => {
   }
   return (
     <div className="w-14/12 h-1/5 flex items-end m-auto">
-    <Link to={"/"} className="p-2 mt-[50%] ">
+    <Link to={"/"} className="p-2">
       <Button startContent={<UserIcon />} onPress={removeAccount} className="mr-4 ml-2 h-14 w-full border-3 border-red-600 rounded-full"  variant="bordered">
         <p className="font-persian text-[18px] text-red-600">{t("DeleteUser")}</p>
       </Button>

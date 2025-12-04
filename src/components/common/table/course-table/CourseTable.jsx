@@ -22,26 +22,26 @@ const CourseTable = () => {
       "jYYYY/jMM/jDD"
     );
   return (
-    <div className="w-full ">
+    <div className="w-full mt-2.5">
       <Table
         classNames={{ wrapper: "bg-background" }}
         aria-label="Example empty table"
       >
         <TableHeader>
-          <TableColumn className="bg-forgetpassbtn text-muted">#</TableColumn>
-          <TableColumn className="bg-forgetpassbtn text-muted">
+          <TableColumn className="bg-forgetpassbtn font-persian text-muted">#</TableColumn>
+          <TableColumn className="bg-forgetpassbtn font-persian text-muted">
             {t("Name")}
           </TableColumn>
-          <TableColumn className="bg-forgetpassbtn text-muted">
+          <TableColumn className="bg-forgetpassbtn font-persian text-muted">
             {t("TeachersName")}
           </TableColumn>
-          <TableColumn className="bg-forgetpassbtn text-muted">
+          <TableColumn className="bg-forgetpassbtn font-persian text-muted">
             {t("StartEvent")}
           </TableColumn>
-          <TableColumn className="bg-forgetpassbtn text-muted">
+          <TableColumn className="bg-forgetpassbtn font-persian text-muted">
             {t("EndEvent")}
           </TableColumn>
-          <TableColumn className="bg-forgetpassbtn text-muted">
+          <TableColumn className="bg-forgetpassbtn font-persian text-muted">
             {t("")}
           </TableColumn>
         </TableHeader>
@@ -52,15 +52,15 @@ const CourseTable = () => {
                 <TableCell>
                   <img src={value.tumbImageAddress} className="size-14" />
                 </TableCell>
-                <TableCell>{value.courseTitle}</TableCell>
-                <TableCell>{value.fullName}</TableCell>
-                <TableCell>{formatInsertDate}</TableCell>
+                <TableCell className="font-persian">{value.courseTitle}</TableCell>
+                <TableCell className="font-persian">{value.fullName}</TableCell>
+                <TableCell className="font-persian">{formatInsertDate}</TableCell>
                 <TableCell>
-                  <span>
+                  <span className="font-persian">
                     {t("Toman")} {value.cost}
                   </span>
                 </TableCell>
-                <TableCell className="flex justify-center flex-nowrap pt-7">
+                <TableCell className="flex justify-center font-persian flex-nowrap pt-7">
                   <View id={value.courseId}/>
                 </TableCell>
               </TableRow>

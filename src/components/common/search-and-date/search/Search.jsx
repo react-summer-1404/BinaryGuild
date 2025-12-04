@@ -14,6 +14,7 @@ const Search = ({ setFilter }) => {
       setFilter((prev) => ({ ...prev, Query: value }));
     }
   }, [value]);
+  console.log("value",value)
 
   return (
     <div className="flex flex-wrap w-full gap-4">

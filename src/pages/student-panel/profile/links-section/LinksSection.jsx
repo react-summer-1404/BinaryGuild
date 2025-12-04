@@ -123,7 +123,7 @@ const LinksSection = () => {
                 </div>
                 </div>
                 <div className="w-10/12 m-auto mr-9 ml-9 flex justify-start flex-nowrap gap-2">
-                  <div className="w-11/12 flex flex-wrap">
+                  <div className="w-11/12 relative flex flex-wrap">
                     <label
                       htmlFor="BirthDay"
                       className="font-bold w-11/12 m-auto mr-2 ml-2 text-right"
@@ -137,7 +137,7 @@ const LinksSection = () => {
                       className="border-1 mr-2 ml-2 border-boarder text-[12px] p-4 font-bold w-11/12 m-auto mt-2 rounded-3xl text-muted"
                       placeholder={t("YourDateOfBirth")}
                     />
-                      <div className="absolute left-6 top-[17px] cursor-pointer">
+                      <div className="absolute left-12 top-[45px] cursor-pointer">
                         <Calender />
                       </div>
                     <ErrorMessage
