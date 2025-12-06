@@ -9,9 +9,7 @@ const LandingLayout = lazy(() =>
 const StudentPanelLayout = lazy(() =>
   import("../../components/layouts/StudentPanelLayout")
 );
-const AdminPanelLayout = lazy(() =>
-  import("../../components/layouts/AdminPanelLayout")
-);
+
 
 // Pages
 const ForgetPasswordWrapper = lazy(() =>
@@ -59,35 +57,6 @@ const BlogFav = lazy(() =>
   import("../../pages/student-panel/blog-fav/BlogFav")
 );
 
-//admin panel
-
-const AdminDashboard = lazy(() =>
-  import("../../pages/admin-panel/adminDashboard/AdminDashboard")
-);
-const AdminUserManagement = lazy(() =>
-  import("../../pages/admin-panel/userManagement/UserManagement")
-);
-const UserJobHistory = lazy(() =>
-  import("../../pages/admin-panel/userManagement/UserJobHistory")
-);
-const AdminBlogsManagement = lazy(() =>
-  import("../../pages/admin-panel/blogsManagement/BlogsManagement")
-);
-const AdminAddBlogs = lazy(() =>
-  import("../../pages/admin-panel/blogsManagement/AddBlogs")
-);
-const AdminCoursesManagement = lazy(() =>
-  import("../../pages/admin-panel/CoursesManagement")
-);
-const AdminCommentsManagement = lazy(() =>
-  import("../../pages/admin-panel/CommentsManagement")
-);
-const AdminSetting = lazy(() =>
-  import("../../pages/admin-panel/Settings")
-);
-const AdminSupport = lazy(() =>
-  import("../../pages/admin-panel/Support")
-);
 
 
 
@@ -132,27 +101,7 @@ const Router = createBrowserRouter([
     ],
   },
 
-  {
-    path: "/admin-panel",
-    element: <AdminPanelLayout />,
-    children: [
-      { index:true ,  element: <AdminDashboard /> },
-      { path:"Dashboard",  element: <AdminDashboard /> },
 
-      { path:"User-management" , element: <AdminUserManagement /> },
-      { path:"User-Job-history" , element: <UserJobHistory /> },
-
-      { path:"Blogs-management" , element: <AdminBlogsManagement /> },
-      { path:"add-Blogs" , element: <AdminAddBlogs/> },
-
-      { path:"Courses-management" , element: <AdminCoursesManagement /> },
-
-      { path:"comments-management" , element: <AdminCommentsManagement /> },
-      { path:"Supports" , element: <AdminSupport /> },
-      { path:"Setting" , element: <AdminSetting /> },
-
-    ],
-  },
 
   { path: "*", element: <NotFound /> },
 ]);

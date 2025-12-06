@@ -10,7 +10,7 @@ import { AddCourseDisLike } from "../../../src/core/services/api/post-data/index
 import toast, { Toaster } from "react-hot-toast";
 import ReserveCourseSuccessModal from "./ReserveCourseSuccessModal";
 
-const CourseHeader = ({ course, courseId }) => {
+const CourseHeader = ({ course, courseId, courseGroup }) => {
   const { t } = useTranslation();
   const [reserve, setReserve] = useState("");
   const [favorite, setFavorite] = useState("");
@@ -95,6 +95,11 @@ const CourseHeader = ({ course, courseId }) => {
     }
   };
 
+const rate= Math.round(course.courseRate)
+
+
+
+
   return (
     <div className="w-full m-auto h-106 flex gap-8 justify-between items-center max-[540px]:flex-col-reverse max-[540px]:mt-100">
       <Toaster />
@@ -131,7 +136,14 @@ const CourseHeader = ({ course, courseId }) => {
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseType")}
             </p>
-            <div className="bg-[#3772FF] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 flex justify-center items-center "></div>
+            {courseGroup?.length > 0 && (
+              <div
+                className="bg-[#3772FF] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 flex justify-center items-center "
+                key={courseGroup[0].id}
+              >
+                {courseGroup[0].groupName}
+              </div>
+            )}
           </div>
           <div className="border-l-2 border-[#DCDCDC] pb-5 max-[540px]:pb-2">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
@@ -192,10 +204,10 @@ const CourseHeader = ({ course, courseId }) => {
         {/* rate and price */}
         <div className="w-full h-[34px]  mt-5 flex justify-between max-[540px]:mt-4">
           <div className="flex items-center gap-2 ">
-            <div>({course.courseRate})</div>
+            <div>({rate})</div>
             <ReactStars
               count={5}
-              value={course.courseRate}
+              value={rate}
               size={28}
               color1="#D9D9D9"
               color2="#FCFF46"
