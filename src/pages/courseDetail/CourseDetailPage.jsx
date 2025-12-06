@@ -9,6 +9,7 @@ import { GetCourse } from "../../core/services/api/get-data";
 import CourseReserveMobileMode from "./CourseReserveMobileMode";
 import { GetCourseGroup } from "../../core/services/api/get-data";
 import { useQuery } from "@tanstack/react-query";
+
 // import { useQuery } from "@tanstack/react-query";
 export const CourseDetailPage = () => {
   const { id: courseId } = useParams();

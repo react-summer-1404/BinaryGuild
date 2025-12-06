@@ -61,25 +61,26 @@ const CourseComments = ({ courseId, course}) => {
 
 
   return (
-    <div className=" h-[400px] w-full mt-8 ">
+    <div className="  w-full mt-8 ">
       <Toaster />
-      <h2 className="text-[#707070] flex justify-start font-[700] text-[20px]">
+
+      <h2 className="text-gray-400  flex justify-start font-bold text-[20px]">
         {t("CommentsHead")}
       </h2>
 
-      <div className=" w-full h-[282px] grid grid-cols-4 gap-4 mt-6 max-[1200px]:grid-cols-3 max-[768px]:block max-[768px]:overflow-visible ">
-        <div className=" h-90 rounded-[24px] mt-4 mb-4 bg-[#3772FF] flex justify-center items-center gap-2">
+      <div className=" w-full grid grid-cols-4 gap-4  max-[1200px]:grid-cols-2 max-[768px]:block max-[768px]:overflow-visible ">
+        <div className=" h-90 rounded-3xl mt-4 mb-4 bg-[#3772FF] flex justify-center items-center gap-2">
           <div className="flex flex-col items-center justify-center">
             <img
               src="../../../src/assets/icons/comment-add-01.png"
               className="w-8 h-8"
             />
-            <p className="text-[#FCFCFC] text-[18px] font-[600] mt-2 ">
+            <p className="text-[#FCFCFC] text-[18px] font-semibold mt-2 ">
               {t("Comments")}
             </p>
             <button
               onClick={() => setShow(true)}
-              className="text-[#FCFCFC] cursor-pointer text-[14px] font-[500] mt-4"
+              className="text-[#FCFCFC] cursor-pointer text-[14px] font-medium mt-4"
             >
               {t("CommentDescription")}
             </button>
@@ -98,13 +99,13 @@ const CourseComments = ({ courseId, course}) => {
           comments.map((course) => (
             <div
               key={course.id}
-              className="bg-forgetpassbtn p-4 h-90 rounded-[24px] flex flex-col items-center justify-between mt-4 mb-4"
+              className="bg-forgetpassbtn p-4 h-90 rounded-3xl flex flex-col items-center justify-between mt-4 mb-4"
             >
               <div className=" h-[157px] w-full">
                 <p className="text-text font-bold text-[18px]">
                   {course.title}
                 </p>
-                <p className="font-[500] text-4 text-[#707070] mt-4 wrap-break-word">
+                <p className="font-medium text-4 text-gray-400 mt-4 wrap-break-word">
                   {course.describe}
                 </p>
               </div>
@@ -119,10 +120,10 @@ const CourseComments = ({ courseId, course}) => {
                     />
                   </div>
                   <div>
-                    <p className="font-[600] text-text text-[14px] ">
+                    <p className="font-semibold text-text text-[14px] ">
                       {course.author}
                     </p>
-                    <p className="text-[#707070] font-[500] text-[12px] ">
+                    <p className="text-gray-400 font-medium text-[12px] ">
                       {formatInsertDate}
                     </p>
                   </div>
@@ -154,7 +155,7 @@ const CourseComments = ({ courseId, course}) => {
                         stroke-linejoin="round"
                       />
                     </svg>
-                    <span className="text-[16px] font-[500] max-[1000px]:hidden max-[768px]:block ">
+                    <span className="text-[16px] font-medium max-[1000px]:hidden max-[768px]:block ">
                       {course.likeCount}
                     </span>
                   </div>
@@ -183,7 +184,7 @@ const CourseComments = ({ courseId, course}) => {
                         stroke-linejoin="round"
                       />
                     </svg>
-                    <span className="text-[16px] font-[500] max-[1000px]:hidden max-[768px]:block ">
+                    <span className="text-[16px] font-medium max-[1000px]:hidden max-[768px]:block ">
                       {course.disslikeCount}
                     </span>
                   </div>
@@ -198,18 +199,22 @@ const CourseComments = ({ courseId, course}) => {
           </div>
         )}
       </div>
+      <div>
 
       {comment.length > 3 ? (
-        <div className=" w-full h-[39px] flex justify-center items-center mt-5 max-[768px]:block  max-[768px]:mt-40  ">
-          <Button className="bg-[#2F2F2F] mt-8 cursor-pointer w-[125px] h-[39px] p-2 rounded-[40px] flex justify-center items-center gap-2 ">
-            <p className="text-[#FCFCFC] text-[16px] font-[500]">
+        <div className="w-full h-[39px] flex justify-center items-center    max-[768px]:mt-5  ">
+          <Button className="bg-[#2F2F2F]  cursor-pointer w-[125px] h-[39px] p-2 rounded-[40px] flex justify-center items-center gap-2 ">
+            <p onClick={()=><CourseCommentModal/>} className="text-[#FCFCFC] text-[16px] font-medium">
               {t("SeeMore")}
             </p>
           </Button>
         </div>
       ) : (
         <p> </p>
-      )}
+      )}        
+      </div>
+
+
     </div>
   );
 };

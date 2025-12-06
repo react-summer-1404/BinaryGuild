@@ -46,8 +46,8 @@ const RelatedCourses = ({ courseId }) => {
    
 
   return (
-    <div className="  h-[400px] w-full mt-20 " >
-      <h2 className="text-[#707070] font-[700] text-[20px] flex justify-start">
+    <div className="  h-[400px] w-full  mb-10 " >
+      <h2 className="text-gray-400 font-bold text-[20px] flex justify-start">
         {t("RealatedCourses")}
       </h2>
 
@@ -56,26 +56,26 @@ const RelatedCourses = ({ courseId }) => {
           relatedCourses.map((course) => (
             <div
               key={course.id}
-              className="h-full flex flex-col flex-shrink-0 justify-between "
+              className="h-full   flex flex-col shrink-0  "
             >
               <div className="relative gap-2 flex ">
                 <img
-                  className="h-[293px] rounded-[24px] "
+                  className="h-[293px] rounded-t-3xl "
                   src={course.imageAddress}
                   alt=""
                 />
-                <div className="absolute top-2 right-2 w-[65px] text-[#FCFCFC] font-medium text-[14px] flex items-center justify-center h-6 rounded-[32px] bg-[#FF37F5] ">
+                <div className="absolute top-2 right-2 w-[65px] text-[#FCFCFC] font-medium text-[14px] flex items-center justify-center h-6 rounded-4xl bg-[#FF37F5] ">
                   {course.courseLevelName}
                 </div>
-                {/* <div className=" w-[89px] h-6 rounded-[32px] bg-blue ">{} </div> */}
+                {/* <div className=" w-[89px] h-6 rounded-4xl bg-blue ">{} </div> */}
               </div>
 
-              <div className=" h-[61px] pr-2 pl-2 ">
+              <div className="border-black-900 rounded-b-3xl border-b-1 border-l-1 border-r-1  pb-2  pr-2 pl-2 ">
                 <h2 className="text-text  font-bold text-[24px] ">
                   {course.techName}{" "}
                 </h2>
                 <div className="flex justify-between">
-                  <p className="text-[#707070] text-[14px] font-medium ">
+                  <p className="text-gray-400 text-[14px] font-medium ">
                     {course.teacherName}
                   </p>
                   <div className="flex">
