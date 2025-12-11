@@ -1,50 +1,47 @@
-import { Button } from '@heroui/button';
-import React, { useState } from 'react'
-import { useTranslation } from 'react-i18next';
+import { Button } from "@heroui/button";
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+} from "@heroui/react";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const BlogsOrder = () => {
   const { t } = useTranslation();
-  const [border, setBorder] = useState("text-text");
-  const [background, setBackground] = useState("text-text");
-  
+  const sortOptions = [
+    { key: "new", label: t("New") },
+    { key: "popular", label: t("Popular") },
+  ];
+  const [select, setSelect] = useState(sortOptions[0].label);
 
-  const changeBorder = () => {
-    if (border == "text-text") {
-      setBorder("border-red-700 text-red-700");
-    } else {
-      setBorder("text-text");
-    }
-    console.log(border);
-  };
-  const changeBackground = () => {
-    if (background == "text-text") {
-      setBackground("border-red-700 text-red-700");
-    } else {
-      setBackground("text-text");
-    }
-    console.log(background);
-  };
   return (
-    <div className="flex flex-nowrap gap-3 mt-4">
-      <p className="font-bold text-text mt-1.5">{t("Order")}</p>
-      <Button
-        radius="full"
-        variant="bordered"
-        onPress={changeBackground}
-        className={`${background}`}
+    <Dropdown>
+      <DropdownTrigger>
+        <Button variant="bordered" className="font-persian p-2 flex">
+          {select}
+        </Button>
+      </DropdownTrigger>
+      <DropdownMenu
+        aria-label="Dynamic Actions"
+        onAction={(key) => {
+          const selectSortOptions = sortOptions.find((e) => e.key === key);
+          if (selectSortOptions) setSelect(selectSortOptions.label);
+        }}
+        classNames={{ base: "bg-red" }}
       >
-        <p className="font-bold">{t("New")}</p>
-      </Button>
-      <Button
-        variant="bordered"
-        radius="full"
-        onPress={changeBorder}
-        className={`${border}`}
-      >
-        <p className="font-bold">{t("Popular")}</p>
-      </Button>
-    </div>
-  )
-}
+        {sortOptions.map((value) => (
+          <DropdownItem
+            key={value.key}
+            classNames={{ title: "font-persian text-end" }}
+          >
+            {value.label}
+          </DropdownItem>
+        ))}
+      </DropdownMenu>
+    </Dropdown>
+  );
+};
 
-export default BlogsOrder
+export default BlogsOrder;

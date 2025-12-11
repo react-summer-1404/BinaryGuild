@@ -9,7 +9,9 @@ const SecondStage = ({ onPrevious, onNext }) => {
   const { t } = useTranslation();
   const [background, setBackground] = useState("");
   const [placeholder] = useState();
+  const [image, setImage] = useState("")
 
+  console.log("image",image)
   const changeBackground = () => {
     if (placeholder == "") {
       setBackground("bg-gray");
@@ -74,7 +76,9 @@ const SecondStage = ({ onPrevious, onNext }) => {
                 id="image"
                 className="text-[0px]"
                 onClick={changeBackground}
+                placeholder={setImage}
               />
+              <img src={image}/>
             </div>
           </label>
         </div>

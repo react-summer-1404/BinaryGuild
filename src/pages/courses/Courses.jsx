@@ -64,7 +64,7 @@ const Courses = () => {
         </div>
         <div className="flex flex-wrap w-4/5 m-auto gap-6">
           <div className="w-full items-start ">
-            <CoursesOrder setFilter={setFilter} />
+            <CoursesOrder coursesData={coursesData} />
           </div>
           {!loading && (
             <div className="lg:flex lg:flex-wrap grid-cols-1 w-3/4 lg:w-full m-auto gap-6">

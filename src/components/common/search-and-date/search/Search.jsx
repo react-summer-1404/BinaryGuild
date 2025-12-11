@@ -9,17 +9,17 @@ const Search = ({ setFilter }) => {
   const [value] = useDebounce(query, 1000);
 
   useEffect(() => {
-    console.log('value',typeof value,'query', typeof query)
-    if (value !==undefined) {
+    console.log("value", typeof value, "query", typeof query);
+    if (value !== undefined) {
       setFilter((prev) => ({ ...prev, Query: value }));
     }
   }, [value]);
-  console.log("value",value)
+  console.log("value", value);
 
   return (
     <div className="flex flex-wrap w-full gap-4">
       <div className="flex w-full justify-start gap-2 mr-1 ml-1">
-        <SearchImage/>
+        <SearchImage />
         <p className="text-text font-persian">{t("Search")}</p>
       </div>
       <div className="w-11/12 m-auto">

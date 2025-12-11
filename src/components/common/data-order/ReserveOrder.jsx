@@ -1,60 +1,63 @@
 import { Button } from "@heroui/button";
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+} from "@heroui/react";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment } from "../../../core/redux/slices/FillterAccept";
+import { UserReserve } from "../../../core/services/api/get-data";
 
-const ReserveOrder = () => {
+const ReserveOrder = ({setFilter}) => {
   const { t } = useTranslation();
-  // const [border, setBorder] = useState("text-text");
-  // const [background, setBackground] = useState("text-text");
-  const acceptValue = useSelector((state)=> state.accept)
-  const dispatch = useDispatch()
-
-
-  // const changeBorder = () => {
-  //   if (border == "text-text") {
-  //     setBorder("border-red-700 text-red-700");
-  //   } else {
-  //     setBorder("text-text");
-  //   }
-  //   if (border == "border-red-700 text-red-700") {
-  //     getUserReserve == false;
-  //   }
-  //   console.log(border);
-  // };
-  // const changeBackground = () => {
-    
-  //   if (background == "text-text") {
-  //     setBackground("border-red-700 text-red-700");
-  //   } else {
-  //     setBackground("text-text");
-  //   }
-  //   if (background == "border-red-700 text-red-700") {
-  //     getUserReserve == true;
-  //   }
-  //   console.log(background);
-  // };
+  const sortOptions = [
+    { key: "confirmed", label: t("Confirmed") },
+    { key: "notConfirmed", label: t("NotConfirmed") },
+  ];
+  const [select, setSelect] = useState(sortOptions[0].label);
+  const handleAccept = () => {
+    // if (select === sortOptions[0].label) {
+    //   setFilter?.accept === true;
+    //   toast.success("yeeeeees");
+    //   console.log("getUserReserve?.accept1",setFilter?.accept)
+    // } if(select === sortOptions[1].label) {
+    //   setFilter?.accept
+    //   toast.error("nooooooo");
+    //   console.log("getUserReserve?.accept2",setFilter?.accept)
+    // }
+  };
 
   return (
-    <div className="flex flex-nowrap gap-3 mt-4">
-      <p className="font-bold text-text mt-1.5">{t("Order")}</p>
-      <Button
-        radius="full"
-        variant="bordered"
-        aria-label="Increment value"
-        onPress={()=>{dispatch(increment())}}
-        // className={`${background}`}
-      >
-        <p className="font-bold">{t("Confirmed")}</p>
-      </Button>
-      <Button
-        variant="bordered"
-        radius="full"
-        onPress={()=>{dispatch(decrement())}}
-        // className={`${border}`}
-      >
-        <p className="font-bold">{acceptValue} {t("NotConfirmed")}</p>
-      </Button>
+    <div>
+      <Toaster />
+      <Dropdown>
+        <DropdownTrigger>
+          <Button variant="bordered"
+              className="font-persian p-2 mt-4 flex">
+            {select}
+          </Button>
+        </DropdownTrigger>
+        <DropdownMenu
+          aria-label="Dynamic Actions"
+          onAction={(key) => {
+            const selectSortOptions = sortOptions.find((e) => e.key === key);
+            if (selectSortOptions) setSelect(selectSortOptions.label);
+          }}
+          >
+          {sortOptions.map((value) => (
+            <DropdownItem
+            key={value.key}
+            classNames={{ title: "font-persian text-end" }}
+            onClick={handleAccept}
+            >
+              {value.label}
+            </DropdownItem>
+          ))}
+        </DropdownMenu>
+      </Dropdown>
     </div>
   );
 };

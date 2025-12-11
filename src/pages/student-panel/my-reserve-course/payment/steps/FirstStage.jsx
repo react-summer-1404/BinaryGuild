@@ -21,7 +21,7 @@ const FirstStage = ({ onNext }) => {
   };
   const handelRegistration = () => {
     try {
-      if ((placeholder1 !== "", placeholder2 !== "", placeholder3 !== "")) {
+      if ((placeholder1 == "", placeholder2 == "", placeholder3 == "")) {
         onNext();
       }
     } catch (error) {

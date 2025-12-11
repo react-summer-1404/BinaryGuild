@@ -1,5 +1,10 @@
 import {
+  Button,
   Chip,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
   Table,
   TableBody,
   TableCell,
@@ -19,25 +24,22 @@ import {
 } from "../../../../core/services/api/get-data";
 import Payment from "../../../../pages/student-panel/my-reserve-course/payment/Payment";
 import { useParams } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const ReserveTable = () => {
+  const { t } = useTranslation();
   const { data: reserveData, isSuccess } = useQuery({
     queryKey: ["GET_USER_RESERVE2"],
     queryFn: UserReserve,
   });
-  // const sendReserveId = () => {
-  //   try {
-  //     if (reserveData?.reserveId) {
-  //       PatchCoursePayment(reserveData?.reserveId);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const sortOptions = [
+    { key: "confirmed", label: t("Confirmed") },
+    { key: "notConfirmed", label: t("NotConfirmed") },
+  ];
+  const [select, setSelect] = useState(sortOptions[0].label);
   const formatInsertDate = moment(reserveData?.insertDate).format(
     "jYYYY/jMM/jDD"
   );
-  const { t } = useTranslation();
   const [displayBlock, setDisplayBlock] = useState("hidden");
 
   const { reserveId: id } = useParams();
@@ -58,9 +60,48 @@ const ReserveTable = () => {
       console.log(error);
     }
   };
+  const handleAccept = () => {
+    if (select === sortOptions[0].label) {
+      reserveData?.accept === true;
+      toast.success("yeeeeees");
+      console.log("getUserReserve?.accept1", reserveData?.accept);
+    }
+    if (select === sortOptions[1].label) {
+      reserveData?.accept === false;
+      toast.error("nooooooo");
+      console.log("getUserReserve?.accept2", reserveData?.accept);
+    }
+  };
   console.log("block", displayBlock);
   return (
-    <>
+    <div className="w-full">
+      <div>
+        <Toaster />
+        <Dropdown>
+          <DropdownTrigger>
+            <Button variant="bordered" className="font-persian p-2 mt-4 flex">
+              {select}
+            </Button>
+          </DropdownTrigger>
+          <DropdownMenu
+            aria-label="Dynamic Actions"
+            onAction={(key) => {
+              const selectSortOptions = sortOptions.find((e) => e.key === key);
+              if (selectSortOptions) setSelect(selectSortOptions.label);
+            }}
+          >
+            {sortOptions.map((value) => (
+              <DropdownItem
+                key={value.key}
+                classNames={{ title: "font-persian text-end" }}
+                onClick={handleAccept}
+              >
+                {value.label}
+              </DropdownItem>
+            ))}
+          </DropdownMenu>
+        </Dropdown>
+      </div>
       <Table
         classNames={{ wrapper: "bg-background" }}
         aria-label="Example empty table"
@@ -187,7 +228,7 @@ const ReserveTable = () => {
           <Payment />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
