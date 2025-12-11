@@ -1,14 +1,12 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
-import { useTranslation } from "react-i18next";
-import ApplyChanges from "../../../../components/common/button/ApplyChanges";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import instance from "../../../../core/services/interceptor";
 import { Button } from "@heroui/button";
-import * as Yup from "yup";
-import toast, { Toaster } from "react-hot-toast";
-import { UserData } from "../../../../core/services/api/get-data";
+import { useMutation } from "@tanstack/react-query";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import moment from "moment-jalaali";
+import toast, { Toaster } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
+import * as Yup from "yup";
 import Calender from "../../../../core/icons/Calender";
+import instance from "../../../../core/services/interceptor";
 
 const LinksSection = () => {
   const { t } = useTranslation();
@@ -17,17 +15,7 @@ const LinksSection = () => {
     LinkdinProfile: Yup.string().required(t("WriteLinkdinProfile")),
   });
 
-  const { data: getProfile } = useQuery({
-    queryKey: ["PROFILE"],
-    queryFn: UserData,
-    refetchOnWindowFocus: false,
-    refetchOnmount: false,
-    refetchOnReconnect: false,
-    refetchOnMount: false,
-    refetchInterval: false,
-    refetchIntervalInBackground: false,
-    retry: false,
-  });
+  const getProfile = JSON.parse(localStorage.getItem("data"))
   const { mutate: editLink } = useMutation({
     mutationFn: async (data) => {
       const response = await instance.put(

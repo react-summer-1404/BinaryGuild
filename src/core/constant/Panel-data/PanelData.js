@@ -29,4 +29,10 @@ export const PanelData = [
     name: "",
     link: "/panel/profile",
   },
+  {
+    id: 6,
+    image: "/src/assets/icons/Vector.svg",
+    name: "",
+    link: "/panel/security-settings",
+  },
 ];

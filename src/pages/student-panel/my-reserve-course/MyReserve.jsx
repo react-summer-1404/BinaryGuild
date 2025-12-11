@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import ReserveOrder from "../../../components/common/data-order/ReserveOrder";
-import Search2 from "../../../components/common/search-and-date/search/Search2";
 import ReserveTable from "../../../components/common/table/reserve-table/ReserveTable";
 import { UserReserve } from "../../../core/services/api/get-data";
+import Search2 from "../../../components/common/search-and-date/search/Search2"
 
 const MyReserve = () => {
   const { t } = useTranslation();

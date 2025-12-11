@@ -31,7 +31,7 @@ const Favorites = ({favoriteBlogs ,favoriteCourses}) => {
     <div className="w-full">
       <Toaster />
       <Table
-        classNames={{ wrapper: "bg-background" }}
+        classNames={{ wrapper: "bg-background mb-10" }}
         aria-label="Example empty table"
       >
         <TableHeader>

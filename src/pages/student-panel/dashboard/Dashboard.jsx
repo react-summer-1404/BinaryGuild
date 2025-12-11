@@ -1,18 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import CourseTable from "../../../components/common/table/course-table/CourseTable";
 import ReserveTable from "../../../components/common/table/reserve-table/ReserveTable";
-import { UserData } from "../../../core/services/api/get-data";
 import TimeList from "../panel-list/TimeList";
 import YourComments from "./comment/YourComments";
 import PanelChart from "./panel-chart/PanelChart";
 
 const Dashboard = () => {
-  const { data: profileData } = useQuery({
-    queryKey: ["GET_PROFILE_INFO"],
-    queryFn: UserData,
-  });
+  const profileData = JSON.parse(localStorage.getItem("data"))
   console.log(profileData);
   const { t } = useTranslation();
   return (
@@ -48,7 +43,7 @@ const Dashboard = () => {
           profileCompletionPercentage={profileData?.profileCompletionPercentage}
         />
       </div>
-      <div className="w-full flex h-[540px] justify-between">
+      <div className="w-full flex h-[360px] justify-between">
         <div className="w-3/5 flex flex-wrap gap-1">
           <div className="w-full flex flex-nowrap justify-between">
             <p className="w-1/2 text-start font-persian">{t("MenuText3")}</p>

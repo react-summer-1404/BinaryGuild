@@ -1,13 +1,9 @@
-import React from "react";
-import ThreePoints from "../../../../../core/icons/ThreePoints";
 import { Button } from "@heroui/button";
 import { useMutation } from "@tanstack/react-query";
-import instance from "../../../../../core/services/interceptor";
-import { SelectProfileImage } from "../../../../../core/services/api/post-data";
-import toast from "react-hot-toast";
 import { Formik } from "formik";
+import toast from "react-hot-toast";
 import { Form } from "react-router-dom";
-import { UserData } from "../../../../../core/services/api/get-data";
+import instance from "../../../../../core/services/interceptor";
 
 const PhotoSection = () => {
   const { mutate: selectImage } = useMutation({
@@ -28,14 +24,14 @@ const PhotoSection = () => {
       console.log(success, "success");
     },
   });
-  const userData = JSON.parse(localStorage.getItem("userData"));
+  const userImage = JSON.parse(localStorage.getItem("data"));
 
-  console.log("userDataaaaaaaaaa", userData);
+  console.log("userDataaaaaaaaaa", userImage);
   const handelSelect = (data) => {
     console.log(data);
     selectImage(data);
   };
-  console.log("imaaaaaaaaaaaaageeeeeeeeeee", userData.userImage);
+  console.log("imaaaaaaaaaaaaageeeeeeeeeee", userImage.userImage);
   return (
     <>
       <Formik
@@ -46,7 +42,7 @@ const PhotoSection = () => {
       >
         <Form>
           <div className="flex flex-wrap gap-4 mr-11 mt-4">
-            {userData.userImage?.map((value) => {
+            {userImage.userImage?.map((value) => {
               return (
                 <Button type="submit" className="bg-boarder size-46">
                   <img src={value.puctureAddress} />
@@ -54,24 +50,6 @@ const PhotoSection = () => {
               );
             })}
           </div>
-          {/* <Button type="submit" className="bg-boarder size-46">
-              <div className="relative">
-                <img src="/src/assets/icons/Hand.svg" className="size-46" />
-                <div className="absolute top-5 right-1.5">
-                  <ThreePoints />
-                </div>
-              </div>
-            </Button>
-            <Button type="submit" className="bg-boarder size-46">
-              <img src="/src/assets/icons/Lady.svg" className="size-46" />
-            </Button>
-            <Button type="submit" className="bg-boarder size-46">
-              <img src="/src/assets/icons/Froge – 3.svg" className="size-46" />
-            </Button>
-            <Button type="submit" className="bg-boarder size-46">
-              <img src="/src/assets/icons/Smeed – 02.svg" className="size-46" />
-            </Button>
-          </div> */}
         </Form>
       </Formik>
     </>

@@ -18,6 +18,7 @@
   --color-blue-300: #675cff;
   --color-blue-100: #87dfff;
   --color-yellow: #f0db4f;
+  --color-purple: #5751E1;
 
   --font-persian: DanaFaNum;
 
@@ -42,6 +43,8 @@
   --color-textRed: var(--textRed);
   --color-textBlue2: var(--textBlue2);
   --color-paymentBackground: var(--paymentBackground);
+  --color-textDarkBlue: var(--textDarkBlue);
+  --color-backgroundBlue: var(--backgroundBlue);
 
 
 }
@@ -61,12 +64,14 @@
   --buttonBorder:#3772FF;
   --shadow:#313030;
   --commentHead:#202020;
-  --lightBlue:#EEFFFC;
+  --lightBlue:#EFEEFE;
   --lightRed:#FFECEC;
   --textBlue:#008C78;
   --textRed:#E7000B;
   --textBlue2:#3C8B85;
   --paymentBackground:#222222B2;
+  --textDarkBlue:#161439;
+  --backgroundBlue:#C9E4E9;
 }
 .dark{
   --background:#1a1a1a;
@@ -90,6 +95,8 @@
   --textRed:#E7000B;
   --textBlue2:#3C8B85;
   --paymentBackground:#575757d8;
+  --textDarkBlue:#6c64ff;
+  --backgroundBlue:#2a2f30;
 
 }
 

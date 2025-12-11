@@ -120,6 +120,7 @@ i18n.use(initReactI18next).init({
         Professors: "اساتید",
         ContactUs: "ارتباط با ما",
         Services: "خدمات ما",
+        PleaseWait:"لطفا کمی صبر کنید",
 
         //AuthCommon
         AuthTitle: "شروع یک ماجراجویی",
@@ -242,8 +243,8 @@ i18n.use(initReactI18next).init({
         MenuText3: "رزرو من",
         MenuText4: "مورد علاقه ها",
         MenuText5: "پروفایل",
-        MenuText6: "پرداخت ها",
         DeleteUser: "خروج از حساب کاربری",
+        MenuText6: "تنظیمات امنیتی",
         Student: "دانشجو",
 
         //panel
@@ -368,13 +369,41 @@ i18n.use(initReactI18next).init({
         PaymentsDate: "تاریخ پرداخت",
         AmountPaid: "مبلغ پرداختی ( به تومان)",
         RecordInformation: "ثبت اطلاعات",
-        SelectDesired:"فایل مورد نظر را انتخاب کنید",
-        PaymentSlip:"فیش پرداختی",
-        PreviousStage:"مرحله قبل",
-        AmountPaid2:"مبلغ پرداختی",
-        FinalRegistration:"ثبت نهایی",
-        Close:"بستن",
-        PaymentSuccessfully:"اطلاعات پرداختی با موفقیت ثبت شد",
+        SelectDesired: "فایل مورد نظر را انتخاب کنید",
+        PaymentSlip: "فیش پرداختی",
+        PreviousStage: "مرحله قبل",
+        AmountPaid2: "مبلغ پرداختی",
+        FinalRegistration: "ثبت نهایی",
+        Close: "بستن",
+        PaymentSuccessfully: "اطلاعات پرداختی با موفقیت ثبت شد",
+
+        //Security settings section
+        CurrentPassword: "رمز عبور فعلی",
+        PsswordUsing: "رمز عبوری که در حال حاضر استفاده می کنید",
+        NewPassword: "رمز عبور جدید",
+        Password: "رمز عبور شامل ارقام و حروف",
+        ChangePassword: "تغییر رمز عبور",
+        TwoStepLogin: "مایل به ورود دو مرحله ای هستم",
+        SaveChanges: "ذخیره تغییرات",
+        TwoStepVerification:"تایید ورود دو مرحله ای",
+
+        //about us
+        WhoAreWe:"ما کی هستیم؟؟",
+        LearnMore:"درباره ما بیشتر بدانید",
+        TheBestTeachers:"بهترین مربیان",
+        AccessYourClass:"از هر کجا به کلاس خود دسترسی داشته باشید",
+        FlexibleCourse:"برنامه دوره انعطاف پذیر",
+        WhatWeOffer:"آنچه ما ارائه می دهیم",
+        LearnNewSkills:"یادگیری مهارت های جدید در زمانی که و جایی که تو دوست داری",
+        TeachersAndCourses1:"معلمان متخصص",
+        Description1:"معلمان متخصص با دانش و تجربه خود، راهنمایی‌های موثری برای دانش‌آموزان ارائه می‌دهند.",
+        TeachersAndCourses2:"دوره های موثر",
+        Description2:"دوره‌های مؤثر، توانمندی‌های یادگیرندگان را به‌طرز چشم‌گیری بهبود می‌بخشند.",
+        TeachersAndCourses3:"دریافت گواهینامه",
+        Description3:"دریافت گواهینامه نشان‌دهنده توانایی و تخصص فرد در یک حوزه خاص است.",
+        EmpoweringGoals:"توانمندسازی دانش آموزان برای رسیدن به هدف",
+        EmpoweringGoals2:"آنها برای چالش سطح بعدی",
+        potential:"بالقوه",
 
         //not found
         Error: "صفحه مورد نظر شما یافت نشد . ",
@@ -540,6 +569,7 @@ i18n.use(initReactI18next).init({
         Professors: "Professors",
         ContactUs: "Contact us",
         Services: "Our services",
+        PleaseWait:"Please wait a moment",
 
         //goals
         OurGoals: "Our goals at the academy",
@@ -603,8 +633,8 @@ i18n.use(initReactI18next).init({
         MenuText3: "My reservation",
         MenuText4: "Favorite",
         MenuText5: "Profile",
-        MenuText6: "Payments",
         DeleteUser: "Delete user",
+        MenuText6: "Security settings",
         Student: "Student",
 
         //panel
@@ -730,13 +760,41 @@ i18n.use(initReactI18next).init({
         PaymentsDate: "payment date",
         AmountPaid: "Amount paid (in Tomans)",
         RecordInformation: "Record information",
-        SelectDesired:"Select the desired file",
-        PaymentSlip:"Payment slip",
-        PreviousStage:"Previous stage",
-        AmountPaid2:"Amount paid",
-        FinalRegistration:"Final registration",
-        Close:"to close",
-        PaymentSuccessfully:"Payment information was successfully registered.",
+        SelectDesired: "Select the desired file",
+        PaymentSlip: "Payment slip",
+        PreviousStage: "Previous stage",
+        AmountPaid2: "Amount paid",
+        FinalRegistration: "Final registration",
+        Close: "to close",
+        PaymentSuccessfully: "Payment information was successfully registered.",
+
+        //Security settings section
+        CurrentPassword: "Current password",
+        PsswordUsing: "The password you are currently using",
+        NewPassword: "New password",
+        Password: "Password includes numbers and letters",
+        ChangePassword: "Change password",
+        TwoStepLogin: "I would like to use two-step login",
+        SaveChanges: "Save changes",
+        TwoStepVerification:"Two-step verification",
+
+        //about us
+        WhoAreWe:"who are we ??",
+        LearnMore:"Learn more about us",
+        TheBestTeachers:"The best teachers",
+        AccessYourClass:"Access your class from anywhere",
+        FlexibleCourse:"Flexible course schedule",
+        WhatWeOffer:"What we offer",
+        LearnNewSkills:"Learn new skills when and where you like",
+        TeachersAndCourses1:"Expert teachers",
+        Description1:"Expert teachers provide effective guidance to students with their knowledge and experience",
+        TeachersAndCourses2:"Effective courses",
+        Description2:"Effective courses significantly improve learners' capabilities.",
+        TeachersAndCourses3:"Get a certificate",
+        Description3:"Obtaining a certification indicates a person's ability and expertise in a specific field.",
+        EmpoweringGoals:"Empowering students to achieve their goals",
+        EmpoweringGoals2:"They are up for the next level challenge.",
+        potential:"potential",
 
         //not found
         Error: "The page you requested was not found.",

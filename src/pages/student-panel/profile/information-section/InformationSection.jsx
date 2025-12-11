@@ -1,5 +1,5 @@
 import { Button, Radio, RadioGroup } from "@heroui/react";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import moment from "moment-jalaali";
 import React from "react";
@@ -7,7 +7,6 @@ import toast, { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import Calender from "../../../../core/icons/Calender";
-import { UserData } from "../../../../core/services/api/get-data";
 import instance from "../../../../core/services/interceptor";
 
 
@@ -28,17 +27,7 @@ const InformationSection = () => {
     nationalCode: Yup.string().required(t("WriteNationalCode")),
   });
   
-  const { data: getProfile } = useQuery({
-    queryKey: ["PROFILE"],
-    queryFn: UserData,
-    refetchOnWindowFocus: false,
-    refetchOnmount: false,
-    refetchOnReconnect: false,
-    refetchOnMount: false,
-    refetchInterval: false,
-    refetchIntervalInBackground: false,
-    retry: false,
-  });
+  const getProfile = JSON.parse(localStorage.getItem("data"))
 
   // const getProfile = localStorage.getItem("profileData")
 

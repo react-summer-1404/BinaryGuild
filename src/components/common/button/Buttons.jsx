@@ -2,17 +2,11 @@ import { Button } from "@heroui/button";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import Profile1 from "../../../core/icons/Profile1";
-import { useQuery } from "@tanstack/react-query";
-import { UserData } from "../../../core/services/api/get-data";
 
 const Buttons = () => {
   const { t } = useTranslation();
   const [profile, setProfile] = useState(true);
-  const { data: profileData } = useQuery({
-    queryKey: ["GET_PROFILE_INFO"],
-    queryFn: UserData,
-  });
+  const profileData = JSON.parse(localStorage.getItem("data"))
 
   const login = () => {
     if (localStorage.getItem("token")) setProfile(true);

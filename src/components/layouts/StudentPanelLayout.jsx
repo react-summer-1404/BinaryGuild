@@ -24,7 +24,7 @@ const StudentPanelLayout = () => {
   });
   useEffect(() => {
     const data = JSON.stringify(getProfile);
-    localStorage.setItem("userData", data);
+    localStorage.setItem("data", data);
   }, [isSuccess]);
 
   console.log("yeeeeeeeeeeeeeeesssssssssss", getProfile);

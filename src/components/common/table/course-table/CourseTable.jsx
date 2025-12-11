@@ -24,7 +24,7 @@ const CourseTable = () => {
   return (
     <div className="w-full mt-2.5">
       <Table
-        classNames={{ wrapper: "bg-background" }}
+        classNames={{ wrapper: "bg-background mb-10" }}
         aria-label="Example empty table"
       >
         <TableHeader>

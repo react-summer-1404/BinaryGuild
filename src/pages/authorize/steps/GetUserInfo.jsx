@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import toast, { Toaster } from "react-hot-toast";
 
-
 const GetUserInfo = ({ onPrevious }) => {
   const [getEmail, setGetEmail] = useState("");
   const [getPhoneNumber, setGetPhoneNumber] = useState("");
@@ -57,7 +56,10 @@ const GetUserInfo = ({ onPrevious }) => {
       setPassError(null);
     }
 
-    if (getEmail.trim() !== "" && getPassword.trim() !== "" ||!getEmail.includes(".com")) {
+    if (
+      (getEmail.trim() !== "" && getPassword.trim() !== "") ||
+      !getEmail.includes(".com")
+    ) {
       console.log("فرم درسته");
     }
 
@@ -85,19 +87,17 @@ const GetUserInfo = ({ onPrevious }) => {
         }
         GoLogin();
         toast.success(t("RegisterNotifysuccessStepOne"));
-
       }
       console.log("success", GoLogin());
     } catch (error) {
-      console.log(error)
-        toast.error(t("RegisterNotifyError"));
-
+      console.log(error);
+      toast.error(t("RegisterNotifyError"));
     }
   };
 
   return (
     <div className="flex flex-col items-start">
-      <Toaster/>
+      <Toaster />
       <h2 className="text-[28px] font font-[700] text-text mt-[75px]">
         {t("GetUserInfoHead")}{" "}
       </h2>
@@ -122,7 +122,9 @@ const GetUserInfo = ({ onPrevious }) => {
             onChange={handleNumber}
             placeholder={t("GetUserPhonePlaceholder")}
           />
-          <p className="mt-[4px] font-bold text-[12px] text-[red]">{phoneNumberError}</p>
+          <p className="mt-[4px] font-bold text-[12px] text-[red]">
+            {phoneNumberError}
+          </p>
 
           <label className="text-text font-[600] text-[16px]" htmlFor="email">
             {t("GetUserEmailLabel")}{" "}

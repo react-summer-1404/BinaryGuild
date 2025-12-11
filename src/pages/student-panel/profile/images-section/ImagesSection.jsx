@@ -1,53 +1,69 @@
-import { Button } from "@heroui/button";
-import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import Photos from "../../../../core/icons/Photos";
-import PhotoSection from "./photo-section/PhotoSection";
-import ApplyChanges from "../../../../components/common/button/ApplyChanges";
-import { Link, useParams } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import instance from "../../../../core/services/interceptor";
 import { Field, Form, Formik } from "formik";
-import { AddProfileImage } from "../../../../core/services/api/post-data";
+import { useTranslation } from "react-i18next";
+import ApplyChanges from "../../../../components/common/button/ApplyChanges";
+import Photos from "../../../../core/icons/Photos";
+import instance from "../../../../core/services/interceptor";
+import PhotoSection from "./photo-section/PhotoSection";
+import { Button } from "@heroui/button";
+import toast from "react-hot-toast";
+import { useState } from "react";
 
 const ImagesSection = () => {
   const { t } = useTranslation();
+  const [image, setImage] = useState("");
+
+  const handleNewImage = (e) => {
+    const value = e.target.value;
+    setImage(value);
+  };
 
   const { mutate: addImage } = useMutation({
-    mutationFn: async (formFile) => {
-      const response = await instance.post("/SharePanel/AddProfileImage",formFile );
-      console.log("responseeeeeeeeee", response);
+    mutationFn: async () => {
+      const response = await instance.post(
+        "/SharePanel/AddProfileImage",
+        { formFile : image },
+        { headers: { "Content-Type": "multipart/form-data" } }
+      );
+      console.log("responseeeeeeeeeeee",response)
+      return response
     },
-    onSuccess: (success) => {
-      console.log("yeeeeeeeeeeeesssssssss", success);
+    onSuccess: () => {
+      toast.success("yeeeeeeeees");
     },
-    onError: (error) => {
-      console.log("errorrrrrrrrrrr", error);
+    onError: () => {
+      toast.error("noooooooooo");
     },
   });
 
-  const handelAdd = (data) => {
-    addImage(data);
+  console.log("image,,lcsl;,c",image)
+
+  const handelAdd = (formFile) => {
+
+    addImage({formFile});
   };
 
   return (
     <div className="w-3/4 mr-2 flex flex-wrap gap-2 mt-16 border-r-1 border-boarder">
-      <Formik onSubmit={handelAdd} initialValues={{ formFile: "" }}>
+      <Formik onSubmit={handelAdd} initialValues={{ formFile: image }}>
         <Form>
-          <label
-            htmlFor="images"
-            className="mr-11 w- rounded-3xl bg-blue flex p-3 gap-2"
+          <Button
+            type="submit"
+            className="mr-11 w-5/12 rounded-3xl bg-blue flex p-3 gap-2"
           >
-            <Field
-              type="file"
-              id="images"
-              name="images"
-              onClick={handelAdd}
-              className="hidden"
-            />
-            <Photos />
-            <p className="text-white">{t("AddPhoto")}</p>
-          </label>
+            <label htmlFor="formFile" className="w-full rounded-3xl flex gap-2">
+              <Field
+                type="file"
+                id="formFile"
+                name="formFile"
+                className="hidden"
+                value={image}
+                onChange={handleNewImage}
+              />
+              <Photos />
+              <p className="font-persian mt-1 text-white">{t("AddPhoto")}</p>
+            </label>
+          </Button>
           <PhotoSection />
           <ApplyChanges />
         </Form>

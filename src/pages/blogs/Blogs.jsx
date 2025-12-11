@@ -13,6 +13,7 @@ const Blogs = () => {
     SortingCol: "Active",
     SortType: "desc",
   });
+  const [loading, setLoading] = useState();
   console.log(filter);
   const { t } = useTranslation();
   const { data: blogsData, refetch: refetchBlogsData } = useQuery({
@@ -40,8 +41,8 @@ const Blogs = () => {
         <BlogCategory setFilter={setFilter} />
       </div>
       <div className="flex w-4/5 m-auto flex-wrap gap-6">
-        <div className="w-full items-start">
-          <BlogsOrder setFilter={setFilter}/>
+        <div className="w-full h-20 items-start">
+          <BlogsOrder setFilter={setFilter} />
         </div>
         {blogsData?.length > 0 ? (
           blogsData?.map((value) => {
@@ -51,13 +52,16 @@ const Blogs = () => {
                 key={value.id}
                 className="w-1/4"
               >
-                <div key={value.id} className="flex flex-wrap col-[3] w-full">
+                <div
+                  key={value.id}
+                  className="flex flex-wrap col-[3] gap-4 w-full"
+                >
                   <img
                     src={value.currentImageAddress}
                     onError={(e) =>
                       (e.target.src = "/src/assets/images/script.png")
                     }
-                    className="rounded-4xl"
+                    className="rounded-4xl w-full h-[180px]"
                   />
                   <div className="w-11/12 m-auto">
                     <p className="w-full text-2xl font-bold text-text text-start">
@@ -77,7 +81,9 @@ const Blogs = () => {
             );
           })
         ) : (
-          <div>دوره ای وجود ندارد</div>
+          <div className="w-2/3 m-auto">
+            <h1 className="text-text font-persian ">{t("ErrorBlogs")}</h1>
+          </div>
         )}
       </div>
     </div>

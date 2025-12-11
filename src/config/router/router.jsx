@@ -43,6 +43,9 @@ const BlogDetail = lazy(() =>
 const CourseDetail = lazy(() =>
   import("../../components/common/details/course/CourseDetail")
 );
+const AboutUs = lazy(() =>
+  import("../../pages/about-us/AboutUs")
+);
 
 // Student Panel
 const MyCourse = lazy(() =>
@@ -59,6 +62,9 @@ const UserProfile = lazy(() =>
 );
 const Favorite = lazy(() =>
   import("../../pages/student-panel/favorite/Favorite")
+);
+const SecuritySettings = lazy(() =>
+  import("../../pages/student-panel/security-settings/SecuritySettings")
 );
 
 // Profile Section
@@ -94,6 +100,7 @@ const Router = createBrowserRouter([
       { path: "blogs-page", element: <BlogsWrapper /> },
       { path: "courses-page/:id", element: <CourseDetailWrapper /> },
       { path: "blogs-page/:id", element: <BlogsDetailWrapper /> },
+      { path: "about-us", element: <AboutUs /> },
     ],
   },
 
@@ -127,6 +134,7 @@ const Router = createBrowserRouter([
       { path: "fav-courses-and-news", element: <Favorite /> },
       { path: "/panel/:id", element: <BlogDetail /> },
       { path: "/panel/:id", element: <CourseDetail /> },
+      { path: "security-settings", element: <SecuritySettings /> },
     ],
   },
   { path: "*", element: <NotFound /> },

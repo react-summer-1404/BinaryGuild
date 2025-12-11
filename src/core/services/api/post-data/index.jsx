@@ -145,3 +145,10 @@ export const SelectProfileImage = (ImageId) => {
     params: { ImageId: ImageId },
   });
 };
+
+export const ChangePassword = (oldPassword, newPassword) => {
+  return instance.post("/SharePanel/ChangePassword", {
+    oldPassword,
+    newPassword,
+  });
+};

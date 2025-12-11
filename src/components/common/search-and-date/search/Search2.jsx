@@ -1,49 +1,49 @@
 import { useTranslation } from "react-i18next";
 import SearchImage from "../../../../core/icons/SearchImage";
 
-const Search2 = ({getUserReserve , favoriteBlogsTitle , favoriteCoursesTitle}) => {
+const Search2 = () => {
   const { t } = useTranslation();
 
 
-function search(){
-	getUserReserve.className = "show";
-	getUserReserve.className = "show";
+// function search(){
+// 	getUserReserve.className = "show";
+// 	getUserReserve.className = "show";
 	
-	var filteredData = getUserReserve.filter(function (el) {
-										  return el.title.indexOf(getUserReserve.courseName.value)	!= -1 && getUserReserve.courseName.value!=''									 
-										});
-	var filteredData2 = favoriteBlogsTitle.filter(function (el) {
-										  return el.title.indexOf(favoriteBlogsTitle.courseName.value)	!= -1 && favoriteBlogsTitle.value!=''									 
-										});
-	var filteredData3 = favoriteCoursesTitle.filter(function (el) {
-										  return el.title.indexOf(favoriteCoursesTitle.courseName.value)	!= -1 && favoriteCoursesTitle.value!=''									 
-										});
+// 	var filteredData = getUserReserve.filter(function (el) {
+// 										  return el.title.indexOf(getUserReserve.courseName.value)	!= -1 && getUserReserve.courseName.value!=''									 
+// 										});
+// 	var filteredData2 = favoriteBlogsTitle.filter(function (el) {
+// 										  return el.title.indexOf(favoriteBlogsTitle.courseName.value)	!= -1 && favoriteBlogsTitle.value!=''									 
+// 										});
+// 	var filteredData3 = favoriteCoursesTitle.filter(function (el) {
+// 										  return el.title.indexOf(favoriteCoursesTitle.courseName.value)	!= -1 && favoriteCoursesTitle.value!=''									 
+// 										});
 									
-	fill_search(filteredData);
-	fill_search(filteredData2);	
-	fill_search(filteredData3);
-}
+// 	fill_search(filteredData);
+// 	fill_search(filteredData2);	
+// 	fill_search(filteredData3);
+// }
 	
 	
-function fill_search(jsonData){
-	getUserReserve.courseName.innerHTML = "";
+// function fill_search(jsonData){
+// 	getUserReserve.courseName.innerHTML = "";
 
-	for(let i=0; i<jsonData.length;i++){
+// 	for(let i=0; i<jsonData.length;i++){
 	 
-		let sr = document.createElement('div');
+// 		let sr = document.createElement('div');
 	 
-		let pic = document.createElement('img');
-		pic.src = "images/books/" + jsonData[i].pic[0];
+// 		let pic = document.createElement('img');
+// 		pic.src = "images/books/" + jsonData[i].pic[0];
 
-		let title = document.createElement('span');
-		title.innerHTML = jsonData[i].title;
+// 		let title = document.createElement('span');
+// 		title.innerHTML = jsonData[i].title;
 		
-		sr.appendChild(pic);
-		sr.appendChild(title);	
+// 		sr.appendChild(pic);
+// 		sr.appendChild(title);	
 
-		getUserReserve.courseName.appendChild(sr);
-	}
-}	
+// 		getUserReserve.courseName.appendChild(sr);
+// 	}
+// }	
   // const handleSearch = ()=>{
   //   const searched = getUserReserve?.filter((value)=>{if (value.courseName) {
   //     return value.courseName?.indexOf(value.courseName)	!= -1 && value.courseName!=''
@@ -62,7 +62,7 @@ function fill_search(jsonData){
           type="text"
           className="text-[12px] font-persian text-text w-full border-gray-0 border-1 p-2 rounded-4xl bg-forgetpassbtn"
           placeholder={t("SearchCourses")}
-          onClick={search}
+          
         />
       </div>
     </div>

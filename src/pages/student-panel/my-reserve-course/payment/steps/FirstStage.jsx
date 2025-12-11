@@ -1,35 +1,41 @@
 import { Button } from "@heroui/button";
-import React, { useState } from "react";
+import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import Calender from "../../../../../core/icons/Calender";
 
 const FirstStage = ({ onNext }) => {
   const { t } = useTranslation();
   const [background, setBackground] = useState("");
-  const [placeholder] = useState()
+  const [placeholder1] = useState("");
+  const [placeholder2] = useState("");
+  const [placeholder3] = useState("");
 
   const changeBackground = () => {
-    if (placeholder == "") {
-      setBackground("bg-gray")
-    }else{
+    if ((placeholder1 === "", placeholder2 === "", placeholder3 === "")) {
       setBackground("bg-blue");
+      toast.success("yeeeeeeeees");
+    } else {
+      setBackground("");
+      toast.error("nooooooooooo");
     }
   };
   const handelRegistration = () => {
     try {
-      if(placeholder !== ""){
-      onNext();}
+      if ((placeholder1 !== "", placeholder2 !== "", placeholder3 !== "")) {
+        onNext();
+      }
     } catch (error) {
       console.log(error);
     }
   };
   return (
     <div className="w-3/4 flex flex-nowrap m-auto">
+      <Toaster />
       <div className="flex flex-wrap w-1/2 gap-2">
         <div className="flex flex-wrap gap-2 w-1/2 m-auto">
           <p className="text-start text-white font-persian">{t("PaymentID")}</p>
           <input
-            placeholder={placeholder}
+            placeholder={placeholder1}
             className="bg-gray-450 rounded-2xl p-2"
             onClick={changeBackground}
             type="number"
@@ -40,7 +46,7 @@ const FirstStage = ({ onNext }) => {
             {t("PaymentsDate")}
           </p>
           <input
-            placeholder={placeholder}
+            placeholder={placeholder2}
             className="bg-gray-450 rounded-2xl p-2"
             onClick={changeBackground}
             type="number"
@@ -51,7 +57,7 @@ const FirstStage = ({ onNext }) => {
             {t("AmountPaid")}
           </p>
           <input
-            placeholder={placeholder}
+            placeholder={placeholder3}
             className="bg-gray-450 rounded-2xl p-2"
             onClick={changeBackground}
             type="number"
@@ -59,7 +65,10 @@ const FirstStage = ({ onNext }) => {
         </div>
       </div>
       <div className="w-1/4 m-auto">
-        <Button onPress={handelRegistration} className={`rounded-2xl mt-[180%] text-center text-white ${background}`}>
+        <Button
+          onPress={handelRegistration}
+          className={`rounded-2xl mt-[180%] text-center text-white ${background}`}
+        >
           <p className="text-persian font-bold">{t("RecordInformation")}</p>
         </Button>
       </div>
