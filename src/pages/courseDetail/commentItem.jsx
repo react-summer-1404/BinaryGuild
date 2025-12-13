@@ -13,8 +13,7 @@ const CommentItem = ({
   setAddCommentReplyDes,
 }) => {
   const isReplying = selectedComment === item.id;
-    const formatInsertDate = moment(item.insertDate).format("jYYYY/jMM/jDD");
-
+  const formatInsertDate = moment(item.insertDate).format("jYYYY/jMM/jDD");
 
   return (
     <div className="border-r pr-4 mt-6">
@@ -31,7 +30,9 @@ const CommentItem = ({
 
         <div>
           <p className="font-semibold text-text text-[14px]">{item.author}</p>
-          <p className="text-gray-400 font-medium text-[12px] mt-2">{formatInsertDate}</p>
+          <p className="text-gray-400 font-medium text-[12px] mt-2">
+            {formatInsertDate}
+          </p>
         </div>
       </div>
 
@@ -41,8 +42,7 @@ const CommentItem = ({
       <div
         onClick={() => onReply(item.id)}
         className="cursor-pointer border flex items-center justify-center w-25 h-10 border-blue text-blue text-4 font-medium rounded-[40px] mt-3"
-      >
-      </div>
+      ></div>
 
       {isReplying && (
         <div className="mt-4">
