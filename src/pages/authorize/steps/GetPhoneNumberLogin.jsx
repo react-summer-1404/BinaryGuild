@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Login } from "../../../core/services/api/post-data";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import HomeButton from "../../../components/common/button/HomeButton";
 import { Checkbox } from "@heroui/checkbox";
 import toast, { Toaster } from "react-hot-toast";
@@ -14,8 +15,13 @@ const GetPhoneNumberLogin = ({ onNext }) => {
   const [getPassword, setGetPassword] = useState("");
   const [passError, setPassError] = useState();
   const [remember, setRemember] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const GoToPanel = () => {
+    navigate("/admin-panel");
+  };
 
   const handleUserInfo = (e) => {
     const value = e.target.value;
@@ -56,11 +62,25 @@ const GetPhoneNumberLogin = ({ onNext }) => {
         localStorage.setItem("token", token);
        
 
+<<<<<<< HEAD
         // if (remember) {
         //   console.log(token, "token saved in localstorage");
         //   // localStorage.getItem("token");
         // }
+=======
+        if (remember) {
+          localStorage.setItem("token", token);
+          console.log(token, "token saved in localstorage");
+          localStorage.getItem("token");
+          localStorage.setItem("roles", response.token);
+        }
+        if (response.roles.includes("admin")) {
+          toast.success(t("LoginNotify"));
+>>>>>>> feature/adminPanel
 
+          GoToPanel();
+        }
+        if (!response.roles.includes("admin")) {
         setTimeout(() => {
           toast.success(t("LoginNotify"));
           console.log(toast);
@@ -68,7 +88,10 @@ const GetPhoneNumberLogin = ({ onNext }) => {
             onNext();
           }, 1500);
         }, 100);
-      }
+      }          
+        }
+
+
     } catch (error) {
       console.log("error", error);
       if (error.response.status === 401) {
@@ -120,14 +143,27 @@ const GetPhoneNumberLogin = ({ onNext }) => {
           >
             {t("LoginPassLabel")}{" "}
           </label>
-          <input
-            className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
-            type="password"
-            id="password"
-            value={getPassword}
-            onChange={handlePass}
-            placeholder={t("LoginPassCaption")}
-          />
+          <div className="relative">
+            <input
+              className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
+              type={showPassword ? "text" : "password"}
+              id="password"
+              value={getPassword}
+              onChange={handlePass}
+              placeholder={t("LoginPassCaption")}
+            />
+            <div onClick={() => setShowPassword((prev) => !prev)}>
+              <img
+                className="cursor-pointer w-6 absolute left-3 bottom-4"
+                src={
+                  showPassword
+                    ? "../../../../src/assets/icons/showpass.png"
+                    : "../../../../src/assets/icons/notshowpass.png"
+                }
+              />
+            </div>
+          </div>
+
           <p className="mt-[4px] font-bold text-[12px] text-[red]">
             {passError}
           </p>

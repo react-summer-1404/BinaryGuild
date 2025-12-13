@@ -81,15 +81,25 @@ export const AddCourseCommentDisLike = (CourseCommandId) => {
   });
 };
 
-// Add post reply comment
+// Add post  comment
 
-export const AddReplyCourseComment = (CommentId, CourseId, Title, Describe) => {
-  const FormData = new FormData();
-  FormData.append("CommentId", CommentId);
-  FormData.append("CourseId", CourseId);
-  FormData.append("Title", Title);
-  FormData.append("Describe", Describe);
-  return instance.post("/Course/AddReplyCourseComment", FormData);
+export const AddCommentCourses = ({ CourseId, Title, Describe }) => {
+  const formData = new FormData();
+  formData.append("CourseId", CourseId);
+  formData.append("Title", Title);
+  formData.append("Describe", Describe);
+  return instance.post("/Course/AddCommentCourse", formData);
+};
+
+// Add reply comment for course
+
+export const AddReplyCommentCourse = ({CommentId, CourseId, Title, Describe}) => {
+  return instance.post("/Course/AddReplyCourseComment", {
+    CommentId,
+    CourseId,
+    Title,
+    Describe,
+  });
 };
 
 // Add to favorite blogs
@@ -134,6 +144,7 @@ export const AddBlogsDissLike = (NewsId) => {
   });
 };
 
+<<<<<<< HEAD
 export const AddProfileImage = (formFile) => {
   return instance.post("/SharePanel/AddProfileImage", {
     params: { formFile: formFile },
@@ -150,5 +161,42 @@ export const ChangePassword = (oldPassword, newPassword) => {
   return instance.post("/SharePanel/ChangePassword", {
     oldPassword,
     newPassword,
+=======
+// Add comment for blogs
+
+export const AddCommentBlogs = ({
+  newsId,
+  userIpAddress,
+  title,
+  describe,
+  userId,
+}) => {
+  return instance.post("/News/CreateNewsComment", {
+    newsId: newsId,
+    userIpAddress: userIpAddress,
+    title: title,
+    describe: describe,
+    userId: userId,
+  });
+};
+
+// Add reply comment for blogs
+
+export const AddReplyCommentBlogs = ({
+  newsId,
+  userIpAddress,
+  title,
+  describe,
+  userId,
+  parentId,
+}) => {
+  return instance.post("/News/CreateNewsReplyComment", {
+    newsId: newsId,
+    userIpAddress: userIpAddress,
+    title: title,
+    describe: describe,
+    userId: userId,
+    parentId: parentId,
+>>>>>>> feature/adminPanel
   });
 };

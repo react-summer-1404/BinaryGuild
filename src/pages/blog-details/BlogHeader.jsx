@@ -24,6 +24,8 @@ const BlogHeader = ({
   newsLike,
   newsDissLike,
 
+  
+
 }) => {
   const { t } = useTranslation();
   const [copy, setCopy] = useState(false);
@@ -31,6 +33,9 @@ const BlogHeader = ({
   const [like, setLike] = useState("");
   const [disLike, setDisLike] = useState("");
   const formatStartTime = moment(insertDate).format("jYYYY/jMM/jDD");
+
+  const rate= Math.round(avg)
+
 
   const handleLike = async () => {
     try {
@@ -94,14 +99,20 @@ const BlogHeader = ({
 
 console.log("course.imageAddress : ",currentImageAddressTumb)
   return (
-    <div className=" h-106 flex gap-8 justify-between items-center  ">
+    <div className=" h-106 flex gap-8 justify-between items-center max-[768px]:mb-20  ">
       <Toaster />
 
       <div className="  w-[45%] h-106 max-[1000px]:hidden ">
+<<<<<<< HEAD
         <ImageFallBack
           src={currentImageAddressTumb}
           fallBack={fallBack}
           className="w-full h-full  rounded-[32px] max-w-[540px]:block  max-w-[540px]:w-[100%]  max-w-[540px]:h-[424px]"
+=======
+        <img
+          src={currentImageAddressTumb || []} onError={(e)=>{e.target.src="../../../src/assets/icons/default-fallback-image.png" }}
+          className="w-full h-full  rounded-[32px]"
+>>>>>>> feature/adminPanel
         />
       </div>
 
@@ -172,9 +183,9 @@ console.log("course.imageAddress : ",currentImageAddressTumb)
         {/* rate */}
         <div className="w-full h-[34px]  mt-5 flex items-center gap-3">
           <div className="flex items-center gap-2 ">
-            <div className="text-text font-[500]">({avg})</div>
+            <div className="text-text font-[500]">({rate})</div>
             <ReactStars
-            value={avg}
+            value={rate}
               count={5}
               size={28}
               color1="#D9D9D9"
