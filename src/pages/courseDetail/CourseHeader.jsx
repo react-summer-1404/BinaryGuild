@@ -37,7 +37,7 @@ const CourseHeader = ({ course, courseId, courseGroup }) => {
     } catch (error) {
       console.log(error, "error reserve");
       toast.error(t("errorCourseLike"));
-      if (error.response.status === 401) {
+      if (error.response.status === 401 && error.response.status === 400 ) {
         toast.error(t("errorCourseReserveUserNotLogin"));
       }
     }
@@ -55,7 +55,7 @@ const CourseHeader = ({ course, courseId, courseGroup }) => {
     } catch (error) {
       console.log(error, "error reserve");
       toast.error(t("errorCourseLike"));
-      if (error.response.status === 401) {
+      if (error.response.status === 401 && error.response.status === 400 ) {
         toast.error(t("errorCourseReserveUserNotLogin"));
       }
     }
@@ -70,7 +70,7 @@ const CourseHeader = ({ course, courseId, courseGroup }) => {
     } catch (error) {
       console.log(error, "error reserve");
       toast.error(t("errorCourseFavorite"));
-      if (error.response.status === 401) {
+      if (error.response.status === 401 && error.response.status === 400 ) {
         toast.error(t("errorCourseReserveUserNotLogin"));
       }
     }
@@ -84,12 +84,12 @@ const CourseHeader = ({ course, courseId, courseGroup }) => {
       setReserve(response);
       toast.success(t("successCourseReserve"));
     } catch (error) {
-      if (error.response.status === 401) {
+      if (error.response.status === 400) {
         const token = localStorage.getItem("token");
         if (!token) {
-          toast.error(t("errorCourseReserveUserNotLogin"));
-        } else {
           toast.error(t("completeProfile"));
+        } else {
+          toast.error(t("ReserveErr"));
         }
       }
     }
@@ -105,7 +105,7 @@ const rate= Math.round(course.courseRate)
       <Toaster />
       <div className=" w-[45%] h-106 max-[1000px]:hidden max-[540px]:block  max-[540px]:w-[100%]  max-[540px]:h-[424px] max-[540px]:mt-25  ">
         <img
-          src={course.imageAddress}
+          src={course.imageAddress || []}
           onError={(e) => {
             e.target.src =
               "../../../src/assets/icons/default-fallback-image.png";
@@ -237,7 +237,7 @@ const rate= Math.round(course.courseRate)
                   <img src="../../../src/assets/icons/archive-02.png" />
                   {reserve.success ? (
                     <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[1280px]:text-[16px] max-[750px]:text-[16px]">
-                      {t("Reserved")}
+                      {t("isReserved")}
                     </p>
                   ) : (
                     <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[1280px]:text-[16px] max-[750px]:text-[16px]">

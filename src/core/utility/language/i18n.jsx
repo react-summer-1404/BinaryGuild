@@ -145,6 +145,8 @@ i18n.use(initReactI18next).init({
         CourseDislike: "تعداد دیس‌لایک",
         ReserveCourse: "رزرو دوره",
         AddToFavorite: "اضافه به لیست موردعلاقه",
+        ReserveErr:
+          "دوره در لیست رزروی های شما قرار دارد و پس از تایید  ادمین به لیست دوره های شما اضافه می شود.",
         CourseName: "دوره",
         People: "نفر",
         Price: "تومان",
@@ -527,6 +529,8 @@ i18n.use(initReactI18next).init({
         CourseDislike: "Dislikes",
         ReserveCourse: "Reserve Course",
         AddToFavorite: "Status",
+        ReserveErr: "Yhis course has been reserved for you.",
+
         CourseName: "name",
         people: "people",
         Price: "Toman",
@@ -734,6 +738,7 @@ i18n.use(initReactI18next).init({
         lastUpdate: "last update",
         courseTableTitle: "Confrmed Courses",
         reserveCourseTableTitle: "Reserved Courses",
+        
         reservedDate: "Reserved date",
         isReserved: "reserved",
         isNotReserved: "not reserved",

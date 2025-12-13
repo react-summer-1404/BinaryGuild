@@ -43,7 +43,7 @@ const RelatedBlogs = ({ newsCatregoryId}) => {
               <div className="relative gap-2 flex ">
                 <img
                   className="h-[293px] rounded-[24px] "
-                  src={items.currentImageAddressTumb} onError={(e)=>{e.target.src="../../../src/assets/icons/default-fallback-image.png" }}
+                  src={items.currentImageAddressTumb || []} onError={(e)=>{e.target.src="../../../src/assets/icons/default-fallback-image.png" }}
                 />
 
                 {/* <div className=" w-[89px] h-6 rounded-[32px] bg-blue ">{} </div> */}
