@@ -1,5 +1,11 @@
+import { Button } from "@heroui/button";
 import moment from "moment-jalaali";
 import React from "react";
+import Like from "../../../../core/icons/Like";
+import DisLike from "../../../../core/icons/DisLike";
+import Teachers from "../../../../core/icons/Teachers";
+import View2 from "../../../../core/icons/View2";
+import Calender from "../../../../core/icons/Calender";
 
 const CourseData = ({
   title,

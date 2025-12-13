@@ -1,58 +1,65 @@
 import { Button } from "@heroui/button";
 import { useMutation } from "@tanstack/react-query";
-import { Formik } from "formik";
-import toast from "react-hot-toast";
+import { Field, Formik } from "formik";
+import toast, { Toaster } from "react-hot-toast";
 import { Form } from "react-router-dom";
 import instance from "../../../../../core/services/interceptor";
+import { useState } from "react";
 
 const PhotoSection = () => {
+  const [image] = useState();
   const { mutate: selectImage } = useMutation({
     mutationFn: async (ImageId) => {
-      const response = await instance.post(
-        "/SharePanel/SelectProfileImage",
-        {
-          params: { ImageId: ImageId },
-        },
-        { headers: { "Content-Type": "multipart/form-data" } }
-      );
-      console.log("responseeeeeeeeeeeee", response);
+      const response = await instance.post("/SharePanel/SelectProfileImage", {
+        ImageId: ImageId,
+      });
       return response;
     },
 
-    onSuccess: (success) => {
-      toast("Select profile image");
-      console.log(success, "success");
+    onSuccess: () => {
+      toast.success("Select profile image");
+    },
+    onError: () => {
+      toast.error("noooooooooooo");
     },
   });
   const userImage = JSON.parse(localStorage.getItem("data"));
 
-  console.log("userDataaaaaaaaaa", userImage);
-  const handelSelect = (data) => {
-    console.log(data);
-    selectImage(data);
+  const handelSelect = (ImageId) => {
+    selectImage(ImageId);
   };
-  console.log("imaaaaaaaaaaaaageeeeeeeeeee", userImage.userImage);
   return (
-    <>
+    <div>
+      <Toaster/>
       <Formik
         onSubmit={handelSelect}
         initialValues={{
-          ImageId: "",
+          ImageId: image,
         }}
       >
         <Form>
           <div className="flex flex-wrap gap-4 mr-11 mt-4">
             {userImage.userImage?.map((value) => {
               return (
-                <Button type="submit" className="bg-boarder size-46">
-                  <img src={value.puctureAddress} />
-                </Button>
+                <>
+                  <Button type="submit" className="bg-boarder size-46">
+                    <img src={value.puctureAddress} />
+                    <label htmlFor="ImageId" className="hidden">
+                      <Field
+                        id="ImageId"
+                        name="ImageId"
+                        className="hidden"
+                        value={value.id}
+                      />
+                    </label>
+                  </Button>
+                </>
               );
             })}
           </div>
         </Form>
       </Formik>
-    </>
+    </div>
   );
 };
 

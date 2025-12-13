@@ -37,9 +37,6 @@ const BlogsDetailWrapper = lazy(() =>
 const BlogsWrapper = lazy(() =>
   import("../../screen/blogs-wrapper/BlogsWrapper")
 );
-const BlogDetail = lazy(() =>
-  import("../../components/common/details/blog/BlogDetail")
-);
 const CourseDetail = lazy(() =>
   import("../../components/common/details/course/CourseDetail")
 );
@@ -132,7 +129,6 @@ const Router = createBrowserRouter([
         ],
       },
       { path: "fav-courses-and-news", element: <Favorite /> },
-      { path: "/panel/:id", element: <BlogDetail /> },
       { path: "/panel/:id", element: <CourseDetail /> },
       { path: "security-settings", element: <SecuritySettings /> },
     ],

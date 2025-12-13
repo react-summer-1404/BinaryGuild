@@ -6,6 +6,8 @@ import { GetCourseComments } from "../../core/services/api/get-data";
 import { AddReplyCourseComment } from "../../core/services/api/post-data";
 import moment from "moment-jalaali";
 import ReplyComment from "../../../src/components/common/comment/ReplyComment";
+
+
 const CourseCommentModal = ({ onClose, course, courseId }) => {
   const { t } = useTranslation();
   const [showReply, setShowReply] = useState(false);
@@ -16,6 +18,7 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
   const [comment, setComment] = useState([]);
 
   const formatInsertDate = moment(courseId.insertDate).format("jYYYY/jMM/jDD");
+  
 
   //   replies
 

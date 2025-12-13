@@ -15,7 +15,7 @@ const CategorySection = ({ CategoryId , setFilter}) => {
           className="max-w-xs my-5"
           classNames={{
             listboxWrapper: "bg-background text-text",
-            label: "text-[10px] ",
+            label: "text-[12px] font-persian",
           }}
           onSelectionChange={(value) => {
             setFilter((prev) => ({
@@ -30,7 +30,7 @@ const CategorySection = ({ CategoryId , setFilter}) => {
           {CategoryId?.map((value) => (
             <SelectItem
               key={value.key}
-              classNames={{ wrapper: "bg-muted", base: "bg-muted" }}
+              classNames={{title:"font-persian" }}
             >
               {value.categoryName}
             </SelectItem>

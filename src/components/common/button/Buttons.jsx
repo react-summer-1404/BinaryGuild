@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Buttons = () => {
   const { t } = useTranslation();
   const [profile, setProfile] = useState(true);
+  
   const profileData = JSON.parse(localStorage.getItem("data"))
 
   const login = () => {
@@ -16,13 +17,14 @@ const Buttons = () => {
   useEffect(() => {
     login();
   }, []);
+  console.log("profileData?.userImage :",profileData)
 
   const RenderItem = () => {
     if (profile) {
       return (
       <div className="w-10 rounded-3xl pl-2 pb-1 pt-1.5 cursor-pointer">
         <Link to={"/panel"}>
-          <img src={`/src/assets/icons/Graggle – 03.svg ${profileData?.userImage}`} onError={(e)=>{e.target.src="/src/assets/icons/Peppe – 07.svg"}} className="w-full rounded-4xl " />
+          <img src={profileData?.currentPictureAddress} onError={(e)=>{e.target.src="/src/assets/icons/Peppe – 07.svg"}} className="w-full rounded-4xl " />
         </Link>
       </div>
       );

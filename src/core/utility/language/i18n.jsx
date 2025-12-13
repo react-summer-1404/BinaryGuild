@@ -397,6 +397,7 @@ i18n.use(initReactI18next).init({
         WriteUserName: "نام کاربری تلگرام",
         GetRobotLink:"ابتدا با کلیک بر روی دکمه زیر ، لینک ربات را بگیرید و سپس در تلگرام این ربات را فعال کنید",
         OnClick:"کلیک کنید",
+        YourCurrentLocation:"مکان فعلی شما",
 
         //about us
         WhoAreWe: "ما کی هستیم؟؟",
@@ -804,6 +805,7 @@ i18n.use(initReactI18next).init({
         GetRobotLink:
           "First, get the bot link by clicking the button below and then activate this bot in Telegram.",
         OnClick:"Click",
+        YourCurrentLocation:"Your current location",
 
         //about us
         WhoAreWe: "who are we ??",

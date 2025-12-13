@@ -8,6 +8,8 @@ import toast, { Toaster } from "react-hot-toast";
 import { AddfavoriteBlogs } from "../../core/services/api/post-data";
 import { AddLikeBlogComments } from "../../core/services/api/post-data";
 import { AddDisLikeBlogComments } from "../../core/services/api/post-data";
+import fallBack from "../../assets/images/no-blogs.avif"
+import ImageFallBack from "../../components/common/image-fallback/ImageFallBack";
 
 const BlogHeader = ({
   newsId,
@@ -90,15 +92,16 @@ const BlogHeader = ({
     }
   };
 
+console.log("course.imageAddress : ",currentImageAddressTumb)
   return (
     <div className=" h-106 flex gap-8 justify-between items-center  ">
       <Toaster />
 
       <div className="  w-[45%] h-106 max-[1000px]:hidden ">
-        <img
+        <ImageFallBack
           src={currentImageAddressTumb}
-          className="w-full h-full  rounded-[32px]"
-          onError={(e)=>e.target.src="/src/assets/images/script.png"}
+          fallBack={fallBack}
+          className="w-full h-full  rounded-[32px] max-w-[540px]:block  max-w-[540px]:w-[100%]  max-w-[540px]:h-[424px]"
         />
       </div>
 

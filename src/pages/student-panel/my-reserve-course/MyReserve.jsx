@@ -18,10 +18,13 @@ import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+import Delete from "../../../components/common/button/Delete";
 import Search2 from "../../../components/common/search-and-date/search/Search2";
 import View from "../../../core/icons/View";
-import Cross from "../../../core/icons/Cross";
-import { PatchCoursePayment, UserReserve } from "../../../core/services/api/get-data";
+import {
+  PatchCoursePayment,
+  UserReserve,
+} from "../../../core/services/api/get-data";
 import Payment from "./payment/Payment";
 
 const MyReserve = () => {
@@ -63,8 +66,8 @@ const MyReserve = () => {
       reserveData?.accept == true;
       toast.success("yeeeeees");
       console.log("getUserReserve?.accept1", reserveData?.accept);
-    }else{
-      toast.error("nooooooooooooooooooooo")
+    } else {
+      toast.error("nooooooooooooooooooooo");
     }
     if (select === sortOptions[1].label) {
       reserveData?.accept == false;
@@ -193,7 +196,7 @@ const MyReserve = () => {
                         </Chip>
                       ) : (
                         <div className="m-auto w-3/4">
-                          <Cross />
+                          <Delete />
                         </div>
                       )}
                     </div>

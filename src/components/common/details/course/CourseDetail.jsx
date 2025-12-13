@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 const CourseDetail = () => {
   const { id: courseId } = useParams();
   // const { t } = useTranslation();
+  console.log("courseId :" ,courseId)
   const [course, setCourse] = useState(null);
   // const [loading, setLoading] = useState();
 

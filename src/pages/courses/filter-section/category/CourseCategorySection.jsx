@@ -2,7 +2,7 @@ import { Select, SelectItem } from "@heroui/react";
 import { useTranslation } from "react-i18next";
 import CategoryImage from "../../../../core/icons/CategoryImage";
 
-const CategorySection = ({ ListTech, setFilter }) => {
+const CourseCategorySection = ({ ListTech, setFilter }) => {
   const { t } = useTranslation();
   return (
     <div className="w-11/12 flex flex-wrap m-auto gap-4">
@@ -14,6 +14,10 @@ const CategorySection = ({ ListTech, setFilter }) => {
         <Select
           className="w-full text-[12px]"
           isClearable={true}
+          classNames={{
+            listboxWrapper: "bg-background text-text",
+            label: "text-[12px] font-persian",
+          }}
           onSelectionChange={(value) => {
             setFilter((prev) => ({
               ...prev,
@@ -25,7 +29,7 @@ const CategorySection = ({ ListTech, setFilter }) => {
           label={t("SelectCategory")}
         >
           {ListTech?.map((value) => (
-            <SelectItem className="bg-gray-0 text-text" key={value.key}>
+            <SelectItem classNames={{ title: "font-persian" }} key={value.key}>
               {value.techName}
             </SelectItem>
           ))}
@@ -35,4 +39,4 @@ const CategorySection = ({ ListTech, setFilter }) => {
   );
 };
 
-export default CategorySection;
+export default CourseCategorySection;

@@ -5,10 +5,18 @@ import ReserveTable from "../../../components/common/table/reserve-table/Reserve
 import TimeList from "../panel-list/TimeList";
 import YourComments from "./comment/YourComments";
 import PanelChart from "./panel-chart/PanelChart";
+import { useEffect, useState } from "react";
 
 const Dashboard = () => {
   const { t } = useTranslation();
-  const getProfile = JSON.parse(localStorage.getItem("data"));
+  const [profileData, setProfileData] = useState(null);
+  
+  useEffect(() => {
+    const getProfile = JSON.parse(localStorage.getItem("data"));
+    setProfileData(getProfile);
+    console.log("getProfile :", getProfile)
+
+  }, []);
 
   return (
     <>
@@ -17,7 +25,7 @@ const Dashboard = () => {
           <div className="flex flex-wrap w-3/5">
             <p className="text-text text-2xl text-persian font-bold text-start">
               {t("Hello")}
-              {getProfile?.fName}
+              {profileData?.fName}
               {t("Welcome")}
               👋
             </p>
@@ -27,9 +35,9 @@ const Dashboard = () => {
             <TimeList />
           </div>
           <div className="w-2/6 text-center">
-            <p className="font-persian text-text">{getProfile?.userAbout}</p>
-          </div>
+            <p className="font-persian text-text">{profileData?.userAbout}</p>
         </div>
+          </div>
         <div className="w-full flex justify-between">
           <div className="w-3/4 gap-4 flex flex-wrap">
             <div className="w-full flex flex-nowrap h-0 justify-between">
@@ -42,7 +50,7 @@ const Dashboard = () => {
           </div>
           <PanelChart
             profileCompletionPercentage={
-              getProfile?.profileCompletionPercentage
+              profileData?.profileCompletionPercentage
             }
           />
         </div>
@@ -57,7 +65,7 @@ const Dashboard = () => {
             <ReserveTable />
           </div>
           <div className="w-[31%] flex border-forgetpassbtn border-1 overflow-x-hidden overflow-y-scroll rounded-3xl bg-forgetpassbtn ">
-            <YourComments getProfile={getProfile} />
+            <YourComments getProfile={profileData} />
           </div>
         </div>
       </div>

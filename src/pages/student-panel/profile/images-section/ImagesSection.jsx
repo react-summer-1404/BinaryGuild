@@ -6,7 +6,7 @@ import Photos from "../../../../core/icons/Photos";
 import instance from "../../../../core/services/interceptor";
 import PhotoSection from "./photo-section/PhotoSection";
 import { Button } from "@heroui/button";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
 
 const ImagesSection = () => {
@@ -17,16 +17,32 @@ const ImagesSection = () => {
     const value = e.target.value;
     setImage(value);
   };
+  const [imageId] = useState();
+  const { mutate: selectImage } = useMutation({
+    mutationFn: async (ImageId) => {
+      const response = await instance.post("/SharePanel/SelectProfileImage", {
+        ImageId: ImageId,
+      });
+      return response;
+    },
+
+    onSuccess: () => {
+      toast.success("Select profile image");
+    },
+    onError: () => {
+      toast.error("noooooooooooo");
+    },
+  });
 
   const { mutate: addImage } = useMutation({
     mutationFn: async () => {
       const response = await instance.post(
         "/SharePanel/AddProfileImage",
-        { formFile : image },
+        { formFile: image },
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-      console.log("responseeeeeeeeeeee",response)
-      return response
+      console.log("responseeeeeeeeeeee", response);
+      return response;
     },
     onSuccess: () => {
       toast.success("yeeeeeeeees");
@@ -36,15 +52,20 @@ const ImagesSection = () => {
     },
   });
 
-  console.log("image,,lcsl;,c",image)
+  console.log("image,,lcsl;,c", image);
 
   const handelAdd = (formFile) => {
+    addImage({ formFile });
+  };
+  const userImage = JSON.parse(localStorage.getItem("data"));
 
-    addImage({formFile});
+  const handelSelect = (ImageId) => {
+    selectImage(ImageId);
   };
 
   return (
     <div className="w-3/4 mr-2 flex flex-wrap gap-2 mt-16 border-r-1 border-boarder">
+      <Toaster />
       <Formik onSubmit={handelAdd} initialValues={{ formFile: image }}>
         <Form>
           <Button
@@ -64,8 +85,43 @@ const ImagesSection = () => {
               <p className="font-persian mt-1 text-white">{t("AddPhoto")}</p>
             </label>
           </Button>
-          <PhotoSection />
-          <ApplyChanges />
+          <Formik
+            onSubmit={handelSelect}
+            initialValues={{
+              ImageId: imageId,
+            }}
+          >
+            <Form>
+              <div className="flex flex-wrap gap-4 mr-11 mt-4">
+                {userImage.userImage?.map((value) => {
+                  return (
+                    <>
+                      <Button type="submit" className="bg-boarder size-46">
+                        <img src={value.puctureAddress} />
+                        <label htmlFor="ImageId" className="hidden">
+                          <Field
+                            id="ImageId"
+                            name="ImageId"
+                            className="hidden"
+                            value={value.id}
+                          />
+                        </label>
+                      </Button>
+                    </>
+                  );
+                })}
+              </div>
+            </Form>
+          </Formik>
+          <Button
+            color="primary"
+            radius="full"
+            type="submit"
+            className="mr-11 font-persian mt-4 ml-12"
+            // disabled={editProfile.isPending}
+          >
+            {t("ApplyChanges")}
+          </Button>
         </Form>
       </Formik>
     </div>

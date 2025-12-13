@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import BlogsOrder from "../../components/common/data-order/BlogsOrder";
 import { GetBlogsData } from "../../core/services/api/get-data";
 import BlogCategory from "./filter-section/BlogCategory";
+import ImageFallBack from "../../components/common/image-fallback/ImageFallBack";
+import fallBack from "../../assets/images/no-blogs.avif";
+import { Spinner } from "@heroui/react";
 
 const Blogs = () => {
   const [filter, setFilter] = useState({
@@ -41,7 +44,7 @@ const Blogs = () => {
         <BlogCategory setFilter={setFilter} />
       </div>
       <div className="flex w-4/5 m-auto flex-wrap gap-6">
-        <div className="w-full h-20 items-start">
+        <div className="w-full h-10 items-start">
           <BlogsOrder setFilter={setFilter} />
         </div>
         {blogsData?.length > 0 ? (
@@ -56,14 +59,12 @@ const Blogs = () => {
                   key={value.id}
                   className="flex flex-wrap col-[3] gap-4 w-full"
                 >
-                  <img
+                  <ImageFallBack
                     src={value.currentImageAddress}
-                    onError={(e) =>
-                      (e.target.src = "/src/assets/images/script.png")
-                    }
+                    fallBack={fallBack}
                     className="rounded-4xl w-full h-[180px]"
                   />
-                  <div className="w-11/12 m-auto">
+                  <div className="w-11/12 flex flex-wrap gap-1 m-auto">
                     <p className="w-full text-2xl font-bold text-text text-start">
                       {value.title}
                     </p>
@@ -82,7 +83,9 @@ const Blogs = () => {
           })
         ) : (
           <div className="w-2/3 m-auto">
-            <h1 className="text-text font-persian ">{t("ErrorBlogs")}</h1>
+            {/* <h1 className="text-text font-bold ">{t("ErrorCourses")}</h1> */}
+            <Spinner size="lg" color="primary" className="mt-10" />
+            <p className="text-text font-persian text-2xl">{t("PleaseWait")}</p>
           </div>
         )}
       </div>

@@ -5,11 +5,11 @@ import { Select, SelectItem } from "@heroui/react";
 import { useQuery } from "@tanstack/react-query";
 import { GetCoursesLevel } from "../../../../core/services/api/get-data";
 
-const Level = ({setFilter}) => {
-    const {data : courseLevel} = useQuery({
-        queryKey:["GET_COURSE_LEVEL"],
-        queryFn:GetCoursesLevel,
-    })
+const Level = ({ setFilter }) => {
+  const { data: courseLevel } = useQuery({
+    queryKey: ["GET_COURSE_LEVEL"],
+    queryFn: GetCoursesLevel,
+  });
   const { t } = useTranslation();
   return (
     <div className="w-11/12 flex flex-wrap m-auto gap-4">
@@ -21,18 +21,22 @@ const Level = ({setFilter}) => {
         <Select
           className="w-full text-[12px]"
           isClearable={true}
-          onSelectionChange={(value)=>{setFilter((prev) => ({
+          classNames={{
+            listboxWrapper: "bg-background text-text",
+            label: "text-[12px] font-persian",
+          }}
+          onSelectionChange={(value) => {
+            setFilter((prev) => ({
               ...prev,
               courseLevelId: value?.currentKey?.substring(2),
-              CourseTypeId: value?.currentKey? 1 : undefined
-            }))
-            console.log(value?.currentKey?.substring(2) , "data")
-        }}
-            
+              CourseTypeId: value?.currentKey ? 1 : undefined,
+            }));
+            console.log(value?.currentKey?.substring(2), "data");
+          }}
           label={t("SelectLevel")}
         >
           {courseLevel?.map((value) => (
-            <SelectItem className="bg-gray-0 text-text" key={value.key}>
+            <SelectItem classNames={{ title: "font-persian" }} key={value.key}>
               {value.levelName}
             </SelectItem>
           ))}

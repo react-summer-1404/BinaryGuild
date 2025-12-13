@@ -11,23 +11,7 @@ import { Formik } from "formik";
 import { useEffect } from "react";
 
 const StudentPanelLayout = () => {
-  const { data: getProfile, isSuccess } = useQuery({
-    queryKey: ["PROFILE"],
-    queryFn: UserData,
-    refetchOnWindowFocus: false,
-    refetchOnmount: false,
-    refetchOnReconnect: false,
-    refetchOnMount: false,
-    refetchInterval: false,
-    refetchIntervalInBackground: false,
-    retry: false,
-  });
-  useEffect(() => {
-    const data = JSON.stringify(getProfile);
-    localStorage.setItem("data", data);
-  }, [isSuccess]);
-
-  console.log("yeeeeeeeeeeeeeeesssssssssss", getProfile);
+  
   return (
     <div className="flex bg-black-900 flex-wrap">
       <div className="w-full flex flex-wrap">

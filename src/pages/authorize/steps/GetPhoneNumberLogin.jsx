@@ -53,12 +53,13 @@ const GetPhoneNumberLogin = ({ onNext }) => {
       if (response.success && response.token) {
         const token = response.token;
         console.log(response);
+        localStorage.setItem("token", token);
+       
 
-        if (remember) {
-          localStorage.setItem("token", token);
-          console.log(token, "token saved in localstorage");
-          localStorage.getItem("token");
-        }
+        // if (remember) {
+        //   console.log(token, "token saved in localstorage");
+        //   // localStorage.getItem("token");
+        // }
 
         setTimeout(() => {
           toast.success(t("LoginNotify"));

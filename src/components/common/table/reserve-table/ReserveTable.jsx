@@ -5,21 +5,20 @@ import {
   TableCell,
   TableColumn,
   TableHeader,
-  TableRow
+  TableRow,
 } from "@heroui/react";
 import { useQuery } from "@tanstack/react-query";
 import moment from "moment-jalaali";
 import { useState } from "react";
-import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
-import Cross from "../../../../core/icons/Cross";
 import View from "../../../../core/icons/View";
 import {
   PatchCoursePayment,
   UserReserve,
 } from "../../../../core/services/api/get-data";
 import Payment from "../../../../pages/student-panel/my-reserve-course/payment/Payment";
+import Delete from "../../button/Delete";
 
 const ReserveTable = () => {
   const { t } = useTranslation();
@@ -134,7 +133,7 @@ const ReserveTable = () => {
                         </Chip>
                       ) : (
                         <div className="m-auto w-3/4">
-                          <Cross />
+                          <Delete />
                         </div>
                       )}
                     </div>

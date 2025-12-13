@@ -1,11 +1,11 @@
-import { useQuery } from '@tanstack/react-query';
-import React from 'react'
-import { useTranslation } from 'react-i18next';
-import TeacherImage from '../../../../core/icons/TeacherImage';
-import { Select, SelectItem } from '@heroui/react';
-import { GetCoursesTeacher } from '../../../../core/services/api/get-data';
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import TeacherImage from "../../../../core/icons/TeacherImage";
+import { Select, SelectItem } from "@heroui/react";
+import { GetCoursesTeacher } from "../../../../core/services/api/get-data";
 
-const Teacher = ({setFilter}) => {
+const Teacher = ({ setFilter }) => {
   const { data: teacherData } = useQuery({
     queryKey: ["GET_TEACHER_ID"],
     queryFn: GetCoursesTeacher,
@@ -21,17 +21,21 @@ const Teacher = ({setFilter}) => {
         <Select
           className="w-full text-[12px]"
           isClearable={true}
-          onSelectionChange={(value)=>{setFilter((prev) => ({
+          classNames={{
+            listboxWrapper: "bg-background text-text",
+            label: "text-[12px] font-persian",
+          }}
+          onSelectionChange={(value) => {
+            setFilter((prev) => ({
               ...prev,
-              TeacherId: value?.currentKey?.substring(2)
-            }))
-            console.log("teach", value?.currentKey?.substring(2))
-        }}
-            
+              TeacherId: value?.currentKey?.substring(2),
+            }));
+            console.log("teach", value?.currentKey?.substring(2));
+          }}
           label={t("SelectTeachers")}
         >
           {teacherData?.map((value) => (
-            <SelectItem className="bg-gray-0 text-text" key={value.key}>
+            <SelectItem classNames={{ title: "font-persian" }} key={value.key}>
               {value.teacherId}
             </SelectItem>
           ))}
@@ -39,6 +43,6 @@ const Teacher = ({setFilter}) => {
       </div>
     </div>
   );
-}
+};
 
-export default Teacher
+export default Teacher;

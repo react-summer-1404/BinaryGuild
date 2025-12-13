@@ -7,6 +7,8 @@ import CourseCategory from "./filter-section/CourseCategory";
 import CoursesOrder from "../../components/common/data-order/CoursesOrder";
 import { Spinner } from "@heroui/react";
 import toast from "react-hot-toast";
+import ImageFallBack from "../../components/common/image-fallback/ImageFallBack";
+import fallBack from "../../assets/images/Course-not-Found.jpg"
 
 const Courses = () => {
   const { t } = useTranslation();
@@ -79,11 +81,15 @@ const Courses = () => {
                         key={value.id}
                         className="flex flex-wrap gap-4 col-[3] w-full"
                       >
-                        <img
-                          src={value.tumbImageAddress}
-                          className="rounded-4xl w-full h-[180px]"
+                        {/* <img
+                          src=
+                          
                           onError={(e)=>{e.target.src="/src/assets/images/script.png"}}
-                        />
+                        /> */}
+                        <div className="rounded-4xl w-full h-[180px]">
+                        <ImageFallBack src={value.tumbImageAddress} fallBack={fallBack} className="rounded-4xl w-full h-[180px]"/>
+                        
+                        </div>
                         <div className="w-11/12 m-auto">
                           <p className="w-full text-2xl font-bold text-text text-start">
                             {value.title}

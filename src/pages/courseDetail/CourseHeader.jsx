@@ -9,6 +9,8 @@ import { AddCourseLike } from "../../../src/core/services/api/post-data/index";
 import { AddCourseDisLike } from "../../../src/core/services/api/post-data/index";
 import toast, { Toaster } from "react-hot-toast";
 import ReserveCourseSuccessModal from "./ReserveCourseSuccessModal";
+import ImageFallBack from "../../components/common/image-fallback/ImageFallBack";
+import fallBack from "../../assets/images/Course-not-Found.jpg"
 
 const CourseHeader = ({ course, courseId }) => {
   const { t } = useTranslation();
@@ -81,13 +83,13 @@ const CourseHeader = ({ course, courseId }) => {
       console.log(error, "error reserve");
     }
   };
-
   return (
     <div className="w-full m-auto h-106 flex gap-8 justify-between items-center max-[540px]:flex-col-reverse max-[540px]:mt-100">
       <Toaster />
       <div className=" w-[45%] h-106 max-[1000px]:hidden max-[540px]:block  max-[540px]:w-[100%]  max-[540px]:h-[424px] max-[540px]:mt-25  ">
-        <img
+        <ImageFallBack
           src={course.imageAddress}
+          fallBack={fallBack}
           className="w-full h-full  rounded-[32px] max-[540px]:block  max-[540px]:w-[100%]  max-[540px]:h-[424px]"
         />
       </div>

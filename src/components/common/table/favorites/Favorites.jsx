@@ -9,10 +9,10 @@ import {
 import moment from "moment-jalaali";
 import { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import Cross from "../../../../core/icons/Cross";
 import View from "../../../../core/icons/View";
+import Delete from "../../button/Delete";
 
-const Favorites = ({favoriteBlogs ,favoriteCourses}) => {
+const Favorites = ({ favoriteBlogs, favoriteCourses }) => {
   const { t } = useTranslation();
   const formatsBlogsDateStart = moment(
     favoriteBlogs?.myFavoriteNews?.news?.insertDate
@@ -35,7 +35,9 @@ const Favorites = ({favoriteBlogs ,favoriteCourses}) => {
         aria-label="Example empty table"
       >
         <TableHeader>
-          <TableColumn className="bg-forgetpassbtn font-persian text-muted">#</TableColumn>
+          <TableColumn className="bg-forgetpassbtn font-persian text-muted">
+            #
+          </TableColumn>
           <TableColumn className="bg-forgetpassbtn font-persian text-muted">
             {t("Name")}
           </TableColumn>
@@ -65,13 +67,17 @@ const Favorites = ({favoriteBlogs ,favoriteCourses}) => {
                 </TableCell>
                 <TableCell className="font-persian">{value.title}</TableCell>
                 <TableCell className="font-persian">{value.auther}</TableCell>
-                <TableCell className="font-persian">{formatsBlogsDateStart}</TableCell>
-                <TableCell className="font-persian">{formatsBlogsDateEnd}</TableCell>
+                <TableCell className="font-persian">
+                  {formatsBlogsDateStart}
+                </TableCell>
+                <TableCell className="font-persian">
+                  {formatsBlogsDateEnd}
+                </TableCell>
                 <TableCell className="flex justify-center flex-nowrap pt-7">
                   <div className="m-auto">
-                    <Cross />
+                    <Delete />
                   </div>
-                  <View id={value.id}/>
+                  <View id={value.id} />
                 </TableCell>
               </TableRow>
             );
@@ -82,12 +88,20 @@ const Favorites = ({favoriteBlogs ,favoriteCourses}) => {
                 <TableCell>
                   <img src={value.course?.imageAddress} className="size-16" />
                 </TableCell>
-                <TableCell className="font-persian">{value.courseTitle}</TableCell>
-                <TableCell className="font-persian">{value.teacheName}</TableCell>
-                <TableCell className="font-persian">{formatsCoursesDateStart}</TableCell>
-                <TableCell className="font-persian">{formatsCoursesDateEnd}</TableCell>
+                <TableCell className="font-persian">
+                  {value.courseTitle}
+                </TableCell>
+                <TableCell className="font-persian">
+                  {value.teacheName}
+                </TableCell>
+                <TableCell className="font-persian">
+                  {formatsCoursesDateStart}
+                </TableCell>
+                <TableCell className="font-persian">
+                  {formatsCoursesDateEnd}
+                </TableCell>
                 <TableCell className="flex justify-center flex-nowrap pt-7">
-                  <Cross />
+                  <Delete />
                   <View id={value.courseId} />
                 </TableCell>
               </TableRow>
