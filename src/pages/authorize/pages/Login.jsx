@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Stepper from "../steps/Stepper";
 import GetPhoneNumberLogin from "../steps/GetPhoneNumberLogin";
-import TwoStepLogin  from "../steps/TwoStepLoginWrapper";
+import TwoStepLogin from "../steps/TwoStepLoginWrapper";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -13,7 +13,6 @@ const Login = () => {
     navigate("/");
   };
   const { t } = useTranslation();
-
 
   return (
     <div className="block items-center md:w-[648px] md:p-5 md:text-right md:mr-[30px] ">
@@ -35,12 +34,17 @@ const Login = () => {
           />
         </div>
       </div>
-      <div className="flex  justify-start">
+      <div className="flex flex-nowrap gap-8 justify-start">
         <Stepper text={t("LoginStep1")} active={step === 1} />
-        {/* <Stepper text={"تایید کد ارسال شده دو مرحله‌ای"} active={step === 2} /> */}
+        <Stepper text={"تایید کد ارسال شده دو مرحله‌ای"} active={step === 2} />
       </div>
-      {step === 1 && <GetPhoneNumberLogin onNext={() => setStep(goHome())}  />}
-      {step === 2 && <TwoStepLogin  onPrevious={() => setStep(1)} />}
+      {step === 1 && <GetPhoneNumberLogin onNext={() => setStep(goHome())} />}
+      {step === 2 && (
+        <TwoStepLogin
+          onPrevious={() => setStep(1)}
+          onNext={() => setStep(goHome())}
+        />
+      )}
     </div>
   );
 };

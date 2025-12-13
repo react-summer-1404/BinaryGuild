@@ -6,6 +6,8 @@ import toast, { Toaster } from "react-hot-toast";
 import { Field, Form, Formik } from "formik";
 import { useMutation } from "@tanstack/react-query";
 import instance from "../../../core/services/interceptor";
+import TwoStep from "./two-step-login/TwoStep";
+import { Link } from "react-router-dom";
 
 const SecuritySettings = () => {
   const { t } = useTranslation();
@@ -28,22 +30,19 @@ const SecuritySettings = () => {
         { oldPassword: getOldPassword, newPassword: postNewPassword },
         { headers: { "Content-Type": "application/json" } }
       );
-      console.log("responseeeeeee", response);
       return response;
     },
     onSuccess: () => {
-      toast.success(t("خوبههههه"));
+      toast.success(t("SuccessfullySaved"));
     },
-    onError: (error) => {
-      toast.error(error);
+    onError: () => {
+      toast.error(t("ProblemSaving"));
     },
   });
 
   const handleAllPassword = (oldPassword, newPassword) => {
     allPassword({ oldPassword, newPassword });
   };
-  console.log("getOldPassword", getOldPassword);
-  console.log("postNewPassword", postNewPassword);
 
   return (
     <div className=" flex w-11/12 m-auto mt-5 gap-8 flex-wrap">
@@ -108,16 +107,8 @@ const SecuritySettings = () => {
           </Button>
         </Form>
       </Formik>
-      <div className="flex w-full m-auto gap-8 flex-wrap">
-        <div className="border-b-2 border-boarder h-4 w-full">
-          <p className="text-muted p-1 text-center mb-2 w-42 m-auto bg-forgetpassbtn font-persian rounded-[14px] ">
-            {t("TwoStepVerification")}
-          </p>
-        </div>
-        <div className="w-11/12 mr-16 flex gap-2 flex-wrap">
-          <p className="font-persian">{t("TwoStepLogin")} </p>
-          <input type="checkbox" className="w-4 " />
-        </div>
+      <div className="w-full">
+        <TwoStep/>
       </div>
     </div>
   );

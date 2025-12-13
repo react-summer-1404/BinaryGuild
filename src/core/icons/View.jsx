@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-const View = ({ id }) => {
+const View = ({ courseId }) => {
   return (
-    <Link to={`/panel/${id}`}>
+    <Link to={`/panel/${courseId}`}>
       <svg
         width="40"
         height="40"

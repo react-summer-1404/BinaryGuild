@@ -8,7 +8,7 @@ const SignOut = () => {
   const { t } = useTranslation();
   const removeAccount=()=>{
     localStorage.removeItem("token")
-    localStorage.removeItem("profileData")
+    localStorage.removeItem("data")
   }
   return (
     <div className="w-14/12 h-1/5 flex items-end m-auto">

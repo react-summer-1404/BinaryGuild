@@ -63,6 +63,8 @@ const MyReserve = () => {
       reserveData?.accept == true;
       toast.success("yeeeeees");
       console.log("getUserReserve?.accept1", reserveData?.accept);
+    }else{
+      toast.error("nooooooooooooooooooooo")
     }
     if (select === sortOptions[1].label) {
       reserveData?.accept == false;
@@ -195,7 +197,7 @@ const MyReserve = () => {
                         </div>
                       )}
                     </div>
-                    <View id={value.courseId} />
+                    <View courseId={value.courseId} />
                   </TableCell>
                 </TableRow>
               );

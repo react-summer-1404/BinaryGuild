@@ -22,7 +22,7 @@ const Buttons = () => {
       return (
       <div className="w-10 rounded-3xl pl-2 pb-1 pt-1.5 cursor-pointer">
         <Link to={"/panel"}>
-          <img src={profileData?.userImage} onError={(e)=>{e.target.src="/src/assets/icons/Peppe – 07.svg"}} className="w-full rounded-4xl " />
+          <img src={`/src/assets/icons/Graggle – 03.svg ${profileData?.userImage}`} onError={(e)=>{e.target.src="/src/assets/icons/Peppe – 07.svg"}} className="w-full rounded-4xl " />
         </Link>
       </div>
       );

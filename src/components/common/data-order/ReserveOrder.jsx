@@ -5,11 +5,9 @@ import {
   DropdownMenu,
   DropdownTrigger,
 } from "@heroui/react";
-import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { UserReserve } from "../../../core/services/api/get-data";
 
 const ReserveOrder = ({setFilter}) => {
   const { t } = useTranslation();
@@ -18,17 +16,6 @@ const ReserveOrder = ({setFilter}) => {
     { key: "notConfirmed", label: t("NotConfirmed") },
   ];
   const [select, setSelect] = useState(sortOptions[0].label);
-  const handleAccept = () => {
-    // if (select === sortOptions[0].label) {
-    //   setFilter?.accept === true;
-    //   toast.success("yeeeeees");
-    //   console.log("getUserReserve?.accept1",setFilter?.accept)
-    // } if(select === sortOptions[1].label) {
-    //   setFilter?.accept
-    //   toast.error("nooooooo");
-    //   console.log("getUserReserve?.accept2",setFilter?.accept)
-    // }
-  };
 
   return (
     <div>
