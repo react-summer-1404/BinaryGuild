@@ -8,6 +8,7 @@ const BlogCategory = ({setFilter}) => {
     const {data : blogsCategoryData} = useQuery({
         queryKey:["GET_CATEGORY"],
         queryFn:GetBlogsCategory,
+        select: (res) => Array.isArray(res?.data) ? res.data : [],
     })
     console.log("categoryData",blogsCategoryData)
   return (

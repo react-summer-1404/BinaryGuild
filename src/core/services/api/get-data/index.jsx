@@ -17,16 +17,29 @@ export const GetAllCourses = (pageNumber = 1, rowsOgPage = 10) => {
   });
 };
 
+//get blogs reply comment
+
+
+
+
+export const GetBlogsCommentsReply = (id) => {
+  return instance.get("/News/GetRepliesComments", {
+    params: {
+      Id: id,
+    },
+  });
+};
+
+// get course groups
+
+export const GetCourseTech = () => {
+  return instance.get("/Home/GetTechnologies");
+};
+
 // get course groups
 
 export const GetCourseGroup = (TeacherId, CourseId) => {
   return instance.get(`/CourseGroup/GetCourseGroup?TeacherId=${TeacherId}&CourseId=${CourseId}`);
-};
-
-//get related courses
-
-export const GetCourseTech = () => {
-  return instance.get("/Home/GetTechnologies");
 };
 
 export const GetBlogs = (id) => {
@@ -56,13 +69,7 @@ export const GetRelatedBlogs = (id) => {
 
 //get blogs reply comment
 
-export const GetBlogsCommentsReply = (id) => {
-  return instance.get("/News/GetRepliesComments", {
-    params: {
-      Id: id,
-    },
-  });
-};
+
 
 export const TopCoursesData = async () => {
   return instance.get("/Home/GetCoursesTop?Count=4");

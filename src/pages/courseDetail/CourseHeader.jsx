@@ -96,31 +96,20 @@ const CourseHeader = ({ course, courseId, courseGroup }) => {
       }
     }
   };
-<<<<<<< HEAD
-=======
 
 const rate= Math.round(course.courseRate)
 
 
 
 
->>>>>>> feature/adminPanel
   return (
     <div className="w-full m-auto h-106 flex gap-8 justify-between items-center max-[540px]:flex-col-reverse max-[540px]:mt-100">
       <Toaster />
       <div className=" w-[45%] h-106 max-[1000px]:hidden max-[540px]:block  max-[540px]:w-[100%]  max-[540px]:h-[424px] max-[540px]:mt-25  ">
-<<<<<<< HEAD
         <ImageFallBack
           src={course.imageAddress}
           fallBack={fallBack}
-=======
-        <img
-          src={course.imageAddress || []}
-          onError={(e) => {
-            e.target.src =
-              "../../../src/assets/icons/default-fallback-image.png";
-          }}
->>>>>>> feature/adminPanel
+        
           className="w-full h-full  rounded-[32px] max-[540px]:block  max-[540px]:w-[100%]  max-[540px]:h-[424px]"
         />
       </div>

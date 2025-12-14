@@ -2,12 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import toast, { Toaster } from "react-hot-toast";
 import { GetCourseComments } from "../../core/services/api/get-data";
-<<<<<<< HEAD
-import { AddReplyCourseComment } from "../../core/services/api/post-data";
-import moment from "moment-jalaali";
-import ReplyComment from "../../../src/components/common/comment/ReplyComment";
-
-=======
 import {
   AddCommentCourses,
   AddReplyCommentCourse,
@@ -16,7 +10,6 @@ import {
 import AddComment from "../../components/common/comment/AddComment";
 import { buildCommentTree } from "./commentTree";
 import CommentItem from "./commentItem";
->>>>>>> feature/adminPanel
 
 const CourseCommentModal = ({ onClose, course, courseId }) => {
   const { t } = useTranslation();
@@ -32,34 +25,6 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
   const [showCommentBox, setShowCommentBox] = useState(false);
   const [showReplyDesktopMode, setShowReplyDesktopMode] = useState(false);
 
-<<<<<<< HEAD
-  const [comment, setComment] = useState([]);
-
-  const formatInsertDate = moment(courseId.insertDate).format("jYYYY/jMM/jDD");
-  
-
-  //   replies
-
-  const handleReplyComment = () => {
-    setShowReply(!showReply);
-  };
-
-  // const handleReplyTheReplyComment = () => {
-  //   setShowReplyToReply(!showReplyToReply);
-  // };
-
-  // add comment
-  const handleAddComment = () => {
-    setShowCommentBox(!showCommentBox);
-  };
-
-  const handleAddCommentDeskTopMode = () => {
-    setShowReplyDesktopMode(!showReplyDesktopMode);
-  };
-
-  //   comments
-=======
->>>>>>> feature/adminPanel
   useEffect(() => {
     const fetchComments = async () => {
       try {

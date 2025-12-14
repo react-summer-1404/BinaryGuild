@@ -13,7 +13,7 @@ const Search = ({ setFilter }) => {
     if (value !== undefined) {
       setFilter((prev) => ({ ...prev, Query: value }));
     }
-  }, [value]);
+  }, [value,query,setFilter]);
   console.log("value", value);
 
   return (

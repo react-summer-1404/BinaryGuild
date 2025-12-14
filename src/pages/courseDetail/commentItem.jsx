@@ -42,7 +42,7 @@ const CommentItem = ({
       <div
         onClick={() => onReply(item.id)}
         className="cursor-pointer border flex items-center justify-center w-25 h-10 border-blue text-blue text-4 font-medium rounded-[40px] mt-3"
-      ></div>
+      >پاسخ دادن</div>
 
       {isReplying && (
         <div className="mt-4">
