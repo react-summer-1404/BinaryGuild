@@ -9,10 +9,11 @@ import { useState } from "react";
 const PhotoSection = () => {
   const [image] = useState();
   const { mutate: selectImage } = useMutation({
-    mutationFn: async (ImageId) => {
-      const response = await instance.post("/SharePanel/SelectProfileImage", {
-        ImageId: ImageId,
-      });
+    mutationFn: async (formData) => {
+      const response = await instance.post(
+        "/SharePanel/SelectProfileImage",
+        formData
+      );
       return response;
     },
 
@@ -25,26 +26,32 @@ const PhotoSection = () => {
   });
   const userImage = JSON.parse(localStorage.getItem("data"));
 
-  const handelSelect = (ImageId) => {
-    selectImage(ImageId);
+  const handelSelect = (data) => {
+    let formData = new FormData();
+    formData.append("ImageId", data.ImageId);
+
+    selectImage(formData);
   };
   return (
     <div>
-      <Toaster/>
+      <Toaster />
       <Formik
         onSubmit={handelSelect}
-        initialValues={{
-          ImageId: image,
-        }}
+        // initialValues={{
+        //   ImageId: image,
+        // }}
       >
         <Form>
           <div className="flex flex-wrap gap-4 mr-11 mt-4">
-            {userImage.userImage?.map((value) => {
+            {/* {userImage.userImage?.map((value) => {
               return (
                 <>
-                  <Button type="submit" className="bg-boarder size-46">
+                  <Button className="bg-boarder size-46">
                     <img src={value.puctureAddress} />
-                    <label htmlFor="ImageId" className="hidden">
+                    <label
+                      htmlFor="ImageId"
+                      className="hidden"
+                    >
                       <Field
                         id="ImageId"
                         name="ImageId"
@@ -55,7 +62,10 @@ const PhotoSection = () => {
                   </Button>
                 </>
               );
-            })}
+            })} */}
+            <Button>
+              <img src={userImage.userImage?.puctureAddress}/>
+            </Button>
           </div>
         </Form>
       </Formik>

@@ -12,7 +12,7 @@ import {
 const CoursesOrder = ({ coursesData }) => {
   const { t } = useTranslation();
   const sortOptions = [
-    { key: "new", label: t("New")},
+    { key: "new", label: t("New") },
     { key: "popular", label: t("Popular") },
     { key: "expensive", label: t("Expensive") },
     { key: "cheapest", label: t("Cheapest") },
@@ -22,8 +22,9 @@ const CoursesOrder = ({ coursesData }) => {
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Button variant="bordered"
-          className="font-persian p-2 flex">{select}</Button>
+        <Button variant="bordered" className="font-persian text-text p-2 flex">
+          {select}
+        </Button>
       </DropdownTrigger>
       <DropdownMenu
         aria-label="Dynamic Actions"
@@ -31,12 +32,11 @@ const CoursesOrder = ({ coursesData }) => {
           const selectSortOptions = sortOptions.find((e) => e.key === key);
           if (selectSortOptions) setSelect(selectSortOptions.label);
         }}
-        classNames={{base:"bg-red"}}
       >
         {sortOptions.map((value) => (
           <DropdownItem
             key={value.key}
-            classNames={{title:"font-persian text-end"}}
+            classNames={{ title: "font-persian text-text text-end" }}
           >
             {value.label}
           </DropdownItem>

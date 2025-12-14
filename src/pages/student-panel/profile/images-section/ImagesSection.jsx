@@ -17,11 +17,11 @@ const ImagesSection = () => {
     const value = e.target.value;
     setImage(value);
   };
-  const [imageId] = useState();
   const { mutate: selectImage } = useMutation({
     mutationFn: async (ImageId) => {
-      const response = await instance.post("/SharePanel/SelectProfileImage", {
-        ImageId: ImageId,
+      const response = await instance.post(
+        "/SharePanel/SelectProfileImage",{
+        data : ImageId
       });
       return response;
     },
@@ -33,6 +33,9 @@ const ImagesSection = () => {
       toast.error("noooooooooooo");
     },
   });
+  const handelSelect = (ImageId) => {
+    selectImage(ImageId);
+  };
 
   const { mutate: addImage } = useMutation({
     mutationFn: async () => {
@@ -52,17 +55,12 @@ const ImagesSection = () => {
     },
   });
 
-  console.log("image,,lcsl;,c", image);
-
+  
   const handelAdd = (formFile) => {
     addImage({ formFile });
   };
   const userImage = JSON.parse(localStorage.getItem("data"));
-
-  const handelSelect = (ImageId) => {
-    selectImage(ImageId);
-  };
-
+  
   return (
     <div className="w-3/4 mr-2 flex flex-wrap gap-2 mt-16 border-r-1 border-boarder">
       <Toaster />
@@ -85,40 +83,39 @@ const ImagesSection = () => {
               <p className="font-persian mt-1 text-white">{t("AddPhoto")}</p>
             </label>
           </Button>
-          <Formik
-            onSubmit={handelSelect}
-            initialValues={{
-              ImageId: imageId,
-            }}
-          >
-            <Form>
-              <div className="flex flex-wrap gap-4 mr-11 mt-4">
-                {userImage.userImage?.map((value) => {
-                  return (
-                    <>
-                      <Button type="submit" className="bg-boarder size-46">
-                        <img src={value.puctureAddress} />
-                        <label htmlFor="ImageId" className="hidden">
-                          <Field
-                            id="ImageId"
-                            name="ImageId"
-                            className="hidden"
-                            value={value.id}
-                          />
-                        </label>
-                      </Button>
-                    </>
-                  );
-                })}
-              </div>
-            </Form>
-          </Formik>
+        </Form>
+      </Formik>
+      <Formik
+        onSubmit={handelSelect}
+        initialValues={{
+          ImageId: userImage.userImage?.id,
+        }}
+      >
+        <Form>
+          <div className="flex flex-wrap gap-4 mr-11 mt-4">
+            {userImage.userImage?.map((value) => {
+              return (
+                <>
+                  <Button className="bg-boarder size-46">
+                  <label htmlFor="ImageId" className="hidden">
+                    <Field
+                      id="ImageId"
+                      name="ImageId"
+                      className="hidden"
+                      value={value.id}
+                    />
+                  </label>
+                    <img src={value.puctureAddress} />
+                  </Button>
+                </>
+              );
+            })}
+          </div>
           <Button
             color="primary"
             radius="full"
             type="submit"
             className="mr-11 font-persian mt-4 ml-12"
-            // disabled={editProfile.isPending}
           >
             {t("ApplyChanges")}
           </Button>

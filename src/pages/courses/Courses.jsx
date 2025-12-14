@@ -95,10 +95,10 @@ const Courses = () => {
                             {value.title}
                           </p>
                           <div className="w-full flex flex-nowrap justify-between">
-                            <p className="text-start text-muted text-[14px] ">
+                            <p className="text-start font-persian text-muted text-[14px] ">
                               {value.teacherName}
                             </p>
-                            <span className="text-end text-text ">
+                            <span className="text-end font-persian text-text ">
                               {value.cost} {t("Toman")}
                             </span>
                           </div>

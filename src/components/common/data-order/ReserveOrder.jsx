@@ -37,7 +37,7 @@ const ReserveOrder = ({setFilter}) => {
           {sortOptions.map((value) => (
             <DropdownItem
             key={value.key}
-            classNames={{ title: "font-persian text-end" }}
+            classNames={{ title: "font-persian text-text text-end",description:"bg-red" }}
             onClick={handleAccept}
             >
               {value.label}

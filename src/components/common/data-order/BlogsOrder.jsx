@@ -19,12 +19,13 @@ const BlogsOrder = () => {
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Button variant="bordered" className="font-persian p-2 flex">
+        <Button variant="bordered" className="font-persian text-text p-2 flex">
           {select}
         </Button>
       </DropdownTrigger>
       <DropdownMenu
         aria-label="Dynamic Actions"
+        className="text-text"
         onAction={(key) => {
           const selectSortOptions = sortOptions.find((e) => e.key === key);
           if (selectSortOptions) setSelect(selectSortOptions.label);
@@ -34,7 +35,7 @@ const BlogsOrder = () => {
         {sortOptions.map((value) => (
           <DropdownItem
             key={value.key}
-            classNames={{ title: "font-persian text-end" }}
+            classNames={{ title: "font-persian text-text text-end" }}
           >
             {value.label}
           </DropdownItem>

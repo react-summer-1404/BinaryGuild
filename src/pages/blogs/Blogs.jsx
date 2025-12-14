@@ -69,10 +69,7 @@ const Blogs = () => {
                       {value.title}
                     </p>
                     <div className="w-full flex flex-nowrap justify-between">
-                      <p
-                        className="text-start text-muted text-[14px]"
-                        onError={(e) => (e.target.p = "rahimy taha")}
-                      >
+                      <p className="text-start font-persian text-muted text-[14px]">
                         {value.addUserFullName}
                       </p>
                     </div>
