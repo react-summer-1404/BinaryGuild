@@ -63,6 +63,13 @@ const Favorite = lazy(() =>
 const SecuritySettings = lazy(() =>
   import("../../pages/student-panel/security-settings/SecuritySettings")
 );
+// const CourseFav = lazy(() =>
+//   import("../../pages/student-panel/course-fav/CourseFav")
+// );
+// const BlogFav = lazy(() =>
+//   import("../../pages/student-panel/blog-fav/BlogFav")
+// );
+
 
 // Profile Section
 const HomeAddressSection = lazy(() =>
@@ -133,6 +140,8 @@ const Router = createBrowserRouter([
       { path: "fav-courses-and-news", element: <Favorite /> },
       { path: "/panel/:id", element: <CourseDetail /> },
       { path: "security-settings", element: <SecuritySettings /> },
+      //  { path: "course-fav", element: <CourseFav /> },
+      // { path: "blog-fav", element: <BlogFav /> },
     ],
   },
   { path: "*", element: <NotFound /> },

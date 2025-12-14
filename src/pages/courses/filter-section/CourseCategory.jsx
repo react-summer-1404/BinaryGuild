@@ -11,7 +11,7 @@ const CourseCategory = ({ setFilter }) => {
   const { data: categoryData } = useQuery({
     queryKey: ["GET_CATEGORY"],
     queryFn: GetCategory,
-    select: (res) => Array.isArray(res?.data) ? res.data : [],
+    // select: (res) => Array.isArray(res?.data) ? res.data : [],
   });
   console.log("categoryData", categoryData);
   return (

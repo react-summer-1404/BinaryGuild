@@ -13,6 +13,13 @@ const Login = () => {
     navigate("/");
   };
   const { t } = useTranslation();
+  const handleGoHome = ()=>{
+    if(){
+      
+    }else{
+      goHome()
+    }
+  }
 
   return (
     <div className="block items-center md:w-[648px] md:p-5 md:text-right md:mr-[30px] ">

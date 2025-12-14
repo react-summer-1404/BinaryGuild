@@ -9,7 +9,7 @@ const Teacher = ({ setFilter }) => {
  const { data: teacherData = [] } = useQuery({
   queryKey: ["GET_TEACHER_ID"],
   queryFn: GetCoursesTeacher,
-  select: (res) => Array.isArray(res?.data) ? res.data : [],
+  // select: (res) => Array.isArray(res?.data) ? res.data : [],
 });
 
 

@@ -9,7 +9,9 @@ const ProviderApp = ({ children }) => {
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </Provider>
-  );
+  )
+
 };
 
-export default ProviderApp;
+export default ProviderApp
+

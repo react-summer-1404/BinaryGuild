@@ -19,6 +19,9 @@ export const GetAllCourses = (pageNumber = 1, rowsOgPage = 10) => {
 
 //get blogs reply comment
 
+
+
+
 export const GetBlogsCommentsReply = (id) => {
   return instance.get("/News/GetRepliesComments", {
     params: {
@@ -64,6 +67,10 @@ export const GetRelatedBlogs = (id) => {
   return instance.get(`/News/GetNewsCategory/${id}`);
 };
 
+//get blogs reply comment
+
+
+
 export const TopCoursesData = async () => {
   return instance.get("/Home/GetCoursesTop?Count=4");
 };
@@ -71,6 +78,7 @@ export const TopCoursesData = async () => {
 export const UserData = async () => {
   try {
     const response = await instance.get("/SharePanel/GetProfileInfo");
+    console.log("response profile:", response);
     return response;
   } catch (error) {
     console.log(error);
@@ -127,6 +135,7 @@ export const GetCourseDetail = (CourseId) => {
   });
 };
 export const GetCourses = async ({ params }) => {
+  console.log("params : ", params);
   try {
     const response = await instance.get("/Home/GetCoursesWithPagination", {
       params: { ...params },

@@ -160,7 +160,7 @@ export const ChangePassword = (oldPassword, newPassword) => {
   return instance.post("/SharePanel/ChangePassword", {
     oldPassword,
     newPassword,
-  });
+     });
 };
 
 
