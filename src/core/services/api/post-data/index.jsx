@@ -144,7 +144,6 @@ export const AddBlogsDissLike = (NewsId) => {
   });
 };
 
-<<<<<<< HEAD
 export const AddProfileImage = (formFile) => {
   return instance.post("/SharePanel/AddProfileImage", {
     params: { formFile: formFile },
@@ -161,7 +160,8 @@ export const ChangePassword = (oldPassword, newPassword) => {
   return instance.post("/SharePanel/ChangePassword", {
     oldPassword,
     newPassword,
-=======
+     });
+};
 // Add comment for blogs
 
 export const AddCommentBlogs = ({
@@ -197,6 +197,5 @@ export const AddReplyCommentBlogs = ({
     describe: describe,
     userId: userId,
     parentId: parentId,
->>>>>>> feature/adminPanel
   });
 };

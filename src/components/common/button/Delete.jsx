@@ -26,7 +26,7 @@ const Delete = ({ id }) => {
     <Formik onSubmit={handleDelete} initialValues={{Id : id}}>
       <Form>
         <Field name="Id" id="Id" />
-        <Button>
+        <Button radius="full" className="w-20px">
           <Cross />
         </Button>
       </Form>

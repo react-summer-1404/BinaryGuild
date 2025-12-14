@@ -8,10 +8,6 @@ const LandingLayout = lazy(() =>
 const StudentPanelLayout = lazy(() =>
   import("../../components/layouts/StudentPanelLayout")
 );
-<<<<<<< HEAD
-=======
-
->>>>>>> feature/adminPanel
 
 // Pages
 const ForgetPasswordWrapper = lazy(() =>
@@ -38,7 +34,6 @@ const CoursesWrapper = lazy(() =>
 const BlogsDetailWrapper = lazy(() =>
   import("../../screen/blogs-detail/BlogsDetailWrapper")
 );
-<<<<<<< HEAD
 const BlogsWrapper = lazy(() =>
   import("../../screen/blogs-wrapper/BlogsWrapper")
 );
@@ -48,8 +43,6 @@ const CourseDetail = lazy(() =>
 const AboutUs = lazy(() =>
   import("../../pages/about-us/AboutUs")
 );
-=======
->>>>>>> feature/adminPanel
 
 // Student Panel
 const MyCourse = lazy(() =>
@@ -64,22 +57,19 @@ const MyReserve = lazy(() =>
 const UserProfile = lazy(() =>
   import("../../pages/student-panel/profile/UserProfile")
 );
-<<<<<<< HEAD
 const Favorite = lazy(() =>
   import("../../pages/student-panel/favorite/Favorite")
 );
 const SecuritySettings = lazy(() =>
   import("../../pages/student-panel/security-settings/SecuritySettings")
 );
-=======
-const CourseFav = lazy(() =>
-  import("../../pages/student-panel/course-fav/CourseFav")
-);
-const BlogFav = lazy(() =>
-  import("../../pages/student-panel/blog-fav/BlogFav")
-);
+// const CourseFav = lazy(() =>
+//   import("../../pages/student-panel/course-fav/CourseFav")
+// );
+// const BlogFav = lazy(() =>
+//   import("../../pages/student-panel/blog-fav/BlogFav")
+// );
 
->>>>>>> feature/adminPanel
 
 // Profile Section
 const HomeAddressSection = lazy(() =>
@@ -104,10 +94,7 @@ const NotFound = lazy(() =>
   import("../../components/common/not-found-section/NotFound")
 );
 
-//Not Found
-const NotFound = lazy(() =>
-  import("../../components/common/not-found-section/NotFound")
-);
+
 
 const Router = createBrowserRouter([
   {
@@ -119,10 +106,7 @@ const Router = createBrowserRouter([
       { path: "blogs-page", element: <BlogsWrapper /> },
       { path: "courses-page/:id", element: <CourseDetailWrapper /> },
       { path: "blogs-page/:id", element: <BlogsDetailWrapper /> },
-<<<<<<< HEAD
       { path: "about-us", element: <AboutUs /> },
-=======
->>>>>>> feature/adminPanel
     ],
   },
 
@@ -143,7 +127,6 @@ const Router = createBrowserRouter([
       { index: true, element: <Dashboard /> },
       { path: "my-courses", element: <MyCourse /> },
       { path: "reserve-course", element: <MyReserve /> },
-<<<<<<< HEAD
       {
         path: "profile",
         element: <UserProfile />,
@@ -157,18 +140,10 @@ const Router = createBrowserRouter([
       { path: "fav-courses-and-news", element: <Favorite /> },
       { path: "/panel/:id", element: <CourseDetail /> },
       { path: "security-settings", element: <SecuritySettings /> },
+      //  { path: "course-fav", element: <CourseFav /> },
+      // { path: "blog-fav", element: <BlogFav /> },
     ],
   },
-=======
-      { path: "profile", element: <UserProfile /> },
-      { path: "course-fav", element: <CourseFav /> },
-      { path: "blog-fav", element: <BlogFav /> },
-    ],
-  },
-
-
-
->>>>>>> feature/adminPanel
   { path: "*", element: <NotFound /> },
 ]);
 export default Router;

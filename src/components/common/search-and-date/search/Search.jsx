@@ -13,12 +13,8 @@ const Search = ({ setFilter }) => {
     if (value !== undefined) {
       setFilter((prev) => ({ ...prev, Query: value }));
     }
-<<<<<<< HEAD:src/components/common/search-and-date/search/Search.jsx
   }, [value]);
   console.log("value", value);
-=======
-  }, [value,query,setFilter]);
->>>>>>> feature/adminPanel:src/pages/courses/filter-section/search/Search.jsx
 
   return (
     <div className="flex flex-wrap w-full gap-4">

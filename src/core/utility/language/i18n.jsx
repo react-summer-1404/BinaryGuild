@@ -108,15 +108,12 @@ i18n.use(initReactI18next).init({
         PasswordError: "لطفا تکرار رمز عبور خود را وارد کنید ",
         RegisterNotifyErrorStepOne: "شما از قبل ثبت نام کرده اید",
         gmailError: "لطفا ایمیل خود را به درستی وارد کنید",
-<<<<<<< HEAD
-=======
 
         //Add comment
         AddCommentSuccessfullyBlog: "پیام شما با موفقیت ثبت شد.",
         AddCommentSuccessfully:
           "پیام شما با موفقیت ثبت شد، لطفا در انتطار تایید ادمین بمانید...",
         AddCommentError: "متاسفانه در ارسال پیام شما خطایی رخ داده است!",
->>>>>>> feature/adminPanel
 
         //landing
         Home: "خانه",
@@ -644,8 +641,6 @@ i18n.use(initReactI18next).init({
         PasswordError: "Please enter your password confirmation",
         RegisterNotifyErrorStepOne: "؛You already registered",
         gmailError: "Please Enter your password correctly",
-<<<<<<< HEAD
-=======
 
         //Add comment
         AddCommentSuccessfullyBlog: "Your message has submitted successfully",
@@ -653,7 +648,6 @@ i18n.use(initReactI18next).init({
           "Your message has been submited successfully. Please wait for admin approval.",
         AddCommentError:
           "Unfotunately an error accured while sending your message.",
->>>>>>> feature/adminPanel
 
         //Course Details
         CourseDesHead: "course title",

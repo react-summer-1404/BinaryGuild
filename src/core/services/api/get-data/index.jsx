@@ -1,11 +1,7 @@
 import instance from "../../interceptor";
 
 export const GetCourseComments = (CourseId) => {
-<<<<<<< HEAD
   // console.log(CourseId);
-=======
-  console.log(CourseId);
->>>>>>> feature/adminPanel
   return instance.get(`/Course/GetCourseCommnets/${CourseId}`, {});
 };
 
@@ -23,15 +19,12 @@ export const GetAllCourses = (pageNumber = 1, rowsOgPage = 10) => {
 
 // get course groups
 
-<<<<<<< HEAD
-=======
 export const GetCourseGroup = (TeacherId, CourseId) => {
   return instance.get(`/CourseGroup/GetCourseGroup?TeacherId=${TeacherId}&CourseId=${CourseId}`);
 };
 
 //get related courses
 
->>>>>>> feature/adminPanel
 export const GetCourseTech = () => {
   return instance.get("/Home/GetTechnologies");
 };
@@ -61,8 +54,6 @@ export const GetRelatedBlogs = (id) => {
   return instance.get(`/News/GetNewsCategory/${id}`);
 };
 
-<<<<<<< HEAD
-=======
 //get blogs reply comment
 
 export const GetBlogsCommentsReply = (id) => {
@@ -73,7 +64,6 @@ export const GetBlogsCommentsReply = (id) => {
   });
 };
 
->>>>>>> feature/adminPanel
 export const TopCoursesData = async () => {
   return instance.get("/Home/GetCoursesTop?Count=4");
 };
@@ -81,10 +71,7 @@ export const TopCoursesData = async () => {
 export const UserData = async () => {
   try {
     const response = await instance.get("/SharePanel/GetProfileInfo");
-<<<<<<< HEAD
-=======
     console.log("response profile:", response);
->>>>>>> feature/adminPanel
     return response;
   } catch (error) {
     console.log(error);
@@ -141,10 +128,7 @@ export const GetCourseDetail = (CourseId) => {
   });
 };
 export const GetCourses = async ({ params }) => {
-<<<<<<< HEAD
-=======
   console.log("params : ", params);
->>>>>>> feature/adminPanel
   try {
     const response = await instance.get("/Home/GetCoursesWithPagination", {
       params: { ...params },
@@ -201,7 +185,6 @@ export const GetBlogsCategory = async () => {
 export const Reset = (ConfigValue) => {
   return instance.get(`/Sign/Reset/${ConfigValue}`);
 };
-<<<<<<< HEAD
 
 export const GetFavoriteBlogs = async () => {
   try {
@@ -242,5 +225,3 @@ export const PatchCoursePayment = (reserveId) => {
   const response = instance.get(`/NewVersion/CoursePayment/StepOneToPay/${reserveId}`);
   return response;
 };
-=======
->>>>>>> feature/adminPanel
