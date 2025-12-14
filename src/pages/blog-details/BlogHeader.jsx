@@ -103,16 +103,9 @@ console.log("course.imageAddress : ",currentImageAddressTumb)
       <Toaster />
 
       <div className="  w-[45%] h-106 max-[1000px]:hidden ">
-<<<<<<< HEAD
-        <ImageFallBack
-          src={currentImageAddressTumb}
-          fallBack={fallBack}
-          className="w-full h-full  rounded-[32px] max-w-[540px]:block  max-w-[540px]:w-[100%]  max-w-[540px]:h-[424px]"
-=======
         <img
           src={currentImageAddressTumb || []} onError={(e)=>{e.target.src="../../../src/assets/icons/default-fallback-image.png" }}
           className="w-full h-full  rounded-[32px]"
->>>>>>> feature/adminPanel
         />
       </div>
 

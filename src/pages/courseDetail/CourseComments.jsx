@@ -56,13 +56,10 @@ const CourseComments = ({ courseId, course}) => {
     if (courseId) comments();
   }, [courseId]);
 
-<<<<<<< HEAD
-=======
 
 
 
 
->>>>>>> feature/adminPanel
   return (
     <div className="  w-full mt-8 ">
       <Toaster />
@@ -207,7 +204,7 @@ const CourseComments = ({ courseId, course}) => {
       {comment.length > 3 ? (
         <div className="w-full h-[39px] flex justify-center items-center    max-[768px]:mt-5  ">
           <Button className="bg-[#2F2F2F]  cursor-pointer w-[125px] h-[39px] p-2 rounded-[40px] flex justify-center items-center gap-2 ">
-            <p onClick={()=><CourseCommentModal/>} className="text-[#FCFCFC] text-[16px] font-medium">
+            <p onClick={() => setShow(true)} className="text-[#FCFCFC] text-[16px] font-medium">
               {t("SeeMore")}
             </p>
           </Button>

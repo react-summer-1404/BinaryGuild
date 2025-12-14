@@ -6,6 +6,7 @@ import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import BlogCommentsModal from "./BlogCommentsModal";
 import { AddBlogsLike } from "../../core/services/api/post-data";
+import { AddCourseCommentDisLike } from "../../core/services/api/post-data";
 
 const BlogComments = ({ NewsId, title,CommentId,newsComment }) => {
   const [comments, setComments] = useState([]);
@@ -32,16 +33,16 @@ const BlogComments = ({ NewsId, title,CommentId,newsComment }) => {
     }
   };
 
-  // const handleDisLike = async (commentId) => {
-  //   try {
-  //     const response = await AddCourseCommentDisLike(commentId);
-  //     console.log(response);
-  //     toast.success(t("successCourseLike"));
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error(t("errorCourseLike"));
-  //   }
-  // };
+  const handleDisLike = async (commentId) => {
+    try {
+      const response = await AddCourseCommentDisLike(commentId);
+      console.log(response);
+      toast.success(t("successCourseLike"));
+    } catch (error) {
+      console.log(error);
+      toast.error(t("errorCourseLike"));
+    }
+  };
 
   useEffect(() => {
     const fetchBlogsComments = async () => {
@@ -153,7 +154,7 @@ const BlogComments = ({ NewsId, title,CommentId,newsComment }) => {
                     </span>
                   </div>
                   <div className="flex gap-2">
-                    <svg
+                    <svg onClick={() => handleDisLike(comments.id)}
                       className="cursor-pointer"
                       width="20"
                       height="20"

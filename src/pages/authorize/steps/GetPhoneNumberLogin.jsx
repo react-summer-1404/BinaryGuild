@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Login } from "../../../core/services/api/post-data";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
 import HomeButton from "../../../components/common/button/HomeButton";
 import { Checkbox } from "@heroui/checkbox";
 import toast, { Toaster } from "react-hot-toast";
@@ -18,10 +17,7 @@ const GetPhoneNumberLogin = ({ onNext }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const { t } = useTranslation();
-  const navigate = useNavigate();
-  const GoToPanel = () => {
-    navigate("/admin-panel");
-  };
+
 
   const handleUserInfo = (e) => {
     const value = e.target.value;
@@ -49,58 +45,37 @@ const GetPhoneNumberLogin = ({ onNext }) => {
     if (getUserInfo.trim() !== "" && getPassword.trim() !== "") {
       console.log("فرم درسته");
     }
-    try {
-      const response = await Login({
-        phoneOrGmail: getUserInfo,
-        password: getPassword,
-        rememberMe: remember,
-      });
-      console.log(response, "response");
-      if (response.success && response.token) {
-        const token = response.token;
-        console.log(response);
-        localStorage.setItem("token", token);
-       
+   try {
+  const response = await Login({
+    phoneOrGmail: getUserInfo,
+    password: getPassword,
+    rememberMe: remember,
+  });
 
-<<<<<<< HEAD
-        // if (remember) {
-        //   console.log(token, "token saved in localstorage");
-        //   // localStorage.getItem("token");
-        // }
-=======
-        if (remember) {
-          localStorage.setItem("token", token);
-          console.log(token, "token saved in localstorage");
-          localStorage.getItem("token");
-          localStorage.setItem("roles", response.token);
-        }
-        if (response.roles.includes("admin")) {
-          toast.success(t("LoginNotify"));
->>>>>>> feature/adminPanel
+  console.log(response, "response");
 
-          GoToPanel();
-        }
-        if (!response.roles.includes("admin")) {
+  if (response.success && response.token) {
+    const token = response.token;
+    localStorage.setItem("token", token);
+
+
+      setTimeout(() => {
+        toast.success(t("LoginNotify"));
         setTimeout(() => {
-          toast.success(t("LoginNotify"));
-          console.log(toast);
-          setTimeout(() => {
-            onNext();
-          }, 1500);
-        }, 100);
-      }          
-        }
-
-
-    } catch (error) {
-      console.log("error", error);
-      if (error.response.status === 401) {
-        toast.error(t("LoginNotifyErrorforPassword"));
-      }
-      if (error.response.status === 400) {
-        toast.error(t("LoginNotifyError"));
-      }
-    }
+          onNext();
+        }, 1500);
+      }, 100);
+    
+  }
+} catch (error) {
+  console.log("error", error);
+  if (error.response?.status === 401) {
+    toast.error(t("LoginNotifyErrorforPassword"));
+  }
+  if (error.response?.status === 400) {
+    toast.error(t("LoginNotifyError"));
+  }
+}
   };
 
   return (

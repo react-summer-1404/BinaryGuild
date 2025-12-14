@@ -43,6 +43,8 @@ const RelatedCourses = ({ courseId }) => {
     };
     if (courseId) relatedCourse();
   }, [courseId]);
+    const visibleRelatedCourses = relatedCourses.slice(0, 3);
+
    
 
   return (
@@ -52,8 +54,8 @@ const RelatedCourses = ({ courseId }) => {
       </h2>
 
       <div className=" w-full h-[366px] grid grid-cols-4 gap-6 mt-6  max-[1200px]:grid-cols-3 max-[1000px]:flex max-[1000px]:overflow-x-scroll   max-[1000px]:scrollbar-hide ">
-        {relatedCourses.length > 0 ? (
-          relatedCourses.map((course) => (
+        {visibleRelatedCourses.length > 0 ? (
+          visibleRelatedCourses.map((course) => (
             <div
               key={course.id}
               className="h-full   flex flex-col shrink-0  "

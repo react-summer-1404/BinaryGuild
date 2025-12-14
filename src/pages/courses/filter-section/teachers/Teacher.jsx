@@ -6,10 +6,15 @@ import { Select, SelectItem } from "@heroui/react";
 import { GetCoursesTeacher } from "../../../../core/services/api/get-data";
 
 const Teacher = ({ setFilter }) => {
-  const { data: teacherData } = useQuery({
-    queryKey: ["GET_TEACHER_ID"],
-    queryFn: GetCoursesTeacher,
-  });
+ const { data: teacherData = [] } = useQuery({
+  queryKey: ["GET_TEACHER_ID"],
+  queryFn: GetCoursesTeacher,
+  select: (res) => Array.isArray(res?.data) ? res.data : [],
+});
+
+
+
+
   const { t } = useTranslation();
   return (
     <div className="w-11/12 flex flex-wrap m-auto gap-4">

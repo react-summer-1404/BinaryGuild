@@ -9,6 +9,7 @@ const Level = ({ setFilter }) => {
   const { data: courseLevel } = useQuery({
     queryKey: ["GET_COURSE_LEVEL"],
     queryFn: GetCoursesLevel,
+    select: (res) => Array.isArray(res?.data) ? res.data : [],
   });
   const { t } = useTranslation();
   return (

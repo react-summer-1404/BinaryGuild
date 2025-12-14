@@ -48,8 +48,6 @@
     "react-redux": "^9.2.0",
     "react-paginate": "^8.3.0",
     "react-query": "^3.39.3",
-    "react-rating-stars-component": "^2.2.0",
-    "react-redux": "^9.2.0",
     "react-responsive-pagination": "^2.11.3",
     "react-router-dom": "^7.9.3",
     "react-stars": "^2.2.5",

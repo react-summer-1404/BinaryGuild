@@ -5,13 +5,8 @@ import LanguageSelector from "./language-selector/LanguageSelector";
 
 const HeaderIcons = () => {
   return (
-<<<<<<< HEAD
     <div className=" gap-3 hidden lg:flex">
       <div className=" border-forgetpassbtn relative cursor-pointer" >
-=======
-    <div className=" ml-2 gap-3 hidden lg:flex">
-      <div className=" border-boarder relative cursor-pointer" >
->>>>>>> feature/adminPanel
         
         <Button
           isIconOnly
