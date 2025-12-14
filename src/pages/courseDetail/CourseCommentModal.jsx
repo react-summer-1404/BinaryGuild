@@ -67,9 +67,9 @@ const CourseCommentModal = ({ onClose, course, courseId }) => {
       setAddCommentReplyTitle("");
       setAddCommentReplyDes("");
       setSelectedComment(null); 
-    } catch (error) {
+    } catch (error) { 
       console.log(error);
-      toast.error(t("AddCommentError"));
+      toast.error(t("ابتدا لاگین کنید"));
     }
   };
 
