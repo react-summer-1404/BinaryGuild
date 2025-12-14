@@ -11,6 +11,8 @@ import toast, { Toaster } from "react-hot-toast";
 const SetNewPassword = ({ getEmail }) => {
   const [getPassword, setGetPassword] = useState("");
   const [passError, setPassError] = useState();
+  const [showPassword, setShowPassword] = useState(false);
+
   const { t } = useTranslation();
 
   const { resetValue } = useParams();
@@ -18,13 +20,13 @@ const SetNewPassword = ({ getEmail }) => {
 
   const navigate = useNavigate();
   const GoLogin = () => {
-    console.log("navigate")
+    console.log("navigate");
     navigate("/login");
   };
 
-  const goBack = ()=>{
-    navigate("/forgetpassword")
-  }
+  const goBack = () => {
+    navigate("/forgetpassword");
+  };
 
   const handlePass = (e) => {
     const value = e.target.value;
@@ -52,15 +54,11 @@ const SetNewPassword = ({ getEmail }) => {
 
         setTimeout(() => {
           setTimeout(() => {
-          toast.success(t("ResetNotify"));
+            toast.success(t("ResetNotify"));
 
             GoLogin();
           }, 1000);
         }, 100);
-
-        
-
-
 
         console.log("response", response);
       } catch (error) {
@@ -70,7 +68,7 @@ const SetNewPassword = ({ getEmail }) => {
   };
   return (
     <div className="flex flex-col items-start">
-      <Toaster/>
+      <Toaster />
       <div className="flex flex-col gap-5 sm:flex-row items-start ">
         <Stepper text={t("ChangePasswordStep1")} active={false} />
         <Stepper text={t("resetLink")} active={false} />
@@ -93,31 +91,58 @@ const SetNewPassword = ({ getEmail }) => {
           <label className="text-text font-[600] text-[16px]" htmlFor="newPass">
             {t("NewPasswordLabel")}
           </label>
-          <input
-            className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
-            type="password"
-            id="newPass"
-            value={getPassword}
-            onChange={handlePass}
-            placeholder={t("NewPasswordLabelPlaceholder")}
-          />
+          <div className="relative">
+            <input
+              className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
+              type={showPassword ? "text" : "password"}
+              id="newPass"
+              value={getPassword}
+              onChange={handlePass}
+              placeholder={t("NewPasswordLabelPlaceholder")}
+            />
+            <div onClick={() => setShowPassword((prev) => !prev)}>
+              <img
+                className="cursor-pointer w-6 absolute left-3 bottom-4"
+                src={
+                  showPassword
+                    ? "../../../../src/assets/icons/showpass.png"
+                    : "../../../../src/assets/icons/notshowpass.png"
+                }
+              />
+            </div>
+          </div>
           <p className="mt-[4px] font-bold text-[12px] text-[red]">
             {passError}
           </p>
+
           <label
             className="text-text mt-4 font-[600] text-[16px]"
             htmlFor="newpass"
           >
             {t("NewPasswordRepeatLabel")}
           </label>
-          <input
-            className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
-            type="password"
-            id="newpass"
-            value={getPassword}
-            onChange={handlePass}
-            placeholder={t("NewPasswordRepeatLabelPlaceholder")}
-          />
+
+          <div className="relative">
+            <input
+              className="mt-[8px] w-[398px] h-[48px] border-1 p-[16px] rounded-[24px] border-[#DCDCDC] text-[#707070] font-[500] text-[14px]"
+              type={showPassword ? "text" : "password"}
+              id="newpass"
+              value={getPassword}
+              onChange={handlePass}
+              placeholder={t("NewPasswordRepeatLabelPlaceholder")}
+            />
+            <div onClick={() => setShowPassword((prev) => !prev)}>
+              <img
+                className="cursor-pointer w-6 absolute left-3 bottom-4"
+                src={
+                  showPassword
+                    ? "../../../../src/assets/icons/showpass.png"
+                    : "../../../../src/assets/icons/notshowpass.png"
+                }
+              />
+            </div>
+          </div>
+
           <p className="mt-[4px] font-bold text-[12px] text-[red]">
             {passError}
           </p>

@@ -7,7 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 import BlogCommentsModal from "./BlogCommentsModal";
 import { AddBlogsLike } from "../../core/services/api/post-data";
 
-const BlogComments = ({ NewsId, title, CommentId }) => {
+const BlogComments = ({ NewsId, title,CommentId,newsComment }) => {
   const [comments, setComments] = useState([]);
   const [show, setShow] = useState(false);
   const [like, setLike] = useState(false);
@@ -63,8 +63,8 @@ const BlogComments = ({ NewsId, title, CommentId }) => {
         {t("CommentsHead")}
       </h2>
 
-      <div className=" w-full h-[282px] grid grid-cols-4 gap-4 mt-6 max-[768px]:block ">
-        <div className=" h-full rounded-[24px] bg-[#3772FF] flex justify-center items-center gap-2">
+      <div className="h-95 overflow-hidden w-full grid grid-cols-4 gap-4 mt-6 max-[1200px]:grid-cols-3 max-[768px]:block max-[768px]:overflow-visible ">
+        <div className=" h-90  mt-4 mb-4 rounded-[24px] bg-[#3772FF] flex justify-center items-center gap-2">
           <div className="flex flex-col items-center justify-center">
             <img
               src="../../../src/assets/icons/comment-add-01.png"
@@ -85,6 +85,7 @@ const BlogComments = ({ NewsId, title, CommentId }) => {
         {show && (
           <BlogCommentsModal
             NewsId={NewsId}
+            newsComment={newsComment}
             title={title}
             onCloseBlogMOdal={() => setShow(false)}
           />
@@ -94,7 +95,7 @@ const BlogComments = ({ NewsId, title, CommentId }) => {
           visibleComments.map((comments) => (
             <div
               key={comments.id}
-              className="bg-forgetpassbtn text-start p-4 h-90 rounded-[24px] flex flex-col items-center justify-between mt-4 mb-4"
+              className=" bg-forgetpassbtn text-start p-4 h-90 rounded-[24px] flex flex-col justify-between items-center mt-4 mb-4 "
             >
               <div className=" h-[157px] w-full ">
                 <p className="text-text font-bold text-[18px]">
@@ -189,18 +190,21 @@ const BlogComments = ({ NewsId, title, CommentId }) => {
             {t("NoComment")}
           </div>
         )}
+        
+
+
       </div>
 
       {comments.length > 3 ? (
-        <div className="w-full h-[39px] flex justify-center items-center mt-5 max-[768px]:block  max-[768px]:mt-40  ">
-          <button className="bg-[#2F2F2F] text-[#FCFCFC]  mt-50 cursor-pointer w-[125px] h-[39px] p-2 rounded-[40px] flex justify-center items-center gap-2 ">
+        <div className="w-full h-[39px] flex justify-center items-center mt-5  max-[768px]:mt-290  ">
+          <div className="bg-[#2F2F2F] text-[#FCFCFC]  mt-3 cursor-pointer w-[125px] h-[39px] p-2 rounded-[40px] flex justify-center items-center gap-2 ">
             <button
               onClick={() => setShow(!show)}
               className="text-[#FCFCFC] text-[16px] cursor-pointer font-[500]"
             >
               {t("SeeMore")}
             </button>
-          </button>
+          </div>
         </div>
       ) : (
         <p> </p>

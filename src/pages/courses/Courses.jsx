@@ -40,7 +40,7 @@ const Courses = () => {
       console.log("objectmskmcskamc", filter);
       refetchCoursesData();
     }
-  }, [filter]);
+  }, [filter,refetchBlogsData]);
   return (
     <>
       {loading && (

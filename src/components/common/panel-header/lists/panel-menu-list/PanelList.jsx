@@ -2,10 +2,11 @@ import { useTranslation } from "react-i18next";
 import { PanelData } from "../../../../../core/constant/Panel-data/PanelData";
 import PanelMenu from "../../panel-menu/PanelMenu";
 
+
 const PanelList = () => {
   const { t } = useTranslation();
   return (
-    <div className="flex flex-wrap h-3/5 w-full gap-5">
+    <div className=" flex flex-wrap h-3/5 w-full gap-5">
       {PanelData.map((value) => {
         return (
           <PanelMenu

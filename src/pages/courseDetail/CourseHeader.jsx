@@ -12,7 +12,7 @@ import ReserveCourseSuccessModal from "./ReserveCourseSuccessModal";
 import ImageFallBack from "../../components/common/image-fallback/ImageFallBack";
 import fallBack from "../../assets/images/Course-not-Found.jpg"
 
-const CourseHeader = ({ course, courseId }) => {
+const CourseHeader = ({ course, courseId, courseGroup }) => {
   const { t } = useTranslation();
   const [reserve, setReserve] = useState("");
   const [favorite, setFavorite] = useState("");
@@ -39,6 +39,9 @@ const CourseHeader = ({ course, courseId }) => {
     } catch (error) {
       console.log(error, "error reserve");
       toast.error(t("errorCourseLike"));
+      if (error.response.status === 401 && error.response.status === 400 ) {
+        toast.error(t("errorCourseReserveUserNotLogin"));
+      }
     }
   };
 
@@ -54,6 +57,9 @@ const CourseHeader = ({ course, courseId }) => {
     } catch (error) {
       console.log(error, "error reserve");
       toast.error(t("errorCourseLike"));
+      if (error.response.status === 401 && error.response.status === 400 ) {
+        toast.error(t("errorCourseReserveUserNotLogin"));
+      }
     }
   };
 
@@ -66,6 +72,9 @@ const CourseHeader = ({ course, courseId }) => {
     } catch (error) {
       console.log(error, "error reserve");
       toast.error(t("errorCourseFavorite"));
+      if (error.response.status === 401 && error.response.status === 400 ) {
+        toast.error(t("errorCourseReserveUserNotLogin"));
+      }
     }
   };
 
@@ -77,19 +86,41 @@ const CourseHeader = ({ course, courseId }) => {
       setReserve(response);
       toast.success(t("successCourseReserve"));
     } catch (error) {
-      if (error.response.status === 401) {
-        toast.error(t("errorCourseReserveUserProfileNotComplete"));
+      if (error.response.status === 400) {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          toast.error(t("completeProfile"));
+        } else {
+          toast.error(t("ReserveErr"));
+        }
       }
-      console.log(error, "error reserve");
     }
   };
+<<<<<<< HEAD
+=======
+
+const rate= Math.round(course.courseRate)
+
+
+
+
+>>>>>>> feature/adminPanel
   return (
     <div className="w-full m-auto h-106 flex gap-8 justify-between items-center max-[540px]:flex-col-reverse max-[540px]:mt-100">
       <Toaster />
       <div className=" w-[45%] h-106 max-[1000px]:hidden max-[540px]:block  max-[540px]:w-[100%]  max-[540px]:h-[424px] max-[540px]:mt-25  ">
+<<<<<<< HEAD
         <ImageFallBack
           src={course.imageAddress}
           fallBack={fallBack}
+=======
+        <img
+          src={course.imageAddress || []}
+          onError={(e) => {
+            e.target.src =
+              "../../../src/assets/icons/default-fallback-image.png";
+          }}
+>>>>>>> feature/adminPanel
           className="w-full h-full  rounded-[32px] max-[540px]:block  max-[540px]:w-[100%]  max-[540px]:h-[424px]"
         />
       </div>
@@ -116,7 +147,14 @@ const CourseHeader = ({ course, courseId }) => {
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
               {t("CourseType")}
             </p>
-            <div className="bg-[#3772FF] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 flex justify-center items-center "></div>
+            {courseGroup?.length > 0 && (
+              <div
+                className="bg-[#3772FF] w-[101px] h-[27px] rounded-[32px] mr-2 mt-2 flex justify-center items-center "
+                key={courseGroup[0].id}
+              >
+                {courseGroup[0].groupName}
+              </div>
+            )}
           </div>
           <div className="border-l-2 border-[#DCDCDC] pb-5 max-[540px]:pb-2">
             <p className="text-[#707070] text-[14px] font-[500] mt-2 mr-2 ">
@@ -177,10 +215,10 @@ const CourseHeader = ({ course, courseId }) => {
         {/* rate and price */}
         <div className="w-full h-[34px]  mt-5 flex justify-between max-[540px]:mt-4">
           <div className="flex items-center gap-2 ">
-            <div>({course.courseRate})</div>
+            <div>({rate})</div>
             <ReactStars
               count={5}
-              value={course.courseRate}
+              value={rate}
               size={28}
               color1="#D9D9D9"
               color2="#FCFF46"
@@ -194,54 +232,56 @@ const CourseHeader = ({ course, courseId }) => {
         </div>
 
         {/* buttons */}
-        <div className="w-full h-14 mt-6 flex justify-between items-center">
-          <div
-            onClick={handleShowReserveBox}
-            closeReserveBox={() => setShowReserveBox}
-          >
-            {" "}
-            <Button className="bg-[#3772FF] cursor-pointer w-[194px] h-14 rounded-[40px]  max-[750px]:w-[120px] max-[750px]:h-10 max-[540px]:hidden ">
+        <div className="  w-full h-14 mt-6 flex justify-between items-center">
+          {/* reserve & favorite */}
+          <div className="flex gap-1">
+            <div
+              onClick={handleShowReserveBox}
+              closeReserveBox={() => setShowReserveBox(false)}
+            >
+              {" "}
+              <Button className="bg-[#3772FF] cursor-pointer w-[194px] h-14 rounded-[40px] max-[1280px]:w-40 max-[1444px]:w-45 max-[1135px]:w-30 max-[1135px]:h-12 max-[1000px]:w-50 max-[1000px]:h-14  max-[750px]:w-[120px] max-[750px]:h-12 max-[540px]:hidden ">
+                <div
+                  onClick={handleReserve}
+                  className="w-full flex justify-center items-center gap-2"
+                >
+                  <img src="../../../src/assets/icons/archive-02.png" />
+                  {reserve.success ? (
+                    <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[1280px]:text-[16px] max-[750px]:text-[16px]">
+                      {t("isReserved")}
+                    </p>
+                  ) : (
+                    <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[1280px]:text-[16px] max-[750px]:text-[16px]">
+                      {t("ReserveCourse")}
+                    </p>
+                  )}
+                </div>
+              </Button>
+            </div>
+
+            <Button className="bg-[#2F2F2F] cursor-pointer pl-10 pr-10  h-14 rounded-full flex justify-center items-center gap-2 max-[1135px]:w-50 max-[1135px]:h-12 max-[1444px]:w-65 max-[1280px]:w-53 max-[1000px]:w-60 max-[1000px]:h-14 max-[750px]:w-[250px] max-[750px]:h-12 max-[500px]:w-[230px]">
               <div
-                onClick={handleReserve}
+                onClick={handleFavorite}
                 className="w-full flex justify-center items-center gap-2"
               >
-                <img src="../../../src/assets/icons/archive-02.png" />
-                {reserve.success ? (
-                  <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[750px]:text-[16px]">
-                    {t("Reserved")}
+                <img src="../../../src/assets/icons/book-02.png" />
+                {favorite ? (
+                  <p className="text-[#FCFCFC] text-[20px] font-[500] max-[1444px]:text-[16px] max-[1280px]:text-[14px] max-[750px]:text-[16px]">
+                    {" "}
+                    {t("Favorited")}{" "}
                   </p>
                 ) : (
-                  <p className="text-[#FCFCFC] text-[20px] font-[700] mb-2 max-[750px]:text-[16px]">
-                    {t("ReserveCourse")}
+                  <p className="text-[#FCFCFC] text-[20px] font-[500] max-[1444px]:text-[16px] max-[1280px]:text-[14px] max-[750px]:text-[16px]">
+                    {" "}
+                    {t("AddToFavorite")}{" "}
                   </p>
                 )}
               </div>
             </Button>
           </div>
 
-          {showReserveBox && <ReserveCourseSuccessModal />}
-
-          <Button className="bg-[#2F2F2F] cursor-pointer pl-10 pr-10  h-14 rounded-full flex justify-center items-center gap-2 max-[750px]:w-[250px] max-[750px]:h-10 ">
-            <div
-              onClick={handleFavorite}
-              className="w-full flex justify-center items-center gap-2"
-            >
-              <img src="../../../src/assets/icons/book-02.png" />
-              {favorite ? (
-                <p className="text-[#FCFCFC] text-[20px] font-[500] max-[750px]:text-[16px]">
-                  {" "}
-                  {t("Favorited")}{" "}
-                </p>
-              ) : (
-                <p className="text-[#FCFCFC] text-[20px] font-[500] max-[750px]:text-[16px]">
-                  {" "}
-                  {t("AddToFavorite")}{" "}
-                </p>
-              )}
-            </div>
-          </Button>
-
-          <div className="flex gap-3">
+          {/* like & dislike */}
+          <div className="flex gap-2">
             <button
               onClick={handleLike}
               className={`w-14 h-14 cursor-pointer rounded-[56px] flex justify-center items-center max-[750px]:w-12 max-[750px]:h-12 ${
@@ -302,6 +342,8 @@ const CourseHeader = ({ course, courseId }) => {
               </svg>
             </button>
           </div>
+
+          {showReserveBox && <ReserveCourseSuccessModal />}
         </div>
       </div>
     </div>
