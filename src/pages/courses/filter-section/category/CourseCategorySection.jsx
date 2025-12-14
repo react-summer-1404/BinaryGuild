@@ -17,6 +17,7 @@ const CourseCategorySection = ({ ListTech, setFilter }) => {
           classNames={{
             listboxWrapper: "bg-background text-text",
             label: "text-[12px] font-persian",
+            value:"font-persian"
           }}
           onSelectionChange={(value) => {
             setFilter((prev) => ({

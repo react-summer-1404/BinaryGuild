@@ -16,23 +16,24 @@ const CategorySection = ({ CategoryId , setFilter}) => {
           classNames={{
             listboxWrapper: "bg-background text-text",
             label: "text-[12px] font-persian",
+            value:"text-text font-persian"
           }}
-          onSelectionChange={(value) => {
+          onSelectionChange={(item) => {
             setFilter((prev) => ({
               ...prev,
-              NewsCategoryId: value?.currentKey?.substring(2),
+              NewsCategoryId: item?.currentKey?.substring(2),
             }));
-            console.log(value);
+            console.log(item);
           }}
           isClearable={true}
           label={t("SelectCategory")}
         >
-          {CategoryId?.map((value) => (
+          {CategoryId?.map((item) => (
             <SelectItem
-              key={value.key}
-              classNames={{title:"font-persian" }}
+              key={item.key}
+              classNames={{title:"font-persian text-text" }}
             >
-              {value.categoryName}
+              {item.categoryName}
             </SelectItem>
           ))}
         </Select>

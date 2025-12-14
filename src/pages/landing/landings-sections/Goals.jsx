@@ -7,7 +7,7 @@ const Goals  = ({ id, name, description, image }) => {
   return (
     <>
       <div className="flex flex-col border-1 h-[400px] w-[300px]  p-3.5 bg-backgroundColor border-boarder rounded-2xl text-start z-40">
-        <h2 className="text-[20px] text-text cursor-pointer font-persian font-bold">
+        <h2 className="text-[20px] text-text cursor-pointer font-bold">
           {t(name)}
         </h2>
         <p className="text-muted cursor-pointer font-persian p-1">

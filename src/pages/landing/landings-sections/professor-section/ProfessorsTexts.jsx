@@ -10,7 +10,7 @@ const ProfessorsTexts  = () => {
       </h2>
       <p className="font-persian w-full text-[20px] font-medium">{t("DescriptionAboutProfessors")}
       </p>
-      <Button color="primary" radius="full" className="font-persian">
+      <Button color="primary" radius="full">
         <p className="font-persian">{t("TeachersPage")}</p>
       </Button>
     </div>

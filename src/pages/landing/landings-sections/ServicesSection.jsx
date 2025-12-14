@@ -14,10 +14,10 @@ const ServicesSection  = ({ name, description, image }) => {
         <img src={image} className="m-auto" />
       </Button>
       <div className="lg:w-[74%] p-6 w-full items-start lg:mt-auto mb-auto">
-        <h2 className="font-persian w-[100%] text-[20px] text-justify font-bold">
+        <h2 className="font-persian w-full text-[20px] text-justify font-bold">
           {name}
         </h2>
-        <p className="font-persian w-[100%] text-muted text-justify">
+        <p className="font-persian w-full text-muted text-justify">
           {description}
         </p>
       </div>
